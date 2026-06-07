@@ -1,0 +1,18 @@
+{
+    "testName": "Bartlett's Test of Sphericity",
+    "testDefinition": "Bartlett's test evaluates whether the correlation matrix significantly differs from an identity matrix. A low p-value indicates that we can reject the null hypothesis, suggesting that the correlation matrix is not an identity matrix and that factor analysis may be appropriate.",
+    "numSamples": "30000",
+    "numVariables": "23",
+    "determinantCorrelation": "0.00000020",
+    "logDeterminantCorrelation": "-15.40841207",
+    "correctionFactor": "29990.5000",
+    "chiSquareValue": "462105.9821",
+    "degreesOfFreedom": "253",
+    "pValue": "0.00000000",
+    "interpretationThresholds": {
+        "pValue < 0.05": "Reject H0. Factor analysis can continue.",
+        "pValue >= 0.05": "Fail to reject H0. Factor analysis is not recommended."
+    },
+    "suggestedAction": "Factor analysis can continue.",
+    "interpretation": "Reject H0 with p-value=0.00000000. The correlation matrix significantly differs from an identity matrix. Factor analysis can continue."
+}

@@ -1,0 +1,219 @@
+{
+    "factorLoadingDefinition": "Factor loadings show how strongly each variable is associated with each factor. They are calculated using the formula: loading = eigenvector * sqrt(eigenvalue). Higher absolute loadings indicate stronger associations between variables and factors.",
+    "factorSelectionRule": "Retain factors with eigenvalue > 1.0",
+    "rotationMethod": "varimax",
+    "numberOfFactorsRetained": 6,
+    "loadingsShape": {
+        "rows": 23,
+        "columns": 6
+    },
+    "loadingsTable": [
+        {
+            "variable": "credit_limit",
+            "Factor_1": 0.2889,
+            "Factor_2": 0.113,
+            "Factor_3": 0.465,
+            "Factor_4": 0.2773,
+            "Factor_5": -0.2688,
+            "Factor_6": 0.1696
+        },
+        {
+            "variable": "gender",
+            "Factor_1": 0.0255,
+            "Factor_2": -0.0505,
+            "Factor_3": 0.0053,
+            "Factor_4": -0.0094,
+            "Factor_5": 0.0427,
+            "Factor_6": -0.7382
+        },
+        {
+            "variable": "education",
+            "Factor_1": -0.041,
+            "Factor_2": 0.0449,
+            "Factor_3": 0.0617,
+            "Factor_4": 0.1985,
+            "Factor_5": -0.1064,
+            "Factor_6": -0.5661
+        },
+        {
+            "variable": "marital_status",
+            "Factor_1": -0.0252,
+            "Factor_2": 0.0059,
+            "Factor_3": 0.0281,
+            "Factor_4": -0.8115,
+            "Factor_5": -0.0468,
+            "Factor_6": -0.1499
+        },
+        {
+            "variable": "age",
+            "Factor_1": 0.0449,
+            "Factor_2": -0.0053,
+            "Factor_3": 0.0269,
+            "Factor_4": 0.8136,
+            "Factor_5": -0.013,
+            "Factor_6": -0.2166
+        },
+        {
+            "variable": "repayment_status_sep_2005",
+            "Factor_1": -0.0625,
+            "Factor_2": -0.5185,
+            "Factor_3": 0.1019,
+            "Factor_4": 0.0002,
+            "Factor_5": -0.2805,
+            "Factor_6": 0.0872
+        },
+        {
+            "variable": "repayment_status_aug_2005",
+            "Factor_1": -0.3168,
+            "Factor_2": -0.274,
+            "Factor_3": 0.3743,
+            "Factor_4": 0.1521,
+            "Factor_5": -0.3957,
+            "Factor_6": 0.1574
+        },
+        {
+            "variable": "repayment_status_jul_2005",
+            "Factor_1": -0.0414,
+            "Factor_2": -0.8601,
+            "Factor_3": 0.0054,
+            "Factor_4": 0.0245,
+            "Factor_5": -0.1751,
+            "Factor_6": 0.0249
+        },
+        {
+            "variable": "repayment_status_jun_2005",
+            "Factor_1": 0.0471,
+            "Factor_2": -0.8546,
+            "Factor_3": -0.1139,
+            "Factor_4": -0.0193,
+            "Factor_5": 0.1915,
+            "Factor_6": -0.0612
+        },
+        {
+            "variable": "repayment_status_may_2005",
+            "Factor_1": -0.0151,
+            "Factor_2": -0.1148,
+            "Factor_3": -0.0008,
+            "Factor_4": 0.0212,
+            "Factor_5": 0.8726,
+            "Factor_6": -0.0101
+        },
+        {
+            "variable": "repayment_status_apr_2005",
+            "Factor_1": 0.0449,
+            "Factor_2": 0.3848,
+            "Factor_3": 0.0839,
+            "Factor_4": 0.0331,
+            "Factor_5": 0.6817,
+            "Factor_6": 0.0612
+        },
+        {
+            "variable": "bill_amount_sep_2005",
+            "Factor_1": 0.9378,
+            "Factor_2": 0.031,
+            "Factor_3": -0.0272,
+            "Factor_4": 0.0275,
+            "Factor_5": -0.0306,
+            "Factor_6": 0.0034
+        },
+        {
+            "variable": "bill_amount_aug_2005",
+            "Factor_1": 0.9585,
+            "Factor_2": 0.0241,
+            "Factor_3": 0.0018,
+            "Factor_4": 0.0136,
+            "Factor_5": -0.0181,
+            "Factor_6": -0.0135
+        },
+        {
+            "variable": "bill_amount_jul_2005",
+            "Factor_1": 0.9553,
+            "Factor_2": 0.0143,
+            "Factor_3": 0.0684,
+            "Factor_4": 0.0064,
+            "Factor_5": 0.0008,
+            "Factor_6": -0.0246
+        },
+        {
+            "variable": "bill_amount_jun_2005",
+            "Factor_1": 0.9601,
+            "Factor_2": 0.0114,
+            "Factor_3": 0.0808,
+            "Factor_4": 0.0061,
+            "Factor_5": 0.0117,
+            "Factor_6": -0.0154
+        },
+        {
+            "variable": "bill_amount_may_2005",
+            "Factor_1": 0.9476,
+            "Factor_2": -0.0101,
+            "Factor_3": 0.102,
+            "Factor_4": 0.0116,
+            "Factor_5": 0.0412,
+            "Factor_6": 0.0081
+        },
+        {
+            "variable": "bill_amount_apr_2005",
+            "Factor_1": 0.9257,
+            "Factor_2": -0.0167,
+            "Factor_3": 0.1125,
+            "Factor_4": 0.0134,
+            "Factor_5": 0.0593,
+            "Factor_6": 0.0347
+        },
+        {
+            "variable": "payment_amount_sep_2005",
+            "Factor_1": 0.2069,
+            "Factor_2": 0.0636,
+            "Factor_3": 0.5497,
+            "Factor_4": -0.0565,
+            "Factor_5": 0.0143,
+            "Factor_6": -0.116
+        },
+        {
+            "variable": "payment_amount_aug_2005",
+            "Factor_1": 0.156,
+            "Factor_2": 0.0706,
+            "Factor_3": 0.5691,
+            "Factor_4": -0.057,
+            "Factor_5": 0.0357,
+            "Factor_6": -0.1202
+        },
+        {
+            "variable": "payment_amount_jul_2005",
+            "Factor_1": 0.185,
+            "Factor_2": 0.1184,
+            "Factor_3": 0.5515,
+            "Factor_4": -0.0341,
+            "Factor_5": 0.0152,
+            "Factor_6": -0.0806
+        },
+        {
+            "variable": "payment_amount_jun_2005",
+            "Factor_1": 0.1686,
+            "Factor_2": 0.0197,
+            "Factor_3": 0.5104,
+            "Factor_4": 0.0071,
+            "Factor_5": 0.1221,
+            "Factor_6": 0.0427
+        },
+        {
+            "variable": "payment_amount_may_2005",
+            "Factor_1": 0.1754,
+            "Factor_2": 0.0486,
+            "Factor_3": 0.4453,
+            "Factor_4": 0.0271,
+            "Factor_5": 0.0998,
+            "Factor_6": 0.1285
+        },
+        {
+            "variable": "payment_amount_apr_2005",
+            "Factor_1": 0.1558,
+            "Factor_2": 0.0468,
+            "Factor_3": 0.45,
+            "Factor_4": 0.0069,
+            "Factor_5": 0.0175,
+            "Factor_6": 0.0287
+        }
+    ]
+}

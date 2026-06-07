@@ -1,0 +1,184 @@
+{
+    "eigenvalueDefinition": "Eigenvalue represents the amount of variance in the original variables that is captured by each factor.Higher eigenvalues indicate that the factor explains more variance.",
+    "factorSelectionRule": "Kaiser criterion: retain factors with eigenvalue > 1",
+    "numFactors": 23,
+    "numberOfFactorsByKaiserCriterion": 6,
+    "explainedVarianceOfKaiserFactors": 0.6085,
+    "eigenvalues": [
+        6.00300217,
+        2.23190667,
+        1.95303016,
+        1.44198806,
+        1.32673514,
+        1.03806437,
+        0.97370903,
+        0.96888921,
+        0.895718,
+        0.87783572,
+        0.85523328,
+        0.77903003,
+        0.74308416,
+        0.71795481,
+        0.55041016,
+        0.52794602,
+        0.41731084,
+        0.28629642,
+        0.25170034,
+        0.07074936,
+        0.04092203,
+        0.02529888,
+        0.02318515
+    ],
+    "eigenvectorsShape": {
+        "rows": 23,
+        "columns": 23
+    },
+    "eigenTable": [
+        {
+            "factor": "Factor_1",
+            "eigenvalue": 6.00300217,
+            "explainedVarianceRatio": 0.261,
+            "cumulativeVarianceRatio": 0.261
+        },
+        {
+            "factor": "Factor_2",
+            "eigenvalue": 2.23190667,
+            "explainedVarianceRatio": 0.097,
+            "cumulativeVarianceRatio": 0.358
+        },
+        {
+            "factor": "Factor_3",
+            "eigenvalue": 1.95303016,
+            "explainedVarianceRatio": 0.0849,
+            "cumulativeVarianceRatio": 0.443
+        },
+        {
+            "factor": "Factor_4",
+            "eigenvalue": 1.44198806,
+            "explainedVarianceRatio": 0.0627,
+            "cumulativeVarianceRatio": 0.5056
+        },
+        {
+            "factor": "Factor_5",
+            "eigenvalue": 1.32673514,
+            "explainedVarianceRatio": 0.0577,
+            "cumulativeVarianceRatio": 0.5633
+        },
+        {
+            "factor": "Factor_6",
+            "eigenvalue": 1.03806437,
+            "explainedVarianceRatio": 0.0451,
+            "cumulativeVarianceRatio": 0.6085
+        },
+        {
+            "factor": "Factor_7",
+            "eigenvalue": 0.97370903,
+            "explainedVarianceRatio": 0.0423,
+            "cumulativeVarianceRatio": 0.6508
+        },
+        {
+            "factor": "Factor_8",
+            "eigenvalue": 0.96888921,
+            "explainedVarianceRatio": 0.0421,
+            "cumulativeVarianceRatio": 0.6929
+        },
+        {
+            "factor": "Factor_9",
+            "eigenvalue": 0.895718,
+            "explainedVarianceRatio": 0.0389,
+            "cumulativeVarianceRatio": 0.7319
+        },
+        {
+            "factor": "Factor_10",
+            "eigenvalue": 0.87783572,
+            "explainedVarianceRatio": 0.0382,
+            "cumulativeVarianceRatio": 0.77
+        },
+        {
+            "factor": "Factor_11",
+            "eigenvalue": 0.85523328,
+            "explainedVarianceRatio": 0.0372,
+            "cumulativeVarianceRatio": 0.8072
+        },
+        {
+            "factor": "Factor_12",
+            "eigenvalue": 0.77903003,
+            "explainedVarianceRatio": 0.0339,
+            "cumulativeVarianceRatio": 0.8411
+        },
+        {
+            "factor": "Factor_13",
+            "eigenvalue": 0.74308416,
+            "explainedVarianceRatio": 0.0323,
+            "cumulativeVarianceRatio": 0.8734
+        },
+        {
+            "factor": "Factor_14",
+            "eigenvalue": 0.71795481,
+            "explainedVarianceRatio": 0.0312,
+            "cumulativeVarianceRatio": 0.9046
+        },
+        {
+            "factor": "Factor_15",
+            "eigenvalue": 0.55041016,
+            "explainedVarianceRatio": 0.0239,
+            "cumulativeVarianceRatio": 0.9285
+        },
+        {
+            "factor": "Factor_16",
+            "eigenvalue": 0.52794602,
+            "explainedVarianceRatio": 0.023,
+            "cumulativeVarianceRatio": 0.9515
+        },
+        {
+            "factor": "Factor_17",
+            "eigenvalue": 0.41731084,
+            "explainedVarianceRatio": 0.0181,
+            "cumulativeVarianceRatio": 0.9696
+        },
+        {
+            "factor": "Factor_18",
+            "eigenvalue": 0.28629642,
+            "explainedVarianceRatio": 0.0124,
+            "cumulativeVarianceRatio": 0.9821
+        },
+        {
+            "factor": "Factor_19",
+            "eigenvalue": 0.25170034,
+            "explainedVarianceRatio": 0.0109,
+            "cumulativeVarianceRatio": 0.993
+        },
+        {
+            "factor": "Factor_20",
+            "eigenvalue": 0.07074936,
+            "explainedVarianceRatio": 0.0031,
+            "cumulativeVarianceRatio": 0.9961
+        },
+        {
+            "factor": "Factor_21",
+            "eigenvalue": 0.04092203,
+            "explainedVarianceRatio": 0.0018,
+            "cumulativeVarianceRatio": 0.9979
+        },
+        {
+            "factor": "Factor_22",
+            "eigenvalue": 0.02529888,
+            "explainedVarianceRatio": 0.0011,
+            "cumulativeVarianceRatio": 0.999
+        },
+        {
+            "factor": "Factor_23",
+            "eigenvalue": 0.02318515,
+            "explainedVarianceRatio": 0.001,
+            "cumulativeVarianceRatio": 1.0
+        }
+    ],
+    "numberOfFactorExplained50PercentVariance": 4,
+    "numberOfFactorExplained75PercentVariance": 10,
+    "numberOfFactorExplained80PercentVariance": 11,
+    "numberOfFactorExplained90PercentVariance": 14,
+    "numberOfFactorExplained95PercentVariance": 16,
+    "explainedVarianceOfKaiserThreshold_1_0": 0.6085,
+    "explainedVarianceOfKaiserThreshold_1_2": 0.5633,
+    "explainedVarianceOfKaiserThreshold_1_5": 0.443
+}

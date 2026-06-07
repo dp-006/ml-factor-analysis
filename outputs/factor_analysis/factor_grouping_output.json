@@ -1,0 +1,106 @@
+{
+    "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. Variables with max absolute loading above the specified threshold are classified as STRONG_GROUP, while those below are classified as WEAK_LOADING.",
+    "loadingThreshold": 0.5,
+    "groupStatusDefinition": {
+        "STRONG_GROUP": "Variable has a maximum absolute loading >= 0.5 on its assigned factor, indicating a strong association with that factor.",
+        "WEAK_LOADING": "Variable has a maximum absolute loading < 0.5 on its assigned factor, indicating a weak association with that factor."
+    },
+    "groupingTableSample": [
+        {
+            "variable": "bill_amount_jun_2005",
+            "assignedFactor": "Factor_1",
+            "maxAbsLoading": 0.9601239445281653,
+            "loadingValue": 0.9601239445281653,
+            "groupStatus": "STRONG_GROUP"
+        },
+        {
+            "variable": "bill_amount_aug_2005",
+            "assignedFactor": "Factor_1",
+            "maxAbsLoading": 0.9584633934719926,
+            "loadingValue": 0.9584633934719926,
+            "groupStatus": "STRONG_GROUP"
+        },
+        {
+            "variable": "bill_amount_jul_2005",
+            "assignedFactor": "Factor_1",
+            "maxAbsLoading": 0.9552781426925816,
+            "loadingValue": 0.9552781426925816,
+            "groupStatus": "STRONG_GROUP"
+        },
+        {
+            "variable": "bill_amount_may_2005",
+            "assignedFactor": "Factor_1",
+            "maxAbsLoading": 0.9476467304599567,
+            "loadingValue": 0.9476467304599567,
+            "groupStatus": "STRONG_GROUP"
+        },
+        {
+            "variable": "bill_amount_sep_2005",
+            "assignedFactor": "Factor_1",
+            "maxAbsLoading": 0.9377625896516825,
+            "loadingValue": 0.9377625896516825,
+            "groupStatus": "STRONG_GROUP"
+        }
+    ],
+    "groupedSummarySample": [
+        {
+            "assignedFactor": "Factor_1",
+            "variablesInGroup": [
+                "bill_amount_jun_2005",
+                "bill_amount_aug_2005",
+                "bill_amount_jul_2005",
+                "bill_amount_may_2005",
+                "bill_amount_sep_2005",
+                "bill_amount_apr_2005"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_2",
+            "variablesInGroup": [
+                "repayment_status_jul_2005",
+                "repayment_status_jun_2005",
+                "repayment_status_sep_2005"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_3",
+            "variablesInGroup": [
+                "payment_amount_aug_2005",
+                "payment_amount_jul_2005",
+                "payment_amount_sep_2005",
+                "payment_amount_jun_2005"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_4",
+            "variablesInGroup": [
+                "age",
+                "marital_status"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_5",
+            "variablesInGroup": [
+                "repayment_status_may_2005",
+                "repayment_status_apr_2005"
+            ]
+        }
+    ],
+    "varianceExplained": {
+        "Factor_1": 5.387310893254578,
+        "Factor_2": 1.7390876473537675,
+        "Factor_3": 1.1906407751389199,
+        "Factor_4": 1.320337582753754,
+        "Factor_5": 1.2260411375667257,
+        "Factor_6": 0.8654182136231683
+    },
+    "varianceExplainedRatio": {
+        "Factor_1": 38.495292265881424,
+        "Factor_2": 12.42673545064774,
+        "Factor_3": 8.507781624416163,
+        "Factor_4": 9.434536477442409,
+        "Factor_5": 8.760736637590325,
+        "Factor_6": 6.183887977832095
+    },
+    "totalVariance": 13.994726565641324
+}

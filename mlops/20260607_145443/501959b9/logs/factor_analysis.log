@@ -1,0 +1,7 @@
+2026-06-07 14:54:43,641 | mlops.factor_analysis | <module>:62 | INFO | |||| STARTING FACTOR ANALYSIS MODULE ||||
+2026-06-07 14:54:43,641 | mlops.factor_analysis | <module>:63 | INFO | Logger Name: mlops.factor_analysis
+2026-06-07 14:54:43,641 | mlops.factor_analysis | <module>:64 | INFO | Logger Level: 20
+2026-06-07 14:54:43,641 | mlops.factor_analysis | <module>:68 | INFO | Logger Level is INFO, only INFO, WARNING, ERROR and CRITICAL messages will be logged.
+2026-06-07 14:54:43,641 | mlops.factor_analysis | <module>:76 | INFO | Logger has handlers: [<StreamHandler <stderr> (INFO)>, <FileHandler C:\projects\ml-fbk-project\mlops\20260607_145443\501959b9\logs\factor_analysis.log (INFO)>]
+2026-06-07 14:54:43,645 | mlops.factor_analysis | <module>:78 | INFO | Handler Type: StreamHandler
+2026-06-07 14:54:43,645 | mlops.factor_analysis | <module>:78 | INFO | Handler Type: FileHandler

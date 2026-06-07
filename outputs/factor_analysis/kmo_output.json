@@ -1,0 +1,40 @@
+{
+    "kmoPerVariable": {
+        "credit_limit": 0.865606,
+        "gender": 0.460971,
+        "education": 0.484535,
+        "marital_status": 0.509195,
+        "age": 0.532023,
+        "repayment_status_sep_2005": 0.792396,
+        "repayment_status_aug_2005": 0.750307,
+        "repayment_status_jul_2005": 0.616045,
+        "repayment_status_jun_2005": 0.517287,
+        "repayment_status_may_2005": 0.469463,
+        "repayment_status_apr_2005": 0.641429,
+        "bill_amount_sep_2005": 0.839751,
+        "bill_amount_aug_2005": 0.777092,
+        "bill_amount_jul_2005": 0.801867,
+        "bill_amount_jun_2005": 0.843006,
+        "bill_amount_may_2005": 0.792653,
+        "bill_amount_apr_2005": 0.82428,
+        "payment_amount_sep_2005": 0.484742,
+        "payment_amount_aug_2005": 0.368495,
+        "payment_amount_jul_2005": 0.487161,
+        "payment_amount_jun_2005": 0.48916,
+        "payment_amount_may_2005": 0.398143,
+        "payment_amount_apr_2005": 0.764368
+    },
+    "kmoModel": {
+        "value": 0.737147,
+        "interpretation": "Good"
+    },
+    "kmoInterpretationThresholds": {
+        "Not suitable": "< 0.50",
+        "Weak": "0.50 - 0.60",
+        "Moderate": "0.60 - 0.70",
+        "Good": "0.70 - 0.80",
+        "Very Good": "0.80 - 0.90",
+        "Excellent": "> 0.90"
+    },
+    "whatIsKmo": "KMO (Kaiser-Meyer-Olkin) measures the suitability of the dataset for factor analysis based on the correlation structure of the variables.Higher KMO values indicate that the variables share common variance and are suitable for factor analysis.KMO prefers higher correlations and lower partial correlations.It means that variables share common factors (high correlations) and do not have unique variance (low partial correlations)."
+}

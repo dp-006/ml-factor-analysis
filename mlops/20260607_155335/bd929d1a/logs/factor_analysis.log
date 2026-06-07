@@ -1,0 +1,926 @@
+2026-06-07 15:53:35,988 | mlops.factor_analysis | <module>:63 | INFO | |||| STARTING FACTOR ANALYSIS MODULE ||||
+2026-06-07 15:53:35,988 | mlops.factor_analysis | <module>:64 | INFO | Logger Name: mlops.factor_analysis
+2026-06-07 15:53:35,988 | mlops.factor_analysis | <module>:65 | INFO | Logger Level: INFO
+2026-06-07 15:53:35,988 | mlops.factor_analysis | <module>:66 | INFO | Logger has handlers: [<StreamHandler <stderr> (INFO)>, <FileHandler C:\projects\ml-fbk-project\mlops\20260607_155335\bd929d1a\logs\factor_analysis.log (INFO)>]
+2026-06-07 15:53:35,989 | mlops.factor_analysis | <module>:68 | INFO | Handler Type: StreamHandler
+2026-06-07 15:53:35,989 | mlops.factor_analysis | <module>:68 | INFO | Handler Type: FileHandler
+2026-06-07 15:53:35,989 | mlops.factor_analysis | <module>:69 | INFO | 
+Log Folder Structure
+mlops
+└── 20260607_155335
+    └── bd929d1a
+        └── logs
+            └── factor_analysis.log
+2026-06-07 15:53:35,989 | mlops.factor_analysis | <module>:78 | INFO | Logger initialized successfully for factor analysis module.
+2026-06-07 15:53:35,989 | mlops.factor_analysis | <module>:79 | INFO | |||||||||||||||||||||||||||||||||||||||||
+2026-06-07 15:53:36,035 | mlops.factor_analysis | <module>:2039 | INFO | Column: credit_limit: int32 | Unique Values: 81
+2026-06-07 15:53:36,036 | mlops.factor_analysis | <module>:2039 | INFO | Column: gender: object | Unique Values: 2
+2026-06-07 15:53:36,037 | mlops.factor_analysis | <module>:2039 | INFO | Column: education: object | Unique Values: 7
+2026-06-07 15:53:36,038 | mlops.factor_analysis | <module>:2039 | INFO | Column: marital_status: object | Unique Values: 4
+2026-06-07 15:53:36,038 | mlops.factor_analysis | <module>:2039 | INFO | Column: age: int32 | Unique Values: 56
+2026-06-07 15:53:36,039 | mlops.factor_analysis | <module>:2039 | INFO | Column: repayment_status_sep_2005: object | Unique Values: 11
+2026-06-07 15:53:36,040 | mlops.factor_analysis | <module>:2039 | INFO | Column: repayment_status_aug_2005: object | Unique Values: 11
+2026-06-07 15:53:36,041 | mlops.factor_analysis | <module>:2039 | INFO | Column: repayment_status_jul_2005: object | Unique Values: 11
+2026-06-07 15:53:36,041 | mlops.factor_analysis | <module>:2039 | INFO | Column: repayment_status_jun_2005: object | Unique Values: 11
+2026-06-07 15:53:36,042 | mlops.factor_analysis | <module>:2039 | INFO | Column: repayment_status_may_2005: object | Unique Values: 10
+2026-06-07 15:53:36,043 | mlops.factor_analysis | <module>:2039 | INFO | Column: repayment_status_apr_2005: object | Unique Values: 10
+2026-06-07 15:53:36,044 | mlops.factor_analysis | <module>:2039 | INFO | Column: bill_amount_sep_2005: float32 | Unique Values: 22723
+2026-06-07 15:53:36,044 | mlops.factor_analysis | <module>:2039 | INFO | Column: bill_amount_aug_2005: float32 | Unique Values: 22346
+2026-06-07 15:53:36,045 | mlops.factor_analysis | <module>:2039 | INFO | Column: bill_amount_jul_2005: float32 | Unique Values: 22026
+2026-06-07 15:53:36,045 | mlops.factor_analysis | <module>:2039 | INFO | Column: bill_amount_jun_2005: float32 | Unique Values: 21548
+2026-06-07 15:53:36,046 | mlops.factor_analysis | <module>:2039 | INFO | Column: bill_amount_may_2005: float32 | Unique Values: 21010
+2026-06-07 15:53:36,047 | mlops.factor_analysis | <module>:2039 | INFO | Column: bill_amount_apr_2005: float32 | Unique Values: 20604
+2026-06-07 15:53:36,047 | mlops.factor_analysis | <module>:2039 | INFO | Column: payment_amount_sep_2005: float32 | Unique Values: 7943
+2026-06-07 15:53:36,048 | mlops.factor_analysis | <module>:2039 | INFO | Column: payment_amount_aug_2005: float32 | Unique Values: 7899
+2026-06-07 15:53:36,048 | mlops.factor_analysis | <module>:2039 | INFO | Column: payment_amount_jul_2005: float32 | Unique Values: 7518
+2026-06-07 15:53:36,049 | mlops.factor_analysis | <module>:2039 | INFO | Column: payment_amount_jun_2005: float32 | Unique Values: 6937
+2026-06-07 15:53:36,049 | mlops.factor_analysis | <module>:2039 | INFO | Column: payment_amount_may_2005: float32 | Unique Values: 6897
+2026-06-07 15:53:36,050 | mlops.factor_analysis | <module>:2039 | INFO | Column: payment_amount_apr_2005: float32 | Unique Values: 6939
+2026-06-07 15:53:36,050 | mlops.factor_analysis | <module>:2039 | INFO | Column: TARGET: int32 | Unique Values: 2
+2026-06-07 15:53:36,050 | mlops.factor_analysis | <module>:2040 | INFO | Sample data loaded successfully.
+2026-06-07 15:53:36,073 | mlops.factor_analysis | check_data_quality:132 | INFO | No zero variance columns found.
+2026-06-07 15:53:36,074 | mlops.factor_analysis | check_data_quality:141 | INFO | No columns with infinite values found.
+2026-06-07 15:53:38,683 | mlops.factor_analysis | check_data_quality:152 | INFO | No duplicate columns found.
+2026-06-07 15:53:38,684 | mlops.factor_analysis | prepare_factor_analysis_data:293 | INFO | Target variable provided: TARGET. It will be dropped from the factor analysis.
+2026-06-07 15:53:38,685 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: credit_limit | Fill Strategy: mean
+2026-06-07 15:53:38,685 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: age | Fill Strategy: mean
+2026-06-07 15:53:38,685 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: bill_amount_sep_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,685 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: bill_amount_aug_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,685 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: bill_amount_jul_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,685 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: bill_amount_jun_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,685 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: bill_amount_may_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,686 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: bill_amount_apr_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,686 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: payment_amount_sep_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,686 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: payment_amount_aug_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,686 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: payment_amount_jul_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,686 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: payment_amount_jun_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,686 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: payment_amount_may_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,686 | mlops.factor_analysis | prepare_factor_analysis_data:306 | INFO | Numeric Column: payment_amount_apr_2005 | Fill Strategy: mean
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:326 | INFO | Numeric columns imputed using mean strategy.
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: gender | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: education | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: marital_status | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: repayment_status_sep_2005 | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: repayment_status_aug_2005 | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: repayment_status_jul_2005 | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: repayment_status_jun_2005 | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: repayment_status_may_2005 | Imputation Strategy: frequent
+2026-06-07 15:53:38,697 | mlops.factor_analysis | prepare_factor_analysis_data:332 | INFO | Categorical Column: repayment_status_apr_2005 | Imputation Strategy: frequent
+2026-06-07 15:53:38,725 | mlops.factor_analysis | prepare_factor_analysis_data:340 | INFO | Categorical columns imputed using frequent strategy.
+2026-06-07 15:53:38,764 | mlops.factor_analysis | prepare_factor_analysis_data:364 | INFO | Categorical variables encoded using ordinal strategy.
+2026-06-07 15:53:38,791 | mlops.factor_analysis | prepare_factor_analysis_data:381 | INFO | All variables standardized using StandardScaler.
+2026-06-07 15:53:38,794 | mlops.factor_analysis | prepare_factor_analysis_data:394 | INFO | Target variable 'TARGET' added back to the dataframe after preprocessing.
+2026-06-07 15:53:38,795 | mlops.factor_analysis | check_target_is_binary:195 | INFO | Target variable 'TARGET' is binary with values: [1 0]
+2026-06-07 15:53:38,795 | mlops.factor_analysis | check_target_is_binary:204 | INFO | No mapping applied to target variable 'TARGET' as it is already in binary format: 1 and 0.
+2026-06-07 15:53:38,795 | mlops.factor_analysis | prepare_factor_analysis_data:397 | INFO | Binary Check Completed for Target Variable 'TARGET'. Is Binary: True
+2026-06-07 15:53:38,796 | mlops.factor_analysis | prepare_factor_analysis_data:401 | INFO | Target distribution (%):
+TARGET
+0   77.880000
+1   22.120000
+Name: proportion, dtype: float64
+2026-06-07 15:53:38,796 | mlops.factor_analysis | prepare_factor_analysis_data:403 | INFO | Target distribution values:
+TARGET
+0    23364
+1     6636
+Name: count, dtype: int64
+2026-06-07 15:53:38,797 | mlops.factor_analysis | prepare_factor_analysis_data:418 | INFO | Data preparation for factor analysis completed successfully.
+2026-06-07 15:53:38,797 | mlops.factor_analysis | <module>:2049 | INFO | Data prepared for factor analysis.
+2026-06-07 15:53:38,797 | mlops.factor_analysis | calculate_kmo_manual:586 | INFO | Kaiser-Meyer-Olkin (KMO) Test of Sampling Adequacy.
+2026-06-07 15:53:38,801 | mlops.factor_analysis | calculate_kmo_manual:594 | INFO | Dropped target variable 'TARGET' from dataframe for KMO calculation.
+2026-06-07 15:53:38,824 | mlops.factor_analysis | calculate_kmo_manual:604 | INFO | Shape of Correlation matrix: 23 x 23
+2026-06-07 15:53:38,824 | mlops.factor_analysis | calculate_kmo_manual:605 | INFO | Min correlation in Corr Matrix: -0.405943
+2026-06-07 15:53:38,824 | mlops.factor_analysis | calculate_kmo_manual:606 | INFO | Max correlation in Corr Matrix: 1.000000
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:607 | INFO | Mean abs correlation in Corr Matrix: 0.146798
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:610 | INFO | Inverse of Correlation matrix (Precision Matrix) prepared for Partial Correlation calculation
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:612 | INFO | Shape of Inverse Correlation matrix: 23 x 23
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:615 | INFO | partial_corr matrix initialized with zeros
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:617 | INFO | Shape of Partial Correlation matrix: 23 x 23
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:623 | INFO | Calculating partial correlation matrix
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:624 | INFO | --------------------------------------------------
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), gender (idx1) | others) = -(0.032819) / sqrt(1.385864 * 1.019282) = -0.027614
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), education (idx2) | others) = -(-0.009351) / sqrt(1.385864 * 1.034239) = 0.007810
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), marital_status (idx3) | others) = -(0.076864) / sqrt(1.385864 * 1.214225) = -0.059254
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), age (idx4) | others) = -(-0.112732) / sqrt(1.385864 * 1.265436) = 0.085127
+2026-06-07 15:53:38,825 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), repayment_status_sep_2005 (idx5) | others) = -(0.049693) / sqrt(1.385864 * 1.212730) = -0.038332
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), repayment_status_aug_2005 (idx6) | others) = -(-0.384250) / sqrt(1.385864 * 1.460765) = 0.270062
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), repayment_status_jul_2005 (idx7) | others) = -(0.030605) / sqrt(1.385864 * 2.108274) = -0.017905
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), repayment_status_jun_2005 (idx8) | others) = -(0.131528) / sqrt(1.385864 * 2.003136) = -0.078941
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), repayment_status_may_2005 (idx9) | others) = -(0.078458) / sqrt(1.385864 * 1.503709) = -0.054349
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), repayment_status_apr_2005 (idx10) | others) = -(0.038801) / sqrt(1.385864 * 1.573490) = -0.026275
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), bill_amount_sep_2005 (idx11) | others) = -(-0.336550) / sqrt(1.385864 * 13.968743) = 0.076491
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), bill_amount_aug_2005 (idx12) | others) = -(0.076535) / sqrt(1.385864 * 25.815727) = -0.012796
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), bill_amount_jul_2005 (idx13) | others) = -(0.120754) / sqrt(1.385864 * 21.796083) = -0.021971
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), bill_amount_jun_2005 (idx14) | others) = -(-0.139216) / sqrt(1.385864 * 20.296318) = 0.026250
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), bill_amount_may_2005 (idx15) | others) = -(-0.161168) / sqrt(1.385864 * 24.923738) = 0.027423
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), bill_amount_apr_2005 (idx16) | others) = -(0.018851) / sqrt(1.385864 * 15.025119) = -0.004131
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), payment_amount_sep_2005 (idx17) | others) = -(-0.082921) / sqrt(1.385864 * 1.697435) = 0.054064
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), payment_amount_aug_2005 (idx18) | others) = -(-0.075287) / sqrt(1.385864 * 2.253755) = 0.042599
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), payment_amount_jul_2005 (idx19) | others) = -(-0.047716) / sqrt(1.385864 * 1.770061) = 0.030465
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), payment_amount_jun_2005 (idx20) | others) = -(-0.093151) / sqrt(1.385864 * 1.638705) = 0.061813
+2026-06-07 15:53:38,826 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), payment_amount_may_2005 (idx21) | others) = -(-0.154862) / sqrt(1.385864 * 1.708580) = 0.100639
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(credit_limit (idx0), payment_amount_apr_2005 (idx22) | others) = -(-0.135772) / sqrt(1.385864 * 1.170292) = 0.106611
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), credit_limit (idx0) | others) = -(0.032819) / sqrt(1.019282 * 1.385864) = -0.027614
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), education (idx2) | others) = -(-0.000749) / sqrt(1.019282 * 1.034239) = 0.000730
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), marital_status (idx3) | others) = -(-0.075597) / sqrt(1.019282 * 1.214225) = 0.067953
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), age (idx4) | others) = -(-0.128082) / sqrt(1.019282 * 1.265436) = 0.112777
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), repayment_status_sep_2005 (idx5) | others) = -(-0.015780) / sqrt(1.019282 * 1.212730) = 0.014193
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), repayment_status_aug_2005 (idx6) | others) = -(0.029224) / sqrt(1.019282 * 1.460765) = -0.023950
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), repayment_status_jul_2005 (idx7) | others) = -(0.014882) / sqrt(1.019282 * 2.108274) = -0.010152
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), repayment_status_jun_2005 (idx8) | others) = -(-0.027951) / sqrt(1.019282 * 2.003136) = 0.019561
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), repayment_status_may_2005 (idx9) | others) = -(-0.030215) / sqrt(1.019282 * 1.503709) = 0.024406
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), repayment_status_apr_2005 (idx10) | others) = -(0.007450) / sqrt(1.019282 * 1.573490) = -0.005883
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), bill_amount_sep_2005 (idx11) | others) = -(-0.045321) / sqrt(1.019282 * 13.968743) = 0.012011
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), bill_amount_aug_2005 (idx12) | others) = -(-0.041529) / sqrt(1.019282 * 25.815727) = 0.008096
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), bill_amount_jul_2005 (idx13) | others) = -(0.021781) / sqrt(1.019282 * 21.796083) = -0.004621
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), bill_amount_jun_2005 (idx14) | others) = -(-0.008905) / sqrt(1.019282 * 20.296318) = 0.001958
+2026-06-07 15:53:38,827 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), bill_amount_may_2005 (idx15) | others) = -(0.043448) / sqrt(1.019282 * 24.923738) = -0.008620
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), bill_amount_apr_2005 (idx16) | others) = -(0.011751) / sqrt(1.019282 * 15.025119) = -0.003003
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), payment_amount_sep_2005 (idx17) | others) = -(0.004443) / sqrt(1.019282 * 1.697435) = -0.003378
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), payment_amount_aug_2005 (idx18) | others) = -(-0.009177) / sqrt(1.019282 * 2.253755) = 0.006055
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), payment_amount_jul_2005 (idx19) | others) = -(-0.013575) / sqrt(1.019282 * 1.770061) = 0.010106
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), payment_amount_jun_2005 (idx20) | others) = -(-0.008713) / sqrt(1.019282 * 1.638705) = 0.006742
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), payment_amount_may_2005 (idx21) | others) = -(-0.002665) / sqrt(1.019282 * 1.708580) = 0.002019
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(gender (idx1), payment_amount_apr_2005 (idx22) | others) = -(-0.001814) / sqrt(1.019282 * 1.170292) = 0.001661
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), credit_limit (idx0) | others) = -(-0.009351) / sqrt(1.034239 * 1.385864) = 0.007810
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), gender (idx1) | others) = -(-0.000749) / sqrt(1.034239 * 1.019282) = 0.000730
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), marital_status (idx3) | others) = -(-0.074796) / sqrt(1.034239 * 1.214225) = 0.066745
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), age (idx4) | others) = -(-0.190509) / sqrt(1.034239 * 1.265436) = 0.166527
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), repayment_status_sep_2005 (idx5) | others) = -(0.018935) / sqrt(1.034239 * 1.212730) = -0.016908
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), repayment_status_aug_2005 (idx6) | others) = -(-0.034661) / sqrt(1.034239 * 1.460765) = 0.028199
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), repayment_status_jul_2005 (idx7) | others) = -(0.007936) / sqrt(1.034239 * 2.108274) = -0.005374
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), repayment_status_jun_2005 (idx8) | others) = -(0.001788) / sqrt(1.034239 * 2.003136) = -0.001242
+2026-06-07 15:53:38,828 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), repayment_status_may_2005 (idx9) | others) = -(0.010644) / sqrt(1.034239 * 1.503709) = -0.008535
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), repayment_status_apr_2005 (idx10) | others) = -(0.000535) / sqrt(1.034239 * 1.573490) = -0.000419
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), bill_amount_sep_2005 (idx11) | others) = -(-0.008587) / sqrt(1.034239 * 13.968743) = 0.002259
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), bill_amount_aug_2005 (idx12) | others) = -(0.026541) / sqrt(1.034239 * 25.815727) = -0.005136
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), bill_amount_jul_2005 (idx13) | others) = -(-0.079584) / sqrt(1.034239 * 21.796083) = 0.016762
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), bill_amount_jun_2005 (idx14) | others) = -(0.049485) / sqrt(1.034239 * 20.296318) = -0.010801
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), bill_amount_may_2005 (idx15) | others) = -(-0.036121) / sqrt(1.034239 * 24.923738) = 0.007115
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), bill_amount_apr_2005 (idx16) | others) = -(0.083750) / sqrt(1.034239 * 15.025119) = -0.021245
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), payment_amount_sep_2005 (idx17) | others) = -(-0.005694) / sqrt(1.034239 * 1.697435) = 0.004297
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), payment_amount_aug_2005 (idx18) | others) = -(0.003991) / sqrt(1.034239 * 2.253755) = -0.002614
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), payment_amount_jul_2005 (idx19) | others) = -(-0.023459) / sqrt(1.034239 * 1.770061) = 0.017338
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), payment_amount_jun_2005 (idx20) | others) = -(-0.002486) / sqrt(1.034239 * 1.638705) = 0.001909
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), payment_amount_may_2005 (idx21) | others) = -(-0.007460) / sqrt(1.034239 * 1.708580) = 0.005612
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(education (idx2), payment_amount_apr_2005 (idx22) | others) = -(0.004475) / sqrt(1.034239 * 1.170292) = -0.004068
+2026-06-07 15:53:38,829 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), credit_limit (idx0) | others) = -(0.076864) / sqrt(1.214225 * 1.385864) = -0.059254
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), gender (idx1) | others) = -(-0.075597) / sqrt(1.214225 * 1.019282) = 0.067953
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), education (idx2) | others) = -(-0.074796) / sqrt(1.214225 * 1.034239) = 0.066745
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), age (idx4) | others) = -(0.502074) / sqrt(1.214225 * 1.265436) = -0.405040
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), repayment_status_sep_2005 (idx5) | others) = -(-0.016409) / sqrt(1.214225 * 1.212730) = 0.013523
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), repayment_status_aug_2005 (idx6) | others) = -(0.000632) / sqrt(1.214225 * 1.460765) = -0.000475
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), repayment_status_jul_2005 (idx7) | others) = -(0.004415) / sqrt(1.214225 * 2.108274) = -0.002760
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), repayment_status_jun_2005 (idx8) | others) = -(0.004599) / sqrt(1.214225 * 2.003136) = -0.002949
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), repayment_status_may_2005 (idx9) | others) = -(0.020683) / sqrt(1.214225 * 1.503709) = -0.015307
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), repayment_status_apr_2005 (idx10) | others) = -(-0.010601) / sqrt(1.214225 * 1.573490) = 0.007670
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), bill_amount_sep_2005 (idx11) | others) = -(0.005727) / sqrt(1.214225 * 13.968743) = -0.001391
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), bill_amount_aug_2005 (idx12) | others) = -(-0.046554) / sqrt(1.214225 * 25.815727) = 0.008315
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), bill_amount_jul_2005 (idx13) | others) = -(0.044705) / sqrt(1.214225 * 21.796083) = -0.008690
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), bill_amount_jun_2005 (idx14) | others) = -(-0.013221) / sqrt(1.214225 * 20.296318) = 0.002663
+2026-06-07 15:53:38,830 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), bill_amount_may_2005 (idx15) | others) = -(0.038642) / sqrt(1.214225 * 24.923738) = -0.007024
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), bill_amount_apr_2005 (idx16) | others) = -(-0.034176) / sqrt(1.214225 * 15.025119) = 0.008001
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), payment_amount_sep_2005 (idx17) | others) = -(-0.009436) / sqrt(1.214225 * 1.697435) = 0.006573
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), payment_amount_aug_2005 (idx18) | others) = -(-0.009461) / sqrt(1.214225 * 2.253755) = 0.005719
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), payment_amount_jul_2005 (idx19) | others) = -(-0.012386) / sqrt(1.214225 * 1.770061) = 0.008449
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), payment_amount_jun_2005 (idx20) | others) = -(-0.000845) / sqrt(1.214225 * 1.638705) = 0.000599
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), payment_amount_may_2005 (idx21) | others) = -(-0.009923) / sqrt(1.214225 * 1.708580) = 0.006889
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(marital_status (idx3), payment_amount_apr_2005 (idx22) | others) = -(-0.008487) / sqrt(1.214225 * 1.170292) = 0.007119
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), credit_limit (idx0) | others) = -(-0.112732) / sqrt(1.265436 * 1.385864) = 0.085127
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), gender (idx1) | others) = -(-0.128082) / sqrt(1.265436 * 1.019282) = 0.112777
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), education (idx2) | others) = -(-0.190509) / sqrt(1.265436 * 1.034239) = 0.166527
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), marital_status (idx3) | others) = -(0.502074) / sqrt(1.265436 * 1.214225) = -0.405040
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), repayment_status_sep_2005 (idx5) | others) = -(0.005257) / sqrt(1.265436 * 1.212730) = -0.004243
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), repayment_status_aug_2005 (idx6) | others) = -(-0.034759) / sqrt(1.265436 * 1.460765) = 0.025566
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), repayment_status_jul_2005 (idx7) | others) = -(-0.006659) / sqrt(1.265436 * 2.108274) = 0.004077
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), repayment_status_jun_2005 (idx8) | others) = -(-0.012141) / sqrt(1.265436 * 2.003136) = 0.007626
+2026-06-07 15:53:38,831 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), repayment_status_may_2005 (idx9) | others) = -(0.004765) / sqrt(1.265436 * 1.503709) = -0.003454
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), repayment_status_apr_2005 (idx10) | others) = -(-0.009559) / sqrt(1.265436 * 1.573490) = 0.006774
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), bill_amount_sep_2005 (idx11) | others) = -(-0.021141) / sqrt(1.265436 * 13.968743) = 0.005028
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), bill_amount_aug_2005 (idx12) | others) = -(-0.019317) / sqrt(1.265436 * 25.815727) = 0.003380
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), bill_amount_jul_2005 (idx13) | others) = -(-0.018526) / sqrt(1.265436 * 21.796083) = 0.003527
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), bill_amount_jun_2005 (idx14) | others) = -(0.019168) / sqrt(1.265436 * 20.296318) = -0.003782
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), bill_amount_may_2005 (idx15) | others) = -(0.028721) / sqrt(1.265436 * 24.923738) = -0.005114
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), bill_amount_apr_2005 (idx16) | others) = -(-0.023427) / sqrt(1.265436 * 15.025119) = 0.005373
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), payment_amount_sep_2005 (idx17) | others) = -(-0.002182) / sqrt(1.265436 * 1.697435) = 0.001489
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), payment_amount_aug_2005 (idx18) | others) = -(0.005317) / sqrt(1.265436 * 2.253755) = -0.003148
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), payment_amount_jul_2005 (idx19) | others) = -(-0.011706) / sqrt(1.265436 * 1.770061) = 0.007822
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), payment_amount_jun_2005 (idx20) | others) = -(0.007208) / sqrt(1.265436 * 1.638705) = -0.005006
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), payment_amount_may_2005 (idx21) | others) = -(0.007020) / sqrt(1.265436 * 1.708580) = -0.004774
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(age (idx4), payment_amount_apr_2005 (idx22) | others) = -(0.011287) / sqrt(1.265436 * 1.170292) = -0.009275
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), credit_limit (idx0) | others) = -(0.049693) / sqrt(1.212730 * 1.385864) = -0.038332
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), gender (idx1) | others) = -(-0.015780) / sqrt(1.212730 * 1.019282) = 0.014193
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), education (idx2) | others) = -(0.018935) / sqrt(1.212730 * 1.034239) = -0.016908
+2026-06-07 15:53:38,832 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), marital_status (idx3) | others) = -(-0.016409) / sqrt(1.212730 * 1.214225) = 0.013523
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), age (idx4) | others) = -(0.005257) / sqrt(1.212730 * 1.265436) = -0.004243
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), repayment_status_aug_2005 (idx6) | others) = -(-0.288578) / sqrt(1.212730 * 1.460765) = 0.216816
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), repayment_status_jul_2005 (idx7) | others) = -(-0.258354) / sqrt(1.212730 * 2.108274) = 0.161574
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), repayment_status_jun_2005 (idx8) | others) = -(-0.091491) / sqrt(1.212730 * 2.003136) = 0.058701
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), repayment_status_may_2005 (idx9) | others) = -(0.100243) / sqrt(1.212730 * 1.503709) = -0.074232
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), repayment_status_apr_2005 (idx10) | others) = -(0.026027) / sqrt(1.212730 * 1.573490) = -0.018841
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), bill_amount_sep_2005 (idx11) | others) = -(0.018047) / sqrt(1.212730 * 13.968743) = -0.004385
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), bill_amount_aug_2005 (idx12) | others) = -(-0.103539) / sqrt(1.212730 * 25.815727) = 0.018505
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), bill_amount_jul_2005 (idx13) | others) = -(0.005719) / sqrt(1.212730 * 21.796083) = -0.001112
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), bill_amount_jun_2005 (idx14) | others) = -(0.010006) / sqrt(1.212730 * 20.296318) = -0.002017
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), bill_amount_may_2005 (idx15) | others) = -(-0.010169) / sqrt(1.212730 * 24.923738) = 0.001850
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), bill_amount_apr_2005 (idx16) | others) = -(0.029857) / sqrt(1.212730 * 15.025119) = -0.006994
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), payment_amount_sep_2005 (idx17) | others) = -(0.054825) / sqrt(1.212730 * 1.697435) = -0.038212
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), payment_amount_aug_2005 (idx18) | others) = -(-0.023451) / sqrt(1.212730 * 2.253755) = 0.014185
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), payment_amount_jul_2005 (idx19) | others) = -(0.006699) / sqrt(1.212730 * 1.770061) = -0.004572
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), payment_amount_jun_2005 (idx20) | others) = -(-0.014323) / sqrt(1.212730 * 1.638705) = 0.010160
+2026-06-07 15:53:38,833 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), payment_amount_may_2005 (idx21) | others) = -(-0.000561) / sqrt(1.212730 * 1.708580) = 0.000390
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_sep_2005 (idx5), payment_amount_apr_2005 (idx22) | others) = -(0.014143) / sqrt(1.212730 * 1.170292) = -0.011872
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), credit_limit (idx0) | others) = -(-0.384250) / sqrt(1.460765 * 1.385864) = 0.270062
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), gender (idx1) | others) = -(0.029224) / sqrt(1.460765 * 1.019282) = -0.023950
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), education (idx2) | others) = -(-0.034661) / sqrt(1.460765 * 1.034239) = 0.028199
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), marital_status (idx3) | others) = -(0.000632) / sqrt(1.460765 * 1.214225) = -0.000475
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), age (idx4) | others) = -(-0.034759) / sqrt(1.460765 * 1.265436) = 0.025566
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), repayment_status_sep_2005 (idx5) | others) = -(-0.288578) / sqrt(1.460765 * 1.212730) = 0.216816
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), repayment_status_jul_2005 (idx7) | others) = -(-0.451792) / sqrt(1.460765 * 2.108274) = 0.257445
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), repayment_status_jun_2005 (idx8) | others) = -(0.247928) / sqrt(1.460765 * 2.003136) = -0.144937
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), repayment_status_may_2005 (idx9) | others) = -(0.071813) / sqrt(1.460765 * 1.503709) = -0.048454
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), repayment_status_apr_2005 (idx10) | others) = -(0.046026) / sqrt(1.460765 * 1.573490) = -0.030359
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), bill_amount_sep_2005 (idx11) | others) = -(0.187739) / sqrt(1.460765 * 13.968743) = -0.041561
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), bill_amount_aug_2005 (idx12) | others) = -(0.215008) / sqrt(1.460765 * 25.815727) = -0.035012
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), bill_amount_jul_2005 (idx13) | others) = -(0.057214) / sqrt(1.460765 * 21.796083) = -0.010140
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), bill_amount_jun_2005 (idx14) | others) = -(-0.036979) / sqrt(1.460765 * 20.296318) = 0.006791
+2026-06-07 15:53:38,834 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), bill_amount_may_2005 (idx15) | others) = -(-0.020265) / sqrt(1.460765 * 24.923738) = 0.003359
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), bill_amount_apr_2005 (idx16) | others) = -(0.109379) / sqrt(1.460765 * 15.025119) = -0.023347
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), payment_amount_sep_2005 (idx17) | others) = -(-0.075227) / sqrt(1.460765 * 1.697435) = 0.047774
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), payment_amount_aug_2005 (idx18) | others) = -(-0.059913) / sqrt(1.460765 * 2.253755) = 0.033020
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), payment_amount_jul_2005 (idx19) | others) = -(0.001069) / sqrt(1.460765 * 1.770061) = -0.000665
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), payment_amount_jun_2005 (idx20) | others) = -(-0.012896) / sqrt(1.460765 * 1.638705) = 0.008335
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), payment_amount_may_2005 (idx21) | others) = -(-0.027056) / sqrt(1.460765 * 1.708580) = 0.017126
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_aug_2005 (idx6), payment_amount_apr_2005 (idx22) | others) = -(-0.021649) / sqrt(1.460765 * 1.170292) = 0.016558
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), credit_limit (idx0) | others) = -(0.030605) / sqrt(2.108274 * 1.385864) = -0.017905
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), gender (idx1) | others) = -(0.014882) / sqrt(2.108274 * 1.019282) = -0.010152
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), education (idx2) | others) = -(0.007936) / sqrt(2.108274 * 1.034239) = -0.005374
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), marital_status (idx3) | others) = -(0.004415) / sqrt(2.108274 * 1.214225) = -0.002760
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), age (idx4) | others) = -(-0.006659) / sqrt(2.108274 * 1.265436) = 0.004077
+2026-06-07 15:53:38,835 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), repayment_status_sep_2005 (idx5) | others) = -(-0.258354) / sqrt(2.108274 * 1.212730) = 0.161574
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), repayment_status_aug_2005 (idx6) | others) = -(-0.451792) / sqrt(2.108274 * 1.460765) = 0.257445
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), repayment_status_jun_2005 (idx8) | others) = -(-1.200892) / sqrt(2.108274 * 2.003136) = 0.584366
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), repayment_status_may_2005 (idx9) | others) = -(0.170887) / sqrt(2.108274 * 1.503709) = -0.095976
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), repayment_status_apr_2005 (idx10) | others) = -(0.295938) / sqrt(2.108274 * 1.573490) = -0.162482
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), bill_amount_sep_2005 (idx11) | others) = -(-0.014381) / sqrt(2.108274 * 13.968743) = 0.002650
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), bill_amount_aug_2005 (idx12) | others) = -(0.094447) / sqrt(2.108274 * 25.815727) = -0.012802
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), bill_amount_jul_2005 (idx13) | others) = -(-0.327318) / sqrt(2.108274 * 21.796083) = 0.048286
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), bill_amount_jun_2005 (idx14) | others) = -(0.221066) / sqrt(2.108274 * 20.296318) = -0.033795
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), bill_amount_may_2005 (idx15) | others) = -(-0.006798) / sqrt(2.108274 * 24.923738) = 0.000938
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), bill_amount_apr_2005 (idx16) | others) = -(-0.008709) / sqrt(2.108274 * 15.025119) = 0.001547
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), payment_amount_sep_2005 (idx17) | others) = -(0.019398) / sqrt(2.108274 * 1.697435) = -0.010254
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), payment_amount_aug_2005 (idx18) | others) = -(0.251283) / sqrt(2.108274 * 2.253755) = -0.115278
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), payment_amount_jul_2005 (idx19) | others) = -(-0.126805) / sqrt(2.108274 * 1.770061) = 0.065642
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), payment_amount_jun_2005 (idx20) | others) = -(-0.031716) / sqrt(2.108274 * 1.638705) = 0.017064
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), payment_amount_may_2005 (idx21) | others) = -(-0.032948) / sqrt(2.108274 * 1.708580) = 0.017360
+2026-06-07 15:53:38,836 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jul_2005 (idx7), payment_amount_apr_2005 (idx22) | others) = -(0.011799) / sqrt(2.108274 * 1.170292) = -0.007512
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), credit_limit (idx0) | others) = -(0.131528) / sqrt(2.003136 * 1.385864) = -0.078941
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), gender (idx1) | others) = -(-0.027951) / sqrt(2.003136 * 1.019282) = 0.019561
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), education (idx2) | others) = -(0.001788) / sqrt(2.003136 * 1.034239) = -0.001242
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), marital_status (idx3) | others) = -(0.004599) / sqrt(2.003136 * 1.214225) = -0.002949
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), age (idx4) | others) = -(-0.012141) / sqrt(2.003136 * 1.265436) = 0.007626
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), repayment_status_sep_2005 (idx5) | others) = -(-0.091491) / sqrt(2.003136 * 1.212730) = 0.058701
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), repayment_status_aug_2005 (idx6) | others) = -(0.247928) / sqrt(2.003136 * 1.460765) = -0.144937
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), repayment_status_jul_2005 (idx7) | others) = -(-1.200892) / sqrt(2.003136 * 2.108274) = 0.584366
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), repayment_status_may_2005 (idx9) | others) = -(-0.568438) / sqrt(2.003136 * 1.503709) = 0.327526
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), repayment_status_apr_2005 (idx10) | others) = -(0.337539) / sqrt(2.003136 * 1.573490) = -0.190124
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), bill_amount_sep_2005 (idx11) | others) = -(0.029221) / sqrt(2.003136 * 13.968743) = -0.005524
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), bill_amount_aug_2005 (idx12) | others) = -(-0.032424) / sqrt(2.003136 * 25.815727) = 0.004509
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), bill_amount_jul_2005 (idx13) | others) = -(0.293370) / sqrt(2.003136 * 21.796083) = -0.044399
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), bill_amount_jun_2005 (idx14) | others) = -(-0.273751) / sqrt(2.003136 * 20.296318) = 0.042933
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), bill_amount_may_2005 (idx15) | others) = -(-0.109088) / sqrt(2.003136 * 24.923738) = 0.015439
+2026-06-07 15:53:38,837 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), bill_amount_apr_2005 (idx16) | others) = -(-0.054498) / sqrt(2.003136 * 15.025119) = 0.009934
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), payment_amount_sep_2005 (idx17) | others) = -(-0.011731) / sqrt(2.003136 * 1.697435) = 0.006362
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), payment_amount_aug_2005 (idx18) | others) = -(-0.163907) / sqrt(2.003136 * 2.253755) = 0.077141
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), payment_amount_jul_2005 (idx19) | others) = -(0.255543) / sqrt(2.003136 * 1.770061) = -0.135711
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), payment_amount_jun_2005 (idx20) | others) = -(0.096461) / sqrt(2.003136 * 1.638705) = -0.053241
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), payment_amount_may_2005 (idx21) | others) = -(-0.003694) / sqrt(2.003136 * 1.708580) = 0.001997
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_jun_2005 (idx8), payment_amount_apr_2005 (idx22) | others) = -(-0.022798) / sqrt(2.003136 * 1.170292) = 0.014890
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), credit_limit (idx0) | others) = -(0.078458) / sqrt(1.503709 * 1.385864) = -0.054349
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), gender (idx1) | others) = -(-0.030215) / sqrt(1.503709 * 1.019282) = 0.024406
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), education (idx2) | others) = -(0.010644) / sqrt(1.503709 * 1.034239) = -0.008535
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), marital_status (idx3) | others) = -(0.020683) / sqrt(1.503709 * 1.214225) = -0.015307
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), age (idx4) | others) = -(0.004765) / sqrt(1.503709 * 1.265436) = -0.003454
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), repayment_status_sep_2005 (idx5) | others) = -(0.100243) / sqrt(1.503709 * 1.212730) = -0.074232
+2026-06-07 15:53:38,838 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), repayment_status_aug_2005 (idx6) | others) = -(0.071813) / sqrt(1.503709 * 1.460765) = -0.048454
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), repayment_status_jul_2005 (idx7) | others) = -(0.170887) / sqrt(1.503709 * 2.108274) = -0.095976
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), repayment_status_jun_2005 (idx8) | others) = -(-0.568438) / sqrt(1.503709 * 2.003136) = 0.327526
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), repayment_status_apr_2005 (idx10) | others) = -(-0.730716) / sqrt(1.503709 * 1.573490) = 0.475045
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), bill_amount_sep_2005 (idx11) | others) = -(0.167212) / sqrt(1.503709 * 13.968743) = -0.036484
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), bill_amount_aug_2005 (idx12) | others) = -(0.063908) / sqrt(1.503709 * 25.815727) = -0.010257
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), bill_amount_jul_2005 (idx13) | others) = -(-0.035238) / sqrt(1.503709 * 21.796083) = 0.006155
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), bill_amount_jun_2005 (idx14) | others) = -(0.011843) / sqrt(1.503709 * 20.296318) = -0.002144
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), bill_amount_may_2005 (idx15) | others) = -(0.100723) / sqrt(1.503709 * 24.923738) = -0.016453
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), bill_amount_apr_2005 (idx16) | others) = -(-0.239594) / sqrt(1.503709 * 15.025119) = 0.050406
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), payment_amount_sep_2005 (idx17) | others) = -(0.024323) / sqrt(1.503709 * 1.697435) = -0.015224
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), payment_amount_aug_2005 (idx18) | others) = -(0.051189) / sqrt(1.503709 * 2.253755) = -0.027806
+2026-06-07 15:53:38,839 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), payment_amount_jul_2005 (idx19) | others) = -(-0.064836) / sqrt(1.503709 * 1.770061) = 0.039741
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), payment_amount_jun_2005 (idx20) | others) = -(-0.090936) / sqrt(1.503709 * 1.638705) = 0.057930
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), payment_amount_may_2005 (idx21) | others) = -(0.097644) / sqrt(1.503709 * 1.708580) = -0.060918
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_may_2005 (idx9), payment_amount_apr_2005 (idx22) | others) = -(-0.005244) / sqrt(1.503709 * 1.170292) = 0.003953
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), credit_limit (idx0) | others) = -(0.038801) / sqrt(1.573490 * 1.385864) = -0.026275
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), gender (idx1) | others) = -(0.007450) / sqrt(1.573490 * 1.019282) = -0.005883
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), education (idx2) | others) = -(0.000535) / sqrt(1.573490 * 1.034239) = -0.000419
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), marital_status (idx3) | others) = -(-0.010601) / sqrt(1.573490 * 1.214225) = 0.007670
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), age (idx4) | others) = -(-0.009559) / sqrt(1.573490 * 1.265436) = 0.006774
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), repayment_status_sep_2005 (idx5) | others) = -(0.026027) / sqrt(1.573490 * 1.212730) = -0.018841
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), repayment_status_aug_2005 (idx6) | others) = -(0.046026) / sqrt(1.573490 * 1.460765) = -0.030359
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), repayment_status_jul_2005 (idx7) | others) = -(0.295938) / sqrt(1.573490 * 2.108274) = -0.162482
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), repayment_status_jun_2005 (idx8) | others) = -(0.337539) / sqrt(1.573490 * 2.003136) = -0.190124
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), repayment_status_may_2005 (idx9) | others) = -(-0.730716) / sqrt(1.573490 * 1.503709) = 0.475045
+2026-06-07 15:53:38,840 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), bill_amount_sep_2005 (idx11) | others) = -(0.023063) / sqrt(1.573490 * 13.968743) = -0.004919
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), bill_amount_aug_2005 (idx12) | others) = -(-0.039108) / sqrt(1.573490 * 25.815727) = 0.006136
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), bill_amount_jul_2005 (idx13) | others) = -(-0.031508) / sqrt(1.573490 * 21.796083) = 0.005380
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), bill_amount_jun_2005 (idx14) | others) = -(-0.058859) / sqrt(1.573490 * 20.296318) = 0.010415
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), bill_amount_may_2005 (idx15) | others) = -(-0.221336) / sqrt(1.573490 * 24.923738) = 0.035344
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), bill_amount_apr_2005 (idx16) | others) = -(0.261218) / sqrt(1.573490 * 15.025119) = -0.053723
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), payment_amount_sep_2005 (idx17) | others) = -(-0.010464) / sqrt(1.573490 * 1.697435) = 0.006403
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), payment_amount_aug_2005 (idx18) | others) = -(0.009200) / sqrt(1.573490 * 2.253755) = -0.004885
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), payment_amount_jul_2005 (idx19) | others) = -(0.034896) / sqrt(1.573490 * 1.770061) = -0.020910
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), payment_amount_jun_2005 (idx20) | others) = -(0.015759) / sqrt(1.573490 * 1.638705) = -0.009814
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), payment_amount_may_2005 (idx21) | others) = -(-0.207574) / sqrt(1.573490 * 1.708580) = 0.126597
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(repayment_status_apr_2005 (idx10), payment_amount_apr_2005 (idx22) | others) = -(-0.023157) / sqrt(1.573490 * 1.170292) = 0.017065
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), credit_limit (idx0) | others) = -(-0.336550) / sqrt(13.968743 * 1.385864) = 0.076491
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), gender (idx1) | others) = -(-0.045321) / sqrt(13.968743 * 1.019282) = 0.012011
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), education (idx2) | others) = -(-0.008587) / sqrt(13.968743 * 1.034239) = 0.002259
+2026-06-07 15:53:38,841 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), marital_status (idx3) | others) = -(0.005727) / sqrt(13.968743 * 1.214225) = -0.001391
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), age (idx4) | others) = -(-0.021141) / sqrt(13.968743 * 1.265436) = 0.005028
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), repayment_status_sep_2005 (idx5) | others) = -(0.018047) / sqrt(13.968743 * 1.212730) = -0.004385
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), repayment_status_aug_2005 (idx6) | others) = -(0.187739) / sqrt(13.968743 * 1.460765) = -0.041561
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), repayment_status_jul_2005 (idx7) | others) = -(-0.014381) / sqrt(13.968743 * 2.108274) = 0.002650
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), repayment_status_jun_2005 (idx8) | others) = -(0.029221) / sqrt(13.968743 * 2.003136) = -0.005524
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), repayment_status_may_2005 (idx9) | others) = -(0.167212) / sqrt(13.968743 * 1.503709) = -0.036484
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), repayment_status_apr_2005 (idx10) | others) = -(0.023063) / sqrt(13.968743 * 1.573490) = -0.004919
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), bill_amount_aug_2005 (idx12) | others) = -(-13.678702) / sqrt(13.968743 * 25.815727) = 0.720318
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), bill_amount_jul_2005 (idx13) | others) = -(0.045085) / sqrt(13.968743 * 21.796083) = -0.002584
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), bill_amount_jun_2005 (idx14) | others) = -(-0.408193) / sqrt(13.968743 * 20.296318) = 0.024243
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), bill_amount_may_2005 (idx15) | others) = -(0.034853) / sqrt(13.968743 * 24.923738) = -0.001868
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), bill_amount_apr_2005 (idx16) | others) = -(0.524615) / sqrt(13.968743 * 15.025119) = -0.036212
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), payment_amount_sep_2005 (idx17) | others) = -(2.293550) / sqrt(13.968743 * 1.697435) = -0.471013
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), payment_amount_aug_2005 (idx18) | others) = -(-0.364355) / sqrt(13.968743 * 2.253755) = 0.064937
+2026-06-07 15:53:38,842 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), payment_amount_jul_2005 (idx19) | others) = -(-0.376207) / sqrt(13.968743 * 1.770061) = 0.075658
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), payment_amount_jun_2005 (idx20) | others) = -(-0.455538) / sqrt(13.968743 * 1.638705) = 0.095213
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), payment_amount_may_2005 (idx21) | others) = -(-0.318847) / sqrt(13.968743 * 1.708580) = 0.065266
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_sep_2005 (idx11), payment_amount_apr_2005 (idx22) | others) = -(-0.237252) / sqrt(13.968743 * 1.170292) = 0.058679
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), credit_limit (idx0) | others) = -(0.076535) / sqrt(25.815727 * 1.385864) = -0.012796
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), gender (idx1) | others) = -(-0.041529) / sqrt(25.815727 * 1.019282) = 0.008096
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), education (idx2) | others) = -(0.026541) / sqrt(25.815727 * 1.034239) = -0.005136
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), marital_status (idx3) | others) = -(-0.046554) / sqrt(25.815727 * 1.214225) = 0.008315
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), age (idx4) | others) = -(-0.019317) / sqrt(25.815727 * 1.265436) = 0.003380
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), repayment_status_sep_2005 (idx5) | others) = -(-0.103539) / sqrt(25.815727 * 1.212730) = 0.018505
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), repayment_status_aug_2005 (idx6) | others) = -(0.215008) / sqrt(25.815727 * 1.460765) = -0.035012
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), repayment_status_jul_2005 (idx7) | others) = -(0.094447) / sqrt(25.815727 * 2.108274) = -0.012802
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), repayment_status_jun_2005 (idx8) | others) = -(-0.032424) / sqrt(25.815727 * 2.003136) = 0.004509
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), repayment_status_may_2005 (idx9) | others) = -(0.063908) / sqrt(25.815727 * 1.503709) = -0.010257
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), repayment_status_apr_2005 (idx10) | others) = -(-0.039108) / sqrt(25.815727 * 1.573490) = 0.006136
+2026-06-07 15:53:38,843 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), bill_amount_sep_2005 (idx11) | others) = -(-13.678702) / sqrt(25.815727 * 13.968743) = 0.720318
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), bill_amount_jul_2005 (idx13) | others) = -(-11.674910) / sqrt(25.815727 * 21.796083) = 0.492178
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), bill_amount_jun_2005 (idx14) | others) = -(0.242413) / sqrt(25.815727 * 20.296318) = -0.010590
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), bill_amount_may_2005 (idx15) | others) = -(0.394371) / sqrt(25.815727 * 24.923738) = -0.015547
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), bill_amount_apr_2005 (idx16) | others) = -(-1.126722) / sqrt(25.815727 * 15.025119) = 0.057209
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), payment_amount_sep_2005 (idx17) | others) = -(-3.441641) / sqrt(25.815727 * 1.697435) = 0.519908
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), payment_amount_aug_2005 (idx18) | others) = -(3.430768) / sqrt(25.815727 * 2.253755) = -0.449776
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), payment_amount_jul_2005 (idx19) | others) = -(-0.258316) / sqrt(25.815727 * 1.770061) = 0.038213
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), payment_amount_jun_2005 (idx20) | others) = -(0.188521) / sqrt(25.815727 * 1.638705) = -0.028985
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), payment_amount_may_2005 (idx21) | others) = -(0.425098) / sqrt(25.815727 * 1.708580) = -0.064007
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_aug_2005 (idx12), payment_amount_apr_2005 (idx22) | others) = -(0.131026) / sqrt(25.815727 * 1.170292) = -0.023838
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), credit_limit (idx0) | others) = -(0.120754) / sqrt(21.796083 * 1.385864) = -0.021971
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), gender (idx1) | others) = -(0.021781) / sqrt(21.796083 * 1.019282) = -0.004621
+2026-06-07 15:53:38,844 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), education (idx2) | others) = -(-0.079584) / sqrt(21.796083 * 1.034239) = 0.016762
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), marital_status (idx3) | others) = -(0.044705) / sqrt(21.796083 * 1.214225) = -0.008690
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), age (idx4) | others) = -(-0.018526) / sqrt(21.796083 * 1.265436) = 0.003527
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), repayment_status_sep_2005 (idx5) | others) = -(0.005719) / sqrt(21.796083 * 1.212730) = -0.001112
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), repayment_status_aug_2005 (idx6) | others) = -(0.057214) / sqrt(21.796083 * 1.460765) = -0.010140
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), repayment_status_jul_2005 (idx7) | others) = -(-0.327318) / sqrt(21.796083 * 2.108274) = 0.048286
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), repayment_status_jun_2005 (idx8) | others) = -(0.293370) / sqrt(21.796083 * 2.003136) = -0.044399
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), repayment_status_may_2005 (idx9) | others) = -(-0.035238) / sqrt(21.796083 * 1.503709) = 0.006155
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), repayment_status_apr_2005 (idx10) | others) = -(-0.031508) / sqrt(21.796083 * 1.573490) = 0.005380
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), bill_amount_sep_2005 (idx11) | others) = -(0.045085) / sqrt(21.796083 * 13.968743) = -0.002584
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), bill_amount_aug_2005 (idx12) | others) = -(-11.674910) / sqrt(21.796083 * 25.815727) = 0.492178
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), bill_amount_jun_2005 (idx14) | others) = -(-9.078872) / sqrt(21.796083 * 20.296318) = 0.431652
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), bill_amount_may_2005 (idx15) | others) = -(-0.962198) / sqrt(21.796083 * 24.923738) = 0.041283
+2026-06-07 15:53:38,845 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), bill_amount_apr_2005 (idx16) | others) = -(0.168416) / sqrt(21.796083 * 15.025119) = -0.009306
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), payment_amount_sep_2005 (idx17) | others) = -(0.861573) / sqrt(21.796083 * 1.697435) = -0.141647
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), payment_amount_aug_2005 (idx18) | others) = -(-4.629938) / sqrt(21.796083 * 2.253755) = 0.660591
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), payment_amount_jul_2005 (idx19) | others) = -(2.792712) / sqrt(21.796083 * 1.770061) = -0.449617
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), payment_amount_jun_2005 (idx20) | others) = -(0.112686) / sqrt(21.796083 * 1.638705) = -0.018855
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), payment_amount_may_2005 (idx21) | others) = -(-0.298293) / sqrt(21.796083 * 1.708580) = 0.048881
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jul_2005 (idx13), payment_amount_apr_2005 (idx22) | others) = -(-0.077394) / sqrt(21.796083 * 1.170292) = 0.015324
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), credit_limit (idx0) | others) = -(-0.139216) / sqrt(20.296318 * 1.385864) = 0.026250
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), gender (idx1) | others) = -(-0.008905) / sqrt(20.296318 * 1.019282) = 0.001958
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), education (idx2) | others) = -(0.049485) / sqrt(20.296318 * 1.034239) = -0.010801
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), marital_status (idx3) | others) = -(-0.013221) / sqrt(20.296318 * 1.214225) = 0.002663
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), age (idx4) | others) = -(0.019168) / sqrt(20.296318 * 1.265436) = -0.003782
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), repayment_status_sep_2005 (idx5) | others) = -(0.010006) / sqrt(20.296318 * 1.212730) = -0.002017
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), repayment_status_aug_2005 (idx6) | others) = -(-0.036979) / sqrt(20.296318 * 1.460765) = 0.006791
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), repayment_status_jul_2005 (idx7) | others) = -(0.221066) / sqrt(20.296318 * 2.108274) = -0.033795
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), repayment_status_jun_2005 (idx8) | others) = -(-0.273751) / sqrt(20.296318 * 2.003136) = 0.042933
+2026-06-07 15:53:38,846 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), repayment_status_may_2005 (idx9) | others) = -(0.011843) / sqrt(20.296318 * 1.503709) = -0.002144
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), repayment_status_apr_2005 (idx10) | others) = -(-0.058859) / sqrt(20.296318 * 1.573490) = 0.010415
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), bill_amount_sep_2005 (idx11) | others) = -(-0.408193) / sqrt(20.296318 * 13.968743) = 0.024243
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), bill_amount_aug_2005 (idx12) | others) = -(0.242413) / sqrt(20.296318 * 25.815727) = -0.010590
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), bill_amount_jul_2005 (idx13) | others) = -(-9.078872) / sqrt(20.296318 * 21.796083) = 0.431652
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), bill_amount_may_2005 (idx15) | others) = -(-10.792832) / sqrt(20.296318 * 24.923738) = 0.479866
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), bill_amount_apr_2005 (idx16) | others) = -(-0.213023) / sqrt(20.296318 * 15.025119) = 0.012199
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), payment_amount_sep_2005 (idx17) | others) = -(-0.145303) / sqrt(20.296318 * 1.697435) = 0.024755
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), payment_amount_aug_2005 (idx18) | others) = -(1.036119) / sqrt(20.296318 * 2.253755) = -0.153196
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), payment_amount_jul_2005 (idx19) | others) = -(-2.807146) / sqrt(20.296318 * 1.770061) = 0.468341
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), payment_amount_jun_2005 (idx20) | others) = -(2.402483) / sqrt(20.296318 * 1.638705) = -0.416583
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), payment_amount_may_2005 (idx21) | others) = -(-0.032104) / sqrt(20.296318 * 1.708580) = 0.005452
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_jun_2005 (idx14), payment_amount_apr_2005 (idx22) | others) = -(-0.146292) / sqrt(20.296318 * 1.170292) = 0.030017
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), credit_limit (idx0) | others) = -(-0.161168) / sqrt(24.923738 * 1.385864) = 0.027423
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), gender (idx1) | others) = -(0.043448) / sqrt(24.923738 * 1.019282) = -0.008620
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), education (idx2) | others) = -(-0.036121) / sqrt(24.923738 * 1.034239) = 0.007115
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), marital_status (idx3) | others) = -(0.038642) / sqrt(24.923738 * 1.214225) = -0.007024
+2026-06-07 15:53:38,847 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), age (idx4) | others) = -(0.028721) / sqrt(24.923738 * 1.265436) = -0.005114
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), repayment_status_sep_2005 (idx5) | others) = -(-0.010169) / sqrt(24.923738 * 1.212730) = 0.001850
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), repayment_status_aug_2005 (idx6) | others) = -(-0.020265) / sqrt(24.923738 * 1.460765) = 0.003359
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), repayment_status_jul_2005 (idx7) | others) = -(-0.006798) / sqrt(24.923738 * 2.108274) = 0.000938
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), repayment_status_jun_2005 (idx8) | others) = -(-0.109088) / sqrt(24.923738 * 2.003136) = 0.015439
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), repayment_status_may_2005 (idx9) | others) = -(0.100723) / sqrt(24.923738 * 1.503709) = -0.016453
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), repayment_status_apr_2005 (idx10) | others) = -(-0.221336) / sqrt(24.923738 * 1.573490) = 0.035344
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), bill_amount_sep_2005 (idx11) | others) = -(0.034853) / sqrt(24.923738 * 13.968743) = -0.001868
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), bill_amount_aug_2005 (idx12) | others) = -(0.394371) / sqrt(24.923738 * 25.815727) = -0.015547
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), bill_amount_jul_2005 (idx13) | others) = -(-0.962198) / sqrt(24.923738 * 21.796083) = 0.041283
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), bill_amount_jun_2005 (idx14) | others) = -(-10.792832) / sqrt(24.923738 * 20.296318) = 0.479866
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), bill_amount_apr_2005 (idx16) | others) = -(-13.608987) / sqrt(24.923738 * 15.025119) = 0.703251
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), payment_amount_sep_2005 (idx17) | others) = -(0.037001) / sqrt(24.923738 * 1.697435) = -0.005689
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), payment_amount_aug_2005 (idx18) | others) = -(0.345722) / sqrt(24.923738 * 2.253755) = -0.046128
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), payment_amount_jul_2005 (idx19) | others) = -(0.377162) / sqrt(24.923738 * 1.770061) = -0.056784
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), payment_amount_jun_2005 (idx20) | others) = -(-2.895895) / sqrt(24.923738 * 1.638705) = 0.453133
+2026-06-07 15:53:38,848 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), payment_amount_may_2005 (idx21) | others) = -(2.952630) / sqrt(24.923738 * 1.708580) = -0.452465
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_may_2005 (idx15), payment_amount_apr_2005 (idx22) | others) = -(-0.582769) / sqrt(24.923738 * 1.170292) = 0.107905
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), credit_limit (idx0) | others) = -(0.018851) / sqrt(15.025119 * 1.385864) = -0.004131
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), gender (idx1) | others) = -(0.011751) / sqrt(15.025119 * 1.019282) = -0.003003
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), education (idx2) | others) = -(0.083750) / sqrt(15.025119 * 1.034239) = -0.021245
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), marital_status (idx3) | others) = -(-0.034176) / sqrt(15.025119 * 1.214225) = 0.008001
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), age (idx4) | others) = -(-0.023427) / sqrt(15.025119 * 1.265436) = 0.005373
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), repayment_status_sep_2005 (idx5) | others) = -(0.029857) / sqrt(15.025119 * 1.212730) = -0.006994
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), repayment_status_aug_2005 (idx6) | others) = -(0.109379) / sqrt(15.025119 * 1.460765) = -0.023347
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), repayment_status_jul_2005 (idx7) | others) = -(-0.008709) / sqrt(15.025119 * 2.108274) = 0.001547
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), repayment_status_jun_2005 (idx8) | others) = -(-0.054498) / sqrt(15.025119 * 2.003136) = 0.009934
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), repayment_status_may_2005 (idx9) | others) = -(-0.239594) / sqrt(15.025119 * 1.503709) = 0.050406
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), repayment_status_apr_2005 (idx10) | others) = -(0.261218) / sqrt(15.025119 * 1.573490) = -0.053723
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), bill_amount_sep_2005 (idx11) | others) = -(0.524615) / sqrt(15.025119 * 13.968743) = -0.036212
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), bill_amount_aug_2005 (idx12) | others) = -(-1.126722) / sqrt(15.025119 * 25.815727) = 0.057209
+2026-06-07 15:53:38,849 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), bill_amount_jul_2005 (idx13) | others) = -(0.168416) / sqrt(15.025119 * 21.796083) = -0.009306
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), bill_amount_jun_2005 (idx14) | others) = -(-0.213023) / sqrt(15.025119 * 20.296318) = 0.012199
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), bill_amount_may_2005 (idx15) | others) = -(-13.608987) / sqrt(15.025119 * 24.923738) = 0.703251
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), payment_amount_sep_2005 (idx17) | others) = -(0.285454) / sqrt(15.025119 * 1.697435) = -0.056524
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), payment_amount_aug_2005 (idx18) | others) = -(0.082561) / sqrt(15.025119 * 2.253755) = -0.014188
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), payment_amount_jul_2005 (idx19) | others) = -(0.147921) / sqrt(15.025119 * 1.770061) = -0.028683
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), payment_amount_jun_2005 (idx20) | others) = -(0.505849) / sqrt(15.025119 * 1.638705) = -0.101944
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), payment_amount_may_2005 (idx21) | others) = -(-2.937331) / sqrt(15.025119 * 1.708580) = 0.579731
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(bill_amount_apr_2005 (idx16), payment_amount_apr_2005 (idx22) | others) = -(0.866470) / sqrt(15.025119 * 1.170292) = -0.206632
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), credit_limit (idx0) | others) = -(-0.082921) / sqrt(1.697435 * 1.385864) = 0.054064
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), gender (idx1) | others) = -(0.004443) / sqrt(1.697435 * 1.019282) = -0.003378
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), education (idx2) | others) = -(-0.005694) / sqrt(1.697435 * 1.034239) = 0.004297
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), marital_status (idx3) | others) = -(-0.009436) / sqrt(1.697435 * 1.214225) = 0.006573
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), age (idx4) | others) = -(-0.002182) / sqrt(1.697435 * 1.265436) = 0.001489
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), repayment_status_sep_2005 (idx5) | others) = -(0.054825) / sqrt(1.697435 * 1.212730) = -0.038212
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), repayment_status_aug_2005 (idx6) | others) = -(-0.075227) / sqrt(1.697435 * 1.460765) = 0.047774
+2026-06-07 15:53:38,850 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), repayment_status_jul_2005 (idx7) | others) = -(0.019398) / sqrt(1.697435 * 2.108274) = -0.010254
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), repayment_status_jun_2005 (idx8) | others) = -(-0.011731) / sqrt(1.697435 * 2.003136) = 0.006362
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), repayment_status_may_2005 (idx9) | others) = -(0.024323) / sqrt(1.697435 * 1.503709) = -0.015224
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), repayment_status_apr_2005 (idx10) | others) = -(-0.010464) / sqrt(1.697435 * 1.573490) = 0.006403
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), bill_amount_sep_2005 (idx11) | others) = -(2.293550) / sqrt(1.697435 * 13.968743) = -0.471013
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), bill_amount_aug_2005 (idx12) | others) = -(-3.441641) / sqrt(1.697435 * 25.815727) = 0.519908
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), bill_amount_jul_2005 (idx13) | others) = -(0.861573) / sqrt(1.697435 * 21.796083) = -0.141647
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), bill_amount_jun_2005 (idx14) | others) = -(-0.145303) / sqrt(1.697435 * 20.296318) = 0.024755
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), bill_amount_may_2005 (idx15) | others) = -(0.037001) / sqrt(1.697435 * 24.923738) = -0.005689
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), bill_amount_apr_2005 (idx16) | others) = -(0.285454) / sqrt(1.697435 * 15.025119) = -0.056524
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), payment_amount_aug_2005 (idx18) | others) = -(-0.523601) / sqrt(1.697435 * 2.253755) = 0.267701
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), payment_amount_jul_2005 (idx19) | others) = -(-0.184301) / sqrt(1.697435 * 1.770061) = 0.106325
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), payment_amount_jun_2005 (idx20) | others) = -(-0.192116) / sqrt(1.697435 * 1.638705) = 0.115191
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), payment_amount_may_2005 (idx21) | others) = -(-0.123312) / sqrt(1.697435 * 1.708580) = 0.072409
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_sep_2005 (idx17), payment_amount_apr_2005 (idx22) | others) = -(-0.112692) / sqrt(1.697435 * 1.170292) = 0.079956
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), credit_limit (idx0) | others) = -(-0.075287) / sqrt(2.253755 * 1.385864) = 0.042599
+2026-06-07 15:53:38,851 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), gender (idx1) | others) = -(-0.009177) / sqrt(2.253755 * 1.019282) = 0.006055
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), education (idx2) | others) = -(0.003991) / sqrt(2.253755 * 1.034239) = -0.002614
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), marital_status (idx3) | others) = -(-0.009461) / sqrt(2.253755 * 1.214225) = 0.005719
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), age (idx4) | others) = -(0.005317) / sqrt(2.253755 * 1.265436) = -0.003148
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), repayment_status_sep_2005 (idx5) | others) = -(-0.023451) / sqrt(2.253755 * 1.212730) = 0.014185
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), repayment_status_aug_2005 (idx6) | others) = -(-0.059913) / sqrt(2.253755 * 1.460765) = 0.033020
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), repayment_status_jul_2005 (idx7) | others) = -(0.251283) / sqrt(2.253755 * 2.108274) = -0.115278
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), repayment_status_jun_2005 (idx8) | others) = -(-0.163907) / sqrt(2.253755 * 2.003136) = 0.077141
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), repayment_status_may_2005 (idx9) | others) = -(0.051189) / sqrt(2.253755 * 1.503709) = -0.027806
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), repayment_status_apr_2005 (idx10) | others) = -(0.009200) / sqrt(2.253755 * 1.573490) = -0.004885
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), bill_amount_sep_2005 (idx11) | others) = -(-0.364355) / sqrt(2.253755 * 13.968743) = 0.064937
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), bill_amount_aug_2005 (idx12) | others) = -(3.430768) / sqrt(2.253755 * 25.815727) = -0.449776
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), bill_amount_jul_2005 (idx13) | others) = -(-4.629938) / sqrt(2.253755 * 21.796083) = 0.660591
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), bill_amount_jun_2005 (idx14) | others) = -(1.036119) / sqrt(2.253755 * 20.296318) = -0.153196
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), bill_amount_may_2005 (idx15) | others) = -(0.345722) / sqrt(2.253755 * 24.923738) = -0.046128
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), bill_amount_apr_2005 (idx16) | others) = -(0.082561) / sqrt(2.253755 * 15.025119) = -0.014188
+2026-06-07 15:53:38,852 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), payment_amount_sep_2005 (idx17) | others) = -(-0.523601) / sqrt(2.253755 * 1.697435) = 0.267701
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), payment_amount_jul_2005 (idx19) | others) = -(-0.628881) / sqrt(2.253755 * 1.770061) = 0.314863
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), payment_amount_jun_2005 (idx20) | others) = -(-0.178432) / sqrt(2.253755 * 1.638705) = 0.092847
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), payment_amount_may_2005 (idx21) | others) = -(-0.070155) / sqrt(2.253755 * 1.708580) = 0.035751
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_aug_2005 (idx18), payment_amount_apr_2005 (idx22) | others) = -(-0.035211) / sqrt(2.253755 * 1.170292) = 0.021681
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), credit_limit (idx0) | others) = -(-0.047716) / sqrt(1.770061 * 1.385864) = 0.030465
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), gender (idx1) | others) = -(-0.013575) / sqrt(1.770061 * 1.019282) = 0.010106
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), education (idx2) | others) = -(-0.023459) / sqrt(1.770061 * 1.034239) = 0.017338
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), marital_status (idx3) | others) = -(-0.012386) / sqrt(1.770061 * 1.214225) = 0.008449
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), age (idx4) | others) = -(-0.011706) / sqrt(1.770061 * 1.265436) = 0.007822
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), repayment_status_sep_2005 (idx5) | others) = -(0.006699) / sqrt(1.770061 * 1.212730) = -0.004572
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), repayment_status_aug_2005 (idx6) | others) = -(0.001069) / sqrt(1.770061 * 1.460765) = -0.000665
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), repayment_status_jul_2005 (idx7) | others) = -(-0.126805) / sqrt(1.770061 * 2.108274) = 0.065642
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), repayment_status_jun_2005 (idx8) | others) = -(0.255543) / sqrt(1.770061 * 2.003136) = -0.135711
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), repayment_status_may_2005 (idx9) | others) = -(-0.064836) / sqrt(1.770061 * 1.503709) = 0.039741
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), repayment_status_apr_2005 (idx10) | others) = -(0.034896) / sqrt(1.770061 * 1.573490) = -0.020910
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), bill_amount_sep_2005 (idx11) | others) = -(-0.376207) / sqrt(1.770061 * 13.968743) = 0.075658
+2026-06-07 15:53:38,853 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), bill_amount_aug_2005 (idx12) | others) = -(-0.258316) / sqrt(1.770061 * 25.815727) = 0.038213
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), bill_amount_jul_2005 (idx13) | others) = -(2.792712) / sqrt(1.770061 * 21.796083) = -0.449617
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), bill_amount_jun_2005 (idx14) | others) = -(-2.807146) / sqrt(1.770061 * 20.296318) = 0.468341
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), bill_amount_may_2005 (idx15) | others) = -(0.377162) / sqrt(1.770061 * 24.923738) = -0.056784
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), bill_amount_apr_2005 (idx16) | others) = -(0.147921) / sqrt(1.770061 * 15.025119) = -0.028683
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), payment_amount_sep_2005 (idx17) | others) = -(-0.184301) / sqrt(1.770061 * 1.697435) = 0.106325
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), payment_amount_aug_2005 (idx18) | others) = -(-0.628881) / sqrt(1.770061 * 2.253755) = 0.314863
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), payment_amount_jun_2005 (idx20) | others) = -(-0.265226) / sqrt(1.770061 * 1.638705) = 0.155730
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), payment_amount_may_2005 (idx21) | others) = -(-0.122150) / sqrt(1.770061 * 1.708580) = 0.070239
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jul_2005 (idx19), payment_amount_apr_2005 (idx22) | others) = -(-0.055489) / sqrt(1.770061 * 1.170292) = 0.038554
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), credit_limit (idx0) | others) = -(-0.093151) / sqrt(1.638705 * 1.385864) = 0.061813
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), gender (idx1) | others) = -(-0.008713) / sqrt(1.638705 * 1.019282) = 0.006742
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), education (idx2) | others) = -(-0.002486) / sqrt(1.638705 * 1.034239) = 0.001909
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), marital_status (idx3) | others) = -(-0.000845) / sqrt(1.638705 * 1.214225) = 0.000599
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), age (idx4) | others) = -(0.007208) / sqrt(1.638705 * 1.265436) = -0.005006
+2026-06-07 15:53:38,854 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), repayment_status_sep_2005 (idx5) | others) = -(-0.014323) / sqrt(1.638705 * 1.212730) = 0.010160
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), repayment_status_aug_2005 (idx6) | others) = -(-0.012896) / sqrt(1.638705 * 1.460765) = 0.008335
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), repayment_status_jul_2005 (idx7) | others) = -(-0.031716) / sqrt(1.638705 * 2.108274) = 0.017064
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), repayment_status_jun_2005 (idx8) | others) = -(0.096461) / sqrt(1.638705 * 2.003136) = -0.053241
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), repayment_status_may_2005 (idx9) | others) = -(-0.090936) / sqrt(1.638705 * 1.503709) = 0.057930
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), repayment_status_apr_2005 (idx10) | others) = -(0.015759) / sqrt(1.638705 * 1.573490) = -0.009814
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), bill_amount_sep_2005 (idx11) | others) = -(-0.455538) / sqrt(1.638705 * 13.968743) = 0.095213
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), bill_amount_aug_2005 (idx12) | others) = -(0.188521) / sqrt(1.638705 * 25.815727) = -0.028985
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), bill_amount_jul_2005 (idx13) | others) = -(0.112686) / sqrt(1.638705 * 21.796083) = -0.018855
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), bill_amount_jun_2005 (idx14) | others) = -(2.402483) / sqrt(1.638705 * 20.296318) = -0.416583
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), bill_amount_may_2005 (idx15) | others) = -(-2.895895) / sqrt(1.638705 * 24.923738) = 0.453133
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), bill_amount_apr_2005 (idx16) | others) = -(0.505849) / sqrt(1.638705 * 15.025119) = -0.101944
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), payment_amount_sep_2005 (idx17) | others) = -(-0.192116) / sqrt(1.638705 * 1.697435) = 0.115191
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), payment_amount_aug_2005 (idx18) | others) = -(-0.178432) / sqrt(1.638705 * 2.253755) = 0.092847
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), payment_amount_jul_2005 (idx19) | others) = -(-0.265226) / sqrt(1.638705 * 1.770061) = 0.155730
+2026-06-07 15:53:38,855 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), payment_amount_may_2005 (idx21) | others) = -(-0.216963) / sqrt(1.638705 * 1.708580) = 0.129664
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_jun_2005 (idx20), payment_amount_apr_2005 (idx22) | others) = -(-0.077896) / sqrt(1.638705 * 1.170292) = 0.056249
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), credit_limit (idx0) | others) = -(-0.154862) / sqrt(1.708580 * 1.385864) = 0.100639
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), gender (idx1) | others) = -(-0.002665) / sqrt(1.708580 * 1.019282) = 0.002019
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), education (idx2) | others) = -(-0.007460) / sqrt(1.708580 * 1.034239) = 0.005612
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), marital_status (idx3) | others) = -(-0.009923) / sqrt(1.708580 * 1.214225) = 0.006889
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), age (idx4) | others) = -(0.007020) / sqrt(1.708580 * 1.265436) = -0.004774
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), repayment_status_sep_2005 (idx5) | others) = -(-0.000561) / sqrt(1.708580 * 1.212730) = 0.000390
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), repayment_status_aug_2005 (idx6) | others) = -(-0.027056) / sqrt(1.708580 * 1.460765) = 0.017126
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), repayment_status_jul_2005 (idx7) | others) = -(-0.032948) / sqrt(1.708580 * 2.108274) = 0.017360
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), repayment_status_jun_2005 (idx8) | others) = -(-0.003694) / sqrt(1.708580 * 2.003136) = 0.001997
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), repayment_status_may_2005 (idx9) | others) = -(0.097644) / sqrt(1.708580 * 1.503709) = -0.060918
+2026-06-07 15:53:38,856 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), repayment_status_apr_2005 (idx10) | others) = -(-0.207574) / sqrt(1.708580 * 1.573490) = 0.126597
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), bill_amount_sep_2005 (idx11) | others) = -(-0.318847) / sqrt(1.708580 * 13.968743) = 0.065266
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), bill_amount_aug_2005 (idx12) | others) = -(0.425098) / sqrt(1.708580 * 25.815727) = -0.064007
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), bill_amount_jul_2005 (idx13) | others) = -(-0.298293) / sqrt(1.708580 * 21.796083) = 0.048881
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), bill_amount_jun_2005 (idx14) | others) = -(-0.032104) / sqrt(1.708580 * 20.296318) = 0.005452
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), bill_amount_may_2005 (idx15) | others) = -(2.952630) / sqrt(1.708580 * 24.923738) = -0.452465
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), bill_amount_apr_2005 (idx16) | others) = -(-2.937331) / sqrt(1.708580 * 15.025119) = 0.579731
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), payment_amount_sep_2005 (idx17) | others) = -(-0.123312) / sqrt(1.708580 * 1.697435) = 0.072409
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), payment_amount_aug_2005 (idx18) | others) = -(-0.070155) / sqrt(1.708580 * 2.253755) = 0.035751
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), payment_amount_jul_2005 (idx19) | others) = -(-0.122150) / sqrt(1.708580 * 1.770061) = 0.070239
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), payment_amount_jun_2005 (idx20) | others) = -(-0.216963) / sqrt(1.708580 * 1.638705) = 0.129664
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_may_2005 (idx21), payment_amount_apr_2005 (idx22) | others) = -(-0.233671) / sqrt(1.708580 * 1.170292) = 0.165250
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), credit_limit (idx0) | others) = -(-0.135772) / sqrt(1.170292 * 1.385864) = 0.106611
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), gender (idx1) | others) = -(-0.001814) / sqrt(1.170292 * 1.019282) = 0.001661
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), education (idx2) | others) = -(0.004475) / sqrt(1.170292 * 1.034239) = -0.004068
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), marital_status (idx3) | others) = -(-0.008487) / sqrt(1.170292 * 1.214225) = 0.007119
+2026-06-07 15:53:38,857 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), age (idx4) | others) = -(0.011287) / sqrt(1.170292 * 1.265436) = -0.009275
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), repayment_status_sep_2005 (idx5) | others) = -(0.014143) / sqrt(1.170292 * 1.212730) = -0.011872
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), repayment_status_aug_2005 (idx6) | others) = -(-0.021649) / sqrt(1.170292 * 1.460765) = 0.016558
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), repayment_status_jul_2005 (idx7) | others) = -(0.011799) / sqrt(1.170292 * 2.108274) = -0.007512
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), repayment_status_jun_2005 (idx8) | others) = -(-0.022798) / sqrt(1.170292 * 2.003136) = 0.014890
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), repayment_status_may_2005 (idx9) | others) = -(-0.005244) / sqrt(1.170292 * 1.503709) = 0.003953
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), repayment_status_apr_2005 (idx10) | others) = -(-0.023157) / sqrt(1.170292 * 1.573490) = 0.017065
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), bill_amount_sep_2005 (idx11) | others) = -(-0.237252) / sqrt(1.170292 * 13.968743) = 0.058679
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), bill_amount_aug_2005 (idx12) | others) = -(0.131026) / sqrt(1.170292 * 25.815727) = -0.023838
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), bill_amount_jul_2005 (idx13) | others) = -(-0.077394) / sqrt(1.170292 * 21.796083) = 0.015324
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), bill_amount_jun_2005 (idx14) | others) = -(-0.146292) / sqrt(1.170292 * 20.296318) = 0.030017
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), bill_amount_may_2005 (idx15) | others) = -(-0.582769) / sqrt(1.170292 * 24.923738) = 0.107905
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), bill_amount_apr_2005 (idx16) | others) = -(0.866470) / sqrt(1.170292 * 15.025119) = -0.206632
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), payment_amount_sep_2005 (idx17) | others) = -(-0.112692) / sqrt(1.170292 * 1.697435) = 0.079956
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), payment_amount_aug_2005 (idx18) | others) = -(-0.035211) / sqrt(1.170292 * 2.253755) = 0.021681
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), payment_amount_jul_2005 (idx19) | others) = -(-0.055489) / sqrt(1.170292 * 1.770061) = 0.038554
+2026-06-07 15:53:38,858 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), payment_amount_jun_2005 (idx20) | others) = -(-0.077896) / sqrt(1.170292 * 1.638705) = 0.056249
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:639 | INFO | PartialCorr(payment_amount_apr_2005 (idx22), payment_amount_may_2005 (idx21) | others) = -(-0.233671) / sqrt(1.170292 * 1.708580) = 0.165250
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:665 | INFO | Squared Correlation matrix calculated
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:669 | INFO | Squared Partial Correlation matrix calculated
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:716 | INFO | KMO per variable:
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:717 | INFO | --------------------------------------------------
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'credit_limit': 0.865606 (Very good)
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'gender': 0.460971 (Not suitable)
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'education': 0.484535 (Not suitable)
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'marital_status': 0.509195 (Weak)
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'age': 0.532023 (Weak)
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'repayment_status_sep_2005': 0.792396 (Good)
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'repayment_status_aug_2005': 0.750307 (Good)
+2026-06-07 15:53:38,859 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'repayment_status_jul_2005': 0.616045 (Moderate)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'repayment_status_jun_2005': 0.517287 (Weak)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'repayment_status_may_2005': 0.469463 (Not suitable)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'repayment_status_apr_2005': 0.641429 (Moderate)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'bill_amount_sep_2005': 0.839751 (Very good)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'bill_amount_aug_2005': 0.777092 (Good)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'bill_amount_jul_2005': 0.801867 (Very good)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'bill_amount_jun_2005': 0.843006 (Very good)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'bill_amount_may_2005': 0.792653 (Good)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'bill_amount_apr_2005': 0.824280 (Very good)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'payment_amount_sep_2005': 0.484742 (Not suitable)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'payment_amount_aug_2005': 0.368495 (Not suitable)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'payment_amount_jul_2005': 0.487161 (Not suitable)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'payment_amount_jun_2005': 0.489160 (Not suitable)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'payment_amount_may_2005': 0.398143 (Not suitable)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:721 | INFO | KMO for variable 'payment_amount_apr_2005': 0.764368 (Good)
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:722 | INFO | --------------------------------------------------
+2026-06-07 15:53:38,860 | mlops.factor_analysis | calculate_kmo_manual:763 | INFO | Overall KMO for the dataset: 0.737147 (Good)
+2026-06-07 15:53:38,861 | mlops.factor_analysis | calculate_kmo_manual:798 | INFO | KMO output saved to outputs/factor_analysis/kmo_output.json
+2026-06-07 15:53:38,861 | mlops.factor_analysis | calculate_kmo_manual:800 | INFO | KMO (Kaiser-Meyer-Olkin) calculation completed successfully.
+2026-06-07 15:53:38,862 | mlops.factor_analysis | calculate_bartlett_manual:953 | INFO | Calculating Bartlett's Test of Sphericity manually.
+2026-06-07 15:53:38,866 | mlops.factor_analysis | calculate_bartlett_manual:961 | INFO | Dropped target variable 'TARGET' from dataframe for KMO calculation.
+2026-06-07 15:53:38,866 | mlops.factor_analysis | calculate_bartlett_manual:972 | INFO | Number of samples: 30000
+2026-06-07 15:53:38,866 | mlops.factor_analysis | calculate_bartlett_manual:973 | INFO | Number of variables: 23
+2026-06-07 15:53:38,887 | mlops.factor_analysis | calculate_bartlett_manual:979 | INFO | Correlation matrix (R) calculated for Bartlett's test.
+2026-06-07 15:53:38,888 | mlops.factor_analysis | calculate_bartlett_manual:983 | INFO | Determinant of the correlation matrix (R): 0.00000020
+2026-06-07 15:53:38,888 | mlops.factor_analysis | calculate_bartlett_manual:1001 | INFO | ln(Det(R)) = -15.40841207
+2026-06-07 15:53:38,888 | mlops.factor_analysis | calculate_bartlett_manual:1015 | INFO | Correction factor = 29990.5000
+2026-06-07 15:53:38,888 | mlops.factor_analysis | calculate_bartlett_manual:1019 | INFO | Chi-square statistic for Bartlett's test: 462105.9821
+2026-06-07 15:53:38,888 | mlops.factor_analysis | calculate_bartlett_manual:1023 | INFO | Degrees of freedom for Bartlett's test: 253
+2026-06-07 15:53:38,888 | mlops.factor_analysis | calculate_bartlett_manual:1026 | INFO | P-value for Bartlett's test: 0.00000000
+2026-06-07 15:53:38,889 | mlops.factor_analysis | interpret_bartlett:844 | INFO | Interpreting Bartlett's Test of Sphericity results. For p-value: 0.00000000 with reject threshold: 0.05
+2026-06-07 15:53:38,889 | mlops.factor_analysis | interpret_bartlett:851 | INFO | Reject H0 with p-value=0.00000000. The correlation matrix significantly differs from an identity matrix. Factor analysis can continue.
+2026-06-07 15:53:38,889 | mlops.factor_analysis | calculate_bartlett_manual:1030 | INFO | Interpretation of Bartlett's test completed.
+2026-06-07 15:53:38,889 | mlops.factor_analysis | calculate_bartlett_manual:1051 | INFO | Bartlett's test metadata prepared for output.
+2026-06-07 15:53:38,889 | mlops.factor_analysis | calculate_bartlett_manual:1059 | INFO | Bartlett's test output saved to outputs/factor_analysis/bartlett_test_output.json
+2026-06-07 15:53:38,890 | mlops.factor_analysis | calculate_bartlett_manual:1061 | INFO | Bartlett's Test of Sphericity calculation completed successfully.
+2026-06-07 15:53:38,890 | mlops.factor_analysis | calculate_eigenvalues:1205 | INFO | Calculating eigenvalues and eigenvectors from the correlation matrix.
+2026-06-07 15:53:38,894 | mlops.factor_analysis | calculate_eigenvalues:1209 | INFO | Dataframe copied for eigenvalue calculation.
+2026-06-07 15:53:38,894 | mlops.factor_analysis | calculate_eigenvalues:1214 | INFO | Dropped target variable 'TARGET' from dataframe for KMO calculation.
+2026-06-07 15:53:38,917 | mlops.factor_analysis | calculate_eigenvalues:1223 | INFO | Correlation matrix calculated for eigenvalue decomposition.
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1280 | INFO | Eigenvalues calculated:
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 1: 0.02318515
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 2: 0.02529888
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 3: 0.04092203
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 4: 0.07074936
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 5: 0.25170034
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 6: 0.28629642
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 7: 0.41731084
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 8: 0.52794602
+2026-06-07 15:53:38,918 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 9: 0.55041016
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 10: 0.71795481
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 11: 0.74308416
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 12: 0.77903003
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 13: 0.85523328
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 14: 0.87783572
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 15: 0.89571800
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 16: 0.96888921
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 17: 0.97370903
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 18: 1.03806437
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 19: 1.32673514
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 20: 1.44198806
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 21: 1.95303016
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 22: 2.23190667
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1282 | INFO | Eigenvalue 23: 6.00300217
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1283 | INFO | Eigenvectors calculated. 23 variables and 23 factors.
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1287 | INFO | Real parts of eigenvalues extracted:
+2026-06-07 15:53:38,919 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 1: 0.02318515
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 2: 0.02529888
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 3: 0.04092203
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 4: 0.07074936
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 5: 0.25170034
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 6: 0.28629642
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 7: 0.41731084
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 8: 0.52794602
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 9: 0.55041016
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 10: 0.71795481
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 11: 0.74308416
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 12: 0.77903003
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 13: 0.85523328
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 14: 0.87783572
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 15: 0.89571800
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 16: 0.96888921
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 17: 0.97370903
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 18: 1.03806437
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 19: 1.32673514
+2026-06-07 15:53:38,920 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 20: 1.44198806
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 21: 1.95303016
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 22: 2.23190667
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1289 | INFO | Eigenvalue 23: 6.00300217
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1302 | INFO | Eigenvalues sorted in descending order. Sorted indices: [22 21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0]
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1312 | INFO | Eigenvalues and eigenvectors sorted according to eigenvalues.
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 1: 6.00300217 | Variance Explained: 0.2610 | Cumulative Variance Explained: 0.2610
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 2: 2.23190667 | Variance Explained: 0.0970 | Cumulative Variance Explained: 0.3580
+2026-06-07 15:53:38,921 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 3: 1.95303016 | Variance Explained: 0.0849 | Cumulative Variance Explained: 0.4430
+2026-06-07 15:53:38,922 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 4: 1.44198806 | Variance Explained: 0.0627 | Cumulative Variance Explained: 0.5056
+2026-06-07 15:53:38,922 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 5: 1.32673514 | Variance Explained: 0.0577 | Cumulative Variance Explained: 0.5633
+2026-06-07 15:53:38,922 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 6: 1.03806437 | Variance Explained: 0.0451 | Cumulative Variance Explained: 0.6085
+2026-06-07 15:53:38,922 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 7: 0.97370903 | Variance Explained: 0.0423 | Cumulative Variance Explained: 0.6508
+2026-06-07 15:53:38,922 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 8: 0.96888921 | Variance Explained: 0.0421 | Cumulative Variance Explained: 0.6929
+2026-06-07 15:53:38,922 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 9: 0.89571800 | Variance Explained: 0.0389 | Cumulative Variance Explained: 0.7319
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 10: 0.87783572 | Variance Explained: 0.0382 | Cumulative Variance Explained: 0.7700
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 11: 0.85523328 | Variance Explained: 0.0372 | Cumulative Variance Explained: 0.8072
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 12: 0.77903003 | Variance Explained: 0.0339 | Cumulative Variance Explained: 0.8411
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 13: 0.74308416 | Variance Explained: 0.0323 | Cumulative Variance Explained: 0.8734
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 14: 0.71795481 | Variance Explained: 0.0312 | Cumulative Variance Explained: 0.9046
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 15: 0.55041016 | Variance Explained: 0.0239 | Cumulative Variance Explained: 0.9285
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 16: 0.52794602 | Variance Explained: 0.0230 | Cumulative Variance Explained: 0.9515
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 17: 0.41731084 | Variance Explained: 0.0181 | Cumulative Variance Explained: 0.9696
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 18: 0.28629642 | Variance Explained: 0.0124 | Cumulative Variance Explained: 0.9821
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 19: 0.25170034 | Variance Explained: 0.0109 | Cumulative Variance Explained: 0.9930
+2026-06-07 15:53:38,923 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 20: 0.07074936 | Variance Explained: 0.0031 | Cumulative Variance Explained: 0.9961
+2026-06-07 15:53:38,924 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 21: 0.04092203 | Variance Explained: 0.0018 | Cumulative Variance Explained: 0.9979
+2026-06-07 15:53:38,924 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 22: 0.02529888 | Variance Explained: 0.0011 | Cumulative Variance Explained: 0.9990
+2026-06-07 15:53:38,924 | mlops.factor_analysis | calculate_eigenvalues:1317 | INFO | Eigenvalue 23: 0.02318515 | Variance Explained: 0.0010 | Cumulative Variance Explained: 1.0000
+2026-06-07 15:53:38,924 | mlops.factor_analysis | calculate_eigenvalues:1325 | INFO | Eigenvalues table created with factor names, eigenvalues, explained variance ratios, and cumulative variance ratios.
+2026-06-07 15:53:38,925 | mlops.factor_analysis | calculate_eigenvalues:1354 | INFO | EigenValues metadata prepared for output.
+2026-06-07 15:53:38,926 | mlops.factor_analysis | calculate_eigenvalues:1362 | INFO | EigenValues output saved to outputs/factor_analysis/eigenvalues_output.json
+2026-06-07 15:53:38,926 | mlops.factor_analysis | calculate_eigenvalues:1364 | INFO | EigenValues calculation completed successfully.
+2026-06-07 15:53:38,926 | mlops.factor_analysis | calculate_factor_loadings:1565 | INFO | Starting factor loadings calculation.
+2026-06-07 15:53:38,926 | mlops.factor_analysis | calculate_factor_loadings:1578 | INFO | GIVEN EIGEN VALUES DESCENDING ORDER
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 1: 6.00300217 | Var Explained: 0.2610 | Cum Var Explained: 0.2610
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 2: 2.23190667 | Var Explained: 0.0970 | Cum Var Explained: 0.3580
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 3: 1.95303016 | Var Explained: 0.0849 | Cum Var Explained: 0.4430
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 4: 1.44198806 | Var Explained: 0.0627 | Cum Var Explained: 0.5056
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 5: 1.32673514 | Var Explained: 0.0577 | Cum Var Explained: 0.5633
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 6: 1.03806437 | Var Explained: 0.0451 | Cum Var Explained: 0.6085
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 7: 0.97370903 | Var Explained: 0.0423 | Cum Var Explained: 0.6508
+2026-06-07 15:53:38,927 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 8: 0.96888921 | Var Explained: 0.0421 | Cum Var Explained: 0.6929
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 9: 0.89571800 | Var Explained: 0.0389 | Cum Var Explained: 0.7319
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 10: 0.87783572 | Var Explained: 0.0382 | Cum Var Explained: 0.7700
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 11: 0.85523328 | Var Explained: 0.0372 | Cum Var Explained: 0.8072
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 12: 0.77903003 | Var Explained: 0.0339 | Cum Var Explained: 0.8411
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 13: 0.74308416 | Var Explained: 0.0323 | Cum Var Explained: 0.8734
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 14: 0.71795481 | Var Explained: 0.0312 | Cum Var Explained: 0.9046
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 15: 0.55041016 | Var Explained: 0.0239 | Cum Var Explained: 0.9285
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 16: 0.52794602 | Var Explained: 0.0230 | Cum Var Explained: 0.9515
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 17: 0.41731084 | Var Explained: 0.0181 | Cum Var Explained: 0.9696
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 18: 0.28629642 | Var Explained: 0.0124 | Cum Var Explained: 0.9821
+2026-06-07 15:53:38,928 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 19: 0.25170034 | Var Explained: 0.0109 | Cum Var Explained: 0.9930
+2026-06-07 15:53:38,929 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 20: 0.07074936 | Var Explained: 0.0031 | Cum Var Explained: 0.9961
+2026-06-07 15:53:38,929 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 21: 0.04092203 | Var Explained: 0.0018 | Cum Var Explained: 0.9979
+2026-06-07 15:53:38,929 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 22: 0.02529888 | Var Explained: 0.0011 | Cum Var Explained: 0.9990
+2026-06-07 15:53:38,929 | mlops.factor_analysis | calculate_factor_loadings:1580 | INFO | Eigenvalue 23: 0.02318515 | Var Explained: 0.0010 | Cum Var Explained: 1.0000
+2026-06-07 15:53:38,932 | mlops.factor_analysis | calculate_factor_loadings:1584 | INFO | Dataframe copied for factor loadings calculation.
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1589 | INFO | Dropped target variable 'TARGET' from dataframe for factor loadings calculation.
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1598 | INFO | Number of factors retained based on eigenvalue threshold > 1.0: 6
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1608 | INFO | --------------------------------------------------
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1609 | INFO | Selected eigenvalues for retained factors:
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1611 | INFO | Selected Eigenvalue for Factor_1: 6.00300217 | Var Explained: 0.2610 | Cum Var Explained: 0.2610
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1611 | INFO | Selected Eigenvalue for Factor_2: 2.23190667 | Var Explained: 0.0970 | Cum Var Explained: 0.3580
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1611 | INFO | Selected Eigenvalue for Factor_3: 1.95303016 | Var Explained: 0.0849 | Cum Var Explained: 0.4430
+2026-06-07 15:53:38,933 | mlops.factor_analysis | calculate_factor_loadings:1611 | INFO | Selected Eigenvalue for Factor_4: 1.44198806 | Var Explained: 0.0627 | Cum Var Explained: 0.5056
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1611 | INFO | Selected Eigenvalue for Factor_5: 1.32673514 | Var Explained: 0.0577 | Cum Var Explained: 0.5633
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1611 | INFO | Selected Eigenvalue for Factor_6: 1.03806437 | Var Explained: 0.0451 | Cum Var Explained: 0.6085
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1612 | INFO | Total variance explained by retained factors (6): 0.6085
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1613 | INFO | --------------------------------------------------
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1615 | INFO | Shape of selected eigenvectors for retained factors: 23 variables and 6 factors.
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1645 | INFO | Factor loadings calculated using eigenvectors and eigenvalues.
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1647 | INFO | Calculated factor loadings before rotation:
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1649 | INFO | Factor_1 loadings:
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable credit_limit: 0.3849
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable gender: 0.0295
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable education: -0.0166
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable marital_status: -0.0468
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable age: 0.0779
+2026-06-07 15:53:38,934 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_sep_2005: -0.0973
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_aug_2005: -0.2660
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jul_2005: -0.1199
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jun_2005: -0.0417
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_may_2005: 0.0195
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_apr_2005: 0.1286
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_sep_2005: 0.9068
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_aug_2005: 0.9328
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jul_2005: 0.9440
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jun_2005: 0.9516
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_may_2005: 0.9436
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_apr_2005: 0.9247
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_sep_2005: 0.3242
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_aug_2005: 0.2806
+2026-06-07 15:53:38,935 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jul_2005: 0.3084
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jun_2005: 0.2811
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_may_2005: 0.2750
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_apr_2005: 0.2529
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1649 | INFO | Factor_2 loadings:
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable credit_limit: -0.0674
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable gender: 0.0004
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable education: -0.0052
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable marital_status: 0.0574
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable age: -0.0740
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_sep_2005: -0.5695
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_aug_2005: -0.3868
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jul_2005: -0.8146
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jun_2005: -0.6364
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_may_2005: 0.3459
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_apr_2005: 0.6681
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_sep_2005: -0.0998
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_aug_2005: -0.0979
+2026-06-07 15:53:38,936 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jul_2005: -0.0904
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jun_2005: -0.0872
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_may_2005: -0.0886
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_apr_2005: -0.0828
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_sep_2005: 0.0863
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_aug_2005: 0.1105
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jul_2005: 0.1328
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jun_2005: 0.0952
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_may_2005: 0.0984
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_apr_2005: 0.0624
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1649 | INFO | Factor_3 loadings:
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable credit_limit: 0.5376
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable gender: -0.0540
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable education: 0.1368
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable marital_status: -0.1718
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable age: 0.2237
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_sep_2005: 0.1300
+2026-06-07 15:53:38,937 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_aug_2005: 0.5334
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jul_2005: -0.0413
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jun_2005: -0.3089
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_may_2005: -0.3284
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_apr_2005: -0.1188
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_sep_2005: -0.1814
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_aug_2005: -0.1703
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jul_2005: -0.1232
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jun_2005: -0.1176
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_may_2005: -0.1086
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_apr_2005: -0.1015
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_sep_2005: 0.4169
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_aug_2005: 0.4362
+2026-06-07 15:53:38,938 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jul_2005: 0.4375
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jun_2005: 0.3674
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_may_2005: 0.3311
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_apr_2005: 0.3596
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1649 | INFO | Factor_4 loadings:
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable credit_limit: 0.1077
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable gender: 0.1255
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable education: 0.2772
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable marital_status: -0.7385
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable age: 0.7937
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_sep_2005: -0.1031
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_aug_2005: -0.0335
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jul_2005: -0.0736
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jun_2005: -0.0563
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_may_2005: 0.0243
+2026-06-07 15:53:38,939 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_apr_2005: 0.0464
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_sep_2005: 0.0527
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_aug_2005: 0.0346
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jul_2005: 0.0104
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jun_2005: 0.0048
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_may_2005: -0.0024
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_apr_2005: -0.0095
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_sep_2005: -0.1761
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_aug_2005: -0.1811
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jul_2005: -0.1572
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jun_2005: -0.1389
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_may_2005: -0.1153
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_apr_2005: -0.1185
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1649 | INFO | Factor_5 loadings:
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable credit_limit: -0.1051
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable gender: 0.1499
+2026-06-07 15:53:38,940 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable education: 0.0182
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable marital_status: -0.1090
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable age: 0.1277
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_sep_2005: 0.0720
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_aug_2005: -0.0085
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jul_2005: 0.2962
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jun_2005: 0.5300
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_may_2005: 0.7307
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_apr_2005: 0.3553
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_sep_2005: -0.1217
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_aug_2005: -0.0996
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jul_2005: -0.0555
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jun_2005: -0.0428
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_may_2005: -0.0033
+2026-06-07 15:53:38,941 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_apr_2005: 0.0163
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_sep_2005: 0.1680
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_aug_2005: 0.1925
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jul_2005: 0.1424
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jun_2005: 0.2493
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_may_2005: 0.1855
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_apr_2005: 0.1367
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1649 | INFO | Factor_6 loadings:
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable credit_limit: 0.1616
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable gender: -0.7128
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable education: -0.5316
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable marital_status: -0.3038
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable age: -0.0623
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_sep_2005: 0.0546
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_aug_2005: 0.1184
+2026-06-07 15:53:38,942 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jul_2005: 0.0241
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_jun_2005: -0.0137
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_may_2005: 0.1138
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable repayment_status_apr_2005: 0.1456
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_sep_2005: 0.0095
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_aug_2005: -0.0087
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jul_2005: -0.0207
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_jun_2005: -0.0106
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_may_2005: 0.0168
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable bill_amount_apr_2005: 0.0451
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_sep_2005: -0.1425
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_aug_2005: -0.1449
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jul_2005: -0.1052
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_jun_2005: 0.0404
+2026-06-07 15:53:38,943 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_may_2005: 0.1263
+2026-06-07 15:53:38,944 | mlops.factor_analysis | calculate_factor_loadings:1651 | INFO | Variable payment_amount_apr_2005: 0.0142
+2026-06-07 15:53:38,944 | mlops.factor_analysis | calculate_factor_loadings:1652 | INFO | --------------------------------------------------
+2026-06-07 15:53:38,944 | mlops.factor_analysis | calculate_factor_loadings:1656 | INFO | Applying Varimax rotation to factor loadings.
+2026-06-07 15:53:38,944 | mlops.factor_analysis | calculate_factor_loadings:1672 | INFO | Factor loadings calculated and stored in DataFrame.
+2026-06-07 15:53:38,945 | mlops.factor_analysis | calculate_factor_loadings:1686 | INFO | Factor loadings metadata prepared for output.
+2026-06-07 15:53:38,946 | mlops.factor_analysis | calculate_factor_loadings:1694 | INFO | Factor loadings metadata saved to outputs/factor_analysis/factor_loadings_output.json
+2026-06-07 15:53:38,946 | mlops.factor_analysis | calculate_factor_loadings:1696 | INFO | Factor loadings calculation completed.
