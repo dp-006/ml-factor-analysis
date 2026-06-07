@@ -1882,37 +1882,6 @@ def create_factor_groups(
     logger.info(grouped_summary.head(5))
     logger.info("-" * 50)
 
-    # Prepare Variance Explained Power of Each Factor Group
-    # This is calculated as the sum of squared loadings of the variables in each factor group
-    # Calculate Variance Explained by Each Factor Group
-    # This sums the squared loadings of variables in each factor group.
-    # Example: If Factor_1 has variables [AGE, TENURE] with loadings [0.91, 0.88]:
-    # Variance = (0.91²) + (0.88²) = 0.8281 + 0.7744 = 1.6025
-    # Note: This shows cumulative explained variance for the group, not a normalized ratio.
-    # For percentage of total variance, divide by sum of all eigenvalues.
-    
-    # Calculate total variance (sum of all squared loadings)
-    total_variance = (loadings_df ** 2).sum().sum()
-    
-    variance_explained = {}
-    variance_explained_ratio = {}
-    for factor in grouped_summary["assignedFactor"]:
-        variables_in_group = grouped_summary[grouped_summary["assignedFactor"] == factor]["variablesInGroup"].values[0]
-        loadings_for_group = loadings_df.loc[variables_in_group, factor]
-        variance_value = (loadings_for_group ** 2).sum()
-        variance_explained[factor] = variance_value
-        # Calculate as percentage of total variance
-        variance_explained_ratio[factor] = (variance_value / total_variance) * 100
-    
-    logger.info("Calculated variance explained by each factor group based on the sum of squared loadings of the variables in each group.")
-    logger.info("Variance explained by each factor group:")
-    for factor, variance in variance_explained.items():
-        ratio = variance_explained_ratio[factor]
-        logger.info(f"\t{factor}: {variance:.4f} variance explained | {ratio:.2f}% of total variance")
-    logger.info(f"Explained variance by {len(variance_explained)} selected factors (sum of eigenvalues of retained factors):")
-    logger.info(f"\tTotal: {sum(variance_explained.values()):.4f} | {sum(variance_explained.values()) / total_variance * 100:.2f}% of total variance")
-    logger.info("-" * 50)
-
     # Prepare metadata for output
     metadata = {
         "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. Variables with max absolute loading above the specified threshold are classified as STRONG_GROUP, while those below are classified as WEAK_LOADING.",
@@ -1922,10 +1891,7 @@ def create_factor_groups(
             "WEAK_LOADING": f"Variable has a maximum absolute loading < {loading_threshold} on its assigned factor, indicating a weak association with that factor."
         },
         "groupingTableSample": grouping_table.head(5).to_dict(orient="records"),
-        "groupedSummarySample": grouped_summary.head(5).to_dict(orient="records"),
-        "varianceExplained": variance_explained,
-        "varianceExplainedRatio": variance_explained_ratio,
-        "totalVariance": total_variance
+        "groupedSummarySample": grouped_summary.head(5).to_dict(orient="records")
     }
 
     logger.info("Factor grouping metadata prepared for output.")
