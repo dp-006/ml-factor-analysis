@@ -6,36 +6,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 from scipy import stats
-import logging
-from logging_config.logger_config import setup_logger
+from logging_config.logger_config import get_logger
 
 logger_name = "mlops.utils"
-
-try:
-    # Check if logger is already configured in logging library
-    if logger_name in logging.Logger.manager.loggerDict:
-        # Logger exists, use it
-        logger = logging.getLogger(logger_name)
-    else:
-        # Logger doesn't exist, setup new one with proper configuration
-        logger = setup_logger(
-            name=logger_name,
-            level="info",
-            log_to_file=True,
-            log_mode="w",
-            timestamp="test_timestamp",
-            runid="test_run",
-            propagate=False
-        )
-except Exception as e:
-    # Fallback: if anything fails, create basic logger
-    print(f"[ERROR] Logger setup failed for {logger_name}: {e}")
-    logger = logging.getLogger(logger_name)
-    logger.setLevel(logging.INFO)
-    handler = logging.StreamHandler()
-    handler.setFormatter(logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s"))
-    logger.addHandler(handler)
-    logger.warning(f"Using fallback logger: {e}")
+logger_file_name = "utils.log"
+logger = get_logger(logger_name, logger_file_name)
 
 def _sanitize(obj):
     """Recursively replace NaN/Inf float values with None for JSON safety."""

@@ -24,6 +24,7 @@ def setup_logger(
     level: str = "info",
     log_to_file: bool = False,
     log_file_path: Path = None,
+    log_file_name: str = None,
     log_mode: str = 'a',
     timestamp: str = None,
     runid: str = None,
@@ -74,17 +75,18 @@ def setup_logger(
     # File handler (logs to file)
     if log_to_file:
         if log_file_path is None:
-            # Create logs directory at project root: mlops/{timestamp}/{runid}/logs
+            # Create logs directory at project root: mlops/logs
             project_root = Path(__file__).parent.parent
             print(f"Project root directory: {project_root}")
-            log_dir = project_root / f"mlops/{timestamp}/{runid}/logs"
+            log_dir = project_root / f"mlops/logs"
             log_dir.mkdir(parents=True, exist_ok=True)
             print(f"Created log directory: {log_dir}")
 
-            # Generate log file name with logger_name it could be 
-            # "mlops.factor_analysis" -> "factor_analysis.log"
-            # "mlops.log" -> "mlops.log"
-            log_file_path = log_dir / f"{name.split('.')[-1]}.log"
+            if log_file_name is None:
+                raise ValueError("log_file_name must be provided if log_to_file is True and log_file_path is not specified.")
+
+            # Generate log file path with log file name
+            log_file_path = log_dir / f"{log_file_name}"
             print(f"Generated log file path for logger '{name}': {log_file_path}")
 
         # File handler mode options:
@@ -109,7 +111,7 @@ def setup_logger(
 
 def setup_multiple_loggers(
     level: str = "info",
-    log_mode: str = 'a',
+    log_mode: str = 'w',
     timestamp: str = None,
     runid: str = None,
     propagate: bool = False,
@@ -120,7 +122,7 @@ def setup_multiple_loggers(
 
     Args:
         level (str): Log level as string (debug, info, etc.). Applied to all loggers.
-        log_mode (str): File write mode ('a' for append, 'w' for overwrite). Defaults to 'a'.
+        log_mode (str): File write mode ('a' for append, 'w' for overwrite). Defaults to 'w'.
         timestamp (str): Optional timestamp to include in log file path.
         runid (str): Optional run ID to include in log file path.
         propagate (bool): Whether to propagate logs to parent loggers. Defaults to False.
@@ -158,3 +160,51 @@ def setup_multiple_loggers(
         print(f"Configured logger '{logger_name}' with level '{level.upper()}' and log file '{log_file_path}'")
         configured_loggers[logger_name] = logger
     return configured_loggers
+
+def get_logger(logger_name: str, logger_file_name: str) -> logging.Logger:
+    '''
+    Get a logger instance by name. If the logger is already configured, it will be returned.
+    If not, a new logger will be set up with the provided name and file name.
+
+    Args:
+        logger_name (str): Name of the logger to retrieve.
+        logger_file_name (str): Log file name to use if a new logger needs to be created.
+    
+    Returns:
+        logging.Logger: Logger instance corresponding to the provided name.
+    
+    Exceptions:
+        If logger setup fails, a basic logger will be created and an error message will be printed
+        to the console. The fallback logger will log to the console with a warning about using the fallback.
+
+    Note:
+        This function assumes that the logger configuration is managed through the logging library's loggerDict. 
+        If the logger is not found, it will attempt to set up a new logger with the provided name and file name.    
+    '''
+    try:
+        # Check if logger is already configured in logging library
+        if logger_name in logging.Logger.manager.loggerDict:
+            # Logger exists, use it
+            logger = logging.getLogger(logger_name)
+        else:
+            # Logger doesn't exist, setup new one with proper configuration
+            logger = setup_logger(
+                name=logger_name,
+                level="info",
+                log_to_file=True,
+                log_file_path=None,
+                log_file_name=logger_file_name,
+                log_mode="w",
+                propagate=False
+            )
+    except Exception as e:
+        # Fallback: if anything fails, create basic logger
+        print(f"[ERROR] Logger setup failed: {e}")
+        logger = logging.getLogger(logger_name)
+        logger.setLevel(logging.INFO)
+        handler = logging.StreamHandler()
+        handler.setFormatter(logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s"))
+        logger.addHandler(handler)
+        logger.warning(f"Using fallback logger: {e}")
+    
+    return logger

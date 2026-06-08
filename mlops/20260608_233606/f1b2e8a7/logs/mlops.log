@@ -1,0 +1,78 @@
+2026-06-08 23:36:06,487 | [f1b2e8a7] | mlops | <module>:31 | INFO | Available loggers for factor analysis module:
+2026-06-08 23:36:06,488 | [f1b2e8a7] | mlops | <module>:33 | INFO | Logger Name: mlops
+2026-06-08 23:36:06,488 | [f1b2e8a7] | mlops | <module>:34 | INFO | Logger Instance: <Logger mlops (INFO)>
+2026-06-08 23:36:06,488 | [f1b2e8a7] | mlops | <module>:35 | INFO | Logger Handlers: [<StreamHandler <stderr> (INFO)>, <FileHandler C:\projects\ml-fbk-project\mlops\20260608_233606\f1b2e8a7\logs\mlops.log (INFO)>]
+2026-06-08 23:36:06,488 | [f1b2e8a7] | mlops | <module>:36 | INFO | Logger Level: INFO
+2026-06-08 23:36:06,488 | [f1b2e8a7] | mlops | <module>:37 | INFO | Logger Propagate: False
+2026-06-08 23:36:06,488 | [f1b2e8a7] | mlops | <module>:43 | INFO | 
+Log Folder Structure
+mlops
+└── 20260608_233606
+    └── f1b2e8a7
+        └── logs
+            └── mlops.log
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:52 | INFO | --------------------------------------------------
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:33 | INFO | Logger Name: mlops.factor_analysis
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:34 | INFO | Logger Instance: <Logger mlops.factor_analysis (INFO)>
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:35 | INFO | Logger Handlers: [<StreamHandler <stderr> (INFO)>, <FileHandler C:\projects\ml-fbk-project\mlops\20260608_233606\f1b2e8a7\logs\factor_analysis.log (INFO)>]
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:36 | INFO | Logger Level: INFO
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:37 | INFO | Logger Propagate: False
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:43 | INFO | 
+Log Folder Structure
+mlops
+└── 20260608_233606
+    └── f1b2e8a7
+        └── logs
+            └── factor_analysis.log
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:52 | INFO | --------------------------------------------------
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:33 | INFO | Logger Name: mlops.descriptive_analysis
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:34 | INFO | Logger Instance: <Logger mlops.descriptive_analysis (INFO)>
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:35 | INFO | Logger Handlers: [<StreamHandler <stderr> (INFO)>, <FileHandler C:\projects\ml-fbk-project\mlops\20260608_233606\f1b2e8a7\logs\descriptive_analysis.log (INFO)>]
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:36 | INFO | Logger Level: INFO
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:37 | INFO | Logger Propagate: False
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:43 | INFO | 
+Log Folder Structure
+mlops
+└── 20260608_233606
+    └── f1b2e8a7
+        └── logs
+            └── descriptive_analysis.log
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:52 | INFO | --------------------------------------------------
+2026-06-08 23:36:06,489 | [f1b2e8a7] | mlops | <module>:33 | INFO | Logger Name: mlops.utils
+2026-06-08 23:36:06,490 | [f1b2e8a7] | mlops | <module>:34 | INFO | Logger Instance: <Logger mlops.utils (INFO)>
+2026-06-08 23:36:06,490 | [f1b2e8a7] | mlops | <module>:35 | INFO | Logger Handlers: [<StreamHandler <stderr> (INFO)>, <FileHandler C:\projects\ml-fbk-project\mlops\20260608_233606\f1b2e8a7\logs\utils.log (INFO)>]
+2026-06-08 23:36:06,490 | [f1b2e8a7] | mlops | <module>:36 | INFO | Logger Level: INFO
+2026-06-08 23:36:06,490 | [f1b2e8a7] | mlops | <module>:37 | INFO | Logger Propagate: False
+2026-06-08 23:36:06,490 | [f1b2e8a7] | mlops | <module>:43 | INFO | 
+Log Folder Structure
+mlops
+└── 20260608_233606
+    └── f1b2e8a7
+        └── logs
+            └── utils.log
+2026-06-08 23:36:06,490 | [f1b2e8a7] | mlops | <module>:52 | INFO | --------------------------------------------------
+2026-06-08 23:36:07,257 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: credit_limit: int32 | Unique Values: 81
+2026-06-08 23:36:07,258 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: gender: object | Unique Values: 2
+2026-06-08 23:36:07,258 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: education: object | Unique Values: 7
+2026-06-08 23:36:07,259 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: marital_status: object | Unique Values: 4
+2026-06-08 23:36:07,260 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: age: int32 | Unique Values: 56
+2026-06-08 23:36:07,261 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: repayment_status_sep_2005: object | Unique Values: 11
+2026-06-08 23:36:07,262 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: repayment_status_aug_2005: object | Unique Values: 11
+2026-06-08 23:36:07,263 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: repayment_status_jul_2005: object | Unique Values: 11
+2026-06-08 23:36:07,264 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: repayment_status_jun_2005: object | Unique Values: 11
+2026-06-08 23:36:07,266 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: repayment_status_may_2005: object | Unique Values: 10
+2026-06-08 23:36:07,267 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: repayment_status_apr_2005: object | Unique Values: 10
+2026-06-08 23:36:07,269 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: bill_amount_sep_2005: float32 | Unique Values: 22723
+2026-06-08 23:36:07,270 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: bill_amount_aug_2005: float32 | Unique Values: 22346
+2026-06-08 23:36:07,271 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: bill_amount_jul_2005: float32 | Unique Values: 22026
+2026-06-08 23:36:07,273 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: bill_amount_jun_2005: float32 | Unique Values: 21548
+2026-06-08 23:36:07,274 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: bill_amount_may_2005: float32 | Unique Values: 21010
+2026-06-08 23:36:07,275 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: bill_amount_apr_2005: float32 | Unique Values: 20604
+2026-06-08 23:36:07,275 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: payment_amount_sep_2005: float32 | Unique Values: 7943
+2026-06-08 23:36:07,276 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: payment_amount_aug_2005: float32 | Unique Values: 7899
+2026-06-08 23:36:07,277 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: payment_amount_jul_2005: float32 | Unique Values: 7518
+2026-06-08 23:36:07,277 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: payment_amount_jun_2005: float32 | Unique Values: 6937
+2026-06-08 23:36:07,278 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: payment_amount_may_2005: float32 | Unique Values: 6897
+2026-06-08 23:36:07,278 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: payment_amount_apr_2005: float32 | Unique Values: 6939
+2026-06-08 23:36:07,279 | [f1b2e8a7] | mlops | <module>:67 | INFO | Column: TARGET: int32 | Unique Values: 2
+2026-06-08 23:36:07,279 | [f1b2e8a7] | mlops | <module>:68 | INFO | Sample data loaded successfully.

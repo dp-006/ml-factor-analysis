@@ -1,50 +1,22 @@
 """
 Accelera Consulting
 
-Script 1: Data Preparation
+Data Preparation
 Load the credit card clean dataset and save it to the inputs folder as CSV.
 https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients
 """
 import os
-import pandas as pd
 import json 
 
 # We need it to load the dataset from UCI repository, so we will use ucimlrepo library to fetch the dataset directly. 
 # This allows us to get the original data along with its metadata. 
 # We can also log the dataset information for better understanding and documentation.
 from ucimlrepo import fetch_ucirepo
+from logging_config.logger_config import get_logger
 
-import logging
-from logging_config.logger_config import setup_logger
-
-logger_name = "mlops.utils"
-
-try:
-    # Check if logger is already configured in logging library
-    if logger_name in logging.Logger.manager.loggerDict:
-        # Logger exists, use it
-        logger = logging.getLogger(logger_name)
-    else:
-        # Logger doesn't exist, setup new one with proper configuration
-        logger = setup_logger(
-            name=logger_name,
-            level="info",
-            log_to_file=True,
-            log_mode="w",
-            timestamp="test_timestamp",
-            runid="test_run",
-            propagate=False
-        )
-except Exception as e:
-    # Fallback: if anything fails, create basic logger
-    print(f"[ERROR] Logger setup failed for {logger_name}: {e}")
-    logger = logging.getLogger(logger_name)
-    logger.setLevel(logging.INFO)
-    handler = logging.StreamHandler()
-    handler.setFormatter(logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s"))
-    logger.addHandler(handler)
-    logger.warning(f"Using fallback logger: {e}")
-
+logger_name = "mlops.get_sample_data"  # Unique logger name for this module
+logger_file_name = "get_sample_data.log"
+logger = get_logger(logger_name, logger_file_name)
 
 def save_metadata_to_json(metadata, output_dir, file_name):
     """
@@ -329,7 +301,7 @@ def load_uci_credit_card_dataset(dataset_id=350, output_dir='inputs/sample'):
 if __name__ == "__main__":
     df_uci, csv_path_uci, metadata = load_uci_credit_card_dataset(
         dataset_id=350,
-        output_dir='inputs/sample'
+        output_dir='inputs2/sample2'
     )
     
 

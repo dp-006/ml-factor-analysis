@@ -35,9 +35,7 @@ Main Steps:
 
 import json
 import os
-
-import logging
-from logging_config.logger_config import setup_logger
+from logging_config.logger_config import get_logger
 
 import pandas as pd
 # Set pandas display options for better readability
@@ -61,33 +59,8 @@ from feature_engine.selection import DropDuplicateFeatures
 from sklearn.datasets import load_iris # Used for testing and demonstration purposes. Not part of the main factor analysis code.
 
 logger_name = "mlops.factor_analysis"
-
-try:
-    # Check if logger is already configured in logging library
-    if logger_name in logging.Logger.manager.loggerDict:
-        # Logger exists, use it
-        logger = logging.getLogger(logger_name)
-    else:
-        # Logger doesn't exist, setup new one with proper configuration
-        logger = setup_logger(
-            name=logger_name,
-            level="info",
-            log_to_file=True,
-            log_mode="w",
-            timestamp="test_timestamp",
-            runid="test_run",
-            propagate=False
-        )
-except Exception as e:
-    # Fallback: if anything fails, create basic logger
-    print(f"[ERROR] Logger setup failed: {e}")
-    logger = logging.getLogger(logger_name)
-    logger.setLevel(logging.INFO)
-    handler = logging.StreamHandler()
-    handler.setFormatter(logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s"))
-    logger.addHandler(handler)
-    logger.warning(f"Using fallback logger: {e}")
-
+logger_file_name = "factor_analysis.log"
+logger = get_logger(logger_name, logger_file_name)
 
 def get_iris_dataset(target_variable: str = "TARGET") -> pd.DataFrame:
     '''
