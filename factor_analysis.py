@@ -1,5 +1,5 @@
 '''
-Accelera Consulting
+Accelera Consulting - 2026
 
 Factor Analysis Module
 
@@ -13,19 +13,31 @@ For JSON outputs, we are applying CamelCase naming convention for keys to be con
 (Snake case is used for variable names in the code, but JSON outputs use CamelCase for better readability and consistency with other outputs in the project.)
 
 Main Steps:
-1: KMO Test of Sampling Adequacy -> Question: Factor Analysis can be performed Decision: if KMO > 0.50
-2: Bartlett's Test of Sphericity -> Question: Are the variables sufficiently correlated to justify factor analysis? Decision: if p-value < 0.05
-3: Eigenvalues and Eigenvectors Calculation -> Question: How many factors to retain? Decision: Kaiser criterion (eigenvalue > 1) and explained variance thresholds (e.g. 80% cumulative variance)
+
+1: KMO Test of Sampling Adequacy 
+   - What: Measures if variables share common factors (checks correlation structure quality)
+   - Question: Is Factor Analysis suitable for this dataset? 
+   - Decision: if KMO > 0.50 (higher is better: 0.50=weak, 0.60=moderate, 0.70=good, 0.80+=very good)
+   - How: Compare squared correlations to squared partial correlations (KMO prefers higher correlations and lower partial correlations)
+
+2: Bartlett's Test of Sphericity 
+   - What: Tests if correlations between variables are significantly different from zero
+   - Question: Are the variables sufficiently correlated to justify factor analysis? 
+   - Decision: if p-value < 0.05 (reject null hypothesis of independence)
+   - How: Chi-square test comparing observed correlation matrix to identity matrix (no correlations)
+
+3: Eigenvalues and Eigenvectors Calculation 
+   - What: Determines how much variance each factor explains
+   - Question: How many factors to retain? 
+   - Decision: Kaiser criterion (eigenvalue > 1) and explained variance thresholds (e.g. 80% cumulative variance)
+   - How: Eigen decomposition of correlation matrix to get eigenvalues (variance explained) and eigenvectors (factor loadings)
 '''
 
 import json
 import os
-from pathlib import Path
-import uuid
-from datetime import datetime, timezone, timedelta
 
 import logging
-from logging_config import get_logger # there is a logging_config.py file with a get_logger function to set up logging for the project.
+from logging_config.logger_config import setup_logger
 
 import pandas as pd
 # Set pandas display options for better readability
@@ -46,40 +58,36 @@ from feature_engine.imputation import MeanMedianImputer
 from feature_engine.imputation import ArbitraryNumberImputer
 from feature_engine.imputation import CategoricalImputer
 from feature_engine.selection import DropDuplicateFeatures
-
 from sklearn.datasets import load_iris # Used for testing and demonstration purposes. Not part of the main factor analysis code.
 
-timestamp = datetime.now(timezone(timedelta(hours=3))).strftime("%Y%m%d_%H%M%S")
-runid = uuid.uuid4().hex[:8]
+logger_name = "mlops.factor_analysis"
 
-# Step Up Logger for StreamHandler and FileHandler with timestamp and run_id in the log file name and log directory structure
-logger = get_logger(
-    name="mlops.factor_analysis", 
-    log_file_name=f"factor_analysis.log", 
-    log_to_file=True, 
-    log_mode="w",
-    timestamp=timestamp,
-    runid=runid
-)
+try:
+    # Check if logger is already configured in logging library
+    if logger_name in logging.Logger.manager.loggerDict:
+        # Logger exists, use it
+        logger = logging.getLogger(logger_name)
+    else:
+        # Logger doesn't exist, setup new one with proper configuration
+        logger = setup_logger(
+            name=logger_name,
+            level="info",
+            log_to_file=True,
+            log_mode="w",
+            timestamp="test_timestamp",
+            runid="test_run",
+            propagate=False
+        )
+except Exception as e:
+    # Fallback: if anything fails, create basic logger
+    print(f"[ERROR] Logger setup failed: {e}")
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.INFO)
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s"))
+    logger.addHandler(handler)
+    logger.warning(f"Using fallback logger: {e}")
 
-# Log properties of the logger for debugging purposes
-logger.info("|||| STARTING FACTOR ANALYSIS MODULE ||||")
-logger.info(f"Logger Name: {logger.name}")
-logger.info(f"Logger Level: {logging.getLevelName(logger.getEffectiveLevel())}")
-logger.info(f"Logger has handlers: {logger.handlers}")
-for handler in logger.handlers:
-    logger.info(f"Handler Type: {type(handler).__name__}")
-logger.info(
-    "\n"
-    "Log Folder Structure\n"
-    "mlops\n"
-    f"└── {timestamp}\n"
-    f"    └── {runid}\n"
-    "        └── logs\n"
-    f"            └── {Path(logger.handlers[1].baseFilename).name}"
-)
-logger.info("Logger initialized successfully for factor analysis module.")
-logger.info("|"*41)
 
 def get_iris_dataset(target_variable: str = "TARGET") -> pd.DataFrame:
     '''
@@ -2140,7 +2148,6 @@ def run_factor_analysis(
         raise
 
     return results
-
 
 if __name__ == "__main__":
     # Get Metadata as json

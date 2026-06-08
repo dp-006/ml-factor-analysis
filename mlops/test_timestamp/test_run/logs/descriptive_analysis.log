@@ -1,0 +1,30 @@
+2026-06-08 20:23:59,802 | [test_run] | mlops.descriptive_analysis | __init__:67 | INFO | DescriptiveAnalysis initialized.
+2026-06-08 20:23:59,802 | [test_run] | mlops.descriptive_analysis | load_data_schema:96 | INFO | Data schema loaded from inputs/sample/datatypes.json
+2026-06-08 20:24:00,192 | [test_run] | mlops.descriptive_analysis | get_descriptive_statistics:234 | INFO | Total variables: 24
+2026-06-08 20:24:00,194 | [test_run] | mlops.descriptive_analysis | get_descriptive_statistics:235 | INFO | 
+                 variable   dtype
+             credit_limit   int32
+                   gender  object
+                education  object
+           marital_status  object
+                      age   int32
+repayment_status_sep_2005  object
+repayment_status_aug_2005  object
+repayment_status_jul_2005  object
+repayment_status_jun_2005  object
+repayment_status_may_2005  object
+repayment_status_apr_2005  object
+     bill_amount_sep_2005 float32
+     bill_amount_aug_2005 float32
+     bill_amount_jul_2005 float32
+     bill_amount_jun_2005 float32
+     bill_amount_may_2005 float32
+     bill_amount_apr_2005 float32
+  payment_amount_sep_2005 float32
+  payment_amount_aug_2005 float32
+  payment_amount_jul_2005 float32
+  payment_amount_jun_2005 float32
+  payment_amount_may_2005 float32
+  payment_amount_apr_2005 float32
+                   TARGET   int32
+2026-06-08 20:24:00,198 | [test_run] | mlops.descriptive_analysis | get_descriptive_statistics:238 | INFO | Variable summary saved to outputs/descriptive_analysis/./summary_stats.json.

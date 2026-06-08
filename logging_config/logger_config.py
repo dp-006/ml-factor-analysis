@@ -11,6 +11,14 @@ LOG_LEVEL_MAPPING = {
     "critical": logging.CRITICAL,
 }
 
+# Logger configuration mapping: {logger_name: log_file_name}
+LOGGER_CONFIG = {
+    "mlops": "mlops.log",
+    "mlops.factor_analysis": "factor_analysis.log",
+    "mlops.descriptive_analysis": "descriptive_analysis.log",
+    "mlops.utils": "utils.log",
+}
+
 def setup_logger(
     name: str = __name__,
     level: str = "info",
@@ -18,7 +26,8 @@ def setup_logger(
     log_file_path: Path = None,
     log_mode: str = 'a',
     timestamp: str = None,
-    runid: str = None
+    runid: str = None,
+    propagate: bool = False
 ) -> logging.Logger:
     """
     Create and configure a logger.
@@ -31,43 +40,52 @@ def setup_logger(
         log_mode (str): File write mode ('a' for append, 'w' for overwrite).
         timestamp (str): Optional timestamp to include in log file name.
         runid (str): Optional run ID to include in log file name.
+        propagate (bool): Whether to propagate logs to parent loggers.
 
     Returns:
         logging.Logger: Configured logger instance.
     """
 
     logger = logging.getLogger(name)
+    print(f"Setting up logger '{name}' with level '{level.upper()}' and log_to_file={log_to_file}")
 
-    # Avoid adding duplicate handlers
-    if logger.hasHandlers():
-        return logger
+    # Clear existing handlers to avoid duplicates
+    logger.handlers.clear()
+    print(f"Cleared existing handlers for logger '{name}'")
 
     # Set log level
     log_level = LOG_LEVEL_MAPPING.get(level.lower(), logging.INFO)
     logger.setLevel(log_level)
+    print(f"Set log level for logger '{name}' to '{logging.getLevelName(log_level)}'")
 
     # Define log format
     log_format = logging.Formatter(
-        "%(asctime)s | %(name)s | %(funcName)s:%(lineno)d | %(levelname)s | %(message)s"
+        f"%(asctime)s | [{runid}] | %(name)s | %(funcName)s:%(lineno)d | %(levelname)s | %(message)s"
     )
+    print(f"Defined log format for logger '{name}'")
 
     # Console handler (logs to terminal)
     console_handler = logging.StreamHandler()
     console_handler.setLevel(log_level)
     console_handler.setFormatter(log_format)
     logger.addHandler(console_handler)
+    print(f"Added console handler for logger '{name}'")
 
     # File handler (logs to file)
     if log_to_file:
         if log_file_path is None:
             # Create logs directory at project root: mlops/{timestamp}/{runid}/logs
             project_root = Path(__file__).parent.parent
+            print(f"Project root directory: {project_root}")
             log_dir = project_root / f"mlops/{timestamp}/{runid}/logs"
             log_dir.mkdir(parents=True, exist_ok=True)
+            print(f"Created log directory: {log_dir}")
 
-            # Generate log file name with timestamp
-            date_str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            log_file_path = log_dir / f"log_{date_str}.log"
+            # Generate log file name with logger_name it could be 
+            # "mlops.factor_analysis" -> "factor_analysis.log"
+            # "mlops.log" -> "mlops.log"
+            log_file_path = log_dir / f"{name.split('.')[-1]}.log"
+            print(f"Generated log file path for logger '{name}': {log_file_path}")
 
         # File handler mode options:
         #   'a' = Append mode (preserve previous runs, default)
@@ -77,61 +95,66 @@ def setup_logger(
             mode=log_mode,
             encoding="utf-8"
         )
+        print(f"Created file handler for logger '{name}' with mode '{log_mode}'")
         file_handler.setLevel(log_level)
         file_handler.setFormatter(log_format)
         logger.addHandler(file_handler)
-
-    # Prevent logs from propagating to parent loggers
-    logger.propagate = False
+        print(f"Added file handler for logger '{name}' with path '{log_file_path}'")
+    
+    # Set propagate to control whether logs are passed to parent loggers
+    logger.propagate = propagate
+    print(f"Set propagate for logger '{name}' to {propagate}")
 
     return logger
 
-def get_logger(
-    name: str = None,
-    log_file_name: str = None,
-    log_to_file: bool = False,
+def setup_multiple_loggers(
+    level: str = "info",
     log_mode: str = 'a',
     timestamp: str = None,
-    runid: str = None
-) -> logging.Logger:
+    runid: str = None,
+    propagate: bool = False,
+    logger_config: dict = None
+) -> dict:
     """
-    Helper function to quickly get a configured logger.
+    Set up multiple loggers with shared format and level configuration.
 
     Args:
-        name (str): Logger name (defaults to module name).
-        log_file_name (str): Custom log file name.
-        log_to_file (bool): Whether to log to file. Defaults to False.
+        level (str): Log level as string (debug, info, etc.). Applied to all loggers.
         log_mode (str): File write mode ('a' for append, 'w' for overwrite). Defaults to 'a'.
-        timestamp (str): Optional timestamp to include in log file name.
-        runid (str): Optional run ID to include in log file name.
+        timestamp (str): Optional timestamp to include in log file path.
+        runid (str): Optional run ID to include in log file path.
+        propagate (bool): Whether to propagate logs to parent loggers. Defaults to False.
+        logger_config (dict): Custom logger config mapping {logger_name: log_file_name}.
+                             Defaults to LOGGER_CONFIG if not provided.
 
     Returns:
-        logging.Logger: Configured logger instance.
+        dict: Dictionary of configured logger instances {logger_name: logger}.
     """
+    if logger_config is None:
+        logger_config = LOGGER_CONFIG
 
-    # Use module name as logger name if not provided
-    if name is None:
-        name = __name__
+    configured_loggers = {}
 
-    log_file_path = None
-
-    # Create custom log file path if provided
-    if log_file_name:
-        # Create mlops/{timestamp}/{runid}/logs structure at project root
+    for logger_name, log_file_name in logger_config.items():
+        print(f"Configuring logger '{logger_name}' with log file '{log_file_name}'")
+        # Create log file path
         project_root = Path(__file__).parent.parent
         log_dir = project_root / f"mlops/{timestamp}/{runid}/logs"
         log_dir.mkdir(parents=True, exist_ok=True)
         log_file_path = log_dir / log_file_name
+        print(f"Log file path for logger '{logger_name}': {log_file_path}")
 
-    return setup_logger(name=name, log_to_file=log_to_file, log_file_path=log_file_path, log_mode=log_mode, timestamp=timestamp, runid=runid)
-
-
-# Example usage
-if __name__ == "__main__":
-    logger = get_logger("my_app", "my_app.log")
-
-    logger.debug("This is a debug message")
-    logger.info("This is an info message")
-    logger.warning("This is a warning message")
-    logger.error("This is an error message")
-    logger.critical("This is a critical message")
+        # Setup logger with shared configuration
+        logger = setup_logger(
+            name=logger_name,
+            level=level,
+            log_to_file=True,
+            log_file_path=log_file_path,
+            log_mode=log_mode,
+            timestamp=timestamp,
+            runid=runid,
+            propagate=propagate
+        )
+        print(f"Configured logger '{logger_name}' with level '{level.upper()}' and log file '{log_file_path}'")
+        configured_loggers[logger_name] = logger
+    return configured_loggers

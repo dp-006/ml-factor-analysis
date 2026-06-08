@@ -1,0 +1,2039 @@
+{
+    "features": {
+        "credit_limit": {
+            "dtype": "int32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 167484.322667,
+                "median": 140000.0,
+                "std": 129747.661567,
+                "variance": 16834455682.15729,
+                "min": 10000,
+                "max": 1000000,
+                "IQR": 190000.0,
+                "skewness": 0.992867,
+                "skew_interpretation": "moderately positively skewed",
+                "kurtosis": 0.536263,
+                "kurtosis_interpretation": "mesokurtic (normal-like)",
+                "P01": 10000.0,
+                "P05": 20000.0,
+                "P10": 30000.0,
+                "P25": 50000.0,
+                "P50": 140000.0,
+                "P75": 240000.0,
+                "P90": 360000.0,
+                "P95": 430000.0,
+                "P99": 500000.0,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.907316,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 3740.09505,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.11511,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 10000.0,
+                        "upper": 20000.0,
+                        "count": 2471,
+                        "ratio": 0.082367
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 20000.0,
+                        "upper": 30000.0,
+                        "count": 1610,
+                        "ratio": 0.053667
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 30000.0,
+                        "upper": 50000.0,
+                        "count": 3595,
+                        "ratio": 0.119833
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 50000.0,
+                        "upper": 140000.0,
+                        "count": 7614,
+                        "ratio": 0.2538
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 140000.0,
+                        "upper": 240000.0,
+                        "count": 7643,
+                        "ratio": 0.254767
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 240000.0,
+                        "upper": 360000.0,
+                        "count": 4591,
+                        "ratio": 0.153033
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 360000.0,
+                        "upper": 430000.0,
+                        "count": 1001,
+                        "ratio": 0.033367
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 430000.0,
+                        "upper": 500000.0,
+                        "count": 1269,
+                        "ratio": 0.0423
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 500000.0,
+                        "upper": 1000000.0,
+                        "count": 206,
+                        "ratio": 0.006867
+                    }
+                ]
+            }
+        },
+        "gender": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 2,
+                "mode": "2",
+                "mode_frequency": 18112,
+                "mode_ratio": 0.603733,
+                "frequency": [
+                    {
+                        "value": "2",
+                        "count": 18112,
+                        "ratio": 0.603733
+                    },
+                    {
+                        "value": "1",
+                        "count": 11888,
+                        "ratio": 0.396267
+                    }
+                ]
+            }
+        },
+        "education": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 7,
+                "mode": "2",
+                "mode_frequency": 14030,
+                "mode_ratio": 0.467667,
+                "frequency": [
+                    {
+                        "value": "2",
+                        "count": 14030,
+                        "ratio": 0.467667
+                    },
+                    {
+                        "value": "1",
+                        "count": 10585,
+                        "ratio": 0.352833
+                    },
+                    {
+                        "value": "3",
+                        "count": 4917,
+                        "ratio": 0.1639
+                    },
+                    {
+                        "value": "5",
+                        "count": 280,
+                        "ratio": 0.009333
+                    },
+                    {
+                        "value": "4",
+                        "count": 123,
+                        "ratio": 0.0041
+                    },
+                    {
+                        "value": "6",
+                        "count": 51,
+                        "ratio": 0.0017
+                    },
+                    {
+                        "value": "0",
+                        "count": 14,
+                        "ratio": 0.000467
+                    }
+                ]
+            }
+        },
+        "marital_status": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 4,
+                "mode": "2",
+                "mode_frequency": 15964,
+                "mode_ratio": 0.532133,
+                "frequency": [
+                    {
+                        "value": "2",
+                        "count": 15964,
+                        "ratio": 0.532133
+                    },
+                    {
+                        "value": "1",
+                        "count": 13659,
+                        "ratio": 0.4553
+                    },
+                    {
+                        "value": "3",
+                        "count": 323,
+                        "ratio": 0.010767
+                    },
+                    {
+                        "value": "0",
+                        "count": 54,
+                        "ratio": 0.0018
+                    }
+                ]
+            }
+        },
+        "age": {
+            "dtype": "int32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 35.4855,
+                "median": 34.0,
+                "std": 9.217904,
+                "variance": 84.969755,
+                "min": 21,
+                "max": 79,
+                "IQR": 13.0,
+                "skewness": 0.732246,
+                "skew_interpretation": "moderately positively skewed",
+                "kurtosis": 0.044303,
+                "kurtosis_interpretation": "mesokurtic (normal-like)",
+                "P01": 22.0,
+                "P05": 23.0,
+                "P10": 25.0,
+                "P25": 28.0,
+                "P50": 34.0,
+                "P75": 41.0,
+                "P90": 49.0,
+                "P95": 53.0,
+                "P99": 60.0,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.949926,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 2171.703732,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.094398,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 21.0,
+                        "upper": 22.0,
+                        "count": 627,
+                        "ratio": 0.0209
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 22.0,
+                        "upper": 23.0,
+                        "count": 931,
+                        "ratio": 0.031033
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 23.0,
+                        "upper": 25.0,
+                        "count": 2313,
+                        "ratio": 0.0771
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 25.0,
+                        "upper": 28.0,
+                        "count": 4142,
+                        "ratio": 0.138067
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 28.0,
+                        "upper": 34.0,
+                        "count": 7683,
+                        "ratio": 0.2561
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 34.0,
+                        "upper": 41.0,
+                        "count": 6854,
+                        "ratio": 0.228467
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 41.0,
+                        "upper": 49.0,
+                        "count": 4770,
+                        "ratio": 0.159
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 49.0,
+                        "upper": 53.0,
+                        "count": 1380,
+                        "ratio": 0.046
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 53.0,
+                        "upper": 60.0,
+                        "count": 1028,
+                        "ratio": 0.034267
+                    },
+                    {
+                        "bucket": "above_P99",
+                        "lower": 60.0,
+                        "upper": 79.0,
+                        "count": 272,
+                        "ratio": 0.009067
+                    }
+                ]
+            }
+        },
+        "repayment_status_sep_2005": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 11,
+                "mode": "0",
+                "mode_frequency": 14737,
+                "mode_ratio": 0.491233,
+                "frequency": [
+                    {
+                        "value": "0",
+                        "count": 14737,
+                        "ratio": 0.491233
+                    },
+                    {
+                        "value": "-1",
+                        "count": 5686,
+                        "ratio": 0.189533
+                    },
+                    {
+                        "value": "1",
+                        "count": 3688,
+                        "ratio": 0.122933
+                    },
+                    {
+                        "value": "-2",
+                        "count": 2759,
+                        "ratio": 0.091967
+                    },
+                    {
+                        "value": "2",
+                        "count": 2667,
+                        "ratio": 0.0889
+                    },
+                    {
+                        "value": "3",
+                        "count": 322,
+                        "ratio": 0.010733
+                    },
+                    {
+                        "value": "4",
+                        "count": 76,
+                        "ratio": 0.002533
+                    },
+                    {
+                        "value": "5",
+                        "count": 26,
+                        "ratio": 0.000867
+                    },
+                    {
+                        "value": "8",
+                        "count": 19,
+                        "ratio": 0.000633
+                    },
+                    {
+                        "value": "6",
+                        "count": 11,
+                        "ratio": 0.000367
+                    },
+                    {
+                        "value": "7",
+                        "count": 9,
+                        "ratio": 0.0003
+                    }
+                ]
+            }
+        },
+        "repayment_status_aug_2005": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 11,
+                "mode": "0",
+                "mode_frequency": 15730,
+                "mode_ratio": 0.524333,
+                "frequency": [
+                    {
+                        "value": "0",
+                        "count": 15730,
+                        "ratio": 0.524333
+                    },
+                    {
+                        "value": "-1",
+                        "count": 6050,
+                        "ratio": 0.201667
+                    },
+                    {
+                        "value": "2",
+                        "count": 3927,
+                        "ratio": 0.1309
+                    },
+                    {
+                        "value": "-2",
+                        "count": 3782,
+                        "ratio": 0.126067
+                    },
+                    {
+                        "value": "3",
+                        "count": 326,
+                        "ratio": 0.010867
+                    },
+                    {
+                        "value": "4",
+                        "count": 99,
+                        "ratio": 0.0033
+                    },
+                    {
+                        "value": "1",
+                        "count": 28,
+                        "ratio": 0.000933
+                    },
+                    {
+                        "value": "5",
+                        "count": 25,
+                        "ratio": 0.000833
+                    },
+                    {
+                        "value": "7",
+                        "count": 20,
+                        "ratio": 0.000667
+                    },
+                    {
+                        "value": "6",
+                        "count": 12,
+                        "ratio": 0.0004
+                    },
+                    {
+                        "value": "8",
+                        "count": 1,
+                        "ratio": 3.3e-05
+                    }
+                ]
+            }
+        },
+        "repayment_status_jul_2005": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 11,
+                "mode": "0",
+                "mode_frequency": 15764,
+                "mode_ratio": 0.525467,
+                "frequency": [
+                    {
+                        "value": "0",
+                        "count": 15764,
+                        "ratio": 0.525467
+                    },
+                    {
+                        "value": "-1",
+                        "count": 5938,
+                        "ratio": 0.197933
+                    },
+                    {
+                        "value": "-2",
+                        "count": 4085,
+                        "ratio": 0.136167
+                    },
+                    {
+                        "value": "2",
+                        "count": 3819,
+                        "ratio": 0.1273
+                    },
+                    {
+                        "value": "3",
+                        "count": 240,
+                        "ratio": 0.008
+                    },
+                    {
+                        "value": "4",
+                        "count": 76,
+                        "ratio": 0.002533
+                    },
+                    {
+                        "value": "7",
+                        "count": 27,
+                        "ratio": 0.0009
+                    },
+                    {
+                        "value": "6",
+                        "count": 23,
+                        "ratio": 0.000767
+                    },
+                    {
+                        "value": "5",
+                        "count": 21,
+                        "ratio": 0.0007
+                    },
+                    {
+                        "value": "1",
+                        "count": 4,
+                        "ratio": 0.000133
+                    },
+                    {
+                        "value": "8",
+                        "count": 3,
+                        "ratio": 0.0001
+                    }
+                ]
+            }
+        },
+        "repayment_status_jun_2005": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 11,
+                "mode": "0",
+                "mode_frequency": 16455,
+                "mode_ratio": 0.5485,
+                "frequency": [
+                    {
+                        "value": "0",
+                        "count": 16455,
+                        "ratio": 0.5485
+                    },
+                    {
+                        "value": "-1",
+                        "count": 5687,
+                        "ratio": 0.189567
+                    },
+                    {
+                        "value": "-2",
+                        "count": 4348,
+                        "ratio": 0.144933
+                    },
+                    {
+                        "value": "2",
+                        "count": 3159,
+                        "ratio": 0.1053
+                    },
+                    {
+                        "value": "3",
+                        "count": 180,
+                        "ratio": 0.006
+                    },
+                    {
+                        "value": "4",
+                        "count": 69,
+                        "ratio": 0.0023
+                    },
+                    {
+                        "value": "7",
+                        "count": 58,
+                        "ratio": 0.001933
+                    },
+                    {
+                        "value": "5",
+                        "count": 35,
+                        "ratio": 0.001167
+                    },
+                    {
+                        "value": "6",
+                        "count": 5,
+                        "ratio": 0.000167
+                    },
+                    {
+                        "value": "1",
+                        "count": 2,
+                        "ratio": 6.7e-05
+                    },
+                    {
+                        "value": "8",
+                        "count": 2,
+                        "ratio": 6.7e-05
+                    }
+                ]
+            }
+        },
+        "repayment_status_may_2005": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 10,
+                "mode": "0",
+                "mode_frequency": 16947,
+                "mode_ratio": 0.5649,
+                "frequency": [
+                    {
+                        "value": "0",
+                        "count": 16947,
+                        "ratio": 0.5649
+                    },
+                    {
+                        "value": "-1",
+                        "count": 5539,
+                        "ratio": 0.184633
+                    },
+                    {
+                        "value": "-2",
+                        "count": 4546,
+                        "ratio": 0.151533
+                    },
+                    {
+                        "value": "2",
+                        "count": 2626,
+                        "ratio": 0.087533
+                    },
+                    {
+                        "value": "3",
+                        "count": 178,
+                        "ratio": 0.005933
+                    },
+                    {
+                        "value": "4",
+                        "count": 84,
+                        "ratio": 0.0028
+                    },
+                    {
+                        "value": "7",
+                        "count": 58,
+                        "ratio": 0.001933
+                    },
+                    {
+                        "value": "5",
+                        "count": 17,
+                        "ratio": 0.000567
+                    },
+                    {
+                        "value": "6",
+                        "count": 4,
+                        "ratio": 0.000133
+                    },
+                    {
+                        "value": "8",
+                        "count": 1,
+                        "ratio": 3.3e-05
+                    }
+                ]
+            }
+        },
+        "repayment_status_apr_2005": {
+            "dtype": "object",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "unique_count": 10,
+                "mode": "0",
+                "mode_frequency": 16286,
+                "mode_ratio": 0.542867,
+                "frequency": [
+                    {
+                        "value": "0",
+                        "count": 16286,
+                        "ratio": 0.542867
+                    },
+                    {
+                        "value": "-1",
+                        "count": 5740,
+                        "ratio": 0.191333
+                    },
+                    {
+                        "value": "-2",
+                        "count": 4895,
+                        "ratio": 0.163167
+                    },
+                    {
+                        "value": "2",
+                        "count": 2766,
+                        "ratio": 0.0922
+                    },
+                    {
+                        "value": "3",
+                        "count": 184,
+                        "ratio": 0.006133
+                    },
+                    {
+                        "value": "4",
+                        "count": 49,
+                        "ratio": 0.001633
+                    },
+                    {
+                        "value": "7",
+                        "count": 46,
+                        "ratio": 0.001533
+                    },
+                    {
+                        "value": "6",
+                        "count": 19,
+                        "ratio": 0.000633
+                    },
+                    {
+                        "value": "5",
+                        "count": 13,
+                        "ratio": 0.000433
+                    },
+                    {
+                        "value": "8",
+                        "count": 2,
+                        "ratio": 6.7e-05
+                    }
+                ]
+            }
+        },
+        "bill_amount_sep_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 51223.3359375,
+                "median": 22381.5,
+                "std": 73635.859375,
+                "variance": 5422239744.0,
+                "min": -165580.0,
+                "max": 964511.0,
+                "IQR": 63532.25,
+                "skewness": 2.663861036300659,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 9.806289672851562,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": -81.0,
+                "P05": 0.0,
+                "P10": 278.9,
+                "P25": 3558.75,
+                "P50": 22381.5,
+                "P75": 67091.0,
+                "P90": 142133.7,
+                "P95": 201203.05,
+                "P99": 350110.68,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.69748,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 17179.683594,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.236665,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": -165580.0,
+                        "upper": -81.0,
+                        "count": 302,
+                        "ratio": 0.010067
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": -81.0,
+                        "upper": 0.0,
+                        "count": 2296,
+                        "ratio": 0.076533
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 0.0,
+                        "upper": 278.9,
+                        "count": 402,
+                        "ratio": 0.0134
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 278.9,
+                        "upper": 3558.75,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 3558.75,
+                        "upper": 22381.5,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 22381.5,
+                        "upper": 67091.0,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 67091.0,
+                        "upper": 142133.7,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 142133.7,
+                        "upper": 201203.05,
+                        "count": 1500,
+                        "ratio": 0.05
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 201203.05,
+                        "upper": 350110.68,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "above_P99",
+                        "lower": 350110.68,
+                        "upper": 964511.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "bill_amount_aug_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 49179.078125,
+                "median": 21199.998046875,
+                "std": 71173.7734375,
+                "variance": 5065705472.0,
+                "min": -69777.0,
+                "max": 983931.0,
+                "IQR": 61021.5,
+                "skewness": 2.705220937728882,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 10.302946090698242,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": -200.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 2984.75,
+                "P50": 21200.0,
+                "P75": 64006.25,
+                "P90": 136905.5,
+                "P95": 194792.2,
+                "P99": 337495.28,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.69533,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 17512.853516,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.236869,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": -69777.0,
+                        "upper": -200.0,
+                        "count": 302,
+                        "ratio": 0.010067
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": -200.0,
+                        "upper": 0.0,
+                        "count": 2873,
+                        "ratio": 0.095767
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 0.0,
+                        "upper": 2984.75,
+                        "count": 4325,
+                        "ratio": 0.144167
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 2984.75,
+                        "upper": 21200.0,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 21200.0,
+                        "upper": 64006.25,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 64006.25,
+                        "upper": 136905.5,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 136905.5,
+                        "upper": 194792.2,
+                        "count": 1500,
+                        "ratio": 0.05
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 194792.2,
+                        "upper": 337495.28,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 337495.28,
+                        "upper": 983931.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "bill_amount_jul_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 47013.15234375,
+                "median": 20088.5,
+                "std": 69349.3828125,
+                "variance": 4809337344.0,
+                "min": -157264.0,
+                "max": 1664089.125,
+                "IQR": 57498.5,
+                "skewness": 3.087830066680908,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 19.783254623413086,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": -200.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 2666.25,
+                "P50": 20088.5,
+                "P75": 60164.75,
+                "P90": 132051.3,
+                "P95": 187821.05,
+                "P99": 325030.39,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.681851,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 21150.496094,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.239966,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": -157264.0,
+                        "upper": -200.0,
+                        "count": 306,
+                        "ratio": 0.0102
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": -200.0,
+                        "upper": 0.0,
+                        "count": 3219,
+                        "ratio": 0.1073
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 0.0,
+                        "upper": 2666.25,
+                        "count": 3975,
+                        "ratio": 0.1325
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 2666.25,
+                        "upper": 20088.5,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 20088.5,
+                        "upper": 60164.75,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 60164.75,
+                        "upper": 132051.3,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 132051.3,
+                        "upper": 187821.05,
+                        "count": 1500,
+                        "ratio": 0.05
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 187821.05,
+                        "upper": 325030.39,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 325030.39,
+                        "upper": 1664089.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "bill_amount_jun_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 43262.94921875,
+                "median": 19052.0,
+                "std": 64332.85546875,
+                "variance": 4138716416.0,
+                "min": -170000.0,
+                "max": 891586.0,
+                "IQR": 52179.25,
+                "skewness": 2.8219659328460693,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 11.309325218200684,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": -212.02,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 2326.75,
+                "P50": 19052.0,
+                "P75": 54506.0,
+                "P90": 122418.7,
+                "P95": 174333.35,
+                "P99": 304997.27,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.681694,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 18312.347656,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.240816,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": -170000.0,
+                        "upper": -212.02,
+                        "count": 300,
+                        "ratio": 0.01
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": -212.02,
+                        "upper": 0.0,
+                        "count": 3570,
+                        "ratio": 0.119
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 0.0,
+                        "upper": 2326.75,
+                        "count": 3630,
+                        "ratio": 0.121
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 2326.75,
+                        "upper": 19052.0,
+                        "count": 7502,
+                        "ratio": 0.250067
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 19052.0,
+                        "upper": 54506.0,
+                        "count": 7498,
+                        "ratio": 0.249933
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 54506.0,
+                        "upper": 122418.7,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 122418.7,
+                        "upper": 174333.35,
+                        "count": 1500,
+                        "ratio": 0.05
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 174333.35,
+                        "upper": 304997.27,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 304997.27,
+                        "upper": 891586.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "bill_amount_may_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 40311.3984375,
+                "median": 18104.5,
+                "std": 60797.15625,
+                "variance": 3696294144.0,
+                "min": -81334.0,
+                "max": 927171.0,
+                "IQR": 48427.5,
+                "skewness": 2.87637996673584,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 12.305882453918457,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": -232.01,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 1763.0,
+                "P50": 18104.5,
+                "P75": 50190.5,
+                "P90": 115883.0,
+                "P95": 165794.3,
+                "P99": 285868.33,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.676651,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 18805.265625,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.243453,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": -81334.0,
+                        "upper": -232.01,
+                        "count": 300,
+                        "ratio": 0.01
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": -232.01,
+                        "upper": 0.0,
+                        "count": 3861,
+                        "ratio": 0.1287
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 0.0,
+                        "upper": 1763.0,
+                        "count": 3340,
+                        "ratio": 0.111333
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 1763.0,
+                        "upper": 18104.5,
+                        "count": 7499,
+                        "ratio": 0.249967
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 18104.5,
+                        "upper": 50190.5,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 50190.5,
+                        "upper": 115883.0,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 115883.0,
+                        "upper": 165794.3,
+                        "count": 1500,
+                        "ratio": 0.05
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 165794.3,
+                        "upper": 285868.33,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 285868.33,
+                        "upper": 927171.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "bill_amount_apr_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 38871.76171875,
+                "median": 17071.0,
+                "std": 59554.10546875,
+                "variance": 3546691840.0,
+                "min": -339603.0,
+                "max": 961664.0,
+                "IQR": 47942.25,
+                "skewness": 2.8466451168060303,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 12.270705223083496,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": -331.03,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 1256.0,
+                "P50": 17071.0,
+                "P75": 49198.25,
+                "P90": 112110.4,
+                "P95": 161912.0,
+                "P99": 279505.06,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.675935,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 18665.515625,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.24577,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": -339603.0,
+                        "upper": -331.03,
+                        "count": 300,
+                        "ratio": 0.01
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": -331.03,
+                        "upper": 0.0,
+                        "count": 4408,
+                        "ratio": 0.146933
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 0.0,
+                        "upper": 1256.0,
+                        "count": 2794,
+                        "ratio": 0.093133
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 1256.0,
+                        "upper": 17071.0,
+                        "count": 7498,
+                        "ratio": 0.249933
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 17071.0,
+                        "upper": 49198.25,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 49198.25,
+                        "upper": 112110.4,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 112110.4,
+                        "upper": 161912.0,
+                        "count": 1501,
+                        "ratio": 0.050033
+                    },
+                    {
+                        "bucket": "P90_P95",
+                        "lower": 161912.0,
+                        "upper": 279505.06,
+                        "count": 1199,
+                        "ratio": 0.039967
+                    },
+                    {
+                        "bucket": "P95_P99",
+                        "lower": 279505.06,
+                        "upper": 961664.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "payment_amount_sep_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 5663.580078125,
+                "median": 2100.0,
+                "std": 16563.28125,
+                "variance": 274342272.0,
+                "min": 0.0,
+                "max": 873552.0,
+                "IQR": 4006.0,
+                "skewness": 14.668364524841309,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 415.2547302246094,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": 0.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 1000.0,
+                "P50": 2100.0,
+                "P75": 5006.0,
+                "P90": 10300.0,
+                "P95": 18428.2,
+                "P99": 66522.18,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.265201,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 57400.476562,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.3662,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 0.0,
+                        "upper": 1000.0,
+                        "count": 7839,
+                        "ratio": 0.2613
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 1000.0,
+                        "upper": 2100.0,
+                        "count": 7174,
+                        "ratio": 0.239133
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 2100.0,
+                        "upper": 5006.0,
+                        "count": 7490,
+                        "ratio": 0.249667
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 5006.0,
+                        "upper": 10300.0,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 10300.0,
+                        "upper": 18428.2,
+                        "count": 1497,
+                        "ratio": 0.0499
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 18428.2,
+                        "upper": 66522.18,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 66522.18,
+                        "upper": 873552.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "payment_amount_aug_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 5921.16357421875,
+                "median": 2008.9998779296875,
+                "std": 23040.87109375,
+                "variance": 530881696.0,
+                "min": 0.0,
+                "max": 1684259.0,
+                "IQR": 4167.0,
+                "skewness": 30.45381736755371,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 1641.6319580078125,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": 0.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 833.0,
+                "P50": 2009.0,
+                "P75": 5000.0,
+                "P90": 10401.1,
+                "P95": 19004.35,
+                "P99": 76651.02,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.172411,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 78540.734375,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.398595,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 0.0,
+                        "upper": 833.0,
+                        "count": 7502,
+                        "ratio": 0.250067
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 833.0,
+                        "upper": 2009.0,
+                        "count": 7503,
+                        "ratio": 0.2501
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 2009.0,
+                        "upper": 5000.0,
+                        "count": 7751,
+                        "ratio": 0.258367
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 5000.0,
+                        "upper": 10401.1,
+                        "count": 4244,
+                        "ratio": 0.141467
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 10401.1,
+                        "upper": 19004.35,
+                        "count": 1500,
+                        "ratio": 0.05
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 19004.35,
+                        "upper": 76651.02,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 76651.02,
+                        "upper": 1684259.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "payment_amount_jul_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 5225.681640625,
+                "median": 1800.0,
+                "std": 17606.9609375,
+                "variance": 310005088.0,
+                "min": 0.0,
+                "max": 896040.0,
+                "IQR": 4115.0,
+                "skewness": 17.216636657714844,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 564.3112182617188,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": 0.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 390.0,
+                "P50": 1800.0,
+                "P75": 4505.0,
+                "P90": 10000.0,
+                "P95": 17589.4,
+                "P99": 70000.0,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.231811,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 61803.589844,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.383311,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 0.0,
+                        "upper": 390.0,
+                        "count": 7526,
+                        "ratio": 0.250867
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 390.0,
+                        "upper": 1800.0,
+                        "count": 7486,
+                        "ratio": 0.249533
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 1800.0,
+                        "upper": 4505.0,
+                        "count": 7489,
+                        "ratio": 0.249633
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 4505.0,
+                        "upper": 10000.0,
+                        "count": 4625,
+                        "ratio": 0.154167
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 10000.0,
+                        "upper": 17589.4,
+                        "count": 1374,
+                        "ratio": 0.0458
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 17589.4,
+                        "upper": 70000.0,
+                        "count": 1203,
+                        "ratio": 0.0401
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 70000.0,
+                        "upper": 896040.0,
+                        "count": 297,
+                        "ratio": 0.0099
+                    }
+                ]
+            }
+        },
+        "payment_amount_jun_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 4826.07666015625,
+                "median": 1500.0,
+                "std": 15666.16015625,
+                "variance": 245428560.0,
+                "min": 0.0,
+                "max": 621000.0,
+                "IQR": 3717.25,
+                "skewness": 12.904985427856445,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 277.3337707519531,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": 0.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 296.0,
+                "P50": 1500.0,
+                "P75": 4013.25,
+                "P90": 9570.6,
+                "P95": 16014.95,
+                "P99": 67054.44,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.256001,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 53684.003906,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.379019,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 0.0,
+                        "upper": 296.0,
+                        "count": 7503,
+                        "ratio": 0.2501
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 296.0,
+                        "upper": 1500.0,
+                        "count": 7655,
+                        "ratio": 0.255167
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 1500.0,
+                        "upper": 4013.25,
+                        "count": 7342,
+                        "ratio": 0.244733
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 4013.25,
+                        "upper": 9570.6,
+                        "count": 4500,
+                        "ratio": 0.15
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 9570.6,
+                        "upper": 16014.95,
+                        "count": 1500,
+                        "ratio": 0.05
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 16014.95,
+                        "upper": 67054.44,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 67054.44,
+                        "upper": 621000.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "payment_amount_may_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 4799.3876953125,
+                "median": 1500.0,
+                "std": 15278.3056640625,
+                "variance": 233426624.0,
+                "min": 0.0,
+                "max": 426529.0,
+                "IQR": 3779.0,
+                "skewness": 11.12741756439209,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 180.06393432617188,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": 0.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 252.5,
+                "P50": 1500.0,
+                "P75": 4031.5,
+                "P90": 9500.0,
+                "P95": 16000.0,
+                "P99": 65607.56,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.264128,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 49496.550781,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.376711,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 0.0,
+                        "upper": 252.5,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 252.5,
+                        "upper": 1500.0,
+                        "count": 7546,
+                        "ratio": 0.251533
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 1500.0,
+                        "upper": 4031.5,
+                        "count": 7454,
+                        "ratio": 0.248467
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 4031.5,
+                        "upper": 9500.0,
+                        "count": 4503,
+                        "ratio": 0.1501
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 9500.0,
+                        "upper": 16000.0,
+                        "count": 1499,
+                        "ratio": 0.049967
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 16000.0,
+                        "upper": 65607.56,
+                        "count": 1198,
+                        "ratio": 0.039933
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 65607.56,
+                        "upper": 426529.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "payment_amount_apr_2005": {
+            "dtype": "float32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 5215.5029296875,
+                "median": 1500.0,
+                "std": 17777.466796875,
+                "variance": 316038304.0,
+                "min": 0.0,
+                "max": 528666.0,
+                "IQR": 3882.25,
+                "skewness": 10.640727996826172,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": 167.1614227294922,
+                "kurtosis_interpretation": "leptokurtic (peaked, heavy-tailed)",
+                "P01": 0.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 117.75,
+                "P50": 1500.0,
+                "P75": 4000.0,
+                "P90": 9600.0,
+                "P95": 17343.8,
+                "P99": 82619.05,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.251465,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 48362.925781,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.384617,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 0.0,
+                        "upper": 117.75,
+                        "count": 7500,
+                        "ratio": 0.25
+                    },
+                    {
+                        "bucket": "P01_P05",
+                        "lower": 117.75,
+                        "upper": 1500.0,
+                        "count": 7742,
+                        "ratio": 0.258067
+                    },
+                    {
+                        "bucket": "P05_P10",
+                        "lower": 1500.0,
+                        "upper": 4000.0,
+                        "count": 7275,
+                        "ratio": 0.2425
+                    },
+                    {
+                        "bucket": "P10_P25",
+                        "lower": 4000.0,
+                        "upper": 9600.0,
+                        "count": 4484,
+                        "ratio": 0.149467
+                    },
+                    {
+                        "bucket": "P25_P50",
+                        "lower": 9600.0,
+                        "upper": 17343.8,
+                        "count": 1499,
+                        "ratio": 0.049967
+                    },
+                    {
+                        "bucket": "P50_P75",
+                        "lower": 17343.8,
+                        "upper": 82619.05,
+                        "count": 1200,
+                        "ratio": 0.04
+                    },
+                    {
+                        "bucket": "P75_P90",
+                        "lower": 82619.05,
+                        "upper": 528666.0,
+                        "count": 300,
+                        "ratio": 0.01
+                    }
+                ]
+            }
+        },
+        "TARGET": {
+            "dtype": "int32",
+            "statistics": {
+                "count": 30000,
+                "null_count": 0,
+                "null_ratio": 0.0,
+                "mean": 0.2212,
+                "median": 0.0,
+                "std": 0.415062,
+                "variance": 0.172276,
+                "min": 0,
+                "max": 1,
+                "IQR": 0.0,
+                "skewness": 1.343504,
+                "skew_interpretation": "highly positively skewed",
+                "kurtosis": -0.19501,
+                "kurtosis_interpretation": "mesokurtic (normal-like)",
+                "P01": 0.0,
+                "P05": 0.0,
+                "P10": 0.0,
+                "P25": 0.0,
+                "P50": 0.0,
+                "P75": 0.0,
+                "P90": 1.0,
+                "P95": 1.0,
+                "P99": 1.0,
+                "normality_tests": {
+                    "shapiro_wilk": {
+                        "statistic": 0.512098,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "dagostino_pearson": {
+                        "statistic": 5462.374965,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    },
+                    "kolmogorov_smirnov": {
+                        "statistic": 0.48176,
+                        "p_value": 0.0,
+                        "interpretation": "not normal (reject H0)"
+                    }
+                },
+                "percentile_distribution": [
+                    {
+                        "bucket": "below_P01",
+                        "lower": 0.0,
+                        "upper": 1.0,
+                        "count": 30000,
+                        "ratio": 1.0
+                    }
+                ]
+            }
+        }
+    }
+}

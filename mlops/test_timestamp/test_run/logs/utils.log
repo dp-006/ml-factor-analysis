@@ -1,0 +1,202 @@
+2026-06-08 20:23:59,863 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'credit_limit' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:23:59,867 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:23:59,870 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 10000.0 to 20000.0, Count: 2471
+2026-06-08 20:23:59,870 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 20000.0 to 30000.0, Count: 1610
+2026-06-08 20:23:59,870 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 30000.0 to 50000.0, Count: 3595
+2026-06-08 20:23:59,870 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 50000.0 to 140000.0, Count: 7614
+2026-06-08 20:23:59,870 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 140000.0 to 240000.0, Count: 7643
+2026-06-08 20:23:59,871 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 240000.0 to 360000.0, Count: 4591
+2026-06-08 20:23:59,871 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 360000.0 to 430000.0, Count: 1001
+2026-06-08 20:23:59,871 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 430000.0 to 500000.0, Count: 1269
+2026-06-08 20:23:59,871 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 500000.0 to 1000000.0, Count: 206
+2026-06-08 20:23:59,904 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'age' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:23:59,909 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:23:59,911 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 21.0 to 22.0, Count: 627
+2026-06-08 20:23:59,911 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 22.0 to 23.0, Count: 931
+2026-06-08 20:23:59,911 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 23.0 to 25.0, Count: 2313
+2026-06-08 20:23:59,911 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 25.0 to 28.0, Count: 4142
+2026-06-08 20:23:59,911 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 28.0 to 34.0, Count: 7683
+2026-06-08 20:23:59,912 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 34.0 to 41.0, Count: 6854
+2026-06-08 20:23:59,912 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 41.0 to 49.0, Count: 4770
+2026-06-08 20:23:59,912 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 49.0 to 53.0, Count: 1380
+2026-06-08 20:23:59,912 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 53.0 to 60.0, Count: 1028
+2026-06-08 20:23:59,912 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin above_P99: 60.0 to 79.0, Count: 272
+2026-06-08 20:23:59,924 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'bill_amount_sep_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:23:59,929 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: -165580.0 to -81.0, Count: 302
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: -81.0 to 0.0, Count: 2296
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 0.0 to 278.9, Count: 402
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 278.9 to 3558.75, Count: 4500
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 3558.75 to 22381.5, Count: 7500
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 22381.5 to 67091.0, Count: 7500
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 67091.0 to 142133.7, Count: 4500
+2026-06-08 20:23:59,931 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 142133.7 to 201203.05, Count: 1500
+2026-06-08 20:23:59,932 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 201203.05 to 350110.68, Count: 1200
+2026-06-08 20:23:59,932 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin above_P99: 350110.68 to 964511.0, Count: 300
+2026-06-08 20:23:59,944 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'bill_amount_aug_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:23:59,948 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:23:59,950 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: -69777.0 to -200.0, Count: 302
+2026-06-08 20:23:59,950 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: -200.0 to 0.0, Count: 2873
+2026-06-08 20:23:59,950 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 0.0 to 2984.75, Count: 4325
+2026-06-08 20:23:59,950 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 2984.75 to 21200.0, Count: 7500
+2026-06-08 20:23:59,951 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 21200.0 to 64006.25, Count: 7500
+2026-06-08 20:23:59,951 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 64006.25 to 136905.5, Count: 4500
+2026-06-08 20:23:59,951 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 136905.5 to 194792.2, Count: 1500
+2026-06-08 20:23:59,951 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 194792.2 to 337495.28, Count: 1200
+2026-06-08 20:23:59,951 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 337495.28 to 983931.0, Count: 300
+2026-06-08 20:23:59,963 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'bill_amount_jul_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:23:59,967 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:23:59,969 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: -157264.0 to -200.0, Count: 306
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: -200.0 to 0.0, Count: 3219
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 0.0 to 2666.25, Count: 3975
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 2666.25 to 20088.5, Count: 7500
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 20088.5 to 60164.75, Count: 7500
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 60164.75 to 132051.3, Count: 4500
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 132051.3 to 187821.05, Count: 1500
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 187821.05 to 325030.39, Count: 1200
+2026-06-08 20:23:59,970 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 325030.39 to 1664089.0, Count: 300
+2026-06-08 20:23:59,982 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'bill_amount_jun_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:23:59,986 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: -170000.0 to -212.02, Count: 300
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: -212.02 to 0.0, Count: 3570
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 0.0 to 2326.75, Count: 3630
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 2326.75 to 19052.0, Count: 7502
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 19052.0 to 54506.0, Count: 7498
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 54506.0 to 122418.7, Count: 4500
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 122418.7 to 174333.35, Count: 1500
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 174333.35 to 304997.27, Count: 1200
+2026-06-08 20:23:59,989 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 304997.27 to 891586.0, Count: 300
+2026-06-08 20:24:00,001 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'bill_amount_may_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,006 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,007 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: -81334.0 to -232.01, Count: 300
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: -232.01 to 0.0, Count: 3861
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 0.0 to 1763.0, Count: 3340
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 1763.0 to 18104.5, Count: 7499
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 18104.5 to 50190.5, Count: 7500
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 50190.5 to 115883.0, Count: 4500
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 115883.0 to 165794.3, Count: 1500
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 165794.3 to 285868.33, Count: 1200
+2026-06-08 20:24:00,008 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 285868.33 to 927171.0, Count: 300
+2026-06-08 20:24:00,021 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'bill_amount_apr_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,026 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: -339603.0 to -331.03, Count: 300
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: -331.03 to 0.0, Count: 4408
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 0.0 to 1256.0, Count: 2794
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 1256.0 to 17071.0, Count: 7498
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 17071.0 to 49198.25, Count: 7500
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 49198.25 to 112110.4, Count: 4500
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 112110.4 to 161912.0, Count: 1501
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P90_P95: 161912.0 to 279505.06, Count: 1199
+2026-06-08 20:24:00,028 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P95_P99: 279505.06 to 961664.0, Count: 300
+2026-06-08 20:24:00,040 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'payment_amount_sep_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,044 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,046 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 0.0 to 1000.0, Count: 7839
+2026-06-08 20:24:00,047 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 1000.0 to 2100.0, Count: 7174
+2026-06-08 20:24:00,047 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 2100.0 to 5006.0, Count: 7490
+2026-06-08 20:24:00,047 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 5006.0 to 10300.0, Count: 4500
+2026-06-08 20:24:00,047 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 10300.0 to 18428.2, Count: 1497
+2026-06-08 20:24:00,047 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 18428.2 to 66522.18, Count: 1200
+2026-06-08 20:24:00,047 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 66522.18 to 873552.0, Count: 300
+2026-06-08 20:24:00,059 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'payment_amount_aug_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,063 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,065 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 0.0 to 833.0, Count: 7502
+2026-06-08 20:24:00,065 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 833.0 to 2009.0, Count: 7503
+2026-06-08 20:24:00,065 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 2009.0 to 5000.0, Count: 7751
+2026-06-08 20:24:00,065 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 5000.0 to 10401.1, Count: 4244
+2026-06-08 20:24:00,065 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 10401.1 to 19004.35, Count: 1500
+2026-06-08 20:24:00,065 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 19004.35 to 76651.02, Count: 1200
+2026-06-08 20:24:00,065 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 76651.02 to 1684259.0, Count: 300
+2026-06-08 20:24:00,078 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'payment_amount_jul_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,082 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,084 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 0.0 to 390.0, Count: 7526
+2026-06-08 20:24:00,084 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 390.0 to 1800.0, Count: 7486
+2026-06-08 20:24:00,084 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 1800.0 to 4505.0, Count: 7489
+2026-06-08 20:24:00,084 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 4505.0 to 10000.0, Count: 4625
+2026-06-08 20:24:00,084 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 10000.0 to 17589.4, Count: 1374
+2026-06-08 20:24:00,084 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 17589.4 to 70000.0, Count: 1203
+2026-06-08 20:24:00,084 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 70000.0 to 896040.0, Count: 297
+2026-06-08 20:24:00,096 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'payment_amount_jun_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,100 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,102 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 0.0 to 296.0, Count: 7503
+2026-06-08 20:24:00,102 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 296.0 to 1500.0, Count: 7655
+2026-06-08 20:24:00,102 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 1500.0 to 4013.25, Count: 7342
+2026-06-08 20:24:00,102 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 4013.25 to 9570.6, Count: 4500
+2026-06-08 20:24:00,102 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 9570.6 to 16014.95, Count: 1500
+2026-06-08 20:24:00,102 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 16014.95 to 67054.44, Count: 1200
+2026-06-08 20:24:00,102 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 67054.44 to 621000.0, Count: 300
+2026-06-08 20:24:00,114 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'payment_amount_may_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,118 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,121 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 0.0 to 252.5, Count: 7500
+2026-06-08 20:24:00,121 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 252.5 to 1500.0, Count: 7546
+2026-06-08 20:24:00,121 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 1500.0 to 4031.5, Count: 7454
+2026-06-08 20:24:00,121 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 4031.5 to 9500.0, Count: 4503
+2026-06-08 20:24:00,121 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 9500.0 to 16000.0, Count: 1499
+2026-06-08 20:24:00,121 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 16000.0 to 65607.56, Count: 1198
+2026-06-08 20:24:00,121 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 65607.56 to 426529.0, Count: 300
+2026-06-08 20:24:00,132 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'payment_amount_apr_2005' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,137 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,139 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 0.0 to 117.75, Count: 7500
+2026-06-08 20:24:00,139 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P01_P05: 117.75 to 1500.0, Count: 7742
+2026-06-08 20:24:00,139 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P05_P10: 1500.0 to 4000.0, Count: 7275
+2026-06-08 20:24:00,139 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P10_P25: 4000.0 to 9600.0, Count: 4484
+2026-06-08 20:24:00,139 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P25_P50: 9600.0 to 17343.8, Count: 1499
+2026-06-08 20:24:00,139 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P50_P75: 17343.8 to 82619.05, Count: 1200
+2026-06-08 20:24:00,139 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin P75_P90: 82619.05 to 528666.0, Count: 300
+2026-06-08 20:24:00,148 | [test_run] | mlops.utils | percentile_distribution:118 | INFO | Computing percentile distribution for column 'TARGET' with quantiles: [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99]
+2026-06-08 20:24:00,151 | [test_run] | mlops.utils | percentile_distribution:143 | INFO | Removed duplicate bin edges if any.
+2026-06-08 20:24:00,152 | [test_run] | mlops.utils | percentile_distribution:161 | INFO | Bin below_P01: 0.0 to 1.0, Count: 30000
+2026-06-08 20:24:00,197 | [test_run] | mlops.utils | save_json:201 | INFO | Data successfully saved to outputs/descriptive_analysis/./summary_stats.json.
+2026-06-08 20:24:00,380 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\credit_limit_bb.svg
+2026-06-08 20:24:00,498 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\age_bb.svg
+2026-06-08 20:24:00,637 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\bill_amount_sep_2005_bb.svg
+2026-06-08 20:24:00,764 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\bill_amount_aug_2005_bb.svg
+2026-06-08 20:24:00,904 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\bill_amount_jul_2005_bb.svg
+2026-06-08 20:24:01,040 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\bill_amount_jun_2005_bb.svg
+2026-06-08 20:24:01,170 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\bill_amount_may_2005_bb.svg
+2026-06-08 20:24:01,309 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\bill_amount_apr_2005_bb.svg
+2026-06-08 20:24:01,440 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\payment_amount_sep_2005_bb.svg
+2026-06-08 20:24:01,580 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\payment_amount_aug_2005_bb.svg
+2026-06-08 20:24:01,711 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\payment_amount_jul_2005_bb.svg
+2026-06-08 20:24:01,845 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\payment_amount_jun_2005_bb.svg
+2026-06-08 20:24:01,976 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\payment_amount_may_2005_bb.svg
+2026-06-08 20:24:02,112 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\payment_amount_apr_2005_bb.svg
+2026-06-08 20:24:02,273 | [test_run] | mlops.utils | plot_boxplots:260 | INFO | Boxplot saved: outputs/descriptive_analysis/./boxplots\TARGET_bb.svg
+2026-06-08 20:24:02,695 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\credit_limit_hist.svg
+2026-06-08 20:24:03,173 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\age_hist.svg
+2026-06-08 20:24:03,743 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\bill_amount_sep_2005_hist.svg
+2026-06-08 20:24:04,228 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\bill_amount_aug_2005_hist.svg
+2026-06-08 20:24:04,609 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\bill_amount_jul_2005_hist.svg
+2026-06-08 20:24:05,029 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\bill_amount_jun_2005_hist.svg
+2026-06-08 20:24:05,439 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\bill_amount_may_2005_hist.svg
+2026-06-08 20:24:05,885 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\bill_amount_apr_2005_hist.svg
+2026-06-08 20:24:06,214 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\payment_amount_sep_2005_hist.svg
+2026-06-08 20:24:06,532 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\payment_amount_aug_2005_hist.svg
+2026-06-08 20:24:06,842 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\payment_amount_jul_2005_hist.svg
+2026-06-08 20:24:07,172 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\payment_amount_jun_2005_hist.svg
+2026-06-08 20:24:07,528 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\payment_amount_may_2005_hist.svg
+2026-06-08 20:24:07,893 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\payment_amount_apr_2005_hist.svg
+2026-06-08 20:24:08,316 | [test_run] | mlops.utils | plot_histograms:330 | INFO | Histogram saved: outputs\descriptive_analysis\histograms\TARGET_hist.svg
+2026-06-08 20:24:08,740 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\credit_limit_qq.svg
+2026-06-08 20:24:09,159 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\age_qq.svg
+2026-06-08 20:24:09,572 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\bill_amount_sep_2005_qq.svg
+2026-06-08 20:24:09,993 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\bill_amount_aug_2005_qq.svg
+2026-06-08 20:24:10,411 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\bill_amount_jul_2005_qq.svg
+2026-06-08 20:24:10,826 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\bill_amount_jun_2005_qq.svg
+2026-06-08 20:24:11,250 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\bill_amount_may_2005_qq.svg
+2026-06-08 20:24:11,666 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\bill_amount_apr_2005_qq.svg
+2026-06-08 20:24:12,081 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\payment_amount_sep_2005_qq.svg
+2026-06-08 20:24:12,495 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\payment_amount_aug_2005_qq.svg
+2026-06-08 20:24:12,911 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\payment_amount_jul_2005_qq.svg
+2026-06-08 20:24:13,327 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\payment_amount_jun_2005_qq.svg
+2026-06-08 20:24:13,742 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\payment_amount_may_2005_qq.svg
+2026-06-08 20:24:14,162 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\payment_amount_apr_2005_qq.svg
+2026-06-08 20:24:14,576 | [test_run] | mlops.utils | plot_qq_plots:381 | INFO | Q-Q plot saved: outputs\descriptive_analysis\qq_plots\TARGET_qq.svg
+2026-06-08 20:24:14,665 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\gender_bar.svg
+2026-06-08 20:24:14,773 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\education_bar.svg
+2026-06-08 20:24:14,873 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\marital_status_bar.svg
+2026-06-08 20:24:14,991 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\repayment_status_sep_2005_bar.svg
+2026-06-08 20:24:15,097 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\repayment_status_aug_2005_bar.svg
+2026-06-08 20:24:15,204 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\repayment_status_jul_2005_bar.svg
+2026-06-08 20:24:15,314 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\repayment_status_jun_2005_bar.svg
+2026-06-08 20:24:15,420 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\repayment_status_may_2005_bar.svg
+2026-06-08 20:24:15,529 | [test_run] | mlops.utils | plot_bar_charts:463 | INFO | Bar chart saved: outputs\descriptive_analysis\bar_charts\repayment_status_apr_2005_bar.svg

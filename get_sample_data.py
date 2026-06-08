@@ -5,9 +5,6 @@ Script 1: Data Preparation
 Load the credit card clean dataset and save it to the inputs folder as CSV.
 https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients
 """
-from logging_config import get_logger
-logger = get_logger("get_sample_data", "get_sample_data.log", True, "w")
-
 import os
 import pandas as pd
 import json 
@@ -16,6 +13,37 @@ import json
 # This allows us to get the original data along with its metadata. 
 # We can also log the dataset information for better understanding and documentation.
 from ucimlrepo import fetch_ucirepo
+
+import logging
+from logging_config.logger_config import setup_logger
+
+logger_name = "mlops.utils"
+
+try:
+    # Check if logger is already configured in logging library
+    if logger_name in logging.Logger.manager.loggerDict:
+        # Logger exists, use it
+        logger = logging.getLogger(logger_name)
+    else:
+        # Logger doesn't exist, setup new one with proper configuration
+        logger = setup_logger(
+            name=logger_name,
+            level="info",
+            log_to_file=True,
+            log_mode="w",
+            timestamp="test_timestamp",
+            runid="test_run",
+            propagate=False
+        )
+except Exception as e:
+    # Fallback: if anything fails, create basic logger
+    print(f"[ERROR] Logger setup failed for {logger_name}: {e}")
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.INFO)
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s"))
+    logger.addHandler(handler)
+    logger.warning(f"Using fallback logger: {e}")
 
 
 def save_metadata_to_json(metadata, output_dir, file_name):
