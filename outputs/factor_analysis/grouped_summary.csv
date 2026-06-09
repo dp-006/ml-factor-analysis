@@ -1,7 +1,12 @@
 assignedFactor,variablesInGroup
 Factor_1,"['bill_amount_jun_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_may_2005', 'bill_amount_sep_2005', 'bill_amount_apr_2005']"
-Factor_2,"['repayment_status_jul_2005', 'repayment_status_jun_2005', 'repayment_status_sep_2005']"
-Factor_3,"['payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_sep_2005', 'payment_amount_jun_2005']"
-Factor_4,"['age', 'marital_status']"
+Factor_10,"['payment_amount_jun_2005', 'payment_amount_jul_2005']"
+Factor_11,['payment_amount_may_2005']
+Factor_2,"['repayment_status_jun_2005', 'repayment_status_jul_2005']"
+Factor_3,"['repayment_status_aug_2005', 'repayment_status_sep_2005', 'credit_limit']"
+Factor_4,"['marital_status', 'age']"
 Factor_5,"['repayment_status_may_2005', 'repayment_status_apr_2005']"
-Factor_6,"['gender', 'education']"
+Factor_6,['gender']
+Factor_7,"['payment_amount_aug_2005', 'payment_amount_sep_2005']"
+Factor_8,['education']
+Factor_9,['payment_amount_apr_2005']

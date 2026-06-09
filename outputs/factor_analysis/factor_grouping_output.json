@@ -1,45 +1,171 @@
 {
-    "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. Variables with max absolute loading above the specified threshold are classified as STRONG_GROUP, while those below are classified as WEAK_LOADING.",
-    "loadingThreshold": 0.5,
+    "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. Variables with max absolute loading above the specified threshold are classified as STRONG_LOADING, while those below are classified as WEAK_LOADING.",
+    "loadingThreshold": 0.9,
     "groupStatusDefinition": {
-        "STRONG_GROUP": "Variable has a maximum absolute loading >= 0.5 on its assigned factor, indicating a strong association with that factor.",
-        "WEAK_LOADING": "Variable has a maximum absolute loading < 0.5 on its assigned factor, indicating a weak association with that factor."
+        "STRONG_LOADING": "Variable has a maximum absolute loading >= 0.9 on its assigned factor, indicating a strong association with that factor.",
+        "WEAK_LOADING": "Variable has a maximum absolute loading < 0.9 on its assigned factor, indicating a weak association with that factor."
     },
     "groupingTableSample": [
         {
             "variable": "bill_amount_jun_2005",
             "assignedFactor": "Factor_1",
-            "maxAbsLoading": 0.9601239445281653,
-            "loadingValue": 0.9601239445281653,
-            "groupStatus": "STRONG_GROUP"
+            "maxAbsLoading": 0.960340354255284,
+            "loadingValue": 0.960340354255284,
+            "groupStatus": "STRONG_LOADING"
         },
         {
             "variable": "bill_amount_aug_2005",
             "assignedFactor": "Factor_1",
-            "maxAbsLoading": 0.9584633934719926,
-            "loadingValue": 0.9584633934719926,
-            "groupStatus": "STRONG_GROUP"
+            "maxAbsLoading": 0.95782939059304,
+            "loadingValue": 0.95782939059304,
+            "groupStatus": "STRONG_LOADING"
         },
         {
             "variable": "bill_amount_jul_2005",
             "assignedFactor": "Factor_1",
-            "maxAbsLoading": 0.9552781426925816,
-            "loadingValue": 0.9552781426925816,
-            "groupStatus": "STRONG_GROUP"
+            "maxAbsLoading": 0.9533545486624723,
+            "loadingValue": 0.9533545486624723,
+            "groupStatus": "STRONG_LOADING"
         },
         {
             "variable": "bill_amount_may_2005",
             "assignedFactor": "Factor_1",
-            "maxAbsLoading": 0.9476467304599567,
-            "loadingValue": 0.9476467304599567,
-            "groupStatus": "STRONG_GROUP"
+            "maxAbsLoading": 0.9455023722000088,
+            "loadingValue": 0.9455023722000088,
+            "groupStatus": "STRONG_LOADING"
         },
         {
             "variable": "bill_amount_sep_2005",
             "assignedFactor": "Factor_1",
-            "maxAbsLoading": 0.9377625896516825,
-            "loadingValue": 0.9377625896516825,
-            "groupStatus": "STRONG_GROUP"
+            "maxAbsLoading": 0.9374963574809173,
+            "loadingValue": 0.9374963574809173,
+            "groupStatus": "STRONG_LOADING"
+        },
+        {
+            "variable": "bill_amount_apr_2005",
+            "assignedFactor": "Factor_1",
+            "maxAbsLoading": 0.9188270516228744,
+            "loadingValue": 0.9188270516228744,
+            "groupStatus": "STRONG_LOADING"
+        },
+        {
+            "variable": "payment_amount_jun_2005",
+            "assignedFactor": "Factor_10",
+            "maxAbsLoading": 0.876969239541037,
+            "loadingValue": 0.876969239541037,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "payment_amount_jul_2005",
+            "assignedFactor": "Factor_10",
+            "maxAbsLoading": 0.5024954692670003,
+            "loadingValue": 0.5024954692670003,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "payment_amount_may_2005",
+            "assignedFactor": "Factor_11",
+            "maxAbsLoading": 0.9569978100087828,
+            "loadingValue": 0.9569978100087828,
+            "groupStatus": "STRONG_LOADING"
+        },
+        {
+            "variable": "repayment_status_jun_2005",
+            "assignedFactor": "Factor_2",
+            "maxAbsLoading": 0.9128622334615801,
+            "loadingValue": -0.9128622334615801,
+            "groupStatus": "STRONG_LOADING"
+        },
+        {
+            "variable": "repayment_status_jul_2005",
+            "assignedFactor": "Factor_2",
+            "maxAbsLoading": 0.8160239246678823,
+            "loadingValue": -0.8160239246678823,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "repayment_status_aug_2005",
+            "assignedFactor": "Factor_3",
+            "maxAbsLoading": 0.755572977625092,
+            "loadingValue": 0.755572977625092,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "repayment_status_sep_2005",
+            "assignedFactor": "Factor_3",
+            "maxAbsLoading": 0.7216780097559286,
+            "loadingValue": 0.7216780097559286,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "credit_limit",
+            "assignedFactor": "Factor_3",
+            "maxAbsLoading": 0.4051060662758106,
+            "loadingValue": 0.4051060662758106,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "marital_status",
+            "assignedFactor": "Factor_4",
+            "maxAbsLoading": 0.8583252587296725,
+            "loadingValue": -0.8583252587296725,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "age",
+            "assignedFactor": "Factor_4",
+            "maxAbsLoading": 0.7997717101862608,
+            "loadingValue": 0.7997717101862608,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "repayment_status_may_2005",
+            "assignedFactor": "Factor_5",
+            "maxAbsLoading": 0.880850274065756,
+            "loadingValue": 0.880850274065756,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "repayment_status_apr_2005",
+            "assignedFactor": "Factor_5",
+            "maxAbsLoading": 0.7905966366954085,
+            "loadingValue": 0.7905966366954085,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "gender",
+            "assignedFactor": "Factor_6",
+            "maxAbsLoading": 0.9869817558190779,
+            "loadingValue": -0.9869817558190779,
+            "groupStatus": "STRONG_LOADING"
+        },
+        {
+            "variable": "payment_amount_aug_2005",
+            "assignedFactor": "Factor_7",
+            "maxAbsLoading": 0.8051545020081277,
+            "loadingValue": 0.8051545020081277,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "payment_amount_sep_2005",
+            "assignedFactor": "Factor_7",
+            "maxAbsLoading": 0.6663030059903021,
+            "loadingValue": 0.6663030059903021,
+            "groupStatus": "WEAK_LOADING"
+        },
+        {
+            "variable": "education",
+            "assignedFactor": "Factor_8",
+            "maxAbsLoading": 0.9827695183859563,
+            "loadingValue": 0.9827695183859563,
+            "groupStatus": "STRONG_LOADING"
+        },
+        {
+            "variable": "payment_amount_apr_2005",
+            "assignedFactor": "Factor_9",
+            "maxAbsLoading": 0.9409977738091402,
+            "loadingValue": 0.9409977738091402,
+            "groupStatus": "STRONG_LOADING"
         }
     ],
     "groupedSummarySample": [
@@ -55,27 +181,38 @@
             ]
         },
         {
+            "assignedFactor": "Factor_10",
+            "variablesInGroup": [
+                "payment_amount_jun_2005",
+                "payment_amount_jul_2005"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_11",
+            "variablesInGroup": [
+                "payment_amount_may_2005"
+            ]
+        },
+        {
             "assignedFactor": "Factor_2",
             "variablesInGroup": [
-                "repayment_status_jul_2005",
                 "repayment_status_jun_2005",
-                "repayment_status_sep_2005"
+                "repayment_status_jul_2005"
             ]
         },
         {
             "assignedFactor": "Factor_3",
             "variablesInGroup": [
-                "payment_amount_aug_2005",
-                "payment_amount_jul_2005",
-                "payment_amount_sep_2005",
-                "payment_amount_jun_2005"
+                "repayment_status_aug_2005",
+                "repayment_status_sep_2005",
+                "credit_limit"
             ]
         },
         {
             "assignedFactor": "Factor_4",
             "variablesInGroup": [
-                "age",
-                "marital_status"
+                "marital_status",
+                "age"
             ]
         },
         {
@@ -83,6 +220,31 @@
             "variablesInGroup": [
                 "repayment_status_may_2005",
                 "repayment_status_apr_2005"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_6",
+            "variablesInGroup": [
+                "gender"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_7",
+            "variablesInGroup": [
+                "payment_amount_aug_2005",
+                "payment_amount_sep_2005"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_8",
+            "variablesInGroup": [
+                "education"
+            ]
+        },
+        {
+            "assignedFactor": "Factor_9",
+            "variablesInGroup": [
+                "payment_amount_apr_2005"
             ]
         }
     ]

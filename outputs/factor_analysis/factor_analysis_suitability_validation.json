@@ -1,0 +1,9 @@
+{
+    "kmoModel": 0.737147,
+    "bartlettPValue": 0.0,
+    "minKmoThreshold": 0.5,
+    "maxBartlettPValueThreshold": 0.05,
+    "isSuitableForFactorAnalysis": "pass",
+    "isSuitableForFactorAnalysisKmo": "pass",
+    "isSuitableForFactorAnalysisBartlett": "pass"
+}

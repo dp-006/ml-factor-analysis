@@ -31,6 +31,12 @@ Main Steps:
    - Question: How many factors to retain? 
    - Decision: Kaiser criterion (eigenvalue > 1) and explained variance thresholds (e.g. 80% cumulative variance)
    - How: Eigen decomposition of correlation matrix to get eigenvalues (variance explained) and eigenvectors (factor loadings)
+
+4: Factor Loadings and Communalities Calculation
+    - What: Shows how strongly each variable is associated with each factor
+    - Question: Which variables load on which factors? 
+    - Decision: Loadings > 0.4 are considered significant; communalities > 0.5 indicate good representation by factors
+    - How: Calculate factor loadings from eigenvectors and communalities as sum of squared loadings for each variable
 '''
 
 import json
@@ -62,7 +68,9 @@ logger_name = "mlops.factor_analysis"
 logger_file_name = "factor_analysis.log"
 logger = get_logger(logger_name, logger_file_name)
 
-def get_iris_dataset(target_variable: str = "TARGET") -> pd.DataFrame:
+def get_iris_dataset(
+        target_variable: str = "TARGET"
+        ) -> pd.DataFrame:
     '''
     Purpose
     -------
@@ -84,7 +92,9 @@ def get_iris_dataset(target_variable: str = "TARGET") -> pd.DataFrame:
     df_iris[target_variable] = target_iris
     return df_iris
 
-def check_data_quality(df_work: pd.DataFrame):
+def check_data_quality(
+        df_work: pd.DataFrame
+        ):
     '''
     Purpose
     -------
@@ -194,8 +204,9 @@ def prepare_factor_analysis_data(
     target_variable: str | None = None,
     drop_last: bool = True,
     fill_strategy_numeric: str = "median",
-    encoding_strategy_categorical: str = "ordinal"
-) -> pd.DataFrame:
+    encoding_strategy_categorical: str = "ordinal",
+    output_dir: str | None = None
+):
     """
     Purpose
     -------
@@ -226,6 +237,16 @@ def prepare_factor_analysis_data(
 
     drop_last : bool, default=True
         Whether to drop the last dummy category during one-hot encoding.
+    
+    fill_strategy_numeric : str, default="median"
+        The strategy to fill null values in numeric columns.
+    
+    encoding_strategy_categorical : str, default="ordinal"
+        The strategy to encode categorical columns. Options are "onehot" and "ordinal".
+    
+    output_dir : str | None, default=None
+        The directory where output files will be saved. If None, no files will be saved.
+        Saves data_preparation_metadata.json to this directory if provided.
 
     Example Input
     -------------
@@ -238,6 +259,10 @@ def prepare_factor_analysis_data(
     -------
     df_work : pd.DataFrame
         Encoded and standardized dataframe.
+    
+    metadata : dict
+        Metadata containing preprocessing details including original columns,
+        processed columns, dropped columns, and strategies used.
 
     Example Output
     --------------
@@ -386,6 +411,7 @@ def prepare_factor_analysis_data(
         target_value_counts = df_work[target_variable].value_counts()
         logger.info(f"Target distribution values:\n{target_value_counts}")
     
+    # Prepare metadata of the data preparation steps and log it
     metadata = {
         "originalColumns": df.columns.tolist(),
         "processedColumns": df_work.columns.tolist(),
@@ -398,11 +424,21 @@ def prepare_factor_analysis_data(
         "fillStrategyNumeric": fill_strategy_numeric,
         "dropLastCategory": drop_last,
     }
+
+    # Save metadata to JSON file if output_dir is provided and log the saved file path
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+        metadata_file_path = os.path.join(output_dir, "data_preparation_metadata.json")
+        with open(metadata_file_path, "w") as f:
+            json.dump(metadata, f, indent=4)
+        logger.info(f"Data preparation metadata saved to: {metadata_file_path}")
     
     logger.info("Data preparation for factor analysis completed successfully.")
     return df_work, metadata
 
-def interpret_kmo(kmo_value: float):
+def interpret_kmo(
+        kmo_value: float
+        ):
     """
     Purpose
     -------
@@ -470,9 +506,8 @@ def calculate_kmo_manual(
     Purpose
     -------
     Calculates the Kaiser-Meyer-Olkin (KMO) statistic manually.
-
-    KMO measures whether the correlation structure of the variables
-    is suitable for factor analysis.
+    KMO measures whether the correlation structure of the variables is suitable for factor analysis.
+    Are the variables sufficiently correlated to justify grouping them into factors?
 
     Reference
     ---------
@@ -481,8 +516,7 @@ def calculate_kmo_manual(
     Steps
     -------------
     1. Calculate the correlation matrix of the variables.
-    2. Calculate the partial correlation matrix by taking the inverse of the correlation matrix.
-        Inverse of Correlation Matrix is Precision Matrix(P).
+    2. Calculate the partial correlation matrix by taking the inverse of the correlation matrix. Inverse of Correlation Matrix is Precision Matrix(P).
     3. Calculate KMO for each variable and overall KMO for the dataset.
 
     Formula Logic
@@ -593,11 +627,13 @@ def calculate_kmo_manual(
     logger.info(f"Max correlation in Corr Matrix: {corr_matrix.max():.6f}")
     logger.info(f"Mean abs correlation in Corr Matrix: {np.mean(np.abs(corr_matrix[np.triu_indices_from(corr_matrix, k=1)])):.6f}")
 
+    # Inverse of Correlation Matrix is Precision Matrix(P) used for Partial Correlation calculation
     inv_corr_matrix = np.linalg.inv(corr_matrix)
     logger.info("Inverse of Correlation matrix (Precision Matrix) prepared for Partial Correlation calculation")
     # Log Properties of Inverse Correlation Matrix
     logger.info(f"Shape of Inverse Correlation matrix: {inv_corr_matrix.shape[0]} x {inv_corr_matrix.shape[1]}")
 
+    # Initialize Partial Correlation matrix with zeros and log its properties
     partial_corr = np.zeros_like(corr_matrix)
     logger.info("partial_corr matrix initialized with zeros")
     # Log the initial state of partial_corr matrix
@@ -646,6 +682,13 @@ def calculate_kmo_manual(
     #   0.64 + 0.01
     # = 0.984
 
+    # NOTE for Squared Correlations and Partial Correlations:
+    # Why we squate the correlations and partial correlations:
+    # KMO is based on the idea of comparing the strength of correlations to partial correlations.
+    # Squaring the correlations and partial correlations allows us to focus on the magnitude of the relationships 
+    # without considering their direction (positive or negative).
+    # This is important because KMO is concerned with the overall strength of the relationships between variables, 
+    # rather than whether they are positive or negative.
 
     # Get Squared Correlations
     corr_squared = corr_matrix ** 2
@@ -791,7 +834,10 @@ It means that variables share common factors (high correlations) and do not have
     logger.info("KMO (Kaiser-Meyer-Olkin) calculation completed successfully.")
     return kmo_per_variable, kmo_model, metadata
 
-def interpret_bartlett(p_value: float, reject_threshold: float = 0.05):
+def interpret_bartlett(
+        p_value: float, 
+        reject_threshold: float = 0.05
+        ):
     """
     Purpose
     -------
@@ -851,8 +897,16 @@ def calculate_bartlett_manual(
     -------
     Performs Bartlett's Test of Sphericity manually.
 
-    Bartlett's test evaluates whether the correlation matrix
-    significantly differs from an identity matrix.
+    Are the variables sufficiently correlated to justify factor analysis?
+
+    Bartlett's test evaluates whether the correlation matrix significantly differs from an identity matrix.
+    Why is differing from an identity matrix important for factor analysis?
+    An identity matrix indicates that variables are uncorrelated and do not share common factors, 
+    which is not suitable for factor analysis. 
+    
+    Factor analysis relies on the presence of correlations between variables to identify underlying factors. 
+    If the correlation matrix is an identity matrix, 
+    it suggests that the variables do not have enough shared variance to justify factor analysis.
 
     Example of Identity Matrix:
             AGE  TENURE  INCOME
@@ -1003,7 +1057,18 @@ def calculate_bartlett_manual(
     # n = number of samples
     # p = number of variables
     # correction_factor = (n - 1 - (2p + 5) / 6) is used to adjust the chi-square statistic for sample size and number of variables, which helps to improve the accuracy of the test results, especially in cases with small sample sizes or a large number of variables.
-    
+    # The determinant of the correlation matrix (det(R)) is a measure of the overall strength of the correlations between the variables. A smaller determinant indicates stronger correlations, which can lead to a larger chi-square statistic, suggesting that the correlation matrix significantly differs from an identity matrix.
+    # Geometrically, the determinant of the correlation matrix can be thought of as representing the volume of the multidimensional space defined by the variables. A smaller volume (smaller determinant) indicates that the variables are more closely related, which is favorable for factor analysis.
+    # NOTE: Interpretation of determinant of correlation matrix (det(R)) in the context of Bartlett's test:
+    # If determ(R) is close to 1, 
+    #   it suggests that the correlation matrix is close to an identity matrix, 
+    #   which may indicate that the variables are not sufficiently correlated for factor analysis. 
+    #   In such cases, the chi-square statistic may be small, and the p-value may be high, leading to a failure to reject the null hypothesis of Bartlett's test.
+    # If determ(R) is close to 0, 
+    #   it suggests that the correlation matrix has strong correlations between variables, 
+    #   which can lead to a larger chi-square statistic and a lower p-value, 
+    #   indicating that the correlation matrix significantly differs from an identity matrix and that factor analysis may be appropriate.
+
     # Calculate the correction factor
     correction_factor = (n_samples - 1 - ((2 * n_variables + 5) / 6))
     logger.info(f"Correction factor = {correction_factor:.4f}")
@@ -1016,6 +1081,7 @@ def calculate_bartlett_manual(
     degrees_of_freedom = n_variables * (n_variables - 1) / 2
     logger.info(f"Degrees of freedom for Bartlett's test: {int(degrees_of_freedom)}")
 
+    # Calculate the p-value for Bartlett's test using the chi-square distribution.
     p_value = chi2.sf(chi_square_value, degrees_of_freedom)
     logger.info(f"P-value for Bartlett's test: {p_value:.8f}")
 
@@ -1059,7 +1125,8 @@ def validate_factor_analysis_suitability(
     kmo_model: float,
     bartlett_p_value: float,
     min_kmo: float = 0.50,
-    max_bartlett_p_value: float = 0.05
+    max_bartlett_p_value: float = 0.05,
+    output_dir: str | None = None
 ):
     """
     Purpose
@@ -1081,6 +1148,9 @@ def validate_factor_analysis_suitability(
 
     max_bartlett_p_value : float, default=0.05
         Maximum acceptable Bartlett p-value.
+    
+    output_dir : str, optional
+        Directory to save validation output as JSON file. If None, output will not be saved to a file.
 
     Example Input
     -------------
@@ -1091,12 +1161,20 @@ def validate_factor_analysis_suitability(
 
     Returns
     -------
-    None
-        Returns nothing if validation passes.
+    metadata_of_validation : dict
+        Dictionary containing KMO and Bartlett test results, thresholds, and suitability interpretation.
 
     Example Output
     --------------
-    None
+    metadata_of_validation = {
+        "kmoModel": 0.7069,
+        "bartlettPValue": 0.000001,
+        "minKmoThreshold": 0.50,
+        "maxBartlettPValueThreshold": 0.05,
+        "isSuitableForFactorAnalysis": True,
+        "isSuitableForFactorAnalysisKmo": True,
+        "isSuitableForFactorAnalysisBartlett": True
+    }
 
     Interpretation
     --------------
@@ -1138,6 +1216,32 @@ def validate_factor_analysis_suitability(
         logger.info("Factor extraction can proceed with confidence.")
         logger.info("=" * 80)
 
+    # Prepare metadata for validation output
+    is_suitable = kmo_model >= min_kmo and bartlett_p_value < max_bartlett_p_value
+    is_suitable_kmo = kmo_model >= min_kmo
+    is_suitable_bartlett = bartlett_p_value < max_bartlett_p_value
+    
+    metadata_of_validation = {
+        "kmoModel": kmo_model,
+        "bartlettPValue": bartlett_p_value,
+        "minKmoThreshold": min_kmo,
+        "maxBartlettPValueThreshold": max_bartlett_p_value,
+        "isSuitableForFactorAnalysis": 'pass' if is_suitable else 'fail',
+        "isSuitableForFactorAnalysisKmo": 'pass' if is_suitable_kmo else 'fail',
+        "isSuitableForFactorAnalysisBartlett": 'pass' if is_suitable_bartlett else 'fail'
+    }
+
+    # Save validation metadata to JSON file if output_dir is provided and log the saved file path
+    if output_dir:
+        # Create output directory if it does not exist
+        os.makedirs(output_dir, exist_ok=True)
+        # Save validation metadata to JSON file
+        with open(f"{output_dir}/factor_analysis_suitability_validation.json", "w") as f:
+            json.dump(metadata_of_validation, f, indent=4)
+        logger.info(f"Factor analysis suitability validation metadata saved to {output_dir}/factor_analysis_suitability_validation.json")
+    logger.info("Factor analysis suitability validation completed.")
+    return metadata_of_validation
+
 def calculate_eigenvalues(
         df: pd.DataFrame,
         target_variable: str | None = None,
@@ -1158,11 +1262,38 @@ def calculate_eigenvalues(
     Eigenvalue represents the amount of variance in the original variables that is captured by each factor. 
     Higher eigenvalues indicate that the factor explains more variance.
 
+    Range of Eigenvalues:
+    - Eigenvalues are non-negative and can range from 0 to the number of variables in the dataset (when using the correlation matrix).
+
+    Expalined Variance Ratio:
+    - Eigenvalue / Number of Variables (which is equal to Total Variance)
+
+    What is Eigenvector?
+    ----------------
+    Direction of vector showing how variables contribute to the factor.
+    Lentgh of eigenvector equals to number of variables.
+    Each element in the eigenvector represents the loading of a variable on that factor.
+    Higher absolute values indicate stronger contributions of the variable to the factor.
+    Index of the eigenvector corresponds to the variable name in the original dataset.
+    Example:
+    Eigenvector for Factor 1: [0.70, 0.50, 0.30]
+    - Variable 1 has a loading of 0.70 on Factor 1, indicating a strong contribution.
+    - Variable 2 has a loading of 0.50 on Factor 1, indicating a moderate contribution.
+    - Variable 3 has a loading of 0.30 on Factor 1, indicating a weaker contribution.
+
+    Relationship between Eigenvalues and Eigenvectors:
+        Formula: R * v = λ * v
+        - R: Correlation matrix
+        - v: Eigenvector (direction of the factor)
+        - λ: Eigenvalue (magnitude of variance explained by the factor)
+        - Mathematical Foundtaion -> det(R - λI)=0
+
     Factor Selection Rule
     ---------------------
     Kaiser criterion:
 
         retain factors with eigenvalue > 1
+        WHY -> factors that explain more variance than a single original variable (which has an eigenvalue of 1 in the correlation matrix).
 
     Parameters
     ----------
@@ -1288,6 +1419,7 @@ def calculate_eigenvalues(
     logger.info(f"Eigenvectors calculated. {eigenvectors.shape[0]} variables and {eigenvectors.shape[1]} factors.")
     
     # Take real parts of eigenvalues
+    # NOTE: In practice, eigenvalues from a correlation matrix should be real numbers.
     eigenvalues = np.real(eigenvalues)
     logger.info("Real parts of eigenvalues extracted:")
     for i, eigenvalue in enumerate(eigenvalues):
@@ -1474,6 +1606,7 @@ def calculate_factor_loadings(
     eigenvalues: np.ndarray,
     eigenvectors: np.ndarray,
     rotation: str = "varimax",
+    eigenvalue_selection_method: str | None = None,
     eigenvalue_threshold: float = 1.0,
     target_variable: str | None = None,
     output_dir: str | None = None
@@ -1482,9 +1615,10 @@ def calculate_factor_loadings(
     Purpose
     -------
     Calculates factor loadings using eigenvalues and eigenvectors.
-
-    Factor loadings show how strongly each variable is associated
-    with each factor.
+    Factor loadings,
+        - bridge the gap between abstract factors and interpretable variables.
+        - show how strongly each variable is associated with each factor.
+        - essentially a correlation between a variable and a factor, indicating how much that variable contributes to defining the factor.
 
     Calculation Logic
     -----------------
@@ -1508,6 +1642,13 @@ def calculate_factor_loadings(
 
     eigenvectors : np.ndarray
         Sorted eigenvectors.
+    
+    eigenvalue_selection_method : str | None, default=None
+        Method for selecting factors based on eigenvalues.
+        None: No thresholding, use all factors.
+        "kaiser": Retain factors with eigenvalue > 1.
+        "number": Retain a specific number of factors based on eigenvalue ranking.
+        "variance": Retain factors that explain a certain percentage of variance.
 
     rotation : str, default="varimax"
         Rotation method.
@@ -1601,10 +1742,29 @@ def calculate_factor_loadings(
         logger.error(error_message)
         raise ValueError(error_message)
 
-    # Determine the number of factors to retain based on the eigenvalue threshold
-    n_factors = int((eigenvalues > eigenvalue_threshold).sum())
-    logger.info(f"Number of factors retained based on eigenvalue threshold > {eigenvalue_threshold}: {n_factors}")
+    # Determine the number of factors to retain based on the eigenvalue selection method and log the selected method and threshold
+    if eigenvalue_selection_method is None:
+        n_factors = len(eigenvalues)
+        logger.info("No eigenvalue selection method specified. All factors will be retained for factor loadings calculation.")
+    elif eigenvalue_selection_method == "kaiser":
+        n_factors = int((eigenvalues > eigenvalue_threshold).sum())
+        logger.info(f"Number of factors retained based on eigenvalue threshold > {eigenvalue_threshold}: {n_factors}")
+    elif eigenvalue_selection_method == "number":
+        n_factors = int(eigenvalue_threshold)
+        logger.info(f"Number of factors retained based on specified number: {n_factors}")
+        # Raise Error if specified number of factors to retain is greater than the total number of factors available
+        if n_factors > len(eigenvalues):
+            error_message = f"Specified number of factors to retain ({n_factors}) is greater than the total number of factors available ({len(eigenvalues)}). Please check the eigenvalue threshold and try again."
+            logger.error(error_message)
+            raise ValueError(error_message)
+    elif eigenvalue_selection_method == "variance":
+        n_factors = int((eigenvalues / eigenvalues.sum()).cumsum().searchsorted(eigenvalue_threshold) + 1)
+        logger.info(f"Number of factors retained based on cumulative variance explained > {eigenvalue_threshold}: {n_factors}")
+    else:
+        raise ValueError(f"Unsupported eigenvalue selection method: {eigenvalue_selection_method}. " \
+                         "Use eigenvalue_selection_method='kaiser', 'number', 'variance', or None.")
 
+    # Check number of factors retained and log an error if no factors are retained, then raise a ValueError
     if n_factors < 1:
         error_message = f"No factors retained. No eigenvalues greater than {eigenvalue_threshold}. "\
                         "Please consider lowering the eigenvalue threshold or reviewing the eigenvalues for factor retention."
@@ -1683,7 +1843,8 @@ def calculate_factor_loadings(
     # Prepare metadata for output
     metadata = {
         "factorLoadingDefinition": "Factor loadings show how strongly each variable is associated with each factor. They are calculated using the formula: loading = eigenvector * sqrt(eigenvalue). Higher absolute loadings indicate stronger associations between variables and factors.",
-        "factorSelectionRule": f"Retain factors with eigenvalue > {eigenvalue_threshold}",
+        "eigenvalueSelectionMethod": eigenvalue_selection_method if eigenvalue_selection_method else "None (all factors retained)",
+        "eigenvalueThreshold": "not applicable" if eigenvalue_selection_method is None else eigenvalue_threshold,
         "rotationMethod": rotation,
         "numberOfFactorsRetained": n_factors,
         "loadingsShape": {
@@ -1816,13 +1977,13 @@ def create_factor_groups(
     # ========================================================================
     # ASSIGN GROUP STATUS BASED ON LOADING THRESHOLD
     # ========================================================================
-    # Classifies each variable as either STRONG_GROUP or WEAK_LOADING based on
+    # Classifies each variable as either STRONG_LOADING or WEAK_LOADING based on
     # whether its maximum absolute loading meets the threshold.
-    # Example: If loading_threshold=0.50 and maxAbsLoading=0.65 → STRONG_GROUP
+    # Example: If loading_threshold=0.50 and maxAbsLoading=0.65 → STRONG_LOADING
     # ========================================================================
     grouping_table["groupStatus"] = np.where(
         grouping_table["maxAbsLoading"] >= loading_threshold,
-        "STRONG_GROUP",
+        "STRONG_LOADING",
         "WEAK_LOADING"
     )
     logger.info(f"Assigned group status based on loading threshold of {loading_threshold}.")
@@ -1848,11 +2009,12 @@ def create_factor_groups(
     # ========================================================================
     # CREATE GROUPED SUMMARY TABLE
     # ========================================================================
-    # Creates a summary table that lists the variables assigned to each factor group.
-    # Example: Factor_1 → [AGE, TENURE], Factor_2 → [INCOME, BALANCE, CITY_A]
+    # Creates a summary table that lists all variables assigned to each factor group.
+    # Includes both STRONG_LOADING and WEAK_LOADING variables.
+    # Example: Factor_1 → [AGE, TENURE, variable_with_weak_loading]
     # ========================================================================
     grouped_summary = (
-        grouping_table[grouping_table["groupStatus"] == "STRONG_GROUP"]
+        grouping_table
         .groupby("assignedFactor")["variable"]
         .apply(list)
         .reset_index()
@@ -1865,14 +2027,14 @@ def create_factor_groups(
 
     # Prepare metadata for output
     metadata = {
-        "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. Variables with max absolute loading above the specified threshold are classified as STRONG_GROUP, while those below are classified as WEAK_LOADING.",
+        "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. Variables with max absolute loading above the specified threshold are classified as STRONG_LOADING, while those below are classified as WEAK_LOADING.",
         "loadingThreshold": loading_threshold,
         "groupStatusDefinition": {
-            "STRONG_GROUP": f"Variable has a maximum absolute loading >= {loading_threshold} on its assigned factor, indicating a strong association with that factor.",
+            "STRONG_LOADING": f"Variable has a maximum absolute loading >= {loading_threshold} on its assigned factor, indicating a strong association with that factor.",
             "WEAK_LOADING": f"Variable has a maximum absolute loading < {loading_threshold} on its assigned factor, indicating a weak association with that factor."
         },
-        "groupingTableSample": grouping_table.head(5).to_dict(orient="records"),
-        "groupedSummarySample": grouped_summary.head(5).to_dict(orient="records")
+        "groupingTableSample": grouping_table.to_dict(orient="records"),
+        "groupedSummarySample": grouped_summary.to_dict(orient="records")
     }
 
     logger.info("Factor grouping metadata prepared for output.")
@@ -1900,6 +2062,7 @@ def run_factor_analysis(
     fill_strategy_numeric: str = "mean",
     encoding_strategy_categorical: str = "ordinal",
     rotation: str = "varimax",
+    eigenvalue_selection_method: str | None = None,
     eigenvalue_threshold: float = 1.0,
     loading_threshold: float = 0.50,
     output_dir: str | None = None
@@ -1936,6 +2099,9 @@ def run_factor_analysis(
 
     rotation : str, default="varimax"
         Rotation method for factor loadings: "varimax" or None.
+    
+    eigenvalue_selection_method : str | None, default=None
+        Method for selecting factors based on eigenvalues:
 
     eigenvalue_threshold : float, default=1.0
         Minimum eigenvalue for retaining factors (Kaiser criterion).
@@ -2018,13 +2184,15 @@ def run_factor_analysis(
             target_variable=target_variable,
             drop_last=drop_last,
             fill_strategy_numeric=fill_strategy_numeric,
-            encoding_strategy_categorical=encoding_strategy_categorical
+            encoding_strategy_categorical=encoding_strategy_categorical,
+            output_dir=output_dir
         )
         results["prepared_data"] = df_prepared
         results["preparation_metadata"] = metadata_of_preparation
         logger.info("Data preparation completed.")
 
         # Step 2: Calculate KMO
+        # Are the variables sufficiently correlated to justify grouping them into factors?
         logger.info("\n[STEP 2/6] Calculating Kaiser-Meyer-Olkin (KMO) test...")
         kmo_per_variable, kmo_model, kmo_metadata = calculate_kmo_manual(
             df_prepared,
@@ -2051,12 +2219,14 @@ def run_factor_analysis(
 
         # Step 4: Validate Factor Analysis Suitability
         logger.info("\n[VALIDATION] Checking factor analysis suitability...")
-        validate_factor_analysis_suitability(
+        validation_result = validate_factor_analysis_suitability(
             kmo_model=kmo_model,
             bartlett_p_value=bartlett_p_value,
             min_kmo=0.50,
-            max_bartlett_p_value=0.05
+            max_bartlett_p_value=0.05,
+            output_dir=output_dir
         )
+        results["validation_result"] = validation_result
         logger.info("Dataset is validated for factor analysis suitability.")
 
         # Step 5: Calculate Eigenvalues
@@ -2074,10 +2244,11 @@ def run_factor_analysis(
         # Step 6: Calculate Factor Loadings
         logger.info("\n[STEP 5/6] Calculating factor loadings...")
         loadings_df, n_factors = calculate_factor_loadings(
-            df_prepared,
-            eigenvalues,
-            eigenvectors,
+            df=df_prepared,
+            eigenvalues=eigenvalues,
+            eigenvectors=eigenvectors,
             rotation=rotation,
+            eigenvalue_selection_method=eigenvalue_selection_method,
             eigenvalue_threshold=eigenvalue_threshold,
             target_variable=target_variable,
             output_dir=output_dir
@@ -2112,13 +2283,18 @@ def run_factor_analysis(
         logger.info("[SUMMARY]")
         logger.info(f"  KMO Model Score .................... {results['kmo_model']:.6f}")
         logger.info(f"  Bartlett p-value .................. {results['bartlett_p_value']:.8f}")
+        logger.info(f"  Eigenvalue Selection Method ............... {eigenvalue_selection_method if eigenvalue_selection_method else 'None (all factors retained)'}")
+        logger.info(f"  Eigenvalue Threshold ............... {eigenvalue_threshold}")
         logger.info(f"  Number of Factors Retained ....... {results['n_factors']}")
         logger.info(f"  Number of Factor Groups Created .. {len(results['grouped_summary'])}")
+        logger.info(f"  Number of Variables in Each Factor Group:")
+        for index, row in results['grouped_summary'].iterrows():
+            logger.info(f"    {row['assignedFactor']}: {len(row['variablesInGroup'])} variables")
         logger.info("")
 
     except Exception as e:
         logger.error(f"Error in factor analysis pipeline: {str(e)}", exc_info=True)
-        raise
+        raise Exception(f"Factor analysis pipeline failed: {str(e)}") from e
 
     return results
 
@@ -2147,8 +2323,9 @@ if __name__ == "__main__":
             fill_strategy_numeric="mean",
             encoding_strategy_categorical="ordinal",
             rotation="varimax",
-            eigenvalue_threshold=1.0,
-            loading_threshold=0.50,
+            eigenvalue_selection_method="variance",
+            eigenvalue_threshold=0.80,
+            loading_threshold=0.90,
             output_dir="outputs/factor_analysis"
         )
     
