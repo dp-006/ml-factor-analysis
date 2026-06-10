@@ -37,6 +37,12 @@ Main Steps:
     - Question: Which variables load on which factors? 
     - Decision: Loadings > 0.4 are considered significant; communalities > 0.5 indicate good representation by factors
     - How: Calculate factor loadings from eigenvectors and communalities as sum of squared loadings for each variable
+
+5: Grouping Variables into Factors and Interpretation
+    - What: Assigns variables to factors based on loadings and interprets the factors
+    - Question: What do the factors represent? 
+    - Decision: Group variables with high loadings on the same factor and interpret based on variable content
+    - How: Analyze loading patterns to identify underlying constructs represented by each factor
 '''
 
 import json
@@ -2312,70 +2318,18 @@ if __name__ == "__main__":
         logger.info(f"Column: {column}: {column_dtypes.get(column, 'Unknown')} | Unique Values: {df[column].nunique()}")
     logger.info("Sample data loaded successfully.")
 
-    run_method = "full_pipeline"
-    logger.info(f"Running factor analysis with method: {run_method}")
+    logger.info(f"Running factor analysis with Sample Data from {input_csv_path} and metadata from {metadata_path}.")
 
-    if run_method == "full_pipeline":
-        run_factor_analysis(
-            df=df,
-            target_variable="TARGET",
-            drop_last=True,
-            fill_strategy_numeric="mean",
-            encoding_strategy_categorical="ordinal",
-            rotation="varimax",
-            eigenvalue_selection_method="variance",
-            eigenvalue_threshold=0.80,
-            loading_threshold=0.90,
-            output_dir="outputs/factor_analysis"
-        )
+    run_factor_analysis(
+        df=df,
+        target_variable="TARGET",
+        drop_last=True,
+        fill_strategy_numeric="mean",
+        encoding_strategy_categorical="ordinal",
+        rotation="varimax",
+        eigenvalue_selection_method="variance",
+        eigenvalue_threshold=0.80,
+        loading_threshold=0.90,
+        output_dir="outputs/factor_analysis"
+    )
     
-    else:
-        logger.info("Manual run method for review.")
-
-        # Data Preparation and Factor Analysis Grouping
-        df_prepared, metadata_of_preparation = prepare_factor_analysis_data(
-            df=df, 
-            target_variable="TARGET", 
-            drop_last=True, 
-            fill_strategy_numeric="mean", 
-            encoding_strategy_categorical="ordinal")
-        logger.info("Data prepared for factor analysis.")
-
-        # Calculate KMO
-        kmo_per_variable, kmo_model, kmo_metadata = calculate_kmo_manual(
-            df_prepared, 
-            target_variable="TARGET", 
-            output_dir="outputs/factor_analysis"
-            )
-
-        # Calculate Bartlett's Test of Sphericity
-        bartlett_chi_square, bartlett_p_value, bartlett_df, bartlett_metadata = calculate_bartlett_manual(
-            df_prepared, 
-            target_variable="TARGET", 
-            output_dir="outputs/factor_analysis"
-            )
-        
-        # Calculate Eigenvalues and Eigenvectors
-        eigen_table, eigenvalues, eigenvectors = calculate_eigenvalues(
-            df_prepared, 
-            target_variable="TARGET", 
-            output_dir="outputs/factor_analysis"
-            )
-        
-        # Calculate Factor Loadings
-        loadings_df, n_factors = calculate_factor_loadings(
-            df_prepared, 
-            eigenvalues, 
-            eigenvectors, 
-            rotation="varimax", 
-            eigenvalue_threshold=1.0, 
-            target_variable="TARGET", 
-            output_dir="outputs/factor_analysis"
-            )
-        
-        # Create Factor Groups
-        grouping_table, grouped_summary, grouping_metadata = create_factor_groups(
-            loadings_df, 
-            loading_threshold=0.50, 
-            output_dir="outputs/factor_analysis"
-            )

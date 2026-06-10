@@ -13,6 +13,10 @@ from datetime import datetime, timezone, timedelta
 import uuid
 from logging_config.logger_config import setup_multiple_loggers
 
+# Generate timestamp and run ID for logging
+# Becasue main.py simulates that a system calls the factor analysis module, 
+# we will generate the timestamp and run ID here to ensure that all logs are consistent across modules.
+# User will follow logs within the same run ID and timestamp, which will be generated at the start of the main execution flow.
 timestamp = datetime.now(timezone(timedelta(hours=3))).strftime("%Y%m%d_%H%M%S")
 runid = uuid.uuid4().hex[:8]
 
@@ -51,6 +55,7 @@ for logger_name in loggers.keys():
     )
     logger.info("-" * 50)  # Separator for readability
 
+# You should import after setting up the loggers to ensure that the imported module can use the same loggers with the correct configuration.
 from factor_analysis import run_factor_analysis
 
 # Get Sampe Data
@@ -75,7 +80,8 @@ factor_analysis_results = run_factor_analysis(
     fill_strategy_numeric="mean",
     encoding_strategy_categorical="ordinal",
     rotation="varimax",
-    eigenvalue_threshold=1.0,
-    loading_threshold=0.50,
+    eigenvalue_selection_method="variance",
+    eigenvalue_threshold=0.80,
+    loading_threshold=0.90,
     output_dir="outputs/factor_analysis"
-    )
+)
