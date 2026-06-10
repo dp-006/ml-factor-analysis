@@ -1,0 +1,11 @@
+2026-06-10 23:56:59,017 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'numeric_col' has 5 unique values: [1 2 3 4 5]
+2026-06-10 23:56:59,017 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'missing_col' has 4 unique values: [1. 2. 4. 5.]
+2026-06-10 23:56:59,018 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'inf_col' has 5 unique values: [ 1.  2. inf  4.  5.]
+2026-06-10 23:56:59,018 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'constant_numeric_col' has 1 unique values: [1]
+2026-06-10 23:56:59,018 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'zero_variance_col' has 1 unique values: [1]
+2026-06-10 23:56:59,018 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'high_corr_col1' has 5 unique values: [1 2 3 4 5]
+2026-06-10 23:56:59,019 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'high_corr_col2' has 5 unique values: [ 2  4  6  8 10]
+2026-06-10 23:56:59,019 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'secret_binary_col' has 2 unique values: [0 1]
+2026-06-10 23:56:59,019 | [None] | mlops.column_operations | convert_binary_columns:76 | INFO | Column 'secret_binary_col' is detected as a binary column and converted to object type.
+2026-06-10 23:56:59,019 | [None] | mlops.column_operations | convert_binary_columns:60 | INFO | Column 'secret_binary_col_2' has 2 unique values: [10 20]
+2026-06-10 23:56:59,019 | [None] | mlops.column_operations | convert_binary_columns:78 | INFO | Number of binary columns detected and converted to object type: 1

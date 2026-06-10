@@ -1,0 +1,44 @@
+2026-06-10 23:56:59,001 | [None] | mlops.io_operations | io_check_dataframe_quality:256 | INFO | Checking quality of the DataFrame
+2026-06-10 23:56:59,002 | [None] | mlops.io_operations | io_check_dataframe_quality:259 | INFO | Number of rows: 5, Number of columns: 16
+2026-06-10 23:56:59,002 | [None] | mlops.io_operations | io_check_dataframe_quality:272 | INFO | Categorical columns: ['categorical_col']
+2026-06-10 23:56:59,002 | [None] | mlops.io_operations | io_check_dataframe_quality:273 | INFO | Object columns: ['object_col', 'special_char_col', 'constant_object_col', 'high_cardinality_col', 'numeric_like_object_col']
+2026-06-10 23:56:59,003 | [None] | mlops.io_operations | io_check_dataframe_quality:274 | INFO | String columns: ['object_col', 'string_col', 'special_char_col', 'constant_object_col', 'high_cardinality_col', 'numeric_like_object_col']
+2026-06-10 23:56:59,003 | [None] | mlops.io_operations | io_check_dataframe_quality:280 | WARNING | Feature engine library accepts ONLY numeric and object columns. Detected: 1 categorical, 5 object, 6 string.
+2026-06-10 23:56:59,004 | [None] | mlops.io_operations | io_check_dataframe_quality:292 | WARNING | Missing values detected in columns:
+2026-06-10 23:56:59,004 | [None] | mlops.io_operations | io_check_dataframe_quality:294 | WARNING | missing_col: 20.00% missing values
+2026-06-10 23:56:59,005 | [None] | mlops.io_operations | io_check_dataframe_quality:306 | WARNING | Inf values detected in columns:
+2026-06-10 23:56:59,005 | [None] | mlops.io_operations | io_check_dataframe_quality:308 | WARNING | inf_col: 20.00% Inf values
+2026-06-10 23:56:59,006 | [None] | mlops.io_operations | io_check_dataframe_quality:320 | WARNING | Special characters detected in columns:
+2026-06-10 23:56:59,007 | [None] | mlops.io_operations | io_check_dataframe_quality:322 | WARNING | special_char_col: 100.00% values with special characters
+2026-06-10 23:56:59,008 | [None] | mlops.io_operations | io_check_dataframe_quality:330 | WARNING | Constant columns detected:
+2026-06-10 23:56:59,008 | [None] | mlops.io_operations | io_check_dataframe_quality:332 | WARNING | constant_numeric_col is a constant column
+2026-06-10 23:56:59,008 | [None] | mlops.io_operations | io_check_dataframe_quality:332 | WARNING | constant_object_col is a constant column
+2026-06-10 23:56:59,008 | [None] | mlops.io_operations | io_check_dataframe_quality:332 | WARNING | zero_variance_col is a constant column
+2026-06-10 23:56:59,008 | [None] | mlops.io_operations | io_check_dataframe_quality:349 | INFO | No high cardinality columns detected in the DataFrame.
+2026-06-10 23:56:59,009 | [None] | mlops.io_operations | io_check_dataframe_quality:361 | WARNING | Numeric-like object columns detected:
+2026-06-10 23:56:59,009 | [None] | mlops.io_operations | io_check_dataframe_quality:364 | WARNING | numeric_like_object_col: 100.00% numeric-like values
+2026-06-10 23:56:59,011 | [None] | mlops.io_operations | io_check_dataframe_quality:375 | WARNING | Numeric columns with zero variance detected:
+2026-06-10 23:56:59,011 | [None] | mlops.io_operations | io_check_dataframe_quality:377 | WARNING | constant_numeric_col is a zero variance column
+2026-06-10 23:56:59,011 | [None] | mlops.io_operations | io_check_dataframe_quality:377 | WARNING | zero_variance_col is a zero variance column
+2026-06-10 23:56:59,012 | [None] | mlops.io_operations | io_check_dataframe_quality:391 | WARNING | Highly correlated numeric columns detected:
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | missing_col and numeric_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | inf_col and numeric_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | inf_col and missing_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | high_corr_col1 and numeric_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | high_corr_col1 and missing_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | high_corr_col1 and inf_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | high_corr_col2 and numeric_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | high_corr_col2 and missing_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | high_corr_col2 and inf_col have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | high_corr_col2 and high_corr_col1 have a correlation of 1.00
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | secret_binary_col_2 and missing_col have a correlation of 0.95
+2026-06-10 23:56:59,013 | [None] | mlops.io_operations | io_check_dataframe_quality:393 | WARNING | secret_binary_col_2 and inf_col have a correlation of 0.95
+2026-06-10 23:56:59,015 | [None] | mlops.io_operations | io_check_dataframe_quality:409 | INFO | No object columns with empty strings detected in the DataFrame.
+2026-06-10 23:56:59,016 | [None] | mlops.io_operations | io_check_dataframe_quality:417 | INFO | No duplicate rows detected in the DataFrame.
+2026-06-10 23:56:59,016 | [None] | mlops.io_operations | io_check_dataframe_quality:438 | INFO | DataFrame quality metrics: {'numRows': 5, 'numColumns': 16, 'categoricalColumns': ['categorical_col'], 'objectColumns': ['object_col', 'special_char_col', 'constant_object_col', 'high_cardinality_col', 'numeric_like_object_col'], 'stringColumns': ['object_col', 'string_col', 'special_char_col', 'constant_object_col', 'high_cardinality_col', 'numeric_like_object_col'], 'missingValues': {'missing_col': np.float64(20.0)}, 'infValues': {'inf_col': np.float64(20.0)}, 'specialCharacters': {'special_char_col': np.float64(100.0)}, 'constantColumns': ['constant_numeric_col', 'constant_object_col', 'zero_variance_col'], 'highCardinalityColumns': {}, 'numericLikeObjectCols': {'object_col': np.float64(0.0), 'special_char_col': np.float64(0.0), 'constant_object_col': np.float64(0.0), 'high_cardinality_col': np.float64(0.0), 'numeric_like_object_col': np.float64(1.0)}, 'zeroVarianceColumns': {'constant_numeric_col': 1, 'zero_variance_col': 1}, 'highCorrPairs': [('missing_col', 'numeric_col', np.float64(1.0)), ('inf_col', 'numeric_col', np.float64(1.0)), ('inf_col', 'missing_col', np.float64(1.0)), ('high_corr_col1', 'numeric_col', np.float64(1.0)), ('high_corr_col1', 'missing_col', np.float64(1.0)), ('high_corr_col1', 'inf_col', np.float64(1.0)), ('high_corr_col2', 'numeric_col', np.float64(1.0)), ('high_corr_col2', 'missing_col', np.float64(1.0)), ('high_corr_col2', 'inf_col', np.float64(1.0)), ('high_corr_col2', 'high_corr_col1', np.float64(1.0)), ('secret_binary_col_2', 'missing_col', np.float64(0.9486832980505139)), ('secret_binary_col_2', 'inf_col', np.float64(0.9486832980505139))], 'emptyStrings': {}, 'duplicateRows': 0}
+2026-06-10 23:56:59,016 | [None] | mlops.io_operations | io_save_json:93 | INFO | Ensuring directory exists: ./outputs/io_operations
+2026-06-10 23:56:59,016 | [None] | mlops.io_operations | io_save_json:98 | INFO | Saving JSON file to ./outputs/io_operations/data_quality_report.json
+2026-06-10 23:56:59,017 | [None] | mlops.io_operations | io_save_json:101 | INFO | JSON file saved successfully to ./outputs/io_operations/data_quality_report.json
+2026-06-10 23:56:59,020 | [None] | mlops.io_operations | io_save_json:93 | INFO | Ensuring directory exists: ./outputs/column_operations
+2026-06-10 23:56:59,020 | [None] | mlops.io_operations | io_save_json:98 | INFO | Saving JSON file to ./outputs/column_operations/binary_columns_metadata.json
+2026-06-10 23:56:59,020 | [None] | mlops.io_operations | io_save_json:101 | INFO | JSON file saved successfully to ./outputs/column_operations/binary_columns_metadata.json

@@ -17,6 +17,8 @@ LOGGER_CONFIG = {
     "mlops.factor_analysis": "factor_analysis.log",
     "mlops.descriptive_analysis": "descriptive_analysis.log",
     "mlops.utils": "utils.log",
+    "mlops.io_operations": "io_operations.log",
+    "mlops.column_operations": "column_operations.log",
 }
 
 def setup_logger(

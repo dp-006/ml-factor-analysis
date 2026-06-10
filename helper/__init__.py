@@ -10,6 +10,17 @@ from .utils import (
     plot_bar_charts,
 )
 
+from .io_operations import (
+    io_save_json,
+    io_load_json,
+    io_read_csv_as_df,
+    io_check_dataframe_quality,
+)
+
+from .column_operations import (
+    convert_binary_columns,
+)
+
 __all__ = [
     "shapiro_wilk",
     "dagostino_pearson",
@@ -19,5 +30,10 @@ __all__ = [
     "plot_boxplots",
     "plot_histograms",
     "plot_qq_plots",
-    "plot_bar_charts"
+    "plot_bar_charts",
+    "io_save_json",
+    "io_load_json",
+    "io_read_csv_as_df",
+    "io_check_dataframe_quality",
+    "convert_binary_columns",
 ]

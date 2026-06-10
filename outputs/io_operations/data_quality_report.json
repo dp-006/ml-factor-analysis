@@ -1,0 +1,112 @@
+{
+    "numRows": 5,
+    "numColumns": 16,
+    "categoricalColumns": [
+        "categorical_col"
+    ],
+    "objectColumns": [
+        "object_col",
+        "special_char_col",
+        "constant_object_col",
+        "high_cardinality_col",
+        "numeric_like_object_col"
+    ],
+    "stringColumns": [
+        "object_col",
+        "string_col",
+        "special_char_col",
+        "constant_object_col",
+        "high_cardinality_col",
+        "numeric_like_object_col"
+    ],
+    "missingValues": {
+        "missing_col": 20.0
+    },
+    "infValues": {
+        "inf_col": 20.0
+    },
+    "specialCharacters": {
+        "special_char_col": 100.0
+    },
+    "constantColumns": [
+        "constant_numeric_col",
+        "constant_object_col",
+        "zero_variance_col"
+    ],
+    "highCardinalityColumns": {},
+    "numericLikeObjectCols": {
+        "object_col": 0.0,
+        "special_char_col": 0.0,
+        "constant_object_col": 0.0,
+        "high_cardinality_col": 0.0,
+        "numeric_like_object_col": 1.0
+    },
+    "zeroVarianceColumns": {
+        "constant_numeric_col": 1,
+        "zero_variance_col": 1
+    },
+    "highCorrPairs": [
+        [
+            "missing_col",
+            "numeric_col",
+            1.0
+        ],
+        [
+            "inf_col",
+            "numeric_col",
+            1.0
+        ],
+        [
+            "inf_col",
+            "missing_col",
+            1.0
+        ],
+        [
+            "high_corr_col1",
+            "numeric_col",
+            1.0
+        ],
+        [
+            "high_corr_col1",
+            "missing_col",
+            1.0
+        ],
+        [
+            "high_corr_col1",
+            "inf_col",
+            1.0
+        ],
+        [
+            "high_corr_col2",
+            "numeric_col",
+            1.0
+        ],
+        [
+            "high_corr_col2",
+            "missing_col",
+            1.0
+        ],
+        [
+            "high_corr_col2",
+            "inf_col",
+            1.0
+        ],
+        [
+            "high_corr_col2",
+            "high_corr_col1",
+            1.0
+        ],
+        [
+            "secret_binary_col_2",
+            "missing_col",
+            0.9486832980505139
+        ],
+        [
+            "secret_binary_col_2",
+            "inf_col",
+            0.9486832980505139
+        ]
+    ],
+    "emptyStrings": {},
+    "duplicateRows": 0
+}

@@ -656,7 +656,7 @@ p-value < 0.05, so reject H0. Proceed with factor analysis.
        ┌───┴────────┐
        ↓            ↓
     p<0.05      p≥0.05
-       ✓           STOP
+       OK           STOP
        ↓
 ┌─────────────────────┐
 │  Eigenvalue Calc    │
