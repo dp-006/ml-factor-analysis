@@ -300,8 +300,23 @@ def prepare_factor_analysis_data(
     # Create a copy of the dataframe to work on and drop target variable if provided
     df_work = df.copy()
 
+    # Log Number of rows and columns in the original dataframe
+    logger.info("----ORIGINAL DATAFRAME----")
+    logger.info(f"Original dataframe shape: {df_work.shape[0]} rows x {df_work.shape[1]} columns")
+    logger.info(f"Original dataframe Number of numeric columns: {len(df_work.select_dtypes(include=['number']).columns.tolist())}")
+    logger.info(f"Original dataframe Number of categorical columns: {len(df_work.select_dtypes(include=['object']).columns.tolist())}")
+    logger.info("-" * 50)
+
     # Check data quality and drop zero variance columns, columns with infinite values and duplicate columns
     df_work, zero_variance_cols, infinite_cols, duplicate_cols = check_data_quality(df_work)
+
+    # Log the shape of the dataframe after dropping zero variance columns, columns with infinite values and duplicate columns
+    logger.info("----DATAFRAME AFTER QUALITY CHECK----")
+    logger.info(f"Dataframe shape after quality check: {df_work.shape[0]} rows x {df_work.shape[1]} columns")
+    logger.info(f"Dropped zero variance columns: {len(zero_variance_cols)}")
+    logger.info(f"Dropped columns with infinite values: {len(infinite_cols)}")
+    logger.info(f"Dropped duplicate columns: {len(duplicate_cols)}")
+    logger.info("-" * 50)
 
     # Log the target variable and whether it will be dropped
     if target_variable:
@@ -394,6 +409,13 @@ def prepare_factor_analysis_data(
 
     df_work = scaler.fit_transform(df_work)
     logger.info("All variables standardized using StandardScaler.")
+
+    # Log the shape of the dataframe after encoding and scaling
+    logger.info("----DATAFRAME AFTER ENCODING AND SCALING----")
+    logger.info(f"Dataframe shape after encoding and scaling: {df_work.shape[0]} rows x {df_work.shape[1]} columns")
+    logger.info(f"Numeric columns after encoding and scaling: {len(df_work.select_dtypes(include=['number']).columns.tolist())}")
+    logger.info(f"Categorical columns after encoding and scaling: {len(df_work.select_dtypes(include=['object']).columns.tolist())}")
+    logger.info("-" * 50)
 
     # Check if there are any infinite values after scaling and raise error if there are
     if np.isinf(df_work.values).sum() > 0:
@@ -1607,6 +1629,42 @@ def varimax(
 
     return np.dot(loadings, rotation_matrix)
 
+def interpret_absolute_factor_loading(loading: float):
+    """
+    Purpose
+    -------
+    Interprets the strength of an absolute factor loading.
+
+    Loading size determines variable importance to the factor.
+    - >= 0.70: Very strong (definitely belongs to factor)
+    - 0.50-0.69: Strong (likely belongs to factor)
+    - 0.30-0.49: Moderate (consider contextually)
+    - < 0.30: Weak (usually not assigned)
+
+    Parameters
+    ----------
+    loading : float
+        Factor loading value.
+
+    Returns
+    -------
+    interpretation : str
+        Interpretation of the factor loading.
+    """
+    logger.info(f"Interpreting absolute factor loading: {loading:.4f}")
+    if abs(loading) >= 0.7:
+        logger.info("Loading is very strong (>= 0.70). This variable definitely belongs to the factor.")
+        return "Very Strong (Definitely belongs to factor)"
+    elif abs(loading) >= 0.5:
+        logger.info("Loading is strong (0.50-0.69). This variable likely belongs to the factor.")
+        return "Strong (Likely belongs to factor)"
+    elif abs(loading) >= 0.3:
+        logger.info("Loading is moderate (0.30-0.49). Consider contextually.")
+        return "Moderate (Consider contextually)"
+    else:
+        logger.info("Loading is weak (< 0.30). This variable is usually not assigned to the factor.")
+        return "Weak (Usually not assigned)"
+
 def calculate_factor_loadings(
     df: pd.DataFrame,
     eigenvalues: np.ndarray,
@@ -1874,7 +1932,6 @@ def calculate_factor_loadings(
 
 def create_factor_groups(
     loadings_df: pd.DataFrame,
-    loading_threshold: float = 0.50,
     output_dir: str | None = None
 ):
     """
@@ -1889,10 +1946,6 @@ def create_factor_groups(
     ----------
     loadings_df : pd.DataFrame
         Factor loading table.
-
-    loading_threshold : float, default=0.50
-        Minimum absolute loading required for a variable to be considered
-        a strong member of a factor group.
     
     output_dir : str | None, default=None
         Directory to save output files.
@@ -1918,12 +1971,12 @@ def create_factor_groups(
     --------------
     grouping_table:
 
-       variable assigned_factor  max_abs_loading  loading_value  group_status
-    0       AGE        Factor_1           0.9100         0.9100  STRONG_GROUP
-    1    TENURE        Factor_1           0.8800         0.8800  STRONG_GROUP
-    2    INCOME        Factor_2           0.8600         0.8600  STRONG_GROUP
-    3   BALANCE        Factor_2           0.8200         0.8200  STRONG_GROUP
-    4    CITY_A        Factor_2           0.6400         0.6400  STRONG_GROUP
+       variable assigned_factor  max_abs_loading  loading_value  loading_interpretation
+    0       AGE        Factor_1           0.9100         0.9100  Very Strong (Definitely belongs to factor)
+    1    TENURE        Factor_1           0.8800         0.8800  Very Strong (Definitely belongs to factor)
+    2    INCOME        Factor_2           0.8600         0.8600  Very Strong (Definitely belongs to factor)
+    3   BALANCE        Factor_2           0.8200         0.8200  Very Strong (Definitely belongs to factor)
+    4    CITY_A        Factor_2           0.6400         0.6400  Strong (Likely belongs to factor)
 
     grouped_summary:
 
@@ -1981,18 +2034,20 @@ def create_factor_groups(
     logger.info("-" * 50)
 
     # ========================================================================
-    # ASSIGN GROUP STATUS BASED ON LOADING THRESHOLD
+    # ASSIGN LOADING INTERPRETATION BASED ON FACTOR LOADING STRENGTH
     # ========================================================================
-    # Classifies each variable as either STRONG_LOADING or WEAK_LOADING based on
-    # whether its maximum absolute loading meets the threshold.
-    # Example: If loading_threshold=0.50 and maxAbsLoading=0.65 → STRONG_LOADING
+    # Uses the interpret_absolute_factor_loading function to classify each variable
+    # based on predefined ranges of absolute loading values.
+    # Ranges:
+    #   >= 0.70: Very Strong (Definitely belongs to factor)
+    #   0.50-0.69: Strong (Likely belongs to factor)
+    #   0.30-0.49: Moderate (Consider contextually)
+    #   < 0.30: Weak (Usually not assigned)
     # ========================================================================
-    grouping_table["groupStatus"] = np.where(
-        grouping_table["maxAbsLoading"] >= loading_threshold,
-        "STRONG_LOADING",
-        "WEAK_LOADING"
+    grouping_table["loadingInterpretation"] = grouping_table["maxAbsLoading"].apply(
+        interpret_absolute_factor_loading
     )
-    logger.info(f"Assigned group status based on loading threshold of {loading_threshold}.")
+    logger.info("Assigned loading interpretation based on absolute loading values.")
     logger.info("First 5 rows of the grouping table after assigning group status:")
     logger.info(grouping_table.head(5))
     logger.info("-" * 50)
@@ -2033,11 +2088,12 @@ def create_factor_groups(
 
     # Prepare metadata for output
     metadata = {
-        "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. Variables with max absolute loading above the specified threshold are classified as STRONG_LOADING, while those below are classified as WEAK_LOADING.",
-        "loadingThreshold": loading_threshold,
-        "groupStatusDefinition": {
-            "STRONG_LOADING": f"Variable has a maximum absolute loading >= {loading_threshold} on its assigned factor, indicating a strong association with that factor.",
-            "WEAK_LOADING": f"Variable has a maximum absolute loading < {loading_threshold} on its assigned factor, indicating a weak association with that factor."
+        "groupingLogic": "Each variable is assigned to the factor where it has the highest absolute loading. The loading interpretation is determined by predefined ranges of absolute loading values.",
+        "loadingInterpretationDefinition": {
+            "Very Strong (Definitely belongs to factor)": "Maximum absolute loading >= 0.70",
+            "Strong (Likely belongs to factor)": "Maximum absolute loading 0.50-0.69",
+            "Moderate (Consider contextually)": "Maximum absolute loading 0.30-0.49",
+            "Weak (Usually not assigned)": "Maximum absolute loading < 0.30"
         },
         "groupingTableSample": grouping_table.to_dict(orient="records"),
         "groupedSummarySample": grouped_summary.to_dict(orient="records")
@@ -2070,7 +2126,6 @@ def run_factor_analysis(
     rotation: str = "varimax",
     eigenvalue_selection_method: str | None = None,
     eigenvalue_threshold: float = 1.0,
-    loading_threshold: float = 0.50,
     output_dir: str | None = None
 ) -> dict:
     """
@@ -2111,9 +2166,6 @@ def run_factor_analysis(
 
     eigenvalue_threshold : float, default=1.0
         Minimum eigenvalue for retaining factors (Kaiser criterion).
-
-    loading_threshold : float, default=0.50
-        Minimum absolute loading for classifying as STRONG_GROUP.
 
     output_dir : str | None, default=None
         Directory to save output files. If None, outputs are not saved to files.
@@ -2176,7 +2228,6 @@ def run_factor_analysis(
     logger.info(f"  Encoding Strategy (Categorical) ... {encoding_strategy_categorical}")
     logger.info(f"  Rotation Method ..................... {rotation if rotation else 'None'}")
     logger.info(f"  Eigenvalue Threshold ............... {eigenvalue_threshold}")
-    logger.info(f"  Loading Threshold .................. {loading_threshold}")
     logger.info(f"  Output Directory ................... {output_dir if output_dir else 'None (outputs not saved to files)'}")
     logger.info("")
     
@@ -2274,7 +2325,6 @@ def run_factor_analysis(
         logger.info("\n[STEP 6/6] Creating factor groups...")
         grouping_table, grouped_summary, grouping_metadata = create_factor_groups(
             loadings_df,
-            loading_threshold=loading_threshold,
             output_dir=output_dir
         )
         results["grouping_table"] = grouping_table
@@ -2287,12 +2337,13 @@ def run_factor_analysis(
         logger.info("=" * 80)
         logger.info("")
         logger.info("[SUMMARY]")
-        logger.info(f"  KMO Model Score .................... {results['kmo_model']:.6f}")
+        logger.info(f"  KMO Model Score ................... {results['kmo_model']:.6f}")
         logger.info(f"  Bartlett p-value .................. {results['bartlett_p_value']:.8f}")
-        logger.info(f"  Eigenvalue Selection Method ............... {eigenvalue_selection_method if eigenvalue_selection_method else 'None (all factors retained)'}")
-        logger.info(f"  Eigenvalue Threshold ............... {eigenvalue_threshold}")
-        logger.info(f"  Number of Factors Retained ....... {results['n_factors']}")
-        logger.info(f"  Number of Factor Groups Created .. {len(results['grouped_summary'])}")
+        logger.info(f"  Number of EigenValues ............. {len(results['eigenvalues'])}")
+        logger.info(f"  Eigenvalue Selection Method ....... {eigenvalue_selection_method if eigenvalue_selection_method else 'None (all factors retained)'}")
+        logger.info(f"  Eigenvalue Threshold .............. {eigenvalue_threshold}")
+        logger.info(f"  Number of Factors Retained ........ {results['n_factors']}")
+        logger.info(f"  Number of Factor Groups Created ... {len(results['grouped_summary'])}")
         logger.info(f"  Number of Variables in Each Factor Group:")
         for index, row in results['grouped_summary'].iterrows():
             logger.info(f"    {row['assignedFactor']}: {len(row['variablesInGroup'])} variables")
@@ -2329,7 +2380,6 @@ if __name__ == "__main__":
         rotation="varimax",
         eigenvalue_selection_method="variance",
         eigenvalue_threshold=0.80,
-        loading_threshold=0.90,
         output_dir="outputs/factor_analysis"
     )
     

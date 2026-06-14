@@ -1,3 +1,4 @@
 ucimlrepo
 feature-engine
 matplotlib
+SQLAlchemy

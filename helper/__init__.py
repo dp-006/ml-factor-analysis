@@ -11,6 +11,7 @@ from .utils import (
 )
 
 from .io_operations import (
+    io_save_dataframe_as_csv,
     io_save_json,
     io_load_json,
     io_read_csv_as_df,
@@ -31,6 +32,7 @@ __all__ = [
     "plot_histograms",
     "plot_qq_plots",
     "plot_bar_charts",
+    "io_save_dataframe_as_csv",
     "io_save_json",
     "io_load_json",
     "io_read_csv_as_df",

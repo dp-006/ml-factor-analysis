@@ -8,6 +8,8 @@ import os
 import json
 import pandas as pd
 import numpy as np
+from contextlib import contextmanager
+from sqlalchemy import create_engine
 
 from logging_config.logger_config import get_logger
 
@@ -56,6 +58,60 @@ class CustomJSONEncoder(json.JSONEncoder):
         if isinstance(obj, np.bool_):
             return bool(obj)
         return super().default(obj)
+
+# Save DataFrame to CSV file at the given path.
+def io_save_dataframe_as_csv(df:pd.DataFrame, path:str, index:bool=False, numeric_precision:int=4) -> str:
+    '''
+    Purpose
+    -------
+    Save DataFrame to CSV file at the given path.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The DataFrame to be saved as a CSV file.
+    path : str
+        The path where the CSV file will be saved.
+        Use relative paths (e.g., "outputs/report.csv") for saving within the project.
+        Avoid absolute paths with leading "/" on Windows as they resolve to the drive root (C:\).
+    index : bool, optional
+        Whether to include the DataFrame index in the CSV file (default is False).
+    numeric_precision : int, optional
+        The number of decimal places to use for floating-point numbers in the CSV file (default is
+
+    Returns
+    -------
+    str
+        The path where the CSV file was saved.
+    
+    Notes
+    -----
+    Path Formatting Guidelines:
+    - Relative path (RECOMMENDED): "outputs/report.csv" or "./outputs/report.csv" 
+      Saves relative to current working directory (best for projects)
+    - Dynamic path (RECOMMENDED): os.path.join(os.getcwd(), "outputs", "report.csv") 
+      Flexible and cross-platform compatible
+    - AVOID: "/outputs/report.csv" 
+      On Windows, resolves to C:\outputs\ (drive root), not the project directory
+    '''
+    # Create the directory if it doesn't exist
+    directory = os.path.dirname(path)
+    logger.info(f"Ensuring directory exists: {directory}")
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        logger.info(f"Directory created: {directory}")
+    try:
+        logger.info(f"Saving DataFrame to CSV at {path} with index={index}")
+        if numeric_precision is not None:
+            df.to_csv(path, index=index, float_format=f'%.{numeric_precision}f')
+        else:
+            df.to_csv(path, index=index)
+        logger.info(f"DataFrame saved successfully to {path}")
+        return path
+    except Exception as e:
+        error_message = f"Error saving DataFrame to CSV at {path}: {e}"
+        logger.error(error_message)
+        raise Exception(error_message)
 
 # Save JSON file to the given path.
 def io_save_json(data:str, path:str, indent:int=4) -> str:
@@ -439,5 +495,85 @@ def io_check_dataframe_quality(
         return quality_metrics
     except Exception as e:
         error_message = f"Error checking quality of the DataFrame: {e}"
+        logger.error(error_message)
+        raise Exception(error_message) from e
+    
+# Create Database Engine Context Manager for using with statements to ensure proper resource management
+@contextmanager
+def io_create_db_engine(connection_string: str):
+    '''
+    Purpose
+    -------
+    Context manager to create and manage database engine connection.
+    It enables the use of "with" statements to ensure that the database engine is properly disposed of after use, preventing resource leaks.
+
+    Parameters
+    ----------
+    connection_string : str
+        Database connection string.
+        Examples:
+        - PostgreSQL: "postgresql://username:password@host:port/database"
+        - MySQL: "mysql+pymysql://username:password@host:port/database"
+        - SQLite: "sqlite:///path_to_database.db"
+
+    Yields
+    ------
+    Engine
+        SQLAlchemy engine object for database operations.
+    '''
+    engine = None
+    try:
+        logger.info("Creating database engine")
+        engine = create_engine(connection_string)
+        logger.info("Database engine created successfully")
+        yield engine
+    except Exception as e:
+        error_message = f"Error creating database engine: {e}"
+        logger.error(error_message)
+        raise Exception(error_message) from e
+    finally:
+        if engine is not None:
+            # Dispose the engine to close all connections and release resources
+            engine.dispose()
+            logger.info("Database engine disposed")
+
+# Create Engine and Run SQL Query to Get DataFrame from the Database
+def io_get_dataframe_from_db(
+        connection_string:str,
+        query:str,
+        data_schema:dict=None
+        ) -> pd.DataFrame:
+    '''
+    Purpose
+    -------
+    Run SQL Query to Get DataFrame from the Database.
+
+    Parameters
+    ----------
+    connection_string : str
+        Database connection string.
+        Examples:
+        - PostgreSQL: "postgresql://username:password@host:port/database"
+        - MySQL: "mysql+pymysql://username:password@host:port/database"
+        - SQLite: "sqlite:///path_to_database.db"
+    
+    query : str
+        SQL query to execute.
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame containing the query results.
+    '''
+    engine = None
+    try:
+        with io_create_db_engine(connection_string) as engine:
+            logger.info(f"Executing SQL query: {query}")
+            df = pd.read_sql_query(query, engine, dtype=data_schema)
+            logger.info(f"SQL query executed successfully, retrieved {df.shape[0]} rows and {df.shape[1]} columns")
+            logger.info("SQL query executed successfully and DataFrame created")
+        return df
+    except Exception as e:
+        error_message = f"Error executing SQL query: {e}"
         logger.error(error_message)
         raise Exception(error_message) from e

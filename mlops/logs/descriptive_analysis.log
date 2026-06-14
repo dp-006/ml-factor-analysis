@@ -1,29 +1,22 @@
-2026-06-08 23:26:34,862 | [None] | mlops.descriptive_analysis | load_data_schema:66 | INFO | Data schema loaded from inputs/sample/datatypes.json
-2026-06-08 23:26:35,256 | [None] | mlops.descriptive_analysis | get_descriptive_statistics:203 | INFO | Total variables: 24
-2026-06-08 23:26:35,257 | [None] | mlops.descriptive_analysis | get_descriptive_statistics:204 | INFO | 
-                 variable   dtype
-             credit_limit   int32
-                   gender  object
-                education  object
-           marital_status  object
-                      age   int32
-repayment_status_sep_2005  object
-repayment_status_aug_2005  object
-repayment_status_jul_2005  object
-repayment_status_jun_2005  object
-repayment_status_may_2005  object
-repayment_status_apr_2005  object
-     bill_amount_sep_2005 float32
-     bill_amount_aug_2005 float32
-     bill_amount_jul_2005 float32
-     bill_amount_jun_2005 float32
-     bill_amount_may_2005 float32
-     bill_amount_apr_2005 float32
-  payment_amount_sep_2005 float32
-  payment_amount_aug_2005 float32
-  payment_amount_jul_2005 float32
-  payment_amount_jun_2005 float32
-  payment_amount_may_2005 float32
-  payment_amount_apr_2005 float32
-                   TARGET   int32
-2026-06-08 23:26:35,263 | [None] | mlops.descriptive_analysis | get_descriptive_statistics:207 | INFO | Variable summary saved to outputs/descriptive_analysis/./summary_stats.json.
+2026-06-11 13:45:57,284 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:169 | INFO | Calculating WoE / IV table for bin_col='bin'
+2026-06-11 13:45:57,288 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:190 | INFO | Total good: 6 and % of total: 60.00%, Total bad: 4 and % of total: 40.00%
+2026-06-11 13:45:57,288 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:197 | INFO | Applying smoothing with eps=0.5 to avoid division by zero in WoE calculation.
+2026-06-11 13:45:57,288 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:202 | INFO | Good distribution calculated with smoothing:
+2026-06-11 13:45:57,290 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:204 | INFO | Bin: (17.999, 30.0], Good count: 3, Good dist: 0.466667
+2026-06-11 13:45:57,290 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:204 | INFO | Bin: (30.0, 45.0], Good count: 1, Good dist: 0.200000
+2026-06-11 13:45:57,290 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:204 | INFO | Bin: (45.0, 60.0], Good count: 2, Good dist: 0.333333
+2026-06-11 13:45:57,290 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:208 | INFO | Bad distribution calculated with smoothing:
+2026-06-11 13:45:57,291 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:210 | INFO | Bin: (17.999, 30.0], Bad count: 1, Bad dist: 0.272727
+2026-06-11 13:45:57,291 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:210 | INFO | Bin: (30.0, 45.0], Bad count: 2, Bad dist: 0.454545
+2026-06-11 13:45:57,291 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:210 | INFO | Bin: (45.0, 60.0], Bad count: 1, Bad dist: 0.272727
+2026-06-11 13:45:57,291 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:213 | INFO | WoE calculated for each bin:
+2026-06-11 13:45:57,292 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:215 | INFO | Bin: (17.999, 30.0], WoE: 0.537143, Display WoE: 53.71
+2026-06-11 13:45:57,292 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:215 | INFO | Bin: (30.0, 45.0], WoE: -0.820981, Display WoE: -82.10
+2026-06-11 13:45:57,292 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:215 | INFO | Bin: (45.0, 60.0], WoE: 0.200671, Display WoE: 20.07
+2026-06-11 13:45:57,292 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:221 | INFO | IV contribution calculated for each bin:
+2026-06-11 13:45:57,293 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:223 | INFO | Bin: (17.999, 30.0], IV contribution: 0.104173
+2026-06-11 13:45:57,293 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:223 | INFO | Bin: (30.0, 45.0], IV contribution: 0.208977
+2026-06-11 13:45:57,293 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:223 | INFO | Bin: (45.0, 60.0], IV contribution: 0.012162
+2026-06-11 13:45:57,293 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:239 | INFO | WoE / IV table calculated. Bin count=3, Total IV=0.325312
+2026-06-11 13:45:57,294 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:246 | INFO | Total IV for the feature: 0.325312
+2026-06-11 13:45:57,294 | [None] | mlops.descriptive_analysis | calculate_woe_iv_table:247 | INFO | Interpretation of Total IV: Strong Predictive Power
