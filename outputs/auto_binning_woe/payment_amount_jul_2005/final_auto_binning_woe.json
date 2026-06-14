@@ -150,12 +150,12 @@
         }
     ],
     "checks": {
-        "minBinPct": "True <- Is minimum pct of each bin > 0.05?",
-        "goodBadExist": "True <- Do good and bad exist in every bin?",
-        "badRateMonotonic": "True <- Is Bad Rate monotonic?",
-        "woeMonotonic": "True <- Is WoE monotonic?",
-        "binCount": "True <- Are bins between 3 and 10?",
-        "ivReasonable": "True <- Is IV 0.129778 reasonable? (0.02 < IV < 0.50)"
+        "minBinPct": "Is minimum pct of each bin > 0.05? -> True",
+        "goodBadExist": "Do good and bad exist in every bin? -> True",
+        "badRateMonotonic": "Is Bad Rate monotonic? -> True",
+        "woeMonotonic": "Is WoE monotonic? -> True",
+        "binCount": "Are bins between 3 and 10? -> True",
+        "ivReasonable": "Is IV 0.129778 reasonable? (0.02 < IV < 0.50) -> True"
     },
     "status": "PASS",
     "converged": true,

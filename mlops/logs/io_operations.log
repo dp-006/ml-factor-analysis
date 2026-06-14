@@ -1,84 +1,96 @@
-2026-06-13 15:22:10,003 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/credit_limit
-2026-06-13 15:22:10,003 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/credit_limit/final_auto_binning_woe.json
-2026-06-13 15:22:10,008 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/credit_limit/final_auto_binning_woe.json
-2026-06-13 15:22:10,008 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/credit_limit
-2026-06-13 15:22:10,008 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/credit_limit/final_woe_table.csv with index=False
-2026-06-13 15:22:10,011 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/credit_limit/final_woe_table.csv
-2026-06-13 15:22:20,010 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/age
-2026-06-13 15:22:20,010 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/age/final_auto_binning_woe.json
-2026-06-13 15:22:20,018 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/age/final_auto_binning_woe.json
-2026-06-13 15:22:20,018 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/age
-2026-06-13 15:22:20,019 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/age/final_woe_table.csv with index=False
-2026-06-13 15:22:20,020 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/age/final_woe_table.csv
-2026-06-13 15:22:30,128 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_sep_2005
-2026-06-13 15:22:30,129 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_sep_2005/final_auto_binning_woe.json
-2026-06-13 15:22:30,135 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_sep_2005/final_auto_binning_woe.json
-2026-06-13 15:22:30,135 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_sep_2005
-2026-06-13 15:22:30,135 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_sep_2005/final_woe_table.csv with index=False
-2026-06-13 15:22:30,137 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_sep_2005/final_woe_table.csv
-2026-06-13 15:22:38,993 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_aug_2005
-2026-06-13 15:22:38,993 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_aug_2005/final_auto_binning_woe.json
-2026-06-13 15:22:38,999 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_aug_2005/final_auto_binning_woe.json
-2026-06-13 15:22:39,000 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_aug_2005
-2026-06-13 15:22:39,000 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_aug_2005/final_woe_table.csv with index=False
-2026-06-13 15:22:39,001 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_aug_2005/final_woe_table.csv
-2026-06-13 15:22:48,241 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jul_2005
-2026-06-13 15:22:48,241 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_jul_2005/final_auto_binning_woe.json
-2026-06-13 15:22:48,247 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_jul_2005/final_auto_binning_woe.json
-2026-06-13 15:22:48,248 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jul_2005
-2026-06-13 15:22:48,248 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_jul_2005/final_woe_table.csv with index=False
-2026-06-13 15:22:48,249 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_jul_2005/final_woe_table.csv
-2026-06-13 15:22:57,470 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jun_2005
-2026-06-13 15:22:57,470 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_jun_2005/final_auto_binning_woe.json
-2026-06-13 15:22:57,476 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_jun_2005/final_auto_binning_woe.json
-2026-06-13 15:22:57,476 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jun_2005
-2026-06-13 15:22:57,476 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_jun_2005/final_woe_table.csv with index=False
-2026-06-13 15:22:57,477 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_jun_2005/final_woe_table.csv
-2026-06-13 15:23:08,386 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_may_2005
-2026-06-13 15:23:08,386 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_may_2005/final_auto_binning_woe.json
-2026-06-13 15:23:08,392 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_may_2005/final_auto_binning_woe.json
-2026-06-13 15:23:08,393 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_may_2005
-2026-06-13 15:23:08,393 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_may_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:08,394 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_may_2005/final_woe_table.csv
-2026-06-13 15:23:18,398 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_apr_2005
-2026-06-13 15:23:18,398 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_apr_2005/final_auto_binning_woe.json
-2026-06-13 15:23:18,404 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_apr_2005/final_auto_binning_woe.json
-2026-06-13 15:23:18,405 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_apr_2005
-2026-06-13 15:23:18,405 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_apr_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:18,406 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_apr_2005/final_woe_table.csv
-2026-06-13 15:23:25,319 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_sep_2005
-2026-06-13 15:23:25,319 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_sep_2005/final_auto_binning_woe.json
-2026-06-13 15:23:25,324 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_sep_2005/final_auto_binning_woe.json
-2026-06-13 15:23:25,324 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_sep_2005
-2026-06-13 15:23:25,325 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_sep_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:25,326 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_sep_2005/final_woe_table.csv
-2026-06-13 15:23:32,405 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_aug_2005
-2026-06-13 15:23:32,405 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_aug_2005/final_auto_binning_woe.json
-2026-06-13 15:23:32,410 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_aug_2005/final_auto_binning_woe.json
-2026-06-13 15:23:32,411 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_aug_2005
-2026-06-13 15:23:32,411 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_aug_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:32,412 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_aug_2005/final_woe_table.csv
-2026-06-13 15:23:38,972 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jul_2005
-2026-06-13 15:23:38,972 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_jul_2005/final_auto_binning_woe.json
-2026-06-13 15:23:38,977 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_jul_2005/final_auto_binning_woe.json
-2026-06-13 15:23:38,977 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jul_2005
-2026-06-13 15:23:38,977 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_jul_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:38,979 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_jul_2005/final_woe_table.csv
-2026-06-13 15:23:45,079 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jun_2005
-2026-06-13 15:23:45,080 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_jun_2005/final_auto_binning_woe.json
-2026-06-13 15:23:45,084 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_jun_2005/final_auto_binning_woe.json
-2026-06-13 15:23:45,086 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jun_2005
-2026-06-13 15:23:45,086 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_jun_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:45,087 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_jun_2005/final_woe_table.csv
-2026-06-13 15:23:51,267 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_may_2005
-2026-06-13 15:23:51,267 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_may_2005/final_auto_binning_woe.json
-2026-06-13 15:23:51,271 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_may_2005/final_auto_binning_woe.json
-2026-06-13 15:23:51,271 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_may_2005
-2026-06-13 15:23:51,271 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_may_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:51,273 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_may_2005/final_woe_table.csv
-2026-06-13 15:23:57,417 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_apr_2005
-2026-06-13 15:23:57,417 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_apr_2005/final_auto_binning_woe.json
-2026-06-13 15:23:57,421 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_apr_2005/final_auto_binning_woe.json
-2026-06-13 15:23:57,422 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_apr_2005
-2026-06-13 15:23:57,422 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_apr_2005/final_woe_table.csv with index=False
-2026-06-13 15:23:57,423 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_apr_2005/final_woe_table.csv
+2026-06-15 00:53:48,748 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe
+2026-06-15 00:53:48,748 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/woe_iv_metadata.json
+2026-06-15 00:53:48,748 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/woe_iv_metadata.json
+2026-06-15 00:53:48,749 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe
+2026-06-15 00:53:48,749 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/woe_iv_summary_table.csv with index=False
+2026-06-15 00:53:48,751 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/woe_iv_summary_table.csv
+2026-06-15 00:53:49,469 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/feature
+2026-06-15 00:53:49,469 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/feature/final_auto_binning_woe.json
+2026-06-15 00:53:49,474 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/feature/final_auto_binning_woe.json
+2026-06-15 00:53:49,475 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/feature
+2026-06-15 00:53:49,475 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/feature/final_woe_table.csv with index=False
+2026-06-15 00:53:49,476 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/feature/final_woe_table.csv
+2026-06-15 00:53:55,703 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/credit_limit
+2026-06-15 00:53:55,704 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/credit_limit/final_auto_binning_woe.json
+2026-06-15 00:53:55,708 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/credit_limit/final_auto_binning_woe.json
+2026-06-15 00:53:55,708 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/credit_limit
+2026-06-15 00:53:55,709 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/credit_limit/final_woe_table.csv with index=False
+2026-06-15 00:53:55,710 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/credit_limit/final_woe_table.csv
+2026-06-15 00:54:05,524 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/age
+2026-06-15 00:54:05,524 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/age/final_auto_binning_woe.json
+2026-06-15 00:54:05,532 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/age/final_auto_binning_woe.json
+2026-06-15 00:54:05,533 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/age
+2026-06-15 00:54:05,533 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/age/final_woe_table.csv with index=False
+2026-06-15 00:54:05,534 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/age/final_woe_table.csv
+2026-06-15 00:54:15,449 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_sep_2005
+2026-06-15 00:54:15,449 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_sep_2005/final_auto_binning_woe.json
+2026-06-15 00:54:15,456 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_sep_2005/final_auto_binning_woe.json
+2026-06-15 00:54:15,456 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_sep_2005
+2026-06-15 00:54:15,457 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_sep_2005/final_woe_table.csv with index=False
+2026-06-15 00:54:15,458 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_sep_2005/final_woe_table.csv
+2026-06-15 00:54:24,086 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_aug_2005
+2026-06-15 00:54:24,086 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_aug_2005/final_auto_binning_woe.json
+2026-06-15 00:54:24,093 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_aug_2005/final_auto_binning_woe.json
+2026-06-15 00:54:24,093 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_aug_2005
+2026-06-15 00:54:24,094 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_aug_2005/final_woe_table.csv with index=False
+2026-06-15 00:54:24,095 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_aug_2005/final_woe_table.csv
+2026-06-15 00:54:33,360 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jul_2005
+2026-06-15 00:54:33,360 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_jul_2005/final_auto_binning_woe.json
+2026-06-15 00:54:33,366 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_jul_2005/final_auto_binning_woe.json
+2026-06-15 00:54:33,367 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jul_2005
+2026-06-15 00:54:33,367 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_jul_2005/final_woe_table.csv with index=False
+2026-06-15 00:54:33,368 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_jul_2005/final_woe_table.csv
+2026-06-15 00:54:42,533 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jun_2005
+2026-06-15 00:54:42,533 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_jun_2005/final_auto_binning_woe.json
+2026-06-15 00:54:42,540 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_jun_2005/final_auto_binning_woe.json
+2026-06-15 00:54:42,541 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_jun_2005
+2026-06-15 00:54:42,541 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_jun_2005/final_woe_table.csv with index=False
+2026-06-15 00:54:42,542 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_jun_2005/final_woe_table.csv
+2026-06-15 00:54:52,416 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_may_2005
+2026-06-15 00:54:52,416 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_may_2005/final_auto_binning_woe.json
+2026-06-15 00:54:52,422 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_may_2005/final_auto_binning_woe.json
+2026-06-15 00:54:52,422 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_may_2005
+2026-06-15 00:54:52,423 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_may_2005/final_woe_table.csv with index=False
+2026-06-15 00:54:52,424 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_may_2005/final_woe_table.csv
+2026-06-15 00:55:01,582 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_apr_2005
+2026-06-15 00:55:01,582 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/bill_amount_apr_2005/final_auto_binning_woe.json
+2026-06-15 00:55:01,587 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/bill_amount_apr_2005/final_auto_binning_woe.json
+2026-06-15 00:55:01,588 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/bill_amount_apr_2005
+2026-06-15 00:55:01,588 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/bill_amount_apr_2005/final_woe_table.csv with index=False
+2026-06-15 00:55:01,589 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/bill_amount_apr_2005/final_woe_table.csv
+2026-06-15 00:55:08,005 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_sep_2005
+2026-06-15 00:55:08,005 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_sep_2005/final_auto_binning_woe.json
+2026-06-15 00:55:08,010 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_sep_2005/final_auto_binning_woe.json
+2026-06-15 00:55:08,010 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_sep_2005
+2026-06-15 00:55:08,010 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_sep_2005/final_woe_table.csv with index=False
+2026-06-15 00:55:08,011 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_sep_2005/final_woe_table.csv
+2026-06-15 00:55:14,629 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_aug_2005
+2026-06-15 00:55:14,629 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_aug_2005/final_auto_binning_woe.json
+2026-06-15 00:55:14,634 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_aug_2005/final_auto_binning_woe.json
+2026-06-15 00:55:14,634 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_aug_2005
+2026-06-15 00:55:14,634 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_aug_2005/final_woe_table.csv with index=False
+2026-06-15 00:55:14,636 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_aug_2005/final_woe_table.csv
+2026-06-15 00:55:21,058 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jul_2005
+2026-06-15 00:55:21,059 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_jul_2005/final_auto_binning_woe.json
+2026-06-15 00:55:21,063 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_jul_2005/final_auto_binning_woe.json
+2026-06-15 00:55:21,063 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jul_2005
+2026-06-15 00:55:21,064 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_jul_2005/final_woe_table.csv with index=False
+2026-06-15 00:55:21,065 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_jul_2005/final_woe_table.csv
+2026-06-15 00:55:27,275 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jun_2005
+2026-06-15 00:55:27,275 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_jun_2005/final_auto_binning_woe.json
+2026-06-15 00:55:27,279 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_jun_2005/final_auto_binning_woe.json
+2026-06-15 00:55:27,280 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_jun_2005
+2026-06-15 00:55:27,280 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_jun_2005/final_woe_table.csv with index=False
+2026-06-15 00:55:27,281 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_jun_2005/final_woe_table.csv
+2026-06-15 00:55:33,563 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_may_2005
+2026-06-15 00:55:33,563 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_may_2005/final_auto_binning_woe.json
+2026-06-15 00:55:33,567 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_may_2005/final_auto_binning_woe.json
+2026-06-15 00:55:33,567 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_may_2005
+2026-06-15 00:55:33,568 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_may_2005/final_woe_table.csv with index=False
+2026-06-15 00:55:33,569 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_may_2005/final_woe_table.csv
+2026-06-15 00:55:39,670 | [None] | mlops.io_operations | io_save_json:149 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_apr_2005
+2026-06-15 00:55:39,670 | [None] | mlops.io_operations | io_save_json:154 | INFO | Saving JSON file to ./outputs/auto_binning_woe/payment_amount_apr_2005/final_auto_binning_woe.json
+2026-06-15 00:55:39,674 | [None] | mlops.io_operations | io_save_json:157 | INFO | JSON file saved successfully to ./outputs/auto_binning_woe/payment_amount_apr_2005/final_auto_binning_woe.json
+2026-06-15 00:55:39,675 | [None] | mlops.io_operations | io_save_dataframe_as_csv:99 | INFO | Ensuring directory exists: ./outputs/auto_binning_woe/payment_amount_apr_2005
+2026-06-15 00:55:39,675 | [None] | mlops.io_operations | io_save_dataframe_as_csv:104 | INFO | Saving DataFrame to CSV at ./outputs/auto_binning_woe/payment_amount_apr_2005/final_woe_table.csv with index=False
+2026-06-15 00:55:39,676 | [None] | mlops.io_operations | io_save_dataframe_as_csv:109 | INFO | DataFrame saved successfully to ./outputs/auto_binning_woe/payment_amount_apr_2005/final_woe_table.csv

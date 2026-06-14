@@ -268,6 +268,28 @@ Action: Merge Bin 2 and Bin 3
 2. Select the direction with fewer violations (minimizes merges)
 3. Merge the violating pair with smallest metric difference
 
+**Important Distinction: `is_monotonic()` vs `find_monotonicity_violation_pair()`**
+
+The algorithm uses two different functions for monotonicity, each serving a distinct purpose:
+
+| Function | Purpose | Output | Usage |
+|----------|---------|--------|-------|
+| **`is_monotonic(series)`** | **Validation/Check**: Determines if a complete series is monotonic increasing OR decreasing | `True` / `False` | Final quality check to validate if the entire binned feature satisfies monotonicity |
+| **`find_monotonicity_violation_pair(summary, metric)`** | **Action/Correction**: Identifies specific adjacent bin pairs that violate monotonicity and decides which pair to merge | Index (int) or None | During iterative binning process to fix violations by merging problematic pairs |
+
+**Example with Bad Rates: [5%, 10%, 8%, 20%]**
+
+1. **`is_monotonic()` check**:
+   - Returns `False` (the series is NOT monotonic)
+   - Tells us: *"There's a problem, monotonicity is violated"*
+
+2. **`find_monotonicity_violation_pair()` action**:
+   - Finds increasing monotonicity violations: [1] (10% → 8%)
+   - Finds decreasing monotonicity violations: [0, 2] (5% → 10% and 8% → 20%)
+   - Selects increasing direction (fewer violations)
+   - Returns `1` (merge index)
+   - Tells us: *"Merge pair at index (1,2) to fix the violation at 10% → 8%"*
+
 ---
 
 #### Rule 5: Maximum Bin Count
@@ -320,6 +342,71 @@ The core of the algorithm is **intelligent bin merging** based on different crit
      - Decreasing violations: [0, 2] (5% → 10% and 8% → 20% are increases)
      - Choose increasing direction (fewer violations)
      - Merge pair at index 1 (10%, 8%) with difference = 2%
+
+   **Detailed Step-by-Step Execution (Algorithm Walk-through)**
+   
+   The function performs the following steps:
+   
+   **Step 1: Extract Values**
+   ```python
+   values = summary[metric].values  # [5, 10, 8, 20]
+   inc_violations = []
+   dec_violations = []
+   ```
+   
+   **Step 2: Loop Through Adjacent Pairs**
+   
+   The algorithm loops through `i = 0, 1, 2` (total pairs = len(values) - 1):
+   
+   | Iteration | i | values[i] | values[i+1] | Condition | Result | Reason |
+   |-----------|---|-----------|-------------|-----------|--------|--------|
+   | 1 | 0 | 5 | 10 | `5 < 10` | dec_violations=[0] | 5→10 increases, violates decreasing trend |
+   | 2 | 1 | 10 | 8 | `10 > 8` | inc_violations=[1] | 10→8 decreases, violates increasing trend |
+   | 3 | 2 | 8 | 20 | `8 < 20` | dec_violations=[0,2] | 8→20 increases, violates decreasing trend |
+   
+   **Step 3: Direction Selection**
+   ```
+   len(inc_violations) = 1  ← fewer violations
+   len(dec_violations) = 2
+   
+   Decision: Select increasing direction (1 < 2)
+   violations = [1]
+   ```
+   
+   **Step 4: Find Closest Violating Pair**
+   ```python
+   # Among selected violations, find pair with smallest metric difference
+   merge_idx = min(
+       violations=[1],
+       key=lambda i: abs(summary.loc[i, metric] - summary.loc[i + 1, metric])
+   )
+   
+   # For i=1: |10 - 8| = 2  ← this is the pair to merge
+   merge_idx = 1
+   ```
+   
+   **Step 5: Return Merge Index**
+   ```python
+   return 1  # Merge bins at indices (1, 2): combine 10% and 8% into (~9%)
+   ```
+   
+   **Integration with Main Loop**
+   
+   The function returns only the index. The actual merging happens in the calling function:
+   ```python
+   # In auto_woe_binning_numeric():
+   for step in range(1, max_iter + 1):
+       # ... assign bins and calculate WOE/IV ...
+       
+       if not is_monotonic(summary["bad_rate"]):
+           merge_idx = find_monotonicity_violation_pair(summary, metric="bad_rate")
+           intervals = merge_intervals(intervals, i=merge_idx)  # MERGE HERE
+           
+           # IMPORTANT: WOE/IV is recalculated in next iteration!
+           continue  # ← Goes back to top of loop
+   ```
+   
+   This ensures that after each merge, the WOE/IV statistics are recalculated with the new bin structure, potentially revealing new violations to address in subsequent iterations.
 
 3. **`find_most_similar_adjacent_pair(summary, metric="bad_rate")`**
    - Used in Rule 5 for bin count reduction
@@ -757,3 +844,325 @@ Example metadata structure:
   ]
 }
 ```
+
+---
+
+### Understanding Bin Selection Strategies: `find_closest_neighbor` vs `find_most_similar_adjacent_pair`
+
+The binning algorithm uses two different strategies for selecting which bins to merge. While both functions compare adjacent bins, they serve different purposes and follow different prioritization logic.
+
+#### `find_closest_neighbor(summary, idx, metric="bad_rate")`
+
+**Purpose**: Find the optimal neighbor to merge with a **specific problematic bin**
+
+**Use Cases**:
+- Rule 1: When a bin is too small (less than `min_bin_pct`)
+- Rule 2: When a bin has zero good cases or zero bad cases
+
+**Selection Logic**:
+
+This function focuses on a single problematic bin and compares only its two neighbors (left and right):
+
+1. **For the first bin** (idx=0): Can only merge with right neighbor → returns 0
+2. **For the last bin** (idx=len-1): Can only merge with left neighbor → returns idx-1
+3. **For middle bins**: Compares both neighbors and selects the one with **smallest metric difference**
+
+The metric difference is calculated as:
+$$\text{Distance} = |\text{metric}_{problematic} - \text{metric}_{neighbor}|$$
+
+**Priority/Tie-Breaking**: When comparing left vs. right neighbors with `<=` operator, the **left neighbor is preferred** if both neighbors have equal metric distance.
+
+**Example**:
+
+```
+Problematic Bin Scenario:
+Bin A: bad_rate = 0.10
+Bin B: bad_rate = 0.11 ← PROBLEMATIC (too small)
+Bin C: bad_rate = 0.30
+
+Metric Distances:
+- Left neighbor (A):  |0.11 - 0.10| = 0.01
+- Right neighbor (C): |0.11 - 0.30| = 0.19
+
+Decision: Merge B with A (smaller distance minimizes information loss)
+```
+
+**When Executed**: Early in the algorithm when specific data quality issues are detected (Rules 1-2)
+
+---
+
+#### `find_most_similar_adjacent_pair(summary, metric="bad_rate")`
+
+**Purpose**: Find the most similar pair of adjacent bins **across the entire table** without focusing on a specific problem
+
+**Use Cases**:
+- Rule 5: When too many bins remain and reduction is needed
+- Fallback: When no specific violations are found in Rules 3-4
+
+**Selection Logic**:
+
+This function scans ALL adjacent pairs in the summary table and calculates their metric differences:
+
+$$\text{Difference}_i = |\text{metric}_{bin_i} - \text{metric}_{bin_{i+1}}|$$
+
+Then selects the pair with the **globally smallest difference**:
+
+$$\text{Selected Pair} = \arg\min_i \left( \text{Difference}_i \right)$$
+
+**Priority/Tie-Breaking**: If multiple pairs have identical minimum differences, the function returns the **first occurrence** (lowest index pair) due to how Python's `min()` function works.
+
+**Example**:
+
+```
+Entire Summary Table:
+Bin 1: bad_rate = 0.05
+Bin 2: bad_rate = 0.10
+Bin 3: bad_rate = 0.11  ← Very similar to Bin 2
+Bin 4: bad_rate = 0.35
+
+Metric Differences for Adjacent Pairs:
+Pair (0,1): |0.05 - 0.10| = 0.05
+Pair (1,2): |0.10 - 0.11| = 0.01 ← SMALLEST
+Pair (2,3): |0.11 - 0.35| = 0.24
+
+Decision: Merge bins 2 and 3 (smallest difference)
+```
+
+---
+
+#### How the Loop Works (Step-by-Step Execution)
+
+The function builds a `diffs` list by iterating through all adjacent pairs and calculating their differences. Here's the exact flow:
+
+**Step 0: Initialize**
+```python
+diffs = []  # Empty list to store (index, difference) tuples
+```
+
+**Step 1-4: Loop through each adjacent pair**
+
+Using the example data:
+```python
+summary = pd.DataFrame({
+    "bad_rate": [0.10, 0.15, 0.14, 0.30, 0.28]
+})
+# 5 bins → 4 adjacent pairs
+```
+
+**Iteration 1 (i=0):**
+```python
+diff = abs(summary.loc[0, "bad_rate"] - summary.loc[1, "bad_rate"])
+     = abs(0.10 - 0.15) = 0.05
+diffs.append((0, 0.05))
+# Log: "Index 0 <-> 1 | bad_rate: 0.100000 → 0.150000 | Difference = 0.050000"
+# diffs = [(0, 0.05)]
+```
+
+**Iteration 2 (i=1):**
+```python
+diff = abs(summary.loc[1, "bad_rate"] - summary.loc[2, "bad_rate"])
+     = abs(0.15 - 0.14) = 0.01  ← SMALL!
+diffs.append((1, 0.01))
+# Log: "Index 1 <-> 2 | bad_rate: 0.150000 → 0.140000 | Difference = 0.010000"
+# diffs = [(0, 0.05), (1, 0.01)]
+```
+
+**Iteration 3 (i=2):**
+```python
+diff = abs(summary.loc[2, "bad_rate"] - summary.loc[3, "bad_rate"])
+     = abs(0.14 - 0.30) = 0.16
+diffs.append((2, 0.16))
+# Log: "Index 2 <-> 3 | bad_rate: 0.140000 → 0.300000 | Difference = 0.160000"
+# diffs = [(0, 0.05), (1, 0.01), (2, 0.16)]
+```
+
+**Iteration 4 (i=3):**
+```python
+diff = abs(summary.loc[3, "bad_rate"] - summary.loc[4, "bad_rate"])
+     = abs(0.30 - 0.28) = 0.02
+diffs.append((3, 0.02))
+# Log: "Index 3 <-> 4 | bad_rate: 0.300000 → 0.280000 | Difference = 0.020000"
+# diffs = [(0, 0.05), (1, 0.01), (2, 0.16), (3, 0.02)]
+```
+
+**Step 5: Find Minimum**
+
+After loop completes, find the pair with smallest difference:
+
+```python
+diffs = [(0, 0.05), (1, 0.01), (2, 0.16), (3, 0.02)]
+
+merge_idx = min(diffs, key=lambda x: x[1])[0]
+#           ↓ 
+#  Compare all x[1] values: 0.05, 0.01, 0.16, 0.02
+#                                 ↑ MINIMUM
+#  Returns: (1, 0.01)[0] = 1
+
+min_diff = min(diffs, key=lambda x: x[1])[1]
+#        = 0.01
+```
+
+**Result:**
+```python
+return merge_idx  # Returns: 1
+
+# This means:
+# - Merge pair at index (1, 2)
+# - Call merge_intervals(intervals, i=1)
+# - Combine Bin 1 and Bin 2 together
+```
+
+**Key Behavior:**
+- **Deterministic**: Always returns the FIRST pair with minimum difference
+- **Greedy**: Only one merge per call (no multiple suggestions)
+- **Tie-breaking**: If multiple pairs have same minimum, first index wins
+
+**Iteration Summary Table:**
+
+| i | Pair | bad_rate | Difference | diffs List |
+|---|------|----------|------------|------------|
+| 0 | 0-1 | 0.10→0.15 | 0.05 | [(0, 0.05)] |
+| 1 | 1-2 | 0.15→0.14 | **0.01** | [(0, 0.05), (1, 0.01)] |
+| 2 | 2-3 | 0.14→0.30 | 0.16 | [..., (2, 0.16)] |
+| 3 | 3-4 | 0.30→0.28 | 0.02 | [..., (3, 0.02)] |
+
+`min()` selected: `(1, 0.01)` → **merge_idx = 1** 
+
+---
+
+#### Key Differences Summary
+
+| Aspect | `find_closest_neighbor` | `find_most_similar_adjacent_pair` |
+|--------|------------------------|----------------------------------|
+| **Scope** | Compares 2 neighbors of a specific bin | Compares ALL adjacent pairs |
+| **Input** | Problem bin index (idx) | Entire summary table |
+| **When Used** | Problem-driven (Rules 1-2) | Global optimization (Rule 5) |
+| **Selection** | Closest neighbor to problem bin | Most similar pair anywhere in table |
+| **Tie-Breaking** | Left neighbor preferred (`<=`) | First occurrence (lowest index) |
+| **Information Loss** | Minimized by matching closest neighbor | Minimized by merging most similar bins |
+
+---
+
+#### Priority Execution Order
+
+The algorithm processes both functions in a specific order within each iteration:
+
+```
+Iteration Loop:
+  1. Calculate WOE/IV for current bins
+  
+  2. Rule 1 (Small Bins)
+     └─ find_closest_neighbor() → Merge problematic small bin with closest neighbor
+     
+  3. Rule 2 (Zero Good/Bad)
+     └─ find_closest_neighbor() → Merge problematic zero-distribution bin
+     
+  4. Rule 3 (Bad Rate Monotonicity)
+     └─ find_monotonicity_violation_pair() → Find violating pair
+         └─ Uses logic similar to find_closest_neighbor for violation pair
+     
+  5. Rule 4 (WOE Monotonicity)
+     └─ find_monotonicity_violation_pair() → Same as Rule 3
+     
+  6. Rule 5 (Max Bin Count)
+     └─ find_most_similar_adjacent_pair() → Global search for most similar pair
+     
+  7. All rules satisfied?
+     └─ YES → Converged (exit loop)
+     └─ NO → Continue to next iteration
+```
+
+**Why This Order Matters**:
+- **Early rules (1-2)** fix critical data quality issues with targeted merges
+- **Middle rules (3-4)** enforce logical trends with minimal disruption
+- **Late rule (5)** reduces bin count globally while maintaining quality
+- **Result**: Each phase builds on previous quality improvements
+
+---
+
+#### Practical Implications
+
+**Use Case 1: Feature with Quality Issues**
+```
+Initial State: 20 bins, some with < 5% observations
+
+Execution:
+  Rule 1 → find_closest_neighbor() identifies small bins
+          Merges each with its closest similar neighbor
+          Result: 18 bins, all > 5%
+          
+  Rule 2 → find_closest_neighbor() checks for zero distributions
+          (None found)
+          Result: 18 bins
+          
+  Rule 3 → Checks monotonicity (satisfied)
+  Rule 4 → Checks WOE (satisfied)
+  
+  Rule 5 → Max bins = 10, current = 18
+          find_most_similar_adjacent_pair() globally scans
+          Repeatedly finds and merges most similar pairs
+          Result: 10 final bins
+```
+
+**Use Case 2: Clean Feature Needing Only Bin Reduction**
+```
+Initial State: 25 bins, all have good data quality
+
+Execution:
+  Rule 1 → All bins > 5% (skip)
+  Rule 2 → All bins have good and bad (skip)
+  Rule 3 → Bad rate is monotonic (skip)
+  Rule 4 → WOE is monotonic (skip)
+  
+  Rule 5 → Max bins = 10, current = 25
+          find_most_similar_adjacent_pair() runs repeatedly
+          Iteration 1: Finds pair with min difference, merges → 24 bins
+          Iteration 2: Finds next min pair, merges → 23 bins
+          ... (continues)
+          Iteration 15: Final merge → 10 bins (converged)
+```
+
+---
+
+#### Function Behavior Comparison
+
+```python
+# Example data for both functions
+summary = pd.DataFrame({
+    "bin": ["A", "B", "C", "D", "E"],
+    "bad_rate": [0.10, 0.11, 0.30, 0.025, 0.32]
+})
+
+# Scenario 1: Using find_closest_neighbor on problematic bin
+# Bin B (index=1) is problematic
+result_closest = find_closest_neighbor(summary, idx=1, metric="bad_rate")
+# Returns: 0 (left neighbor A is closer: |0.11-0.10|=0.01 vs |0.11-0.30|=0.19)
+
+# Scenario 2: Using find_most_similar_adjacent_pair globally
+result_global = find_most_similar_adjacent_pair(summary, metric="bad_rate")
+# Scans all pairs:
+#   Pair (0,1): |0.10-0.11| = 0.01
+#   Pair (1,2): |0.11-0.30| = 0.19
+#   Pair (2,3): |0.30-0.025| = 0.275
+#   Pair (3,4): |0.025-0.32| = 0.295
+# Returns: 0 (first pair with 0.01 difference is smallest)
+
+# Note: Both return 0 in this case, but for different reasons!
+# - find_closest_neighbor: Because bin A is closer to problem bin B
+# - find_most_similar_adjacent_pair: Because pair (A,B) is globally most similar
+```
+
+---
+
+#### Design Philosophy
+
+The dual-function approach reflects a **graduated problem-solving strategy**:
+
+1. **Targeted fixes** (`find_closest_neighbor`): Solve specific identified problems with minimal disruption
+2. **Global optimization** (`find_most_similar_adjacent_pair`): Once problems are fixed, optimize overall bin structure
+
+This ensures the algorithm:
+- Doesn't over-merge early (which could destroy predictive power)
+- Addresses quality issues first (data-driven approach)
+- Only applies broad reductions when necessary (business constraints)
+- Preserves information throughout the process

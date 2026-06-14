@@ -4,6 +4,20 @@ Author: Accelera Team
 Created on: 2024-06-17
 
 This module contains functions for automatic binning and Weight of Evidence (WOE) transformation.
+
+Sub Functions:
+- convert_pd_interval_to_str: Convert pandas Interval objects to human-readable string format for reporting.
+- interpret_iv: Interpret Information Value (IV) scores based on commonly accepted thresholds.
+- is_monotonic: Check if a pandas Series is monotonic increasing or decreasing.
+- calculate_woe_iv_table: Calculate bin-level Good, Bad, Bad Rate, WoE and IV statistics.
+- create_initial_bins: Create initial bins for a numeric feature using pd.qcut or pd.cut.
+- merge_intervals: Merge two adjacent pandas Interval bins into a single wider interval.
+- assign_bins_from_intervals: Reassign numeric observations into the current list of pandas Interval bins after merges.
+- find_closest_neighbor: Find the closest adjacent neighbor of a problematic bin based on a specified metric (e.g., bad_rate).
+- perform_quality_checks: Perform quality checks on the final binned structure and IV score.
+Main Function:
+- auto_bin_feature: Main function to perform automatic binning and WoE transformation on a specified feature with respect to a binary target.
+
 '''
 
 import json
@@ -161,9 +175,9 @@ def is_monotonic(s: pd.Series) -> bool:
     monotonic_increasing = s.is_monotonic_increasing
     monotonic_decreasing = s.is_monotonic_decreasing
     monotonic = monotonic_increasing or monotonic_decreasing
-    logger.info(f"Series is monotonic increasing: {monotonic_increasing}")
-    logger.info(f"Series is monotonic decreasing: {monotonic_decreasing}")
-    logger.info(f"Series is monotonic: {monotonic}")
+    logger.info(f"Series is monotonic increasing: {'YES' if monotonic_increasing else 'NO'}")
+    logger.info(f"Series is monotonic decreasing: {'YES' if monotonic_decreasing else 'NO'}")
+    logger.info(f"Series is monotonic: {'YES' if monotonic else 'NO'}")
     return monotonic
 
 def calculate_woe_iv_table(
@@ -777,6 +791,7 @@ def find_closest_neighbor(
     logger.info(f"Closest neighbor found.")
     logger.info(f"\t\tProblem bin index={idx}")
     logger.info(f"\t\tNeighbor index to merge with={merge_idx}")
+    logger.info(f"MUST merge intervals at index {merge_idx} and {merge_idx + 1} to fix the problem with bin at index {idx}.")
 
     return merge_idx
 
@@ -833,6 +848,15 @@ def find_most_similar_adjacent_pair(
 
     diffs = []
 
+    # Loop through the summary table and calculate the absolute difference in the specified metric between each pair of adjacent bins.
+    # Example:
+    # Bins:
+    # - B1 = 10% (index 0)
+    # - B2 = 11% (index 1)
+    # - B3 = 35% (index 2)
+    # Differences:
+    # B1-B2 = abs(10% - 11%) = 1%
+    # B2-B3 = abs(11% - 35%) = 24%
     for i in range(len(summary) - 1):
         diff = abs(summary.loc[i, metric] - summary.loc[i + 1, metric])
         val_i = summary.loc[i, metric]
@@ -840,6 +864,7 @@ def find_most_similar_adjacent_pair(
         logger.info(f"  Index {i} <-> {i + 1} | {metric}: {val_i:.6f} → {val_i_plus_1:.6f} | Difference = {diff:.6f}")
         diffs.append((i, diff))
 
+    # Find the index of the pair with the smallest difference in the specified metric.
     merge_idx = min(diffs, key=lambda x: x[1])[0]
     min_diff = min(diffs, key=lambda x: x[1])[1]
     logger.info(f"Best pair found: Index {merge_idx} <-> {merge_idx + 1} with smallest difference = {min_diff:.6f}")
@@ -905,9 +930,11 @@ def find_monotonicity_violation_pair(
     for i in range(len(values) - 1):
         if values[i] > values[i + 1]:
             inc_violations.append(i)
+            logger.info(f"Found increasing monotonicity violation at {i} and {i + 1}: {values[i]:.6f} -> {values[i + 1]:.6f} = Difference: {values[i + 1] - values[i]:.6f}")
 
         if values[i] < values[i + 1]:
             dec_violations.append(i)
+            logger.info(f"Found decreasing monotonicity violation at {i} and {i + 1}: {values[i]:.6f} -> {values[i + 1]:.6f} = Difference: {values[i + 1] - values[i]:.6f}")
         
         if values[i] == values[i + 1]:
             logger.info(f"Adjacent bins at indices {i} and {i + 1} have equal {metric} values ({values[i]:.6f}). This does not violate monotonicity in either direction.")
@@ -1050,12 +1077,12 @@ def check_binning_quality(
 
     # Formatted checks for reporting
     checks_formatted = {
-        "minBinPct": f"{min_bin_pct_ok} <- Is minimum pct of each bin > {min_bin_pct}?",
-        "goodBadExist": f"{good_bad_exist_ok} <- Do good and bad exist in every bin?",
-        "badRateMonotonic": f"{bad_rate_monotonic_ok} <- Is Bad Rate monotonic?",
-        "woeMonotonic": f"{woe_monotonic_ok} <- Is WoE monotonic?",
-        "binCount": f"{bin_count_ok} <- Are bins between {min_bins} and {max_bins}?",
-        "ivReasonable": f"{iv_reasonable_ok} <- Is IV {total_iv:.6f} reasonable? (0.02 < IV < 0.50)"
+        "minBinPct": f"Is minimum pct of each bin > {min_bin_pct}? -> {min_bin_pct_ok}",
+        "goodBadExist": f"Do good and bad exist in every bin? -> {good_bad_exist_ok}",
+        "badRateMonotonic": f"Is Bad Rate monotonic? -> {bad_rate_monotonic_ok}",
+        "woeMonotonic": f"Is WoE monotonic? -> {woe_monotonic_ok}",
+        "binCount": f"Are bins between {min_bins} and {max_bins}? -> {bin_count_ok}",
+        "ivReasonable": f"Is IV {total_iv:.6f} reasonable? (0.02 < IV < 0.50) -> {iv_reasonable_ok}"
     }
 
     logger.info("Final binning quality check completed.")
@@ -1564,147 +1591,3 @@ def auto_woe_binning_numeric(
     logger.info("=" * 50)
 
     return auto_binning_result
-
-
-if __name__ == "__main__":
-    # # Generate Sample Data to test calculate_woe_iv_table function
-    # data = {
-    #     "feature": [18, 22, 25, 30, 35, 40, 45, 50, 55, 60],
-    #     "target": [0, 0, 1, 0, 1, 0, 1, 0, 1, 0]
-    # }
-    # df = pd.DataFrame(data)
-    # df["bin"] = pd.qcut(df["feature"], q=3)
-    # woe_iv_table, metadata = calculate_woe_iv_table(
-    #     df, 
-    #     bin_col="bin", 
-    #     target="target", 
-    #     eps=0.5, 
-    #     output_dir="./outputs/auto_binning_woe"
-    #     )
-
-    # # Generate Sample Data to test create_initial_bins function
-    # df_bins = pd.DataFrame({
-    #     "feature": [18, 22, 25, 30, 35, 40, 45, 50, 55, 60]
-    # })
-    # initial_bins = create_initial_bins(df_bins, feature="feature", initial_bins=3)
-
-    # # Generate Sample Data Series to test create_initial_bins function with series input
-    # series_bins = pd.Series([18, 22, 25, 30, 35, 40, 45, 50, 55, 60], name="feature_series")
-    # initial_bins_from_series = create_initial_bins(df_bins, feature=None, series=series_bins, initial_bins=3)
-
-    # # Generate Sample Data to test merge_intervals function
-    # intervals = [
-    #     pd.Interval(18, 25, closed="right"),
-    #     pd.Interval(25, 35, closed="right"),
-    #     pd.Interval(35, 50, closed="right"),
-    #     pd.Interval(50, 80, closed="right"), # We send this index to be merged with the next one
-    #     pd.Interval(80, 100, closed="right"),
-    #     pd.Interval(100, 150, closed="right")
-    # ]
-    # # Saying that merge intervals at index 3, which means we want to merge intervals[3] and intervals[4], which are (50, 80] and (80, 100]
-    # merged_intervals = merge_intervals(intervals, i=3)
-
-    # # Generate Sample Data to test assign_bins_from_intervals function
-    # x = pd.Series([18, 22, 25, 30, 35, 40, 45, 50, 55, 60])
-    # intervals_for_assignment = [
-    #     pd.Interval(18, 25, closed="right"),
-    #     pd.Interval(25, 50, closed="right"),
-    #     pd.Interval(50, 80, closed="right"),
-    #     pd.Interval(80, 100, closed="right")
-    # ]
-    # assigned_bins = assign_bins_from_intervals(x, intervals_for_assignment)
-
-    # # Generate Sample Data to test find_closest_neighbor function
-    # summary = pd.DataFrame({
-    #     "bin": ["Bin A", "Bin B", "Bin C"],
-    #     "bad_rate": [0.1, 0.11, 0.3]
-    # })
-
-    # closest_neighbor_idx = find_closest_neighbor(summary, idx=1, metric="bad_rate")
-
-    # # Generate Sample Data to test find_most_similar_adjacent_pair function
-    # summary_for_similarity = pd.DataFrame({
-    #     "bin": ["Bin A", "Bin B", "Bin C"],
-    #     "bad_rate": [0.1, 0.11, 0.3]
-    # })
-
-    # most_similar_adjacent_pair_idx = find_most_similar_adjacent_pair(summary_for_similarity, metric="bad_rate")
-
-    # # Generate Sample Data to test find_monotonicity_violation_pair function
-    # summary_for_monotonicity = pd.DataFrame({
-    #     "bin": ["Bin A", "Bin B", "Bin C", "Bin D"],
-    #     "bad_rate": [0.05, 0.1, 0.08, 0.2]
-    # })
-
-    # monotonicity_violation_pair_idx = find_monotonicity_violation_pair(summary_for_monotonicity, metric="bad_rate")
-
-    # # Generate Sample Data to test check_binning_quality function
-    # summary_for_quality_check = pd.DataFrame({
-    #     "bin": ["Bin A", "Bin B", "Bin C"],
-    #     "total": [100, 100, 100],
-    #     "good": [90, 89, 70],
-    #     "bad": [10, 11, 30],
-    #     "bad_rate": [0.1, 0.11, 0.3],
-    #     "bin_pct": [0.33, 0.33, 0.34],
-    #     "woe": [-0.405465, -0.182322, 0.405465],
-    #     "iv": [0.004054, 0.000328, 0.016218]
-    # })
-
-    # quality_checks = check_binning_quality(summary_for_quality_check, min_bin_pct=0.05, max_bins=5)
-
-    # # Generate Sample Data (100 Rows) to test auto_woe_binning_numeric function
-    # # Feature and target are logically related: as feature increases, probability of target=1 increases
-    # np.random.seed(42)
-    # feature_data = np.random.uniform(18, 250, 1000)
-    # # Use sigmoid function to create logical relationship: higher feature → higher probability of bad (1)
-    # probabilities = 1 / (1 + np.exp(-(feature_data - 59) / 15))  # Sigmoid centered around 59
-    # target_data = np.array([np.random.choice([0, 1], p=[1-p, p]) for p in probabilities])
-    
-    # df_for_auto_binning = pd.DataFrame({
-    #     "feature": feature_data,
-    #     "target": target_data
-    # })
-
-    # auto_binning_result = auto_woe_binning_numeric(
-    #     df=df_for_auto_binning,
-    #     feature="feature",
-    #     target="target",
-    #     initial_bins=20, # We start with 20 initial bins to allow the algorithm to have enough granularity to work with and merge as needed based on the defined rules.
-    #     min_bin_pct=0.05, # We set the minimum bin percentage to 5% to ensure that each bin has a sufficient number of observations to be statistically meaningful.
-    #     max_final_bins=10, # We set the maximum final bins to 10 to align with common scorecard binning practices and to ensure that the final output is interpretable and actionable.
-    #     min_final_bins=3, # We set the minimum final bins to 3 to ensure that the final binning output has enough granularity to capture meaningful patterns in the data while avoiding oversimplification.
-    #     min_iv=0.02, # We set the minimum IV to 0.02 to flag features that may be too weak for predictive modeling and may require further review or exclusion from the model.
-    #     max_iv=0.50, # We set the maximum IV to 0.50 to flag features that may have too strong of a relationship with the target variable, which could indicate potential data leakage or overfitting issues that require further investigation.
-    #     max_iter=25 # We set the maximum iterations to 25 to allow the algorithm to perform enough merging steps to satisfy the defined rules while preventing infinite loops in cases where the rules cannot be satisfied within a reasonable number of merges.
-    # )
-
-    # Test with UCI Credit Card Dataset
-    metadata_path = "inputs/sample/datatypes.json"
-    with open(metadata_path, "r") as f:
-        metadata = json.load(f)
-    column_dtypes = metadata.get("column_dtypes", {})
-    # Get the sample data
-    input_csv_path = "inputs/sample/uci_credit_card_dataset.csv"
-    df = pd.read_csv(input_csv_path, dtype=column_dtypes)
-    # Log Column names and data types
-    for column in df.columns:
-        logger.info(f"Column: {column}: {column_dtypes.get(column, 'Unknown')} | Unique Values: {df[column].nunique()}")
-    logger.info("Sample data loaded successfully.")
-
-    for col in df.columns:
-        if col not in ["TARGET"]:
-            logger.info(f"Processing column: {col}")
-            if is_numeric_dtype(df[col]):
-                logger.info(f"Applying auto WoE binning to numeric feature: {col}")
-                result = auto_woe_binning_numeric(
-                    df=df,
-                    feature=col,
-                    target="TARGET",
-                    initial_bins=20,
-                    min_bin_pct=0.05,
-                    max_final_bins=10,
-                    min_final_bins=3,
-                    min_iv=0.02,
-                    max_iv=0.50,
-                    max_iter=25
-                )

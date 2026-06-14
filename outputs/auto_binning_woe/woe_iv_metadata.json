@@ -1,0 +1,58 @@
+{
+    "binCol": "bin",
+    "target": "target",
+    "eps": 0.5,
+    "summaryTable": [
+        {
+            "bin": "(17.999, 30.0]",
+            "human_readable_bin": "from_18_to_30",
+            "total": 4,
+            "good": 3,
+            "bad": 1,
+            "bad_rate": 0.25,
+            "bin_pct": 0.4,
+            "good_dist": 0.4666666666666667,
+            "bad_dist": 0.2727272727272727,
+            "good_dist_minus_bad_dist": 0.19393939393939397,
+            "odds_ratio": 1.7111111111111112,
+            "woe": 0.5371429320833642,
+            "woe_display": 53.714293208336414,
+            "iv": 0.1041731747070767
+        },
+        {
+            "bin": "(30.0, 45.0]",
+            "human_readable_bin": "from_30_to_45",
+            "total": 3,
+            "good": 1,
+            "bad": 2,
+            "bad_rate": 0.6666666666666666,
+            "bin_pct": 0.3,
+            "good_dist": 0.2,
+            "bad_dist": 0.45454545454545453,
+            "good_dist_minus_bad_dist": -0.2545454545454545,
+            "odds_ratio": 0.44000000000000006,
+            "woe": -0.8209805520698301,
+            "woe_display": -82.098055206983,
+            "iv": 0.2089768677995931
+        },
+        {
+            "bin": "(45.0, 60.0]",
+            "human_readable_bin": "from_45_to_60",
+            "total": 3,
+            "good": 2,
+            "bad": 1,
+            "bad_rate": 0.3333333333333333,
+            "bin_pct": 0.3,
+            "good_dist": 0.3333333333333333,
+            "bad_dist": 0.2727272727272727,
+            "good_dist_minus_bad_dist": 0.06060606060606061,
+            "odds_ratio": 1.2222222222222223,
+            "woe": 0.20067069546215124,
+            "woe_display": 20.067069546215123,
+            "iv": 0.01216186033103947
+        }
+    ],
+    "totalIv": 0.3253119028377093,
+    "interpretIv": "Strong Predictive Power",
+    "numberofBins": 3
+}

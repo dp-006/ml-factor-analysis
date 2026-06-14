@@ -1,0 +1,4 @@
+human_readable_bin,total,good,bad,bad_rate,bin_pct,good_dist,bad_dist,good_dist_minus_bad_dist,odds_ratio,woe,woe_display,iv
+from_18_to_30,4,3,1,0.2500,0.4000,0.4667,0.2727,0.1939,1.7111,0.5371,53.7143,0.1042
+from_30_to_45,3,1,2,0.6667,0.3000,0.2000,0.4545,-0.2545,0.4400,-0.8210,-82.0981,0.2090
+from_45_to_60,3,2,1,0.3333,0.3000,0.3333,0.2727,0.0606,1.2222,0.2007,20.0671,0.0122
