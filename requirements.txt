@@ -2,3 +2,5 @@ ucimlrepo
 feature-engine
 matplotlib
 SQLAlchemy
+statsmodels
+joblib

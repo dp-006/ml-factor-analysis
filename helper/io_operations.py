@@ -8,6 +8,7 @@ import os
 import json
 import pandas as pd
 import numpy as np
+import joblib
 from contextlib import contextmanager
 from sqlalchemy import create_engine
 
@@ -575,5 +576,209 @@ def io_get_dataframe_from_db(
         return df
     except Exception as e:
         error_message = f"Error executing SQL query: {e}"
+        logger.error(error_message)
+        raise Exception(error_message) from e
+
+# Save Model to File Using Joblib
+def io_save_model(model, file_path: str) -> str:
+    '''
+    Purpose
+    -------
+    Save a trained machine learning model to disk using joblib.
+    Joblib is efficient for serializing large NumPy arrays and statsmodels-compatible objects.
+
+    Parameters
+    ----------
+    model : object
+        The trained model object to be saved (e.g., statsmodels LogitResults, sklearn models, etc.).
+    file_path : str
+        Path where the model will be saved. If directory doesn't exist, it will be created.
+        Recommended file extension: .pkl or .joblib
+        Example: "outputs/model/logistic_model.pkl"
+
+    Returns
+    -------
+    str
+        The full path where the model was saved.
+
+    Raises
+    ------
+    ValueError
+        If model is None
+    Exception
+        If there's an error during saving process
+
+    Example
+    -------
+    >>> from helper.io_operations import io_save_model
+    >>> saved_path = io_save_model(fitted_model, "outputs/model/logistic_model.pkl")
+    >>> print(f"Model saved to {saved_path}")
+
+    Note
+    ----
+    Joblib is preferred over pickle for:
+    - Better handling of NumPy arrays
+    - Parallel computation support
+    - Compression capabilities (compress parameter)
+    '''
+    try:
+        if model is None:
+            error_message = "Cannot save model - Model object is None"
+            logger.error(error_message)
+            raise ValueError(error_message)
+        
+        logger.info(f"Starting model serialization using joblib")
+        logger.info(f"Target save path: {file_path}")
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(file_path)
+        if directory and not os.path.exists(directory):
+            os.makedirs(directory, exist_ok=True)
+            logger.info(f"Created directory: {directory}")
+        
+        # Save the model using joblib with compression
+        joblib.dump(model, file_path, compress=3)
+        logger.info(f"Model serialization completed successfully")
+        logger.info(f"Model saved to: {file_path}")
+        logger.info(f"File size: {os.path.getsize(file_path) / 1024:.2f} KB")
+        
+        return file_path
+    
+    except Exception as e:
+        error_message = f"Error saving model: {str(e)}"
+        logger.error(error_message)
+        raise Exception(error_message) from e
+
+# Load Model from File Using Joblib
+def io_load_model(file_path: str):
+    '''
+    Purpose
+    -------
+    Load a previously saved machine learning model from disk using joblib.
+
+    Parameters
+    ----------
+    file_path : str
+        Path to the saved model file (created using io_save_model function).
+        Example: "outputs/model/logistic_model.pkl"
+
+    Returns
+    -------
+    object
+        The loaded model object that can be used for predictions.
+        Type depends on the original model (e.g., statsmodels LogitResults, sklearn models, etc.).
+
+    Raises
+    ------
+    FileNotFoundError
+        If the specified file doesn't exist
+    Exception
+        If there's an error during loading process
+
+    Example
+    -------
+    >>> from helper.io_operations import io_load_model
+    >>> loaded_model = io_load_model("outputs/model/logistic_model.pkl")
+    >>> predictions = loaded_model.predict(X_test)
+
+    Note
+    ----
+    The loaded model can be used directly for predictions without re-fitting.
+    Make sure the loaded model is compatible with your prediction input data.
+    '''
+    try:
+        logger.info(f"Starting model deserialization from: {file_path}")
+        
+        if not os.path.exists(file_path):
+            error_message = f"Model file not found: {file_path}"
+            logger.error(error_message)
+            raise FileNotFoundError(error_message)
+        
+        # Load the model using joblib
+        loaded_model = joblib.load(file_path)
+        logger.info(f"Model deserialization completed successfully")
+        logger.info(f"Loaded model from: {file_path}")
+        logger.info(f"Model type: {type(loaded_model).__name__}")
+        
+        return loaded_model
+    
+    except Exception as e:
+        error_message = f"Error loading model: {str(e)}"
+        logger.error(error_message)
+        raise Exception(error_message) from e
+
+# Save Matplotlib Figure to Disk
+def io_save_figure(
+    figure,
+    file_path: str,
+    dpi: int = 300,
+    bbox_inches: str = "tight"
+):
+    """
+    Purpose
+    -------
+    Save matplotlib figure to disk.
+
+    Parameters
+    ----------
+    figure : matplotlib.figure.Figure
+        Figure object to save.
+
+    file_path : str
+        Output file path.
+
+    dpi : int, optional
+        Resolution of the saved figure.
+        Default is 300.
+
+    bbox_inches : str, optional
+        Bounding box option used by matplotlib.
+        Default is "tight".
+
+    Returns
+    -------
+    str
+        Saved file path.
+
+    Raises
+    ------
+    ValueError
+        If figure is None.
+
+    Exception
+        If figure cannot be saved.
+    """
+
+    if figure is None:
+        error_message = "Figure cannot be None."
+        logger.error(error_message)
+        raise ValueError(error_message)
+
+    try:
+        if not os.path.exists(os.path.dirname(file_path)):
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            logger.info(f"Created directory for figure: {os.path.dirname(file_path)}")
+
+        logger.info(
+            f"Saving figure to '{file_path}' "
+            f"(dpi={dpi}, bbox_inches='{bbox_inches}')"
+        )
+
+        figure.savefig(
+            file_path,
+            dpi=dpi,
+            bbox_inches=bbox_inches
+        )
+
+        logger.info(
+            f"Figure saved successfully: {file_path}"
+        )
+
+        return file_path
+
+    except Exception as e:
+        error_message = (
+            f"Error saving figure '{file_path}': {str(e)}"
+        )
         logger.error(error_message)
         raise Exception(error_message) from e

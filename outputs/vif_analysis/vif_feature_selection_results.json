@@ -1,0 +1,240 @@
+{
+    "selected_features": [
+        "credit_limit",
+        "age",
+        "bill_amount_sep_2005",
+        "bill_amount_apr_2005",
+        "payment_amount_sep_2005",
+        "payment_amount_aug_2005",
+        "payment_amount_jul_2005",
+        "payment_amount_jun_2005",
+        "payment_amount_may_2005",
+        "payment_amount_apr_2005"
+    ],
+    "steps": {
+        "1": {
+            "vifResults": {
+                "credit_limit": {
+                    "vif": 1.2307684638514056,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "age": {
+                    "vif": 1.0222111607140354,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "bill_amount_sep_2005": {
+                    "vif": 13.914294803617308,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_aug_2005": {
+                    "vif": 25.76011423379084,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_jul_2005": {
+                    "vif": 21.727445703628096,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_jun_2005": {
+                    "vif": 20.247251641886866,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_may_2005": {
+                    "vif": 24.88607642816913,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_apr_2005": {
+                    "vif": 14.927201397833533,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "payment_amount_sep_2005": {
+                    "vif": 1.691400396226619,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_aug_2005": {
+                    "vif": 2.2227639622439694,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jul_2005": {
+                    "vif": 1.7350502156226602,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jun_2005": {
+                    "vif": 1.6294729785734514,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_may_2005": {
+                    "vif": 1.6788462697651498,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_apr_2005": {
+                    "vif": 1.1690044557995032,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                }
+            },
+            "removedFeatureName": "bill_amount_aug_2005",
+            "removedFeatureVIF": 25.76011423379084
+        },
+        "2": {
+            "vifResults": {
+                "credit_limit": {
+                    "vif": 1.2299864821458741,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "age": {
+                    "vif": 1.0222091844480323,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "bill_amount_sep_2005": {
+                    "vif": 6.614730419144646,
+                    "interpretation": "Moderate to high correlation with other predictors. Consider checking for multicollinearity."
+                },
+                "bill_amount_jul_2005": {
+                    "vif": 16.45252843583504,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_jun_2005": {
+                    "vif": 20.24519456851736,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_may_2005": {
+                    "vif": 24.880058124224636,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_apr_2005": {
+                    "vif": 14.87778557972034,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "payment_amount_sep_2005": {
+                    "vif": 1.2346857100926254,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_aug_2005": {
+                    "vif": 1.769034978444707,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jul_2005": {
+                    "vif": 1.7325793630408717,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jun_2005": {
+                    "vif": 1.6280452776132734,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_may_2005": {
+                    "vif": 1.671966673539605,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_apr_2005": {
+                    "vif": 1.16831838320621,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                }
+            },
+            "removedFeatureName": "bill_amount_may_2005",
+            "removedFeatureVIF": 24.880058124224636
+        },
+        "3": {
+            "vifResults": {
+                "credit_limit": {
+                    "vif": 1.228969762860792,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "age": {
+                    "vif": 1.0222049663723365,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "bill_amount_sep_2005": {
+                    "vif": 6.6121345987636015,
+                    "interpretation": "Moderate to high correlation with other predictors. Consider checking for multicollinearity."
+                },
+                "bill_amount_jul_2005": {
+                    "vif": 16.427819458074538,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_jun_2005": {
+                    "vif": 15.547556202883294,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_apr_2005": {
+                    "vif": 7.4911359326700095,
+                    "interpretation": "Moderate to high correlation with other predictors. Consider checking for multicollinearity."
+                },
+                "payment_amount_sep_2005": {
+                    "vif": 1.234375292040112,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_aug_2005": {
+                    "vif": 1.7656299242948856,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jul_2005": {
+                    "vif": 1.726333171699712,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jun_2005": {
+                    "vif": 1.2913825920554614,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_may_2005": {
+                    "vif": 1.329579476719914,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_apr_2005": {
+                    "vif": 1.1544064563940282,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                }
+            },
+            "removedFeatureName": "bill_amount_jul_2005",
+            "removedFeatureVIF": 16.427819458074538
+        },
+        "4": {
+            "vifResults": {
+                "credit_limit": {
+                    "vif": 1.2274031388769169,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "age": {
+                    "vif": 1.0220947547878239,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "bill_amount_sep_2005": {
+                    "vif": 4.305449828690672,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "bill_amount_jun_2005": {
+                    "vif": 10.323834263698139,
+                    "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
+                },
+                "bill_amount_apr_2005": {
+                    "vif": 7.456958288666639,
+                    "interpretation": "Moderate to high correlation with other predictors. Consider checking for multicollinearity."
+                },
+                "payment_amount_sep_2005": {
+                    "vif": 1.2057457366935167,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_aug_2005": {
+                    "vif": 1.2057091920299252,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jul_2005": {
+                    "vif": 1.2972388472000964,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_jun_2005": {
+                    "vif": 1.2907998169772907,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_may_2005": {
+                    "vif": 1.3295463125743794,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                },
+                "payment_amount_apr_2005": {
+                    "vif": 1.1543442167463236,
+                    "interpretation": "Mild to moderate correlation with other predictors (usually fine)."
+                }
+            },
+            "removedFeatureName": "bill_amount_jun_2005",
+            "removedFeatureVIF": 10.323834263698139
+        }
+    }
+}

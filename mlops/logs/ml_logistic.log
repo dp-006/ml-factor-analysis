@@ -1,0 +1,194 @@
+2026-06-18 00:11:42,719 | [None] | mlops.ml_logistic | __init__:115 | INFO | --------------------------------------------------
+2026-06-18 00:11:42,719 | [None] | mlops.ml_logistic | __init__:116 | INFO | LogisticRegression instance initialized following parameters:
+2026-06-18 00:11:42,719 | [None] | mlops.ml_logistic | __init__:117 | INFO | 	Model directory set to: model
+2026-06-18 00:11:42,719 | [None] | mlops.ml_logistic | __init__:118 | INFO | 	Display convergence messages: False
+2026-06-18 00:11:42,719 | [None] | mlops.ml_logistic | __init__:119 | INFO | 	Optimization method: bfgs
+2026-06-18 00:11:42,719 | [None] | mlops.ml_logistic | __init__:120 | INFO | 	Maximum number of iterations: 500
+2026-06-18 00:11:42,720 | [None] | mlops.ml_logistic | __init__:121 | INFO | 	Save results to JSON: True
+2026-06-18 00:11:42,720 | [None] | mlops.ml_logistic | __init__:122 | INFO | 	Save fitted model: True
+2026-06-18 00:11:42,720 | [None] | mlops.ml_logistic | __init__:123 | INFO | 	Evaluate model after fitting: True
+2026-06-18 00:11:42,720 | [None] | mlops.ml_logistic | __init__:124 | INFO | 	Number of bins for evaluation: 20
+2026-06-18 00:11:42,720 | [None] | mlops.ml_logistic | __init__:125 | INFO | --------------------------------------------------
+2026-06-18 00:11:42,721 | [None] | mlops.ml_logistic | fit:167 | INFO | Starting Logistic Regression model training
+2026-06-18 00:11:42,721 | [None] | mlops.ml_logistic | fit:168 | INFO | Input data shape - Features: (30000, 23), Target: (30000,)
+2026-06-18 00:11:42,721 | [None] | mlops.ml_logistic | fit:169 | INFO | Number of features: 23
+2026-06-18 00:11:42,721 | [None] | mlops.ml_logistic | fit:170 | INFO | Number of observations: 30000
+2026-06-18 00:11:42,722 | [None] | mlops.ml_logistic | fit:171 | INFO | Target distribution - Class 0: 23364, Class 1: 6636
+2026-06-18 00:11:42,728 | [None] | mlops.ml_logistic | fit:175 | INFO | Added constant term to features. Constant column added with name: const
+2026-06-18 00:11:42,729 | [None] | mlops.ml_logistic | fit:176 | INFO | Added Value: 1.0 for all observations
+2026-06-18 00:11:42,730 | [None] | mlops.ml_logistic | fit:186 | INFO | Target variable distribution -> Class 0: 23364 (77.88%) | Class 1: 6636 (22.12%)
+2026-06-18 00:11:42,738 | [None] | mlops.ml_logistic | fit:194 | INFO | Logistic Regression model initialized with formula:
+	logit(P(Y=1)) = β0
+	+ (beta1 * credit_limit)
+	+ (beta2 * gender)
+	+ (beta3 * education)
+	+ (beta4 * marital_status)
+	+ (beta5 * age)
+	+ (beta6 * repayment_status_sep_2005)
+	+ (beta7 * repayment_status_aug_2005)
+	+ (beta8 * repayment_status_jul_2005)
+	+ (beta9 * repayment_status_jun_2005)
+	+ (beta10 * repayment_status_may_2005)
+	+ (beta11 * repayment_status_apr_2005)
+	+ (beta12 * bill_amount_sep_2005)
+	+ (beta13 * bill_amount_aug_2005)
+	+ (beta14 * bill_amount_jul_2005)
+	+ (beta15 * bill_amount_jun_2005)
+	+ (beta16 * bill_amount_may_2005)
+	+ (beta17 * bill_amount_apr_2005)
+	+ (beta18 * payment_amount_sep_2005)
+	+ (beta19 * payment_amount_aug_2005)
+	+ (beta20 * payment_amount_jul_2005)
+	+ (beta21 * payment_amount_jun_2005)
+	+ (beta22 * payment_amount_may_2005)
+	+ (beta23 * payment_amount_apr_2005)
+2026-06-18 00:11:42,740 | [None] | mlops.ml_logistic | fit:197 | INFO | Fitting model...
+2026-06-18 00:11:42,852 | [None] | mlops.ml_logistic | fit:204 | INFO | Model training completed successfully
+2026-06-18 00:11:42,853 | [None] | mlops.ml_logistic | fit:206 | INFO | Extracting model summary and metrics
+2026-06-18 00:11:42,888 | [None] | mlops.ml_logistic | get_model_info:288 | INFO | Extracted model metrics:
+2026-06-18 00:11:42,888 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	dependentVariable: TARGET
+2026-06-18 00:11:42,888 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	numberOfObservations: 30000
+2026-06-18 00:11:42,888 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	degreesOfFreedomResiduals: 29976
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	degreesOfFreedomModel: 23
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	pseudoRSquared: 0.100506
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	logLikelihood: -14259.38392
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	nullLogLikelihood: -15852.677122
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	likelihoodRatioPValue: 0.0
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	likelihoodRatioSignificance: Highly Significant
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	converged: True
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	covarianceType: nonrobust
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	aic: 28566.76784
+2026-06-18 00:11:42,889 | [None] | mlops.ml_logistic | get_model_info:290 | INFO | 	bic: 28766.182703
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:327 | INFO | Top 25 strongest coefficients by absolute value:
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	bill_amount_sep_2005                     -0.4341
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	bill_amount_aug_2005                     +0.4096
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	payment_amount_sep_2005                  -0.3955
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	repayment_status_may_2005                +0.3178
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	repayment_status_jul_2005                +0.2495
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	credit_limit                             -0.2438
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	payment_amount_aug_2005                  -0.2435
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	repayment_status_jun_2005                +0.2424
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	repayment_status_sep_2005                -0.2093
+2026-06-18 00:11:42,894 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	repayment_status_aug_2005                -0.1523
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	repayment_status_apr_2005                -0.1422
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	bill_amount_jul_2005                     +0.1312
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	bill_amount_may_2005                     +0.1213
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	payment_amount_jun_2005                  -0.0861
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	marital_status                           -0.0836
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	gender                                   +0.0735
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	bill_amount_apr_2005                     -0.0709
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	age                                      +0.0478
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	bill_amount_jun_2005                     -0.0465
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	education                                -0.0448
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	payment_amount_apr_2005                  -0.0397
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	payment_amount_may_2005                  -0.0163
+2026-06-18 00:11:42,895 | [None] | mlops.ml_logistic | get_coefficients:330 | INFO | 	payment_amount_jul_2005                  -0.0148
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:479 | INFO | Top 25 strongest odds ratio effects:
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	bill_amount_aug_2005                     coef=+0.4096 oddsRatio=1.5062 absOddsRatioChange=0.5062 direction=Increases percentChangeInOdds=50.62% magnitude=Large interpretation=A one-unit increase in the variable increases the odds of the positive class by 50.62%.
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	repayment_status_may_2005                coef=+0.3178 oddsRatio=1.3741 absOddsRatioChange=0.3741 direction=Increases percentChangeInOdds=37.41% magnitude=Moderate interpretation=A one-unit increase in the variable increases the odds of the positive class by 37.41%.
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	bill_amount_sep_2005                     coef=-0.4341 oddsRatio=0.6479 absOddsRatioChange=0.3521 direction=Decreases percentChangeInOdds=35.21% magnitude=Moderate interpretation=A one-unit increase in the variable decreases the odds of the positive class by 35.21%.
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	payment_amount_sep_2005                  coef=-0.3955 oddsRatio=0.6733 absOddsRatioChange=0.3267 direction=Decreases percentChangeInOdds=32.67% magnitude=Moderate interpretation=A one-unit increase in the variable decreases the odds of the positive class by 32.67%.
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	repayment_status_jul_2005                coef=+0.2495 oddsRatio=1.2834 absOddsRatioChange=0.2834 direction=Increases percentChangeInOdds=28.34% magnitude=Moderate interpretation=A one-unit increase in the variable increases the odds of the positive class by 28.34%.
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	repayment_status_jun_2005                coef=+0.2424 oddsRatio=1.2743 absOddsRatioChange=0.2743 direction=Increases percentChangeInOdds=27.43% magnitude=Moderate interpretation=A one-unit increase in the variable increases the odds of the positive class by 27.43%.
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	credit_limit                             coef=-0.2438 oddsRatio=0.7836 absOddsRatioChange=0.2164 direction=Decreases percentChangeInOdds=21.64% magnitude=Moderate interpretation=A one-unit increase in the variable decreases the odds of the positive class by 21.64%.
+2026-06-18 00:11:42,899 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	payment_amount_aug_2005                  coef=-0.2435 oddsRatio=0.7839 absOddsRatioChange=0.2161 direction=Decreases percentChangeInOdds=21.61% magnitude=Moderate interpretation=A one-unit increase in the variable decreases the odds of the positive class by 21.61%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	repayment_status_sep_2005                coef=-0.2093 oddsRatio=0.8112 absOddsRatioChange=0.1888 direction=Decreases percentChangeInOdds=18.88% magnitude=Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 18.88%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	repayment_status_aug_2005                coef=-0.1523 oddsRatio=0.8587 absOddsRatioChange=0.1413 direction=Decreases percentChangeInOdds=14.13% magnitude=Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 14.13%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	bill_amount_jul_2005                     coef=+0.1312 oddsRatio=1.1402 absOddsRatioChange=0.1402 direction=Increases percentChangeInOdds=14.02% magnitude=Small interpretation=A one-unit increase in the variable increases the odds of the positive class by 14.02%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	repayment_status_apr_2005                coef=-0.1422 oddsRatio=0.8674 absOddsRatioChange=0.1326 direction=Decreases percentChangeInOdds=13.26% magnitude=Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 13.26%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	bill_amount_may_2005                     coef=+0.1213 oddsRatio=1.1290 absOddsRatioChange=0.1290 direction=Increases percentChangeInOdds=12.90% magnitude=Small interpretation=A one-unit increase in the variable increases the odds of the positive class by 12.90%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	payment_amount_jun_2005                  coef=-0.0861 oddsRatio=0.9175 absOddsRatioChange=0.0825 direction=Decreases percentChangeInOdds=8.25% magnitude=Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 8.25%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	marital_status                           coef=-0.0836 oddsRatio=0.9198 absOddsRatioChange=0.0802 direction=Decreases percentChangeInOdds=8.02% magnitude=Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 8.02%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	gender                                   coef=+0.0735 oddsRatio=1.0763 absOddsRatioChange=0.0763 direction=Increases percentChangeInOdds=7.63% magnitude=Small interpretation=A one-unit increase in the variable increases the odds of the positive class by 7.63%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	bill_amount_apr_2005                     coef=-0.0709 oddsRatio=0.9315 absOddsRatioChange=0.0685 direction=Decreases percentChangeInOdds=6.85% magnitude=Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 6.85%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	age                                      coef=+0.0478 oddsRatio=1.0490 absOddsRatioChange=0.0490 direction=Increases percentChangeInOdds=4.90% magnitude=Very Small interpretation=A one-unit increase in the variable increases the odds of the positive class by 4.90%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	bill_amount_jun_2005                     coef=-0.0465 oddsRatio=0.9546 absOddsRatioChange=0.0454 direction=Decreases percentChangeInOdds=4.54% magnitude=Very Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 4.54%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	education                                coef=-0.0448 oddsRatio=0.9562 absOddsRatioChange=0.0438 direction=Decreases percentChangeInOdds=4.38% magnitude=Very Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 4.38%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	payment_amount_apr_2005                  coef=-0.0397 oddsRatio=0.9611 absOddsRatioChange=0.0389 direction=Decreases percentChangeInOdds=3.89% magnitude=Very Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 3.89%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	payment_amount_may_2005                  coef=-0.0163 oddsRatio=0.9839 absOddsRatioChange=0.0161 direction=Decreases percentChangeInOdds=1.61% magnitude=Very Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 1.61%.
+2026-06-18 00:11:42,900 | [None] | mlops.ml_logistic | get_odds_ratios:482 | INFO | 	payment_amount_jul_2005                  coef=-0.0148 oddsRatio=0.9853 absOddsRatioChange=0.0147 direction=Decreases percentChangeInOdds=1.47% magnitude=Very Small interpretation=A one-unit increase in the variable decreases the odds of the positive class by 1.47%.
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:632 | INFO | Marginal effects extracted with at='overall'
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:634 | INFO | Top 25 strongest marginal effects by absolute value:
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | bill_amount_sep_2005 --> marginalEffect=-0.066208 pValue=0.000000
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | bill_amount_aug_2005 --> marginalEffect=+0.062475 pValue=0.000060
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | payment_amount_sep_2005 --> marginalEffect=-0.060322 pValue=0.000000
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | repayment_status_may_2005 --> marginalEffect=+0.048472 pValue=0.000000
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | repayment_status_jul_2005 --> marginalEffect=+0.038051 pValue=0.000000
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | credit_limit --> marginalEffect=-0.037184 pValue=0.000000
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | payment_amount_aug_2005 --> marginalEffect=-0.037141 pValue=0.000003
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | repayment_status_jun_2005 --> marginalEffect=+0.036971 pValue=0.000000
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | repayment_status_sep_2005 --> marginalEffect=-0.031919 pValue=0.000000
+2026-06-18 00:11:43,164 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | repayment_status_aug_2005 --> marginalEffect=-0.023233 pValue=0.000000
+2026-06-18 00:11:43,165 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | repayment_status_apr_2005 --> marginalEffect=-0.021693 pValue=0.000000
+2026-06-18 00:11:43,165 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | bill_amount_jul_2005 --> marginalEffect=+0.020008 pValue=0.127761
+2026-06-18 00:11:43,165 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | bill_amount_may_2005 --> marginalEffect=+0.018499 pValue=0.161012
+2026-06-18 00:11:43,165 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | payment_amount_jun_2005 --> marginalEffect=-0.013130 pValue=0.001725
+2026-06-18 00:11:43,165 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | marital_status --> marginalEffect=-0.012751 pValue=0.000000
+2026-06-18 00:11:43,165 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | gender --> marginalEffect=+0.011212 pValue=0.000001
+2026-06-18 00:11:43,165 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | bill_amount_apr_2005 --> marginalEffect=-0.010821 pValue=0.287424
+2026-06-18 00:11:43,166 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | age --> marginalEffect=+0.007291 pValue=0.003179
+2026-06-18 00:11:43,166 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | bill_amount_jun_2005 --> marginalEffect=-0.007086 pValue=0.571274
+2026-06-18 00:11:43,166 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | education --> marginalEffect=-0.006832 pValue=0.002849
+2026-06-18 00:11:43,166 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | payment_amount_apr_2005 --> marginalEffect=-0.006049 pValue=0.074596
+2026-06-18 00:11:43,166 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | payment_amount_may_2005 --> marginalEffect=-0.002483 pValue=0.528235
+2026-06-18 00:11:43,166 | [None] | mlops.ml_logistic | get_marginal_effects:637 | INFO | payment_amount_jul_2005 --> marginalEffect=-0.002260 pValue=0.611958
+2026-06-18 00:11:43,168 | [None] | mlops.ml_logistic | fit:233 | INFO | Model results saved to: model/logit_model_results.json
+2026-06-18 00:11:43,322 | [None] | mlops.ml_logistic | fit:239 | INFO | Fitted model saved to: model/logit_model_fit.pkl
+2026-06-18 00:11:43,322 | [None] | mlops.ml_logistic | predict:804 | INFO | Starting class prediction (threshold=0.5000)
+2026-06-18 00:11:43,326 | [None] | mlops.ml_logistic | predict_proba:741 | INFO | Input Type: DataFrame, Input Shape: (30000, 23)
+2026-06-18 00:11:43,326 | [None] | mlops.ml_logistic | predict_proba:745 | INFO | Adding constant column to prediction dataset
+2026-06-18 00:11:43,328 | [None] | mlops.ml_logistic | predict_proba:763 | INFO | Probabilities converted to list format for output
+2026-06-18 00:11:43,329 | [None] | mlops.ml_logistic | predict_proba:764 | INFO | Probabilities predicted for 30000
+Output Type: list
+2026-06-18 00:11:43,329 | [None] | mlops.ml_logistic | predict_proba:767 | INFO | Probability prediction completed
+2026-06-18 00:11:43,330 | [None] | mlops.ml_logistic | predict:827 | INFO | Class prediction completed
+Total Observations: 30000
+Predicted Class 0: 28123
+Predicted Class 1: 1877
+2026-06-18 00:11:43,335 | [None] | mlops.ml_logistic | predict_proba:741 | INFO | Input Type: DataFrame, Input Shape: (30000, 23)
+2026-06-18 00:11:43,335 | [None] | mlops.ml_logistic | predict_proba:745 | INFO | Adding constant column to prediction dataset
+2026-06-18 00:11:43,337 | [None] | mlops.ml_logistic | predict_proba:763 | INFO | Probabilities converted to list format for output
+2026-06-18 00:11:43,337 | [None] | mlops.ml_logistic | predict_proba:764 | INFO | Probabilities predicted for 30000
+Output Type: list
+2026-06-18 00:11:43,338 | [None] | mlops.ml_logistic | predict_proba:767 | INFO | Probability prediction completed
+2026-06-18 00:11:43,720 | [None] | mlops.ml_logistic | evaluate_model:699 | INFO | KS plot saved to: model/ks_plot.png
+2026-06-18 00:11:43,917 | [None] | mlops.ml_logistic | evaluate_model:703 | INFO | Lift plot saved to: model/lift_plot.png
+2026-06-18 00:11:44,138 | [None] | mlops.ml_logistic | evaluate_model:707 | INFO | Lorenz curve plot saved to: model/lorenz_curve_plot.png
+2026-06-18 00:11:44,356 | [None] | mlops.ml_logistic | evaluate_model:711 | INFO | ROC AUC plot saved to: model/roc_auc_plot.png
+2026-06-18 00:11:44,374 | [None] | mlops.ml_logistic | evaluate_model:715 | INFO | Threshold analysis saved to: model/threshold_analysis.csv
+2026-06-18 00:11:44,377 | [None] | mlops.ml_logistic | predict_proba:741 | INFO | Input Type: DataFrame, Input Shape: (1, 23)
+2026-06-18 00:11:44,377 | [None] | mlops.ml_logistic | predict_proba:745 | INFO | Adding constant column to prediction dataset
+2026-06-18 00:11:44,378 | [None] | mlops.ml_logistic | predict_proba:763 | INFO | Probabilities converted to list format for output
+2026-06-18 00:11:44,378 | [None] | mlops.ml_logistic | predict_proba:764 | INFO | Probabilities predicted for 1
+Output Type: list
+2026-06-18 00:11:44,378 | [None] | mlops.ml_logistic | predict_proba:767 | INFO | Probability prediction completed
+2026-06-18 00:11:44,378 | [None] | mlops.ml_logistic | predict:804 | INFO | Starting class prediction (threshold=0.5000)
+2026-06-18 00:11:44,379 | [None] | mlops.ml_logistic | predict_proba:741 | INFO | Input Type: DataFrame, Input Shape: (1, 23)
+2026-06-18 00:11:44,379 | [None] | mlops.ml_logistic | predict_proba:745 | INFO | Adding constant column to prediction dataset
+2026-06-18 00:11:44,379 | [None] | mlops.ml_logistic | predict_proba:763 | INFO | Probabilities converted to list format for output
+2026-06-18 00:11:44,379 | [None] | mlops.ml_logistic | predict_proba:764 | INFO | Probabilities predicted for 1
+Output Type: list
+2026-06-18 00:11:44,379 | [None] | mlops.ml_logistic | predict_proba:767 | INFO | Probability prediction completed
+2026-06-18 00:11:44,379 | [None] | mlops.ml_logistic | predict:827 | INFO | Class prediction completed
+Total Observations: 1
+Predicted Class 0: 1
+Predicted Class 1: 0
+2026-06-18 00:11:44,426 | [None] | mlops.ml_logistic | predict_proba:741 | INFO | Input Type: DataFrame, Input Shape: (1, 23)
+2026-06-18 00:11:44,426 | [None] | mlops.ml_logistic | predict_proba:745 | INFO | Adding constant column to prediction dataset
+2026-06-18 00:11:44,426 | [None] | mlops.ml_logistic | predict_proba:763 | INFO | Probabilities converted to list format for output
+2026-06-18 00:11:44,426 | [None] | mlops.ml_logistic | predict_proba:764 | INFO | Probabilities predicted for 1
+Output Type: list
+2026-06-18 00:11:44,426 | [None] | mlops.ml_logistic | predict_proba:767 | INFO | Probability prediction completed
+2026-06-18 00:11:44,426 | [None] | mlops.ml_logistic | predict:804 | INFO | Starting class prediction (threshold=0.5000)
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | predict_proba:741 | INFO | Input Type: DataFrame, Input Shape: (1, 23)
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | predict_proba:745 | INFO | Adding constant column to prediction dataset
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | predict_proba:763 | INFO | Probabilities converted to list format for output
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | predict_proba:764 | INFO | Probabilities predicted for 1
+Output Type: list
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | predict_proba:767 | INFO | Probability prediction completed
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | predict:827 | INFO | Class prediction completed
+Total Observations: 1
+Predicted Class 0: 1
+Predicted Class 1: 0
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | <module>:873 | INFO | Predictions from fitted and loaded models match.
+2026-06-18 00:11:44,427 | [None] | mlops.ml_logistic | <module>:878 | INFO | Predicted probabilities from fitted and loaded models match.

@@ -6,10 +6,6 @@ Created: 2024-06-17
 Test file for auto_binning_woe.py
 '''
 
-from asyncio.log import logger
-
-from venv import logger
-
 from auto_binning_woe import (
     assign_bins_from_intervals,
     auto_woe_binning_numeric, 
@@ -171,16 +167,10 @@ if __name__ == "__main__":
         # Get the sample data
         input_csv_path = "inputs/sample/uci_credit_card_dataset.csv"
         df = pd.read_csv(input_csv_path, dtype=column_dtypes)
-        # Log Column names and data types
-        for column in df.columns:
-            logger.info(f"Column: {column}: {column_dtypes.get(column, 'Unknown')} | Unique Values: {df[column].nunique()}")
-        logger.info("Sample data loaded successfully.")
 
         for col in df.columns:
             if col not in ["TARGET"]:
-                logger.info(f"Processing column: {col}")
                 if is_numeric_dtype(df[col]):
-                    logger.info(f"Applying auto WoE binning to numeric feature: {col}")
                     result = auto_woe_binning_numeric(
                         df=df,
                         feature=col,

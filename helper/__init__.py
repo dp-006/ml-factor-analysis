@@ -16,10 +16,37 @@ from .io_operations import (
     io_load_json,
     io_read_csv_as_df,
     io_check_dataframe_quality,
+    io_save_model,
+    io_load_model,
+    io_save_figure
 )
 
 from .column_operations import (
     convert_binary_columns,
+)
+
+from .ml_operations import (
+    interpret_p_value,
+    interpret_odds_ratio,
+    interpret_marginal_effect,
+    calculate_confusion_matrix,
+    calculate_accuracy,
+    calculate_precision,
+    calculate_recall,
+    calculate_f1_score,
+    calculate_roc_auc,
+    calculate_gini,
+    interpret_roc_auc,
+    interpret_gini,
+    calculate_ks,
+    interpret_ks,
+    calculate_decile_analysis,
+    plot_ks,
+    plot_lift,
+    plot_lorenz,
+    plot_roc_auc,
+    calculate_threshold_analysis,
+    interpret_vif
 )
 
 __all__ = [
@@ -37,5 +64,29 @@ __all__ = [
     "io_load_json",
     "io_read_csv_as_df",
     "io_check_dataframe_quality",
+    "io_save_model",
+    "io_load_model",
+    "io_save_figure",
     "convert_binary_columns",
+    "interpret_p_value",
+    "interpret_odds_ratio",
+    "interpret_marginal_effect",
+    "calculate_confusion_matrix",
+    "calculate_accuracy",
+    "calculate_precision",
+    "calculate_recall",
+    "calculate_f1_score",
+    "calculate_roc_auc",
+    "calculate_gini",
+    "interpret_roc_auc",
+    "interpret_gini",
+    "calculate_ks",
+    "interpret_ks",
+    "calculate_decile_analysis",
+    "plot_ks",
+    "plot_lift",
+    "plot_lorenz",
+    "plot_roc_auc",
+    "calculate_threshold_analysis",
+    "interpret_vif"
 ]

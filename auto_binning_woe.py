@@ -20,7 +20,6 @@ Main Function:
 
 '''
 
-import json
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
 import numpy as np
@@ -460,9 +459,26 @@ def create_initial_bins(
         )
 
         logger.info(f"Initial bins created with qcut. Feature: {feature}")
+        logger.info(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
         logger.info("Bins:")
         for bin in bins.cat.categories:
             logger.info(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
+
+        # If the number of bins created is less than 3, call cut to create equal-width bins instead, because we need at least 3 bins to perform the subsequent binning rules effectively.
+        if bins.cat.categories.size < 3:
+            warning_message = f"qcut created less than 3 bins for feature '{feature}'. Actual number of bins created: {bins.cat.categories.size}. Falling back to cut."
+            logger.warning(warning_message)
+            # If qcut creates less than 3 bins, we fall back to cut which creates equal-width bins.
+            bins = pd.cut(
+                x,
+                bins=initial_bins,
+                duplicates="drop"
+            )
+            logger.info(f"Initial bins created with cut. Feature: {feature}")
+            logger.info(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
+            logger.info("Bins:")
+            for bin in bins.cat.categories:
+                logger.info(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
 
     except Exception as e:
         warning_message = f"qcut failed for feature '{feature}' with error: {str(e)}. Falling back to cut."
@@ -476,6 +492,8 @@ def create_initial_bins(
         )
 
         logger.info(f"Initial bins created with cut. Feature: {feature}")
+        logger.info(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
+
         logger.info("Bins:")
         for bin in bins.cat.categories:
             logger.info(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")

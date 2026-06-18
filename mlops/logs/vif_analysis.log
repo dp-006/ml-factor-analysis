@@ -1,0 +1,568 @@
+2026-06-18 23:50:59,639 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:233 | INFO | Starting iterative feature selection with VIF threshold: 5.0 and maximum iterations: 100
+2026-06-18 23:50:59,643 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:283 | INFO | Step 1: Calculating VIF for remaining features.
+2026-06-18 23:50:59,645 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 0 with standardize=True
+2026-06-18 23:50:59,645 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,645 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,655 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,679 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 0: 0.1875
+2026-06-18 23:50:59,679 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 0: 0.1875
+2026-06-18 23:50:59,680 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 0: 1.2308
+2026-06-18 23:50:59,680 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 0: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:50:59,681 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 1 with standardize=True
+2026-06-18 23:50:59,682 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,682 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,691 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,709 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 1: 0.0217
+2026-06-18 23:50:59,709 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 1: 0.0217
+2026-06-18 23:50:59,709 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 1: 1.0222
+2026-06-18 23:50:59,709 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 1: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:50:59,711 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 2 with standardize=True
+2026-06-18 23:50:59,711 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,711 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,721 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,740 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 2: 0.9281
+2026-06-18 23:50:59,741 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 2: 0.9281
+2026-06-18 23:50:59,741 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 2: 13.9143
+2026-06-18 23:50:59,741 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 2: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:50:59,743 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 3 with standardize=True
+2026-06-18 23:50:59,743 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,743 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,753 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,773 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 3: 0.9612
+2026-06-18 23:50:59,773 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 3: 0.9612
+2026-06-18 23:50:59,773 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 3: 25.7601
+2026-06-18 23:50:59,773 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 3: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:50:59,775 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 4 with standardize=True
+2026-06-18 23:50:59,775 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,776 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,785 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,804 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 4: 0.9540
+2026-06-18 23:50:59,804 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 4: 0.9540
+2026-06-18 23:50:59,804 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 4: 21.7274
+2026-06-18 23:50:59,804 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 4: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:50:59,806 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 5 with standardize=True
+2026-06-18 23:50:59,806 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,807 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,816 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,834 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 5: 0.9506
+2026-06-18 23:50:59,834 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 5: 0.9506
+2026-06-18 23:50:59,834 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 5: 20.2473
+2026-06-18 23:50:59,834 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 5: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:50:59,836 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 6 with standardize=True
+2026-06-18 23:50:59,836 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,836 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,846 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,865 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 6: 0.9598
+2026-06-18 23:50:59,865 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 6: 0.9598
+2026-06-18 23:50:59,865 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 6: 24.8861
+2026-06-18 23:50:59,865 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 6: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:50:59,867 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 7 with standardize=True
+2026-06-18 23:50:59,867 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,867 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,877 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,895 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 7: 0.9330
+2026-06-18 23:50:59,896 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 7: 0.9330
+2026-06-18 23:50:59,896 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 7: 14.9272
+2026-06-18 23:50:59,896 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 7: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:50:59,898 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 8 with standardize=True
+2026-06-18 23:50:59,898 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,898 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,907 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,926 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 8: 0.4088
+2026-06-18 23:50:59,927 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 8: 0.4088
+2026-06-18 23:50:59,927 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 8: 1.6914
+2026-06-18 23:50:59,927 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 8: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:50:59,929 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 9 with standardize=True
+2026-06-18 23:50:59,929 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,929 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,939 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,959 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 9: 0.5501
+2026-06-18 23:50:59,959 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 9: 0.5501
+2026-06-18 23:50:59,959 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 9: 2.2228
+2026-06-18 23:50:59,959 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 9: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:50:59,961 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 10 with standardize=True
+2026-06-18 23:50:59,961 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,961 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:50:59,971 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:50:59,990 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 10: 0.4236
+2026-06-18 23:50:59,990 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 10: 0.4236
+2026-06-18 23:50:59,990 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 10: 1.7351
+2026-06-18 23:50:59,990 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 10: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:50:59,992 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 11 with standardize=True
+2026-06-18 23:50:59,993 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:50:59,993 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,002 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:51:00,023 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 11: 0.3863
+2026-06-18 23:51:00,024 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 11: 0.3863
+2026-06-18 23:51:00,024 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 11: 1.6295
+2026-06-18 23:51:00,024 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 11: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,026 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 12 with standardize=True
+2026-06-18 23:51:00,026 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:51:00,026 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,036 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:51:00,056 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 12: 0.4044
+2026-06-18 23:51:00,056 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 12: 0.4044
+2026-06-18 23:51:00,057 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 12: 1.6788
+2026-06-18 23:51:00,057 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 12: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,059 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 13 with standardize=True
+2026-06-18 23:51:00,059 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 14
+2026-06-18 23:51:00,059 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,069 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.60e+01
+2026-06-18 23:51:00,089 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 13: 0.1446
+2026-06-18 23:51:00,089 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 13: 0.1446
+2026-06-18 23:51:00,090 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 13: 1.1690
+2026-06-18 23:51:00,090 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 13: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,094 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:296 | INFO | Current VIF values:
+                               vif                                     interpretation
+credit_limit              1.230768  Mild to moderate correlation with other predic...
+age                       1.022211  Mild to moderate correlation with other predic...
+bill_amount_sep_2005     13.914295  Strong multicollinearity detected. Consider ta...
+bill_amount_aug_2005     25.760114  Strong multicollinearity detected. Consider ta...
+bill_amount_jul_2005     21.727446  Strong multicollinearity detected. Consider ta...
+bill_amount_jun_2005     20.247252  Strong multicollinearity detected. Consider ta...
+bill_amount_may_2005     24.886076  Strong multicollinearity detected. Consider ta...
+bill_amount_apr_2005     14.927201  Strong multicollinearity detected. Consider ta...
+payment_amount_sep_2005     1.6914  Mild to moderate correlation with other predic...
+payment_amount_aug_2005   2.222764  Mild to moderate correlation with other predic...
+payment_amount_jul_2005    1.73505  Mild to moderate correlation with other predic...
+payment_amount_jun_2005   1.629473  Mild to moderate correlation with other predic...
+payment_amount_may_2005   1.678846  Mild to moderate correlation with other predic...
+payment_amount_apr_2005   1.169004  Mild to moderate correlation with other predic...
+2026-06-18 23:51:00,095 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:301 | INFO | Feature with maximum VIF: bill_amount_aug_2005 (VIF=25.7601)
+2026-06-18 23:51:00,095 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:309 | INFO | Removing feature bill_amount_aug_2005 due to high VIF (25.7601).
+2026-06-18 23:51:00,096 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:283 | INFO | Step 2: Calculating VIF for remaining features.
+2026-06-18 23:51:00,097 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 0 with standardize=True
+2026-06-18 23:51:00,097 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,097 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,107 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,124 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 0: 0.1870
+2026-06-18 23:51:00,125 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 0: 0.1870
+2026-06-18 23:51:00,125 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 0: 1.2300
+2026-06-18 23:51:00,125 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 0: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,127 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 1 with standardize=True
+2026-06-18 23:51:00,127 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,127 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,136 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,153 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 1: 0.0217
+2026-06-18 23:51:00,153 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 1: 0.0217
+2026-06-18 23:51:00,153 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 1: 1.0222
+2026-06-18 23:51:00,154 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 1: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,155 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 2 with standardize=True
+2026-06-18 23:51:00,156 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,156 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,165 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,181 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 2: 0.8488
+2026-06-18 23:51:00,181 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 2: 0.8488
+2026-06-18 23:51:00,181 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 2: 6.6147
+2026-06-18 23:51:00,181 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 2: Moderate to high correlation with other predictors. Consider checking for multicollinearity.
+2026-06-18 23:51:00,183 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 3 with standardize=True
+2026-06-18 23:51:00,183 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,183 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,193 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,210 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 3: 0.9392
+2026-06-18 23:51:00,210 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 3: 0.9392
+2026-06-18 23:51:00,211 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 3: 16.4525
+2026-06-18 23:51:00,211 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 3: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:51:00,213 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 4 with standardize=True
+2026-06-18 23:51:00,213 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,213 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,222 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,239 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 4: 0.9506
+2026-06-18 23:51:00,239 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 4: 0.9506
+2026-06-18 23:51:00,239 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 4: 20.2452
+2026-06-18 23:51:00,239 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 4: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:51:00,241 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 5 with standardize=True
+2026-06-18 23:51:00,241 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,241 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,251 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,267 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 5: 0.9598
+2026-06-18 23:51:00,268 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 5: 0.9598
+2026-06-18 23:51:00,268 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 5: 24.8801
+2026-06-18 23:51:00,268 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 5: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:51:00,269 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 6 with standardize=True
+2026-06-18 23:51:00,270 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,270 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,279 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,297 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 6: 0.9328
+2026-06-18 23:51:00,297 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 6: 0.9328
+2026-06-18 23:51:00,297 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 6: 14.8778
+2026-06-18 23:51:00,297 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 6: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:51:00,299 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 7 with standardize=True
+2026-06-18 23:51:00,299 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,299 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,308 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,324 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 7: 0.1901
+2026-06-18 23:51:00,324 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 7: 0.1901
+2026-06-18 23:51:00,325 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 7: 1.2347
+2026-06-18 23:51:00,325 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 7: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,327 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 8 with standardize=True
+2026-06-18 23:51:00,327 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,327 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,335 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,352 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 8: 0.4347
+2026-06-18 23:51:00,352 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 8: 0.4347
+2026-06-18 23:51:00,352 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 8: 1.7690
+2026-06-18 23:51:00,353 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 8: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,354 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 9 with standardize=True
+2026-06-18 23:51:00,355 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,355 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,364 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,379 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 9: 0.4228
+2026-06-18 23:51:00,380 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 9: 0.4228
+2026-06-18 23:51:00,380 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 9: 1.7326
+2026-06-18 23:51:00,380 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 9: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,382 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 10 with standardize=True
+2026-06-18 23:51:00,382 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,382 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,391 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,408 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 10: 0.3858
+2026-06-18 23:51:00,408 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 10: 0.3858
+2026-06-18 23:51:00,408 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 10: 1.6280
+2026-06-18 23:51:00,408 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 10: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,410 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 11 with standardize=True
+2026-06-18 23:51:00,410 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,411 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,419 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,436 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 11: 0.4019
+2026-06-18 23:51:00,436 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 11: 0.4019
+2026-06-18 23:51:00,437 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 11: 1.6720
+2026-06-18 23:51:00,437 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 11: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,438 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 12 with standardize=True
+2026-06-18 23:51:00,439 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 13
+2026-06-18 23:51:00,439 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,448 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.43e+01
+2026-06-18 23:51:00,465 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 12: 0.1441
+2026-06-18 23:51:00,465 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 12: 0.1441
+2026-06-18 23:51:00,465 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 12: 1.1683
+2026-06-18 23:51:00,465 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 12: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,468 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:296 | INFO | Current VIF values:
+                               vif                                     interpretation
+credit_limit              1.229986  Mild to moderate correlation with other predic...
+age                       1.022209  Mild to moderate correlation with other predic...
+bill_amount_sep_2005       6.61473  Moderate to high correlation with other predic...
+bill_amount_jul_2005     16.452528  Strong multicollinearity detected. Consider ta...
+bill_amount_jun_2005     20.245195  Strong multicollinearity detected. Consider ta...
+bill_amount_may_2005     24.880058  Strong multicollinearity detected. Consider ta...
+bill_amount_apr_2005     14.877786  Strong multicollinearity detected. Consider ta...
+payment_amount_sep_2005   1.234686  Mild to moderate correlation with other predic...
+payment_amount_aug_2005   1.769035  Mild to moderate correlation with other predic...
+payment_amount_jul_2005   1.732579  Mild to moderate correlation with other predic...
+payment_amount_jun_2005   1.628045  Mild to moderate correlation with other predic...
+payment_amount_may_2005   1.671967  Mild to moderate correlation with other predic...
+payment_amount_apr_2005   1.168318  Mild to moderate correlation with other predic...
+2026-06-18 23:51:00,469 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:301 | INFO | Feature with maximum VIF: bill_amount_may_2005 (VIF=24.8801)
+2026-06-18 23:51:00,469 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:309 | INFO | Removing feature bill_amount_may_2005 due to high VIF (24.8801).
+2026-06-18 23:51:00,470 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:283 | INFO | Step 3: Calculating VIF for remaining features.
+2026-06-18 23:51:00,471 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 0 with standardize=True
+2026-06-18 23:51:00,471 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,471 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,480 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,495 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 0: 0.1863
+2026-06-18 23:51:00,495 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 0: 0.1863
+2026-06-18 23:51:00,495 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 0: 1.2290
+2026-06-18 23:51:00,495 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 0: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,497 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 1 with standardize=True
+2026-06-18 23:51:00,497 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,497 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,505 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,521 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 1: 0.0217
+2026-06-18 23:51:00,521 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 1: 0.0217
+2026-06-18 23:51:00,522 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 1: 1.0222
+2026-06-18 23:51:00,522 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 1: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,523 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 2 with standardize=True
+2026-06-18 23:51:00,523 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,523 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,532 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,546 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 2: 0.8488
+2026-06-18 23:51:00,547 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 2: 0.8488
+2026-06-18 23:51:00,547 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 2: 6.6121
+2026-06-18 23:51:00,547 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 2: Moderate to high correlation with other predictors. Consider checking for multicollinearity.
+2026-06-18 23:51:00,549 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 3 with standardize=True
+2026-06-18 23:51:00,549 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,549 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,557 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,573 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 3: 0.9391
+2026-06-18 23:51:00,573 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 3: 0.9391
+2026-06-18 23:51:00,573 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 3: 16.4278
+2026-06-18 23:51:00,573 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 3: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:51:00,575 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 4 with standardize=True
+2026-06-18 23:51:00,575 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,575 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,583 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,598 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 4: 0.9357
+2026-06-18 23:51:00,598 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 4: 0.9357
+2026-06-18 23:51:00,598 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 4: 15.5476
+2026-06-18 23:51:00,598 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 4: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:51:00,600 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 5 with standardize=True
+2026-06-18 23:51:00,600 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,600 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,608 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,623 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 5: 0.8665
+2026-06-18 23:51:00,623 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 5: 0.8665
+2026-06-18 23:51:00,623 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 5: 7.4911
+2026-06-18 23:51:00,623 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 5: Moderate to high correlation with other predictors. Consider checking for multicollinearity.
+2026-06-18 23:51:00,625 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 6 with standardize=True
+2026-06-18 23:51:00,625 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,625 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,633 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,648 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 6: 0.1899
+2026-06-18 23:51:00,648 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 6: 0.1899
+2026-06-18 23:51:00,648 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 6: 1.2344
+2026-06-18 23:51:00,648 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 6: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,650 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 7 with standardize=True
+2026-06-18 23:51:00,650 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,650 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,658 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,672 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 7: 0.4336
+2026-06-18 23:51:00,673 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 7: 0.4336
+2026-06-18 23:51:00,673 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 7: 1.7656
+2026-06-18 23:51:00,673 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 7: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,674 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 8 with standardize=True
+2026-06-18 23:51:00,675 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,675 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,683 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,698 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 8: 0.4207
+2026-06-18 23:51:00,698 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 8: 0.4207
+2026-06-18 23:51:00,698 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 8: 1.7263
+2026-06-18 23:51:00,698 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 8: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,700 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 9 with standardize=True
+2026-06-18 23:51:00,701 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,701 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,715 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,736 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 9: 0.2256
+2026-06-18 23:51:00,737 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 9: 0.2256
+2026-06-18 23:51:00,737 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 9: 1.2914
+2026-06-18 23:51:00,737 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 9: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,739 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 10 with standardize=True
+2026-06-18 23:51:00,740 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,740 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,750 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,770 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 10: 0.2479
+2026-06-18 23:51:00,771 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 10: 0.2479
+2026-06-18 23:51:00,771 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 10: 1.3296
+2026-06-18 23:51:00,771 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 10: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,773 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 11 with standardize=True
+2026-06-18 23:51:00,773 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 12
+2026-06-18 23:51:00,773 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,781 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 1.08e+01
+2026-06-18 23:51:00,796 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 11: 0.1338
+2026-06-18 23:51:00,796 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 11: 0.1338
+2026-06-18 23:51:00,796 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 11: 1.1544
+2026-06-18 23:51:00,796 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 11: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,800 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:296 | INFO | Current VIF values:
+                               vif                                     interpretation
+credit_limit               1.22897  Mild to moderate correlation with other predic...
+age                       1.022205  Mild to moderate correlation with other predic...
+bill_amount_sep_2005      6.612135  Moderate to high correlation with other predic...
+bill_amount_jul_2005     16.427819  Strong multicollinearity detected. Consider ta...
+bill_amount_jun_2005     15.547556  Strong multicollinearity detected. Consider ta...
+bill_amount_apr_2005      7.491136  Moderate to high correlation with other predic...
+payment_amount_sep_2005   1.234375  Mild to moderate correlation with other predic...
+payment_amount_aug_2005    1.76563  Mild to moderate correlation with other predic...
+payment_amount_jul_2005   1.726333  Mild to moderate correlation with other predic...
+payment_amount_jun_2005   1.291383  Mild to moderate correlation with other predic...
+payment_amount_may_2005   1.329579  Mild to moderate correlation with other predic...
+payment_amount_apr_2005   1.154406  Mild to moderate correlation with other predic...
+2026-06-18 23:51:00,800 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:301 | INFO | Feature with maximum VIF: bill_amount_jul_2005 (VIF=16.4278)
+2026-06-18 23:51:00,800 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:309 | INFO | Removing feature bill_amount_jul_2005 due to high VIF (16.4278).
+2026-06-18 23:51:00,801 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:283 | INFO | Step 4: Calculating VIF for remaining features.
+2026-06-18 23:51:00,802 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 0 with standardize=True
+2026-06-18 23:51:00,802 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,802 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,809 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,823 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 0: 0.1853
+2026-06-18 23:51:00,823 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 0: 0.1853
+2026-06-18 23:51:00,823 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 0: 1.2274
+2026-06-18 23:51:00,823 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 0: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,825 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 1 with standardize=True
+2026-06-18 23:51:00,825 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,825 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,833 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,846 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 1: 0.0216
+2026-06-18 23:51:00,846 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 1: 0.0216
+2026-06-18 23:51:00,847 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 1: 1.0221
+2026-06-18 23:51:00,847 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 1: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,848 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 2 with standardize=True
+2026-06-18 23:51:00,848 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,848 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,856 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,870 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 2: 0.7677
+2026-06-18 23:51:00,870 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 2: 0.7677
+2026-06-18 23:51:00,871 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 2: 4.3054
+2026-06-18 23:51:00,871 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 2: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,872 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 3 with standardize=True
+2026-06-18 23:51:00,872 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,872 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,880 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,893 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 3: 0.9031
+2026-06-18 23:51:00,893 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 3: 0.9031
+2026-06-18 23:51:00,893 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 3: 10.3238
+2026-06-18 23:51:00,893 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 3: Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization).
+2026-06-18 23:51:00,895 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 4 with standardize=True
+2026-06-18 23:51:00,895 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,895 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,903 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,917 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 4: 0.8659
+2026-06-18 23:51:00,917 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 4: 0.8659
+2026-06-18 23:51:00,917 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 4: 7.4570
+2026-06-18 23:51:00,917 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 4: Moderate to high correlation with other predictors. Consider checking for multicollinearity.
+2026-06-18 23:51:00,919 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 5 with standardize=True
+2026-06-18 23:51:00,919 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,919 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,926 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,939 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 5: 0.1706
+2026-06-18 23:51:00,940 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 5: 0.1706
+2026-06-18 23:51:00,940 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 5: 1.2057
+2026-06-18 23:51:00,940 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 5: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,941 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 6 with standardize=True
+2026-06-18 23:51:00,942 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,942 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,949 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,962 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 6: 0.1706
+2026-06-18 23:51:00,962 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 6: 0.1706
+2026-06-18 23:51:00,962 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 6: 1.2057
+2026-06-18 23:51:00,962 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 6: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,963 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 7 with standardize=True
+2026-06-18 23:51:00,964 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,964 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,971 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:00,984 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 7: 0.2291
+2026-06-18 23:51:00,984 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 7: 0.2291
+2026-06-18 23:51:00,984 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 7: 1.2972
+2026-06-18 23:51:00,984 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 7: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:00,986 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 8 with standardize=True
+2026-06-18 23:51:00,986 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:00,986 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:00,993 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:01,005 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 8: 0.2253
+2026-06-18 23:51:01,005 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 8: 0.2253
+2026-06-18 23:51:01,005 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 8: 1.2908
+2026-06-18 23:51:01,005 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 8: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,007 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 9 with standardize=True
+2026-06-18 23:51:01,007 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:01,007 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,014 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:01,026 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 9: 0.2479
+2026-06-18 23:51:01,027 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 9: 0.2479
+2026-06-18 23:51:01,027 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 9: 1.3295
+2026-06-18 23:51:01,027 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 9: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,028 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 10 with standardize=True
+2026-06-18 23:51:01,028 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 11
+2026-06-18 23:51:01,028 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,035 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 7.58e+00
+2026-06-18 23:51:01,048 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 10: 0.1337
+2026-06-18 23:51:01,048 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 10: 0.1337
+2026-06-18 23:51:01,048 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 10: 1.1543
+2026-06-18 23:51:01,048 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 10: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,052 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:296 | INFO | Current VIF values:
+                               vif                                     interpretation
+credit_limit              1.227403  Mild to moderate correlation with other predic...
+age                       1.022095  Mild to moderate correlation with other predic...
+bill_amount_sep_2005       4.30545  Mild to moderate correlation with other predic...
+bill_amount_jun_2005     10.323834  Strong multicollinearity detected. Consider ta...
+bill_amount_apr_2005      7.456958  Moderate to high correlation with other predic...
+payment_amount_sep_2005   1.205746  Mild to moderate correlation with other predic...
+payment_amount_aug_2005   1.205709  Mild to moderate correlation with other predic...
+payment_amount_jul_2005   1.297239  Mild to moderate correlation with other predic...
+payment_amount_jun_2005     1.2908  Mild to moderate correlation with other predic...
+payment_amount_may_2005   1.329546  Mild to moderate correlation with other predic...
+payment_amount_apr_2005   1.154344  Mild to moderate correlation with other predic...
+2026-06-18 23:51:01,052 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:301 | INFO | Feature with maximum VIF: bill_amount_jun_2005 (VIF=10.3238)
+2026-06-18 23:51:01,052 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:309 | INFO | Removing feature bill_amount_jun_2005 due to high VIF (10.3238).
+2026-06-18 23:51:01,053 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:283 | INFO | Step 5: Calculating VIF for remaining features.
+2026-06-18 23:51:01,054 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 0 with standardize=True
+2026-06-18 23:51:01,054 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,054 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,060 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,072 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 0: 0.1848
+2026-06-18 23:51:01,072 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 0: 0.1848
+2026-06-18 23:51:01,072 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 0: 1.2267
+2026-06-18 23:51:01,072 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 0: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,073 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 1 with standardize=True
+2026-06-18 23:51:01,073 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,073 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,080 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,091 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 1: 0.0216
+2026-06-18 23:51:01,092 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 1: 0.0216
+2026-06-18 23:51:01,092 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 1: 1.0221
+2026-06-18 23:51:01,092 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 1: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,093 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 2 with standardize=True
+2026-06-18 23:51:01,093 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,093 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,099 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,113 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 2: 0.6696
+2026-06-18 23:51:01,113 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 2: 0.6696
+2026-06-18 23:51:01,113 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 2: 3.0262
+2026-06-18 23:51:01,113 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 2: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,114 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 3 with standardize=True
+2026-06-18 23:51:01,114 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,114 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,121 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,133 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 3: 0.6993
+2026-06-18 23:51:01,133 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 3: 0.6993
+2026-06-18 23:51:01,133 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 3: 3.3254
+2026-06-18 23:51:01,133 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 3: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,134 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 4 with standardize=True
+2026-06-18 23:51:01,134 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,134 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,141 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,152 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 4: 0.1561
+2026-06-18 23:51:01,153 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 4: 0.1561
+2026-06-18 23:51:01,153 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 4: 1.1849
+2026-06-18 23:51:01,153 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 4: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,154 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 5 with standardize=True
+2026-06-18 23:51:01,154 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,154 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,161 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,172 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 5: 0.1454
+2026-06-18 23:51:01,172 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 5: 0.1454
+2026-06-18 23:51:01,172 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 5: 1.1701
+2026-06-18 23:51:01,172 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 5: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,173 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 6 with standardize=True
+2026-06-18 23:51:01,173 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,173 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,180 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,191 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 6: 0.1523
+2026-06-18 23:51:01,191 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 6: 0.1523
+2026-06-18 23:51:01,191 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 6: 1.1796
+2026-06-18 23:51:01,192 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 6: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,193 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 7 with standardize=True
+2026-06-18 23:51:01,193 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,193 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,199 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,211 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 7: 0.1304
+2026-06-18 23:51:01,212 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 7: 0.1304
+2026-06-18 23:51:01,212 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 7: 1.1499
+2026-06-18 23:51:01,212 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 7: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,213 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 8 with standardize=True
+2026-06-18 23:51:01,213 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,213 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,220 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,231 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 8: 0.1570
+2026-06-18 23:51:01,231 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 8: 0.1570
+2026-06-18 23:51:01,231 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 8: 1.1862
+2026-06-18 23:51:01,231 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 8: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,232 | [None] | mlops.vif_analysis | variance_inflation_factor:90 | INFO | Calculating VIF for feature index 9 with standardize=True
+2026-06-18 23:51:01,232 | [None] | mlops.vif_analysis | variance_inflation_factor:94 | INFO | Number of variables in the design matrix: 10
+2026-06-18 23:51:01,233 | [None] | mlops.vif_analysis | variance_inflation_factor:97 | INFO | Standardizing the design matrix for numerical stability.
+2026-06-18 23:51:01,239 | [None] | mlops.vif_analysis | variance_inflation_factor:112 | INFO | Condition number of the design matrix: 4.02e+00
+2026-06-18 23:51:01,250 | [None] | mlops.vif_analysis | variance_inflation_factor:135 | INFO | R-squared for feature index 9: 0.1203
+2026-06-18 23:51:01,250 | [None] | mlops.vif_analysis | variance_inflation_factor:139 | INFO | Clipped R-squared for feature index 9: 0.1203
+2026-06-18 23:51:01,250 | [None] | mlops.vif_analysis | variance_inflation_factor:143 | INFO | Calculated VIF for feature index 9: 1.1367
+2026-06-18 23:51:01,251 | [None] | mlops.vif_analysis | variance_inflation_factor:147 | INFO | VIF Interpretation for feature index 9: Mild to moderate correlation with other predictors (usually fine).
+2026-06-18 23:51:01,254 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:296 | INFO | Current VIF values:
+                              vif                                     interpretation
+credit_limit             1.226652  Mild to moderate correlation with other predic...
+age                      1.022085  Mild to moderate correlation with other predic...
+bill_amount_sep_2005     3.026229  Mild to moderate correlation with other predic...
+bill_amount_apr_2005     3.325436  Mild to moderate correlation with other predic...
+payment_amount_sep_2005  1.184906  Mild to moderate correlation with other predic...
+payment_amount_aug_2005  1.170081  Mild to moderate correlation with other predic...
+payment_amount_jul_2005  1.179603  Mild to moderate correlation with other predic...
+payment_amount_jun_2005  1.149923  Mild to moderate correlation with other predic...
+payment_amount_may_2005  1.186241  Mild to moderate correlation with other predic...
+payment_amount_apr_2005  1.136734  Mild to moderate correlation with other predic...
+2026-06-18 23:51:01,254 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:301 | INFO | Feature with maximum VIF: bill_amount_apr_2005 (VIF=3.3254)
+2026-06-18 23:51:01,254 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:305 | INFO | All remaining features have VIF below the threshold. Stopping iteration.
+2026-06-18 23:51:01,255 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:319 | INFO | Saved iterative feature selection results to JSON file: outputs/vif_analysis/vif_feature_selection_results.json
+2026-06-18 23:51:01,257 | [None] | mlops.vif_analysis | iterative_feature_selector_with_vif:324 | INFO | Saved iterative feature selection steps to CSV file: outputs/vif_analysis/vif_feature_selection_steps.csv

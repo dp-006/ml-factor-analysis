@@ -20,6 +20,8 @@ LOGGER_CONFIG = {
     "mlops.io_operations": "io_operations.log",
     "mlops.column_operations": "column_operations.log",
     "mlops.auto_binning_woe": "auto_binning_woe.log",
+    "mlops.ml_logistic": "ml_logistic.log",
+    "mlops.vif_analysis": "vif_analysis.log",
 }
 
 def setup_logger(
