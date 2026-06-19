@@ -1,0 +1,16 @@
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:124 | INFO | --------------------------------------------------
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:125 | INFO | LogisticRegressionWrapper initialized with parameters:
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:126 | INFO | 	Display convergence messages: False
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:127 | INFO | 	Optimization method: bfgs
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:128 | INFO | 	Maximum iterations: 500
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:129 | INFO | 	Model directory: outputs/logitmodel
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:130 | INFO | 	Save results: True
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:131 | INFO | 	Save model: True
+2026-06-19 23:11:44,220 | [None] | mlops.sklearn_wrapper_logistic | __init__:132 | INFO | 	Evaluate model: True
+2026-06-19 23:11:44,221 | [None] | mlops.sklearn_wrapper_logistic | __init__:133 | INFO | 	Evaluation bins: 20
+2026-06-19 23:11:44,221 | [None] | mlops.sklearn_wrapper_logistic | __init__:134 | INFO | 	Prediction threshold: 0.5
+2026-06-19 23:11:44,221 | [None] | mlops.sklearn_wrapper_logistic | __init__:135 | INFO | --------------------------------------------------
+2026-06-19 23:11:44,221 | [None] | mlops.sklearn_wrapper_logistic | fit:169 | INFO | Starting fit method
+2026-06-19 23:11:44,221 | [None] | mlops.sklearn_wrapper_logistic | fit:190 | INFO | Number of input features: 5
+2026-06-19 23:11:44,222 | [None] | mlops.sklearn_wrapper_logistic | fit:205 | INFO | Created internal LogisticRegression instance
+2026-06-19 23:11:45,352 | [None] | mlops.sklearn_wrapper_logistic | fit:209 | INFO | Internal model fitted successfully

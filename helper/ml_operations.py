@@ -11,6 +11,7 @@ import matplotlib.ticker as mtick
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
+from sklearn.model_selection import train_test_split 
 from logging_config.logger_config import get_logger
 
 
@@ -18,6 +19,60 @@ logger_name = "mlops.ml_operations"
 logger_file_name = "ml_operations.log"
 logger = get_logger(logger_name, logger_file_name)
 
+def split_train_test(
+    X: pd.DataFrame,
+    y: pd.Series,
+    test_size: float = 0.33,
+    random_state: int = 42,
+    stratify: bool = False,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+    """
+    Purpose
+    -------
+    Split data into train and test sets while preserving pandas DataFrame/Series
+    structure and column names.
+
+    Parameters
+    ----------
+    X : pd.DataFrame
+        Feature matrix (features).
+
+    y : pd.Series
+        Target series.
+
+    test_size : float, optional
+        Proportion of data for testing. Default ``0.33``.
+
+    random_state : int, optional
+        Random seed for reproducibility. Default ``42``.
+
+    stratify : bool, optional
+        If True, stratify split by target variable (useful for classification).
+        Default ``False``.
+
+    Returns
+    -------
+    tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]
+        - X_train: Training features (DataFrame)
+        - X_test: Testing features (DataFrame)
+        - y_train: Training target (Series)
+        - y_test: Testing target (Series)
+    """
+    stratify_arg = y if stratify else None
+    
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=stratify_arg
+    )
+    logger.info(f"Data split into train and test sets with test_size={test_size}, random_state={random_state}, stratify={stratify}")
+    logger.info(f"Number of training samples: {len(X_train)}")
+    logger.info(f"Training set class distribution:\n{y_train.value_counts(normalize=True)}")
+    logger.info(f"Number of testing samples: {len(X_test)}")
+    logger.info(f"Testing set class distribution:\n{y_test.value_counts(normalize=True)}")
+    return X_train, X_test, y_train, y_test
 
 def interpret_p_value(p_value: float) -> dict:
     """

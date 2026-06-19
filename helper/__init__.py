@@ -23,6 +23,12 @@ from .io_operations import (
 
 from .column_operations import (
     convert_binary_columns,
+    convert_pd_interval_to_str,
+    detect_missing_columns_with_treshold,
+    detect_zero_variance_columns,
+    detect_duplicate_columns,
+    detect_infinite_columns,
+    detect_low_cardinality_numeric_columns_to_object
 )
 
 from .ml_operations import (
@@ -46,7 +52,8 @@ from .ml_operations import (
     plot_lorenz,
     plot_roc_auc,
     calculate_threshold_analysis,
-    interpret_vif
+    interpret_vif,
+    split_train_test
 )
 
 __all__ = [
@@ -68,6 +75,12 @@ __all__ = [
     "io_load_model",
     "io_save_figure",
     "convert_binary_columns",
+    "convert_pd_interval_to_str",
+    "detect_missing_columns_with_treshold",
+    "detect_zero_variance_columns",
+    "detect_duplicate_columns",
+    "detect_infinite_columns",
+    "detect_low_cardinality_numeric_columns_to_object",
     "interpret_p_value",
     "interpret_odds_ratio",
     "interpret_marginal_effect",
@@ -88,5 +101,6 @@ __all__ = [
     "plot_lorenz",
     "plot_roc_auc",
     "calculate_threshold_analysis",
-    "interpret_vif"
+    "interpret_vif",
+    "split_train_test"
 ]

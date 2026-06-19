@@ -1,0 +1,5 @@
+_bin,total,good,bad,bad_rate,bin_pct,good_dist,bad_dist,good_dist_minus_bad_dist,odds_ratio,woe,woe_display,iv
+repayment_status_jun_2005_grp0,3807,3194,613,0.1610,0.1894,0.2040,0.1379,0.0661,1.4794,0.3916,39.1606,0.0259
+repayment_status_jun_2005_grp1,2908,2382,526,0.1809,0.1447,0.1522,0.1184,0.0338,1.2856,0.2513,25.1255,0.0085
+repayment_status_jun_2005_grp2,11009,8982,2027,0.1841,0.5477,0.5737,0.4558,0.1179,1.2587,0.2301,23.0075,0.0271
+repayment_status_jun_2005_grp3,2376,1096,1280,0.5387,0.1182,0.0700,0.2879,-0.2178,0.2433,-1.4135,-141.3527,0.3079

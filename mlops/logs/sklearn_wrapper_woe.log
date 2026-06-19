@@ -1,0 +1,308 @@
+2026-06-19 23:10:17,481 | [None] | mlops.sklearn_wrapper_woe | fit:162 | INFO | Fitting WOETransformer - Features in DataFrame: ['credit_limit', 'age', 'bill_amount_sep_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_jun_2005', 'bill_amount_may_2005', 'bill_amount_apr_2005', 'payment_amount_sep_2005', 'payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_jun_2005', 'payment_amount_may_2005', 'payment_amount_apr_2005', 'credit_limit_right', 'age_right', 'bill_amount_sep_2005_right', 'bill_amount_aug_2005_right', 'bill_amount_jul_2005_right', 'bill_amount_jun_2005_right', 'bill_amount_may_2005_right', 'bill_amount_apr_2005_right', 'payment_amount_sep_2005_right', 'payment_amount_aug_2005_right', 'payment_amount_jul_2005_right', 'payment_amount_jun_2005_right', 'payment_amount_may_2005_right', 'payment_amount_apr_2005_right']
+2026-06-19 23:10:17,482 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature credit_limit from outputs\auto_binning_woe\credit_limit\final_auto_binning_woe.json
+2026-06-19 23:10:17,491 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 8 bins and WOE values for feature 'credit_limit' from outputs\auto_binning_woe\credit_limit\final_auto_binning_woe.json
+2026-06-19 23:10:17,491 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.724575
+2026-06-19 23:10:17,491 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.281068
+2026-06-19 23:10:17,492 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.124146
+2026-06-19 23:10:17,492 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = -0.056077
+2026-06-19 23:10:17,493 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.211665
+2026-06-19 23:10:17,493 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.308390
+2026-06-19 23:10:17,494 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 6: WOE = 0.536155
+2026-06-19 23:10:17,494 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 7: WOE = 0.772198
+2026-06-19 23:10:17,495 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature age from outputs\auto_binning_woe\age\final_auto_binning_woe.json
+2026-06-19 23:10:17,499 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 4 bins and WOE values for feature 'age' from outputs\auto_binning_woe\age\final_auto_binning_woe.json
+2026-06-19 23:10:17,500 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = 0.033049
+2026-06-19 23:10:17,501 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.033629
+2026-06-19 23:10:17,501 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.061645
+2026-06-19 23:10:17,502 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = -0.156011
+2026-06-19 23:10:17,502 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_sep_2005 from outputs\auto_binning_woe\bill_amount_sep_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,506 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 8 bins and WOE values for feature 'bill_amount_sep_2005' from outputs\auto_binning_woe\bill_amount_sep_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,507 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.119741
+2026-06-19 23:10:17,507 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.068349
+2026-06-19 23:10:17,508 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.051588
+2026-06-19 23:10:17,508 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.013161
+2026-06-19 23:10:17,509 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.096507
+2026-06-19 23:10:17,509 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.114906
+2026-06-19 23:10:17,510 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 6: WOE = 0.151364
+2026-06-19 23:10:17,510 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 7: WOE = 0.202560
+2026-06-19 23:10:17,511 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_aug_2005 from outputs\auto_binning_woe\bill_amount_aug_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,515 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 3 bins and WOE values for feature 'bill_amount_aug_2005' from outputs\auto_binning_woe\bill_amount_aug_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,515 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = 0.045210
+2026-06-19 23:10:17,515 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.062030
+2026-06-19 23:10:17,530 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.020659
+2026-06-19 23:10:17,531 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_jul_2005 from outputs\auto_binning_woe\bill_amount_jul_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,539 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 5 bins and WOE values for feature 'bill_amount_jul_2005' from outputs\auto_binning_woe\bill_amount_jul_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,541 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.042033
+2026-06-19 23:10:17,541 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = 0.024585
+2026-06-19 23:10:17,542 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = 0.095367
+2026-06-19 23:10:17,542 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.151123
+2026-06-19 23:10:17,543 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.161568
+2026-06-19 23:10:17,544 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_jun_2005 from outputs\auto_binning_woe\bill_amount_jun_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,547 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 5 bins and WOE values for feature 'bill_amount_jun_2005' from outputs\auto_binning_woe\bill_amount_jun_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,551 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.057146
+2026-06-19 23:10:17,553 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.030109
+2026-06-19 23:10:17,554 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.010186
+2026-06-19 23:10:17,554 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.036329
+2026-06-19 23:10:17,554 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.148199
+2026-06-19 23:10:17,555 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_may_2005 from outputs\auto_binning_woe\bill_amount_may_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,559 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 4 bins and WOE values for feature 'bill_amount_may_2005' from outputs\auto_binning_woe\bill_amount_may_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,560 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.064240
+2026-06-19 23:10:17,560 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.030650
+2026-06-19 23:10:17,561 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = 0.112835
+2026-06-19 23:10:17,561 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.123859
+2026-06-19 23:10:17,562 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_apr_2005 from outputs\auto_binning_woe\bill_amount_apr_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,565 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 3 bins and WOE values for feature 'bill_amount_apr_2005' from outputs\auto_binning_woe\bill_amount_apr_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,565 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = 0.087046
+2026-06-19 23:10:17,566 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.078605
+2026-06-19 23:10:17,569 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.051163
+2026-06-19 23:10:17,569 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_sep_2005 from outputs\auto_binning_woe\payment_amount_sep_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,575 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 7 bins and WOE values for feature 'payment_amount_sep_2005' from outputs\auto_binning_woe\payment_amount_sep_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,575 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.596607
+2026-06-19 23:10:17,576 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.057024
+2026-06-19 23:10:17,576 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = 0.048983
+2026-06-19 23:10:17,576 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.200155
+2026-06-19 23:10:17,577 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.430260
+2026-06-19 23:10:17,577 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.486621
+2026-06-19 23:10:17,577 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 6: WOE = 0.973784
+2026-06-19 23:10:17,577 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_aug_2005 from outputs\auto_binning_woe\payment_amount_aug_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,581 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 7 bins and WOE values for feature 'payment_amount_aug_2005' from outputs\auto_binning_woe\payment_amount_aug_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,582 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.515234
+2026-06-19 23:10:17,584 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.111869
+2026-06-19 23:10:17,584 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = 0.002615
+2026-06-19 23:10:17,585 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.069568
+2026-06-19 23:10:17,585 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.232709
+2026-06-19 23:10:17,586 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.466724
+2026-06-19 23:10:17,587 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 6: WOE = 0.795184
+2026-06-19 23:10:17,588 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_jul_2005 from outputs\auto_binning_woe\payment_amount_jul_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,594 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 8 bins and WOE values for feature 'payment_amount_jul_2005' from outputs\auto_binning_woe\payment_amount_jul_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,597 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.503811
+2026-06-19 23:10:17,598 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.081654
+2026-06-19 23:10:17,598 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.030371
+2026-06-19 23:10:17,599 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.099108
+2026-06-19 23:10:17,599 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.126776
+2026-06-19 23:10:17,602 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.433991
+2026-06-19 23:10:17,604 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 6: WOE = 0.543195
+2026-06-19 23:10:17,604 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 7: WOE = 0.706613
+2026-06-19 23:10:17,605 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_jun_2005 from outputs\auto_binning_woe\payment_amount_jun_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,611 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 6 bins and WOE values for feature 'payment_amount_jun_2005' from outputs\auto_binning_woe\payment_amount_jun_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,611 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.359053
+2026-06-19 23:10:17,612 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.097716
+2026-06-19 23:10:17,612 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.033133
+2026-06-19 23:10:17,613 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.091345
+2026-06-19 23:10:17,614 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.231750
+2026-06-19 23:10:17,614 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.478062
+2026-06-19 23:10:17,627 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_may_2005 from outputs\auto_binning_woe\payment_amount_may_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,631 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 8 bins and WOE values for feature 'payment_amount_may_2005' from outputs\auto_binning_woe\payment_amount_may_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,633 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.324386
+2026-06-19 23:10:17,634 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.119259
+2026-06-19 23:10:17,634 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.092534
+2026-06-19 23:10:17,635 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = -0.018601
+2026-06-19 23:10:17,635 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.203574
+2026-06-19 23:10:17,636 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.339866
+2026-06-19 23:10:17,637 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 6: WOE = 0.568320
+2026-06-19 23:10:17,638 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 7: WOE = 0.699241
+2026-06-19 23:10:17,640 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_apr_2005 from outputs\auto_binning_woe\payment_amount_apr_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,643 | [None] | mlops.sklearn_wrapper_woe | fit:206 | INFO | Loaded 9 bins and WOE values for feature 'payment_amount_apr_2005' from outputs\auto_binning_woe\payment_amount_apr_2005\final_auto_binning_woe.json
+2026-06-19 23:10:17,654 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 0: WOE = -0.343864
+2026-06-19 23:10:17,655 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 1: WOE = -0.134093
+2026-06-19 23:10:17,655 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 2: WOE = -0.123690
+2026-06-19 23:10:17,656 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 3: WOE = 0.019663
+2026-06-19 23:10:17,656 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 4: WOE = 0.068709
+2026-06-19 23:10:17,657 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 5: WOE = 0.163301
+2026-06-19 23:10:17,657 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 6: WOE = 0.396300
+2026-06-19 23:10:17,658 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 7: WOE = 0.610654
+2026-06-19 23:10:17,658 | [None] | mlops.sklearn_wrapper_woe | fit:208 | INFO |   Bin 8: WOE = 0.717783
+2026-06-19 23:10:17,659 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature credit_limit_right from outputs\auto_binning_woe\credit_limit_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,663 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'credit_limit_right': outputs\auto_binning_woe\credit_limit_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,664 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature age_right from outputs\auto_binning_woe\age_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,665 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'age_right': outputs\auto_binning_woe\age_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,665 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_sep_2005_right from outputs\auto_binning_woe\bill_amount_sep_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,667 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'bill_amount_sep_2005_right': outputs\auto_binning_woe\bill_amount_sep_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,668 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_aug_2005_right from outputs\auto_binning_woe\bill_amount_aug_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,671 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'bill_amount_aug_2005_right': outputs\auto_binning_woe\bill_amount_aug_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,674 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_jul_2005_right from outputs\auto_binning_woe\bill_amount_jul_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,675 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'bill_amount_jul_2005_right': outputs\auto_binning_woe\bill_amount_jul_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,676 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_jun_2005_right from outputs\auto_binning_woe\bill_amount_jun_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,677 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'bill_amount_jun_2005_right': outputs\auto_binning_woe\bill_amount_jun_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,678 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_may_2005_right from outputs\auto_binning_woe\bill_amount_may_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,678 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'bill_amount_may_2005_right': outputs\auto_binning_woe\bill_amount_may_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,680 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature bill_amount_apr_2005_right from outputs\auto_binning_woe\bill_amount_apr_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,681 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'bill_amount_apr_2005_right': outputs\auto_binning_woe\bill_amount_apr_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,681 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_sep_2005_right from outputs\auto_binning_woe\payment_amount_sep_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,682 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'payment_amount_sep_2005_right': outputs\auto_binning_woe\payment_amount_sep_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,683 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_aug_2005_right from outputs\auto_binning_woe\payment_amount_aug_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,684 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'payment_amount_aug_2005_right': outputs\auto_binning_woe\payment_amount_aug_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,686 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_jul_2005_right from outputs\auto_binning_woe\payment_amount_jul_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,686 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'payment_amount_jul_2005_right': outputs\auto_binning_woe\payment_amount_jul_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,687 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_jun_2005_right from outputs\auto_binning_woe\payment_amount_jun_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,688 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'payment_amount_jun_2005_right': outputs\auto_binning_woe\payment_amount_jun_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,689 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_may_2005_right from outputs\auto_binning_woe\payment_amount_may_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,689 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'payment_amount_may_2005_right': outputs\auto_binning_woe\payment_amount_may_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,690 | [None] | mlops.sklearn_wrapper_woe | fit:170 | INFO | Attempting to load WOE metadata for feature payment_amount_apr_2005_right from outputs\auto_binning_woe\payment_amount_apr_2005_right\final_auto_binning_woe.json
+2026-06-19 23:10:17,691 | [None] | mlops.sklearn_wrapper_woe | fit:212 | WARNING | JSON metadata not found for feature 'payment_amount_apr_2005_right': outputs\auto_binning_woe\payment_amount_apr_2005_right\final_auto_binning_woe.json. This feature will not be transformed.
+2026-06-19 23:10:17,691 | [None] | mlops.sklearn_wrapper_woe | fit:222 | INFO | WOETransformer fitted for 14 features: ['credit_limit', 'age', 'bill_amount_sep_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_jun_2005', 'bill_amount_may_2005', 'bill_amount_apr_2005', 'payment_amount_sep_2005', 'payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_jun_2005', 'payment_amount_may_2005', 'payment_amount_apr_2005']
+2026-06-19 23:10:17,795 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'credit_limit' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:17,889 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'age' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,022 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_sep_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,155 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_aug_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,291 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_jul_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,428 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_jun_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,539 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_may_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,666 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_apr_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,792 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_sep_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:18,922 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_aug_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,044 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_jul_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,172 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_jun_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,295 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_may_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,425 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_apr_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,426 | [None] | mlops.sklearn_wrapper_woe | transform:271 | INFO | Transform completed for 14 features
+2026-06-19 23:10:19,492 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'credit_limit' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,563 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'age' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,635 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_sep_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,702 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_aug_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,765 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_jul_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,826 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_jun_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,892 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_may_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:19,956 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'bill_amount_apr_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,015 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_sep_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,089 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_aug_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,143 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_jul_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,195 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_jun_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,281 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_may_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,360 | [None] | mlops.sklearn_wrapper_woe | transform:269 | INFO | Transformed feature 'payment_amount_apr_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,361 | [None] | mlops.sklearn_wrapper_woe | transform:271 | INFO | Transform completed for 14 features
+2026-06-19 23:10:20,363 | [None] | mlops.sklearn_wrapper_woe | fit:363 | INFO | Fitting WOETransformerCategorical - Features in DataFrame: ['gender', 'education', 'marital_status', 'repayment_status_sep_2005', 'repayment_status_aug_2005', 'repayment_status_jul_2005', 'repayment_status_jun_2005', 'repayment_status_may_2005', 'repayment_status_apr_2005', 'low_cardinality_numeric']
+2026-06-19 23:10:20,363 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'gender' from outputs\auto_binning_woe\gender\final_auto_binning_woe.json
+2026-06-19 23:10:20,364 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 2 category WOE mappings for feature 'gender' from outputs\auto_binning_woe\gender\final_auto_binning_woe.json
+2026-06-19 23:10:20,365 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '1': WOE = -0.125480
+2026-06-19 23:10:20,365 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = 0.087981
+2026-06-19 23:10:20,365 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'education' from outputs\auto_binning_woe\education\final_auto_binning_woe.json
+2026-06-19 23:10:20,366 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 7 category WOE mappings for feature 'education' from outputs\auto_binning_woe\education\final_auto_binning_woe.json
+2026-06-19 23:10:20,367 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 1.960718
+2026-06-19 23:10:20,367 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '1': WOE = 0.167339
+2026-06-19 23:10:20,368 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = -0.086246
+2026-06-19 23:10:20,368 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '3': WOE = -0.166451
+2026-06-19 23:10:20,369 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '4': WOE = 1.400192
+2026-06-19 23:10:20,369 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '5': WOE = 1.301472
+2026-06-19 23:10:20,370 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '6': WOE = 0.219944
+2026-06-19 23:10:20,370 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'marital_status' from outputs\auto_binning_woe\marital_status\final_auto_binning_woe.json
+2026-06-19 23:10:20,373 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 4 category WOE mappings for feature 'marital_status' from outputs\auto_binning_woe\marital_status\final_auto_binning_woe.json
+2026-06-19 23:10:20,374 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 0.834835
+2026-06-19 23:10:20,374 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '1': WOE = -0.067651
+2026-06-19 23:10:20,375 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = 0.065885
+2026-06-19 23:10:20,375 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '3': WOE = -0.372009
+2026-06-19 23:10:20,375 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'repayment_status_sep_2005' from outputs\auto_binning_woe\repayment_status_sep_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,376 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 7 category WOE mappings for feature 'repayment_status_sep_2005' from outputs\auto_binning_woe\repayment_status_sep_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,377 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-1': WOE = 0.317035
+2026-06-19 23:10:20,377 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-2': WOE = 0.687752
+2026-06-19 23:10:20,378 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 0.674368
+2026-06-19 23:10:20,378 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '1': WOE = -0.614687
+2026-06-19 23:10:20,379 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = -2.074030
+2026-06-19 23:10:20,379 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '3': WOE = -2.444074
+2026-06-19 23:10:20,380 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category 'Rare': WOE = -1.815640
+2026-06-19 23:10:20,380 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'repayment_status_aug_2005' from outputs\auto_binning_woe\repayment_status_aug_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,381 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 10 category WOE mappings for feature 'repayment_status_aug_2005' from outputs\auto_binning_woe\repayment_status_aug_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,381 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-1': WOE = 0.372816
+2026-06-19 23:10:20,381 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-2': WOE = 0.301640
+2026-06-19 23:10:20,382 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 0.411603
+2026-06-19 23:10:20,382 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '1': WOE = 0.007669
+2026-06-19 23:10:20,382 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = -1.496657
+2026-06-19 23:10:20,383 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '3': WOE = -1.825769
+2026-06-19 23:10:20,383 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '4': WOE = -1.348969
+2026-06-19 23:10:20,383 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '5': WOE = -2.027131
+2026-06-19 23:10:20,384 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '6': WOE = -2.027131
+2026-06-19 23:10:20,384 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '7': WOE = -1.257997
+2026-06-19 23:10:20,384 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'repayment_status_jul_2005' from outputs\auto_binning_woe\repayment_status_jul_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,385 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 5 category WOE mappings for feature 'repayment_status_jul_2005' from outputs\auto_binning_woe\repayment_status_jul_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,385 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-1': WOE = 0.417822
+2026-06-19 23:10:20,385 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-2': WOE = 0.293276
+2026-06-19 23:10:20,387 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 0.288240
+2026-06-19 23:10:20,388 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = -1.362380
+2026-06-19 23:10:20,388 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category 'Rare': WOE = -1.362380
+2026-06-19 23:10:20,389 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'repayment_status_jun_2005' from outputs\auto_binning_woe\repayment_status_jun_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,390 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 5 category WOE mappings for feature 'repayment_status_jun_2005' from outputs\auto_binning_woe\repayment_status_jun_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,391 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-1': WOE = 0.391606
+2026-06-19 23:10:20,391 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-2': WOE = 0.251255
+2026-06-19 23:10:20,392 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 0.230075
+2026-06-19 23:10:20,392 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = -1.413527
+2026-06-19 23:10:20,392 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category 'Rare': WOE = -1.413527
+2026-06-19 23:10:20,392 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'repayment_status_may_2005' from outputs\auto_binning_woe\repayment_status_may_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,394 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 10 category WOE mappings for feature 'repayment_status_may_2005' from outputs\auto_binning_woe\repayment_status_may_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,394 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-1': WOE = 0.331240
+2026-06-19 23:10:20,394 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-2': WOE = 0.219094
+2026-06-19 23:10:20,395 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 0.205245
+2026-06-19 23:10:20,395 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = -1.480998
+2026-06-19 23:10:20,395 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '3': WOE = -1.875962
+2026-06-19 23:10:20,396 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '5': WOE = -1.875962
+2026-06-19 23:10:20,396 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '6': WOE = -1.875962
+2026-06-19 23:10:20,396 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '7': WOE = -1.875962
+2026-06-19 23:10:20,397 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '8': WOE = -1.875962
+2026-06-19 23:10:20,397 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '4': WOE = -1.455598
+2026-06-19 23:10:20,397 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'repayment_status_apr_2005' from outputs\auto_binning_woe\repayment_status_apr_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,398 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 10 category WOE mappings for feature 'repayment_status_apr_2005' from outputs\auto_binning_woe\repayment_status_apr_2005\final_auto_binning_woe.json
+2026-06-19 23:10:20,399 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-1': WOE = 0.318666
+2026-06-19 23:10:20,399 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '-2': WOE = 0.171979
+2026-06-19 23:10:20,400 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '0': WOE = 0.201643
+2026-06-19 23:10:20,400 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2': WOE = -1.305930
+2026-06-19 23:10:20,401 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '3': WOE = -1.741262
+2026-06-19 23:10:20,401 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '4': WOE = -2.220808
+2026-06-19 23:10:20,402 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '5': WOE = -1.509312
+2026-06-19 23:10:20,403 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '6': WOE = -1.877037
+2026-06-19 23:10:20,403 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '7': WOE = -2.666765
+2026-06-19 23:10:20,404 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '8': WOE = -2.666765
+2026-06-19 23:10:20,405 | [None] | mlops.sklearn_wrapper_woe | fit:370 | INFO | Attempting to load categorical WOE metadata for feature 'low_cardinality_numeric' from outputs\auto_binning_woe\low_cardinality_numeric\final_auto_binning_woe.json
+2026-06-19 23:10:20,407 | [None] | mlops.sklearn_wrapper_woe | fit:403 | INFO | Loaded 10 category WOE mappings for feature 'low_cardinality_numeric' from outputs\auto_binning_woe\low_cardinality_numeric\final_auto_binning_woe.json
+2026-06-19 23:10:20,407 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '10s': WOE = 0.021990
+2026-06-19 23:10:20,408 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '1s': WOE = -0.006496
+2026-06-19 23:10:20,408 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '2s': WOE = -0.006496
+2026-06-19 23:10:20,408 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '3s': WOE = -0.006496
+2026-06-19 23:10:20,409 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '4s': WOE = 0.036896
+2026-06-19 23:10:20,409 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '7s': WOE = 0.036896
+2026-06-19 23:10:20,409 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '5s': WOE = -0.070842
+2026-06-19 23:10:20,409 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '6s': WOE = 0.010465
+2026-06-19 23:10:20,410 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '8s': WOE = 0.010465
+2026-06-19 23:10:20,410 | [None] | mlops.sklearn_wrapper_woe | fit:405 | INFO |   Category '9s': WOE = -0.022042
+2026-06-19 23:10:20,410 | [None] | mlops.sklearn_wrapper_woe | fit:418 | INFO | WOETransformerCategorical fitted for 10 features: ['gender', 'education', 'marital_status', 'repayment_status_sep_2005', 'repayment_status_aug_2005', 'repayment_status_jul_2005', 'repayment_status_jun_2005', 'repayment_status_may_2005', 'repayment_status_apr_2005', 'low_cardinality_numeric']
+2026-06-19 23:10:20,418 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'gender' using category WOE mapping with 2 categories
+2026-06-19 23:10:20,453 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'gender' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,454 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'education' using category WOE mapping with 7 categories
+2026-06-19 23:10:20,492 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'education' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,493 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'marital_status' using category WOE mapping with 4 categories
+2026-06-19 23:10:20,533 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'marital_status' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,533 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_sep_2005' using category WOE mapping with 7 categories
+2026-06-19 23:10:20,576 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_sep_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,576 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_aug_2005' using category WOE mapping with 10 categories
+2026-06-19 23:10:20,614 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_aug_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,614 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_jul_2005' using category WOE mapping with 5 categories
+2026-06-19 23:10:20,644 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_jul_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,644 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_jun_2005' using category WOE mapping with 5 categories
+2026-06-19 23:10:20,684 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_jun_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,685 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_may_2005' using category WOE mapping with 10 categories
+2026-06-19 23:10:20,727 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_may_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,728 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_apr_2005' using category WOE mapping with 10 categories
+2026-06-19 23:10:20,774 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_apr_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,775 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'low_cardinality_numeric' using category WOE mapping with 10 categories
+2026-06-19 23:10:20,823 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'low_cardinality_numeric' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,823 | [None] | mlops.sklearn_wrapper_woe | transform:485 | INFO | Transform completed for 10 categorical features
+2026-06-19 23:10:20,830 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'gender' using category WOE mapping with 2 categories
+2026-06-19 23:10:20,855 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'gender' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,856 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'education' using category WOE mapping with 7 categories
+2026-06-19 23:10:20,882 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'education' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,883 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'marital_status' using category WOE mapping with 4 categories
+2026-06-19 23:10:20,917 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'marital_status' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,917 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_sep_2005' using category WOE mapping with 7 categories
+2026-06-19 23:10:20,944 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_sep_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,944 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_aug_2005' using category WOE mapping with 10 categories
+2026-06-19 23:10:20,965 | [None] | mlops.sklearn_wrapper_woe | transform:475 | INFO | Feature 'repayment_status_aug_2005' has unseen categories mapped to 0: ['Rare']
+2026-06-19 23:10:20,968 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_aug_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,969 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_jul_2005' using category WOE mapping with 5 categories
+2026-06-19 23:10:20,998 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_jul_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:20,999 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_jun_2005' using category WOE mapping with 5 categories
+2026-06-19 23:10:21,019 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_jun_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:21,020 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_may_2005' using category WOE mapping with 10 categories
+2026-06-19 23:10:21,046 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_may_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:21,047 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'repayment_status_apr_2005' using category WOE mapping with 10 categories
+2026-06-19 23:10:21,072 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'repayment_status_apr_2005' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:21,073 | [None] | mlops.sklearn_wrapper_woe | transform:454 | INFO | Transforming feature 'low_cardinality_numeric' using category WOE mapping with 10 categories
+2026-06-19 23:10:21,098 | [None] | mlops.sklearn_wrapper_woe | transform:483 | INFO | Transformed categorical feature 'low_cardinality_numeric' to WOE representation using JSON metadata and dropped original column
+2026-06-19 23:10:21,100 | [None] | mlops.sklearn_wrapper_woe | transform:485 | INFO | Transform completed for 10 categorical features

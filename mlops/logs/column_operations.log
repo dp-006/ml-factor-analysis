@@ -1,0 +1,5 @@
+2026-06-19 23:07:09,068 | [None] | mlops.column_operations | detect_missing_columns_with_treshold:171 | INFO | Number of columns with missing values above threshold 0.5: 1
+2026-06-19 23:07:10,970 | [None] | mlops.column_operations | detect_infinite_columns:276 | INFO | Number of columns with infinite values detected: 0
+2026-06-19 23:07:10,979 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:309 | INFO | Numeric column 'low_cardinality_numeric' has 10 unique values.
+2026-06-19 23:07:10,979 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:311 | INFO | Column 'low_cardinality_numeric' is detected as low cardinality and must be converted to object type.
+2026-06-19 23:07:10,979 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:313 | INFO | Number of low cardinality numeric columns detected and converted: 1

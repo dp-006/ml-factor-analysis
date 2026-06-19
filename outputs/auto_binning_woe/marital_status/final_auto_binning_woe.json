@@ -1,0 +1,91 @@
+{
+    "feature": "marital_status",
+    "totalIv": 0.007165404672380202,
+    "interpretIv": "Not Predictive",
+    "numberofBins": 4,
+    "status": "REVIEW_NOT_CONVERGED",
+    "valuesToTheGroup": {
+        "marital_status_grp0": [
+            "0"
+        ],
+        "marital_status_grp1": [
+            "1"
+        ],
+        "marital_status_grp2": [
+            "2"
+        ],
+        "marital_status_grp3": [
+            "3"
+        ]
+    },
+    "woe_table": [
+        {
+            "_bin": "marital_status_grp0",
+            "total": 40,
+            "good": 36,
+            "bad": 4,
+            "bad_rate": 0.1,
+            "bin_pct": 0.001990049751243781,
+            "good_dist": 0.002331374552887072,
+            "bad_dist": 0.0010116906474820144,
+            "good_dist_minus_bad_dist": 0.0013196839054050574,
+            "odds_ratio": 2.3044342247203766,
+            "woe": 0.8348351906666778,
+            "woe_display": 83.48351906666778,
+            "iv": 0.001101718564788577
+        },
+        {
+            "_bin": "marital_status_grp2",
+            "total": 10715,
+            "good": 8464,
+            "bad": 2251,
+            "bad_rate": 0.210079328044797,
+            "bin_pct": 0.5330845771144279,
+            "good_dist": 0.5406553398058253,
+            "bad_dist": 0.5061825539568345,
+            "good_dist_minus_bad_dist": 0.03447278584899072,
+            "odds_ratio": 1.0681034650039132,
+            "woe": 0.0658846131901842,
+            "woe_display": 6.588461319018419,
+            "iv": 0.002271226161248809
+        },
+        {
+            "_bin": "marital_status_grp1",
+            "total": 9125,
+            "good": 6998,
+            "bad": 2127,
+            "bad_rate": 0.2330958904109589,
+            "bin_pct": 0.4539800995024876,
+            "good_dist": 0.44701711803781297,
+            "bad_dist": 0.4783048561151079,
+            "good_dist_minus_bad_dist": -0.03128773807729496,
+            "odds_ratio": 0.934586200250149,
+            "woe": -0.06765141423232252,
+            "woe_display": -6.765141423232252,
+            "iv": 0.002116659729059491
+        },
+        {
+            "_bin": "marital_status_grp3",
+            "total": 220,
+            "good": 156,
+            "bad": 64,
+            "bad_rate": 0.2909090909090909,
+            "bin_pct": 0.010945273631840797,
+            "good_dist": 0.009996167603474706,
+            "bad_dist": 0.01450089928057554,
+            "good_dist_minus_bad_dist": -0.004504731677100833,
+            "odds_ratio": 0.6893481162830309,
+            "woe": -0.3720088869670127,
+            "woe_display": -37.20088869670127,
+            "iv": 0.0016758002172833253
+        }
+    ],
+    "checks": {
+        "minBinPct": "Is minimum pct of each bin > 0.05? -> False",
+        "goodBadExist": "Do good and bad exist in every bin? -> True",
+        "badRateMonotonic": "Is Bad Rate monotonic? -> True",
+        "woeMonotonic": "Is WoE monotonic? -> True",
+        "binCount": "Are bins between 2 and 6? -> True",
+        "ivReasonable": "Is IV 0.007165 reasonable? (0.02 < IV < 0.50) -> False"
+    }
+}

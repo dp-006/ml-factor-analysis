@@ -1,0 +1,145 @@
+{
+    "feature": "education",
+    "totalIv": 0.03574948177594195,
+    "interpretIv": "Weak Predictive Power",
+    "numberofBins": 7,
+    "status": "REVIEW_NOT_CONVERGED",
+    "valuesToTheGroup": {
+        "education_grp0": [
+            "0"
+        ],
+        "education_grp1": [
+            "1"
+        ],
+        "education_grp2": [
+            "2"
+        ],
+        "education_grp3": [
+            "3"
+        ],
+        "education_grp4": [
+            "4"
+        ],
+        "education_grp5": [
+            "5"
+        ],
+        "education_grp6": [
+            "6"
+        ]
+    },
+    "woe_table": [
+        {
+            "_bin": "education_grp0",
+            "total": 12,
+            "good": 12,
+            "bad": 0,
+            "bad_rate": 0.0,
+            "bin_pct": 0.0005970149253731343,
+            "good_dist": 0.0007983394539358135,
+            "bad_dist": 0.0001123721766490617,
+            "good_dist_minus_bad_dist": 0.0006859672772867518,
+            "odds_ratio": 7.104422800574804,
+            "woe": 1.9607175197655498,
+            "woe_display": 196.07175197655496,
+            "iv": 0.0013449880585620071
+        },
+        {
+            "_bin": "education_grp4",
+            "total": 83,
+            "good": 78,
+            "bad": 5,
+            "bad_rate": 0.060240963855421686,
+            "bin_pct": 0.004129353233830846,
+            "good_dist": 0.005013571770716909,
+            "bad_dist": 0.0012360939431396785,
+            "good_dist_minus_bad_dist": 0.0037774778275772307,
+            "odds_ratio": 4.05597956250998,
+            "woe": 1.4001922274472867,
+            "woe_display": 140.01922274472867,
+            "iv": 0.0052891950935281
+        },
+        {
+            "_bin": "education_grp5",
+            "total": 201,
+            "good": 187,
+            "bad": 14,
+            "bad_rate": 0.06965174129353234,
+            "bin_pct": 0.01,
+            "good_dist": 0.011975091809037202,
+            "bad_dist": 0.003258793122822789,
+            "good_dist_minus_bad_dist": 0.008716298686214412,
+            "odds_ratio": 3.6747014485731744,
+            "woe": 1.3014718908812857,
+            "woe_display": 130.14718908812856,
+            "iv": 0.011344017732633537
+        },
+        {
+            "_bin": "education_grp6",
+            "total": 34,
+            "good": 28,
+            "bad": 6,
+            "bad_rate": 0.17647058823529413,
+            "bin_pct": 0.001691542288557214,
+            "good_dist": 0.0018202139549736548,
+            "bad_dist": 0.001460838296437802,
+            "good_dist_minus_bad_dist": 0.0003593756585358529,
+            "odds_ratio": 1.2460064604085042,
+            "woe": 0.2199436052703624,
+            "woe_display": 21.994360527036243,
+            "iv": 7.904237798478618e-05
+        },
+        {
+            "_bin": "education_grp1",
+            "total": 7081,
+            "good": 5709,
+            "bad": 1372,
+            "bad_rate": 0.19375794379324954,
+            "bin_pct": 0.3522885572139304,
+            "good_dist": 0.3646495289797222,
+            "bad_dist": 0.30846162490167434,
+            "good_dist_minus_bad_dist": 0.05618790407804786,
+            "odds_ratio": 1.1821552489583051,
+            "woe": 0.16733925465536603,
+            "woe_display": 16.733925465536604,
+            "iv": 0.00940244198906773
+        },
+        {
+            "_bin": "education_grp2",
+            "total": 9413,
+            "good": 7187,
+            "bad": 2226,
+            "bad_rate": 0.23648146180813767,
+            "bin_pct": 0.4683084577114428,
+            "good_dist": 0.45904518601309274,
+            "bad_dist": 0.5003933026182718,
+            "good_dist_minus_bad_dist": -0.04134811660517901,
+            "odds_ratio": 0.917368764951833,
+            "woe": -0.08624574475880228,
+            "woe_display": -8.624574475880229,
+            "iv": 0.0035660991109874632
+        },
+        {
+            "_bin": "education_grp3",
+            "total": 3276,
+            "good": 2453,
+            "bad": 823,
+            "bad_rate": 0.2512210012210012,
+            "bin_pct": 0.16298507462686568,
+            "good_dist": 0.15669806801852149,
+            "bad_dist": 0.1850769749410046,
+            "good_dist_minus_bad_dist": -0.028378906922483127,
+            "odds_ratio": 0.8466643031553265,
+            "woe": -0.16645099919038786,
+            "woe_display": -16.645099919038785,
+            "iv": 0.004723697413178332
+        }
+    ],
+    "checks": {
+        "minBinPct": "Is minimum pct of each bin > 0.05? -> False",
+        "goodBadExist": "Do good and bad exist in every bin? -> False",
+        "badRateMonotonic": "Is Bad Rate monotonic? -> True",
+        "woeMonotonic": "Is WoE monotonic? -> True",
+        "binCount": "Are bins between 2 and 6? -> False",
+        "ivReasonable": "Is IV 0.035749 reasonable? (0.02 < IV < 0.50) -> True"
+    }
+}

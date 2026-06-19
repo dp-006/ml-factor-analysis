@@ -1117,7 +1117,7 @@ def auto_woe_binning_numeric(
     min_final_bins: int = 3,
     min_iv: float = 0.02,
     max_iv: float = 0.50,
-    max_iter: int = 100
+    max_iter: int = 20
 ) -> dict:
     """
     Purpose
@@ -1190,6 +1190,7 @@ def auto_woe_binning_numeric(
     intervals.
 
     Algorithm rules:
+    - Rule 0: Min final bins must be >= min_final_bins.
     - Rule 1: Merge bins with insufficient observation ratio.
     - Rule 2: Merge bins where good = 0 or bad = 0.
     - Rule 3: Enforce Bad Rate monotonicity.
@@ -1203,6 +1204,11 @@ def auto_woe_binning_numeric(
         If the supplied feature is not numeric.
     """
     logger.info(f"Starting numeric WoE auto binning. Feature:{feature}, Target:{target}")
+    # Raise error if Target column is not in the dataframe, since we cannot perform binning without a target variable.
+    if target not in df.columns:
+        error_message = (f"Target column: {target} not found in the dataframe. Please provide a valid target column.")
+        logger.error(error_message)
+        raise ValueError(error_message)
 
     # Raise error if feature and target are the same, since they cannot be identical.
     if feature == target:
@@ -1332,6 +1338,19 @@ def auto_woe_binning_numeric(
 
         logger.info(f"STEP: {step} - RULES CHECK START")
 
+        # Rule 0: Minimum bin count stop condition.
+        # If the current bin count has already reached the minimum allowed number
+        # of bins, stop the iterative merging and return the current binning
+        # structure as is, even if other rules (small bin, zero good/bad,
+        # monotonicity, etc.) are still violated. Any further merge would drop the
+        # bin count below min_final_bins, which is not allowed.
+        if len(intervals) <= min_final_bins:
+            triggered_rule = "STOPPED: Minimum bin count reached"
+            steps_metada[step]["triggered_rule"] = triggered_rule
+            converged = True
+            logger.info(f"STEP: {step} - Minimum bin count ({min_final_bins}) reached. Stopping with current bins.")
+            break
+
         # Detect if bins with insufficient observation ratio exist. If yes, merge the most problematic bin with its closest neighbor.
         if (summary["bin_pct"] < min_bin_pct).any() and len(intervals) > 1:
             idx = summary["bin_pct"].idxmin()
@@ -1460,6 +1479,7 @@ def auto_woe_binning_numeric(
         # Iteration stopping condition: 
         # If none of the above rules are triggered. 
         # it means the current binning structure satisfies rules:
+        # Rule 0: Minimum bin count
         # Rule 1: Minimum bin percentage
         # Rule 2: Good and bad existence in every bin
         # Rule 3: Bad Rate monotonicity

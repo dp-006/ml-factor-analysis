@@ -1,0 +1,131 @@
+{
+    "feature": "low_cardinality_numeric",
+    "totalIv": 0.0009186118887124442,
+    "interpretIv": "Not Predictive",
+    "numberofBins": 6,
+    "status": "REVIEW_WEAK_VARIABLE",
+    "valuesToTheGroup": {
+        "low_cardinality_numeric_grp0": [
+            "10s"
+        ],
+        "low_cardinality_numeric_grp1": [
+            "1s",
+            "2s",
+            "3s"
+        ],
+        "low_cardinality_numeric_grp3": [
+            "4s",
+            "7s"
+        ],
+        "low_cardinality_numeric_grp2": [
+            "5s"
+        ],
+        "low_cardinality_numeric_grp4": [
+            "6s",
+            "8s"
+        ],
+        "low_cardinality_numeric_grp5": [
+            "9s"
+        ]
+    },
+    "woe_table": [
+        {
+            "_bin": "low_cardinality_numeric_grp3",
+            "total": 3983,
+            "good": 3127,
+            "bad": 856,
+            "bad_rate": 0.21491338187296008,
+            "bin_pct": 0.1981592039800995,
+            "good_dist": 0.19975091013604138,
+            "bad_dist": 0.19251517194875253,
+            "good_dist_minus_bad_dist": 0.007235738187288843,
+            "odds_ratio": 1.037585288027143,
+            "woe": 0.0368961750714103,
+            "woe_display": 3.6896175071410298,
+            "iv": 0.00026697106292909815
+        },
+        {
+            "_bin": "low_cardinality_numeric_grp0",
+            "total": 1992,
+            "good": 1559,
+            "bad": 433,
+            "bad_rate": 0.2173694779116466,
+            "bin_pct": 0.0991044776119403,
+            "good_dist": 0.09960401098550169,
+            "bad_dist": 0.09743762643290627,
+            "good_dist_minus_bad_dist": 0.002166384552595421,
+            "odds_ratio": 1.0222335521903045,
+            "woe": 0.021989990321780242,
+            "woe_display": 2.1989990321780244,
+            "iv": 4.763877534482753e-05
+        },
+        {
+            "_bin": "low_cardinality_numeric_grp4",
+            "total": 4070,
+            "good": 3177,
+            "bad": 893,
+            "bad_rate": 0.2194103194103194,
+            "bin_pct": 0.20248756218905473,
+            "good_dist": 0.2029443699303826,
+            "bad_dist": 0.20083164756124972,
+            "good_dist_minus_bad_dist": 0.0021127223691328745,
+            "odds_ratio": 1.0105198677339364,
+            "woe": 0.010464918958645373,
+            "woe_display": 1.0464918958645373,
+            "iv": 2.2109468375092787e-05
+        },
+        {
+            "_bin": "low_cardinality_numeric_grp1",
+            "total": 5986,
+            "good": 4655,
+            "bad": 1331,
+            "bad_rate": 0.2223521550283996,
+            "bin_pct": 0.29781094527363183,
+            "good_dist": 0.2973430414511081,
+            "bad_dist": 0.2992807372443246,
+            "good_dist_minus_bad_dist": -0.001937695793216454,
+            "odds_ratio": 0.9935254911122644,
+            "woe": -0.006495559430883592,
+            "woe_display": -0.6495559430883593,
+            "iv": 1.2586418183810601e-05
+        },
+        {
+            "_bin": "low_cardinality_numeric_grp5",
+            "total": 2027,
+            "good": 1571,
+            "bad": 456,
+            "bad_rate": 0.2249629995066601,
+            "bin_pct": 0.1008457711442786,
+            "good_dist": 0.10037044133614358,
+            "bad_dist": 0.10260732748932344,
+            "good_dist_minus_bad_dist": -0.002236886153179865,
+            "odds_ratio": 0.9781995476549896,
+            "woe": -0.022041593302882044,
+            "woe_display": -2.2041593302882045,
+            "iv": 4.9304534853238895e-05
+        },
+        {
+            "_bin": "low_cardinality_numeric_grp2",
+            "total": 2042,
+            "good": 1565,
+            "bad": 477,
+            "bad_rate": 0.2335945151811949,
+            "bin_pct": 0.10159203980099503,
+            "good_dist": 0.09998722616082263,
+            "bad_dist": 0.10732748932344346,
+            "good_dist_minus_bad_dist": -0.007340263162620833,
+            "odds_ratio": 0.9316087312869108,
+            "woe": -0.07084236865980569,
+            "woe_display": -7.084236865980569,
+            "iv": 0.0005200016290263763
+        }
+    ],
+    "checks": {
+        "minBinPct": "Is minimum pct of each bin > 0.05? -> True",
+        "goodBadExist": "Do good and bad exist in every bin? -> True",
+        "badRateMonotonic": "Is Bad Rate monotonic? -> True",
+        "woeMonotonic": "Is WoE monotonic? -> True",
+        "binCount": "Are bins between 2 and 6? -> True",
+        "ivReasonable": "Is IV 0.000919 reasonable? (0.02 < IV < 0.50) -> False"
+    }
+}

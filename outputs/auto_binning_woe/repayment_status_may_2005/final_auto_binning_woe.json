@@ -1,0 +1,131 @@
+{
+    "feature": "repayment_status_may_2005",
+    "totalIv": 0.34592404505385466,
+    "interpretIv": "Strong Predictive Power",
+    "numberofBins": 6,
+    "status": "REVIEW_NOT_CONVERGED",
+    "valuesToTheGroup": {
+        "repayment_status_may_2005_grp0": [
+            "-1"
+        ],
+        "repayment_status_may_2005_grp1": [
+            "-2"
+        ],
+        "repayment_status_may_2005_grp2": [
+            "0"
+        ],
+        "repayment_status_may_2005_grp3": [
+            "2"
+        ],
+        "repayment_status_may_2005_grp5": [
+            "3",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "repayment_status_may_2005_grp4": [
+            "4"
+        ]
+    },
+    "woe_table": [
+        {
+            "_bin": "repayment_status_may_2005_grp0",
+            "total": 3702,
+            "good": 3075,
+            "bad": 627,
+            "bad_rate": 0.1693679092382496,
+            "bin_pct": 0.18417910447761193,
+            "good_dist": 0.19642971194992656,
+            "bad_dist": 0.14104293099572937,
+            "good_dist_minus_bad_dist": 0.05538678095419719,
+            "odds_ratio": 1.3926944836099175,
+            "woe": 0.3312403481370029,
+            "woe_display": 33.12403481370029,
+            "iv": 0.0183463366054562
+        },
+        {
+            "_bin": "repayment_status_may_2005_grp1",
+            "total": 3069,
+            "good": 2499,
+            "bad": 570,
+            "bad_rate": 0.18572825024437928,
+            "bin_pct": 0.1526865671641791,
+            "good_dist": 0.15964105511911605,
+            "bad_dist": 0.12823106316026073,
+            "good_dist_minus_bad_dist": 0.03140999195885533,
+            "odds_ratio": 1.2449483860209418,
+            "woe": 0.21909407204601358,
+            "woe_display": 21.909407204601358,
+            "iv": 0.006881743041198156
+        },
+        {
+            "_bin": "repayment_status_may_2005_grp2",
+            "total": 11346,
+            "good": 9214,
+            "bad": 2132,
+            "bad_rate": 0.18790763264586638,
+            "bin_pct": 0.5644776119402986,
+            "good_dist": 0.5885227054991378,
+            "bad_dist": 0.4793211957743313,
+            "good_dist_minus_bad_dist": 0.10920150972480647,
+            "odds_ratio": 1.2278253302535354,
+            "woe": 0.20524458040077656,
+            "woe_display": 20.524458040077658,
+            "iv": 0.022413018042599226
+        },
+        {
+            "_bin": "repayment_status_may_2005_grp4",
+            "total": 60,
+            "good": 27,
+            "bad": 33,
+            "bad_rate": 0.55,
+            "bin_pct": 0.0029850746268656717,
+            "good_dist": 0.001756402886887654,
+            "bad_dist": 0.007529781973477186,
+            "good_dist_minus_bad_dist": -0.005773379086589532,
+            "odds_ratio": 0.23326078936606484,
+            "woe": -1.4555981836639764,
+            "woe_display": -145.55981836639765,
+            "iv": 0.00840372011204331
+        },
+        {
+            "_bin": "repayment_status_may_2005_grp3",
+            "total": 1757,
+            "good": 781,
+            "bad": 976,
+            "bad_rate": 0.5554923164484917,
+            "bin_pct": 0.08741293532338308,
+            "good_dist": 0.04991377658555279,
+            "bad_dist": 0.21948752528658125,
+            "good_dist_minus_bad_dist": -0.16957374870102845,
+            "odds_ratio": 0.22741053971236494,
+            "woe": -1.4809983499606834,
+            "woe_display": -148.09983499606832,
+            "iv": 0.2511384420228707
+        },
+        {
+            "_bin": "repayment_status_may_2005_grp5",
+            "total": 166,
+            "good": 58,
+            "bad": 108,
+            "bad_rate": 0.6506024096385542,
+            "bin_pct": 0.008258706467661692,
+            "good_dist": 0.003736347959379191,
+            "bad_dist": 0.02438750280962014,
+            "good_dist_minus_bad_dist": -0.02065115485024095,
+            "odds_ratio": 0.15320748452790803,
+            "woe": -1.8759621682481846,
+            "woe_display": -187.59621682481847,
+            "iv": 0.038740785229687026
+        }
+    ],
+    "checks": {
+        "minBinPct": "Is minimum pct of each bin > 0.05? -> False",
+        "goodBadExist": "Do good and bad exist in every bin? -> True",
+        "badRateMonotonic": "Is Bad Rate monotonic? -> True",
+        "woeMonotonic": "Is WoE monotonic? -> True",
+        "binCount": "Are bins between 2 and 6? -> True",
+        "ivReasonable": "Is IV 0.345924 reasonable? (0.02 < IV < 0.50) -> True"
+    }
+}

@@ -1,0 +1,9 @@
+2026-06-19 23:07:10,968 | [None] | mlops.sklearn_wrapper_infinite_handler | __init__:65 | INFO | InfiniteColumnsHandler initialized
+2026-06-19 23:07:10,968 | [None] | mlops.sklearn_wrapper_infinite_handler | fit:96 | INFO | Fitting InfiniteColumnsHandler on DataFrame with shape (20100, 24)
+2026-06-19 23:07:10,970 | [None] | mlops.sklearn_wrapper_infinite_handler | fit:101 | INFO | Fit complete. Detected 0 columns with infinite values: []
+2026-06-19 23:07:10,970 | [None] | mlops.sklearn_wrapper_infinite_handler | transform:143 | INFO | Transforming DataFrame with shape (20100, 24)
+2026-06-19 23:07:10,971 | [None] | mlops.sklearn_wrapper_infinite_handler | transform:156 | INFO | No columns from infinite_columns_ found in current data.
+2026-06-19 23:07:10,971 | [None] | mlops.sklearn_wrapper_infinite_handler | transform:158 | INFO | Transform complete. Returned DataFrame with shape (20100, 24)
+2026-06-19 23:07:10,972 | [None] | mlops.sklearn_wrapper_infinite_handler | transform:143 | INFO | Transforming DataFrame with shape (9900, 24)
+2026-06-19 23:07:10,972 | [None] | mlops.sklearn_wrapper_infinite_handler | transform:156 | INFO | No columns from infinite_columns_ found in current data.
+2026-06-19 23:07:10,973 | [None] | mlops.sklearn_wrapper_infinite_handler | transform:158 | INFO | Transform complete. Returned DataFrame with shape (9900, 24)

@@ -1,0 +1,55 @@
+{
+    "feature": "gender",
+    "totalIv": 0.011029616364340203,
+    "interpretIv": "Not Predictive",
+    "numberofBins": 2,
+    "status": "REVIEW_WEAK_VARIABLE",
+    "valuesToTheGroup": {
+        "gender_grp0": [
+            "1"
+        ],
+        "gender_grp1": [
+            "2"
+        ]
+    },
+    "woe_table": [
+        {
+            "_bin": "gender_grp1",
+            "total": 12102,
+            "good": 9604,
+            "bad": 2498,
+            "bad_rate": 0.20641216327879688,
+            "bin_pct": 0.602089552238806,
+            "good_dist": 0.6135100606834877,
+            "bad_dist": 0.5618394423206656,
+            "good_dist_minus_bad_dist": 0.05167061836282205,
+            "odds_ratio": 1.0919668760694294,
+            "woe": 0.0879805435928971,
+            "woe_display": 8.79805435928971,
+            "iv": 0.004546009091342215
+        },
+        {
+            "_bin": "gender_grp0",
+            "total": 7998,
+            "good": 6050,
+            "bad": 1948,
+            "bad_rate": 0.24356089022255564,
+            "bin_pct": 0.39791044776119405,
+            "good_dist": 0.3864899393165123,
+            "bad_dist": 0.4381605576793344,
+            "good_dist_minus_bad_dist": -0.05167061836282205,
+            "odds_ratio": 0.8820737799027613,
+            "woe": -0.12547957579046629,
+            "woe_display": -12.547957579046628,
+            "iv": 0.0064836072729979885
+        }
+    ],
+    "checks": {
+        "minBinPct": "Is minimum pct of each bin > 0.05? -> True",
+        "goodBadExist": "Do good and bad exist in every bin? -> True",
+        "badRateMonotonic": "Is Bad Rate monotonic? -> True",
+        "woeMonotonic": "Is WoE monotonic? -> True",
+        "binCount": "Are bins between 2 and 6? -> True",
+        "ivReasonable": "Is IV 0.011030 reasonable? (0.02 < IV < 0.50) -> False"
+    }
+}

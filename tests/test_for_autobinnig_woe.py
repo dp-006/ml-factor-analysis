@@ -1,8 +1,5 @@
 '''
-Accelera Consultins
-Author: Accelera Team
-Created: 2024-06-17
-
+Accelera Consulting
 Test file for auto_binning_woe.py
 '''
 
@@ -18,8 +15,9 @@ from auto_binning_woe import (
     find_most_similar_adjacent_pair,
     find_monotonicity_violation_pair,
     check_binning_quality,
-    auto_woe_binning_numeric
     )
+from auto_binning_woe_categorical import auto_woe_binning_categorical
+
 import pandas as pd
 import numpy as np
 import json
@@ -27,15 +25,6 @@ from pandas.api.types import is_numeric_dtype
 
 if __name__ == "__main__":
     test_parameter = [
-        "calculate_woe_iv_table",
-        "create_initial_bins",
-        "merge_intervals",
-        "assign_bins_from_intervals",
-        "find_closest_neighbor",
-        "find_most_similar_adjacent_pair",
-        "find_monotonicity_violation_pair",
-        "check_binning_quality",
-        "auto_woe_binning_numeric",
         "Test with UCI Credit Card Dataset"
     ]
 
@@ -182,5 +171,18 @@ if __name__ == "__main__":
                         min_iv=0.02,
                         max_iv=0.50,
                         max_iter=25
+                    )
+                # if data type is object, we will use auto_woe_binning_categorical
+                elif df[col].dtype == 'object':
+                    result = auto_woe_binning_categorical(
+                        df=df,
+                        feature=col,
+                        target="TARGET",
+                        min_bin_pct=0.05,
+                        max_final_bins=6,
+                        min_final_bins=2,
+                        min_iv=0.02,
+                        max_iv=0.50,
+                        max_iter=20
                     )
 

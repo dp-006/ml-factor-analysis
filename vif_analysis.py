@@ -9,7 +9,6 @@ https://www.statsmodels.org/dev/_modules/statsmodels/stats/outliers_influence.ht
 
 '''
 import pandas as pd
-import json
 import numpy as np
 from statsmodels.regression.linear_model import OLS
 from helper import interpret_vif, io_save_json, io_save_dataframe_as_csv
