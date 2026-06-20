@@ -442,3 +442,25 @@ def plot_bar_charts(
             txt_path = Path(output_dir, f"{col}_bar.txt")
             with open(txt_path, "w") as f:
                 f.write(error_message)
+
+def generate_sample_data():
+    # Test with UCI Credit Card Dataset
+    metadata_path = "inputs/sample/datatypes.json"
+    with open(metadata_path, "r") as f:
+        metadata = json.load(f)
+    column_dtypes = metadata.get("column_dtypes", {})
+    # Get the sample data
+    input_csv_path = "inputs/sample/uci_credit_card_dataset.csv"
+    df = pd.read_csv(input_csv_path, dtype=column_dtypes)
+    X = df.drop(columns=["TARGET"])
+    X["null_column"] = None  # Add a column with all null values to test missing column detection
+    X["zero_variance_column_float"] = 1  # Add a column with zero variance to test zero variance detection
+    X["zero_variance_column_object"] = "same"  # Add a column with zero variance to test zero variance detection
+    X["duplicate_1"] = X["payment_amount_sep_2005"]  # Add a duplicate column to test duplicate detection
+    X["duplicate_2"] = X["payment_amount_sep_2005"]  # Add another duplicate column to test duplicate detection
+    X["duplicate_3"] = X["payment_amount_sep_2005"]  # Add another duplicate column to test duplicate detection
+    X["duplicate_4"] = X["age"]  # Add another duplicate column to test duplicate detection
+    X["infinite_column"] = np.inf  # Add a column with infinite values to test infinite value detection
+    X["low_cardinality_numeric"] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] * (len(X) // 10) + [1] * (len(X) % 10)  # Add a low cardinality numeric column to test conversion to object
+    y = df["TARGET"]
+    return X, y

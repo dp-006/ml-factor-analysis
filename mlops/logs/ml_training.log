@@ -1,28 +1,31 @@
-2026-06-19 23:07:09,058 | [None] | mlops.ml_training | split_train_test:117 | INFO | Data split into train and test sets with test_size=0.33, random_state=42, stratify=True
-2026-06-19 23:07:09,058 | [None] | mlops.ml_training | split_train_test:118 | INFO | Number of training samples: 20100
-2026-06-19 23:07:09,059 | [None] | mlops.ml_training | split_train_test:119 | INFO | Training set class distribution:
-TARGET
-0   0.778806
-1   0.221194
-Name: proportion, dtype: float64
-2026-06-19 23:07:09,060 | [None] | mlops.ml_training | split_train_test:120 | INFO | Number of testing samples: 9900
-2026-06-19 23:07:09,060 | [None] | mlops.ml_training | split_train_test:121 | INFO | Testing set class distribution:
-TARGET
-0   0.778788
-1   0.221212
-Name: proportion, dtype: float64
-2026-06-19 23:07:09,104 | [None] | mlops.ml_training | <module>:163 | INFO | Zero variance columns detected and removed: ['zero_variance_column_float', 'zero_variance_column_object', 'infinite_column']
-2026-06-19 23:07:11,528 | [None] | mlops.ml_training | <module>:282 | INFO | Cleaned training data saved to: outputs/training/step5_X_train_cleaned.csv
-2026-06-19 23:10:17,477 | [None] | mlops.ml_training | <module>:320 | INFO | Numeric features for WOE transformation: ['credit_limit', 'age', 'bill_amount_sep_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_jun_2005', 'bill_amount_may_2005', 'bill_amount_apr_2005', 'payment_amount_sep_2005', 'payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_jun_2005', 'payment_amount_may_2005', 'payment_amount_apr_2005', 'credit_limit_right', 'age_right', 'bill_amount_sep_2005_right', 'bill_amount_aug_2005_right', 'bill_amount_jul_2005_right', 'bill_amount_jun_2005_right', 'bill_amount_may_2005_right', 'bill_amount_apr_2005_right', 'payment_amount_sep_2005_right', 'payment_amount_aug_2005_right', 'payment_amount_jul_2005_right', 'payment_amount_jun_2005_right', 'payment_amount_may_2005_right', 'payment_amount_apr_2005_right']
-2026-06-19 23:10:17,479 | [None] | mlops.ml_training | <module>:321 | INFO | Categorical features for WOE transformation: ['gender', 'education', 'marital_status', 'repayment_status_sep_2005', 'repayment_status_aug_2005', 'repayment_status_jul_2005', 'repayment_status_jun_2005', 'repayment_status_may_2005', 'repayment_status_apr_2005', 'low_cardinality_numeric']
-2026-06-19 23:10:20,361 | [None] | mlops.ml_training | <module>:328 | INFO | Successfully transformed 28 numeric features to WOE
-2026-06-19 23:10:21,100 | [None] | mlops.ml_training | <module>:335 | INFO | Successfully transformed 10 categorical features to WOE
-2026-06-19 23:10:21,106 | [None] | mlops.ml_training | <module>:342 | INFO | Final training set shape after WOE transformation: (20100, 38)
-2026-06-19 23:10:21,107 | [None] | mlops.ml_training | <module>:343 | INFO | Final test set shape after WOE transformation: (9900, 38)
-2026-06-19 23:10:22,806 | [None] | mlops.ml_training | <module>:347 | INFO | Cleaned training data saved to: outputs/training/step5_X_train_cleaned.csv
-2026-06-19 23:10:23,893 | [None] | mlops.ml_training | <module>:355 | INFO | Final training set shape after PSI transformation: (20100, 38)
-2026-06-19 23:10:23,894 | [None] | mlops.ml_training | <module>:356 | INFO | Final test set shape after PSI transformation: (9900, 38)
-2026-06-19 23:10:48,294 | [None] | mlops.ml_training | <module>:364 | INFO | Final training set shape after VIF transformation: (20100, 36)
-2026-06-19 23:10:48,294 | [None] | mlops.ml_training | <module>:365 | INFO | Final test set shape after VIF transformation: (9900, 36)
-2026-06-19 23:11:44,219 | [None] | mlops.ml_training | <module>:376 | INFO | Final training set shape after RFA transformation: (20100, 5)
-2026-06-19 23:11:44,220 | [None] | mlops.ml_training | <module>:377 | INFO | Final test set shape after RFA transformation: (9900, 5)
+2026-06-20 21:46:20,441 | [None] | mlops.ml_training | full_training_pipeline:469 | INFO | Full training pipeline created with all sub-pipelines in sequence
+2026-06-20 21:46:20,441 | [None] | mlops.ml_training | full_training_pipeline:470 | INFO | ================================================================================
+2026-06-20 21:46:20,459 | [None] | mlops.ml_training | full_training_pipeline:471 | INFO | 
+
+Full pipeline
+
+Pipeline(steps=[('data_cleaning',
+                 Pipeline(steps=[('missing_handler', MissingColumnsHandler()),
+                                 ('constant_handler',
+                                  DropConstantFeatures(tol=1.0)),
+                                 ('duplicate_handler', DropDuplicateFeatures()),
+                                 ('infinite_handler',
+                                  InfiniteColumnsHandler())])),
+                ('low_cardinality',
+                 Pipeline(steps=[('low_cardinality_handler',
+                                  LowCardinalityHandler(add_suffix=True)),
+                                 ('data_ty...
+                 Pipeline(steps=[('psi_filter', DropHighPSIFeatures()),
+                                 ('vif_filter',
+                                  VIFTransformer(output_dir='outputs/vif_analysis')),
+                                 ('rfa_filter',
+                                  RecursiveFeatureAddition(cv=2,
+                                                           estimator=RandomForestClassifier(random_state=42),
+                                                           threshold=0.0001))])),
+                ('logistic_regression',
+                 Pipeline(steps=[('logistic_regression',
+                                  LogisticRegressionWrapper(metrics_dir='outputs/logitmodel/metrics',
+                                                            model_dir='outputs/logitmodel'))]))])
+
+2026-06-20 21:46:20,459 | [None] | mlops.ml_training | full_training_pipeline:472 | INFO | ================================================================================
+2026-06-20 21:48:17,022 | [None] | mlops.ml_training | <module>:497 | INFO | Sample prediction for first test row: 1 with probability 0.7751

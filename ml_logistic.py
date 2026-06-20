@@ -97,17 +97,20 @@ class LogisticRegression:
             disp=False, 
             method="bfgs", 
             maxiter=500, 
-            model_dir="model",
+            model_dir="outputs/logitmodel",
+            metrics_dir=None,
             save_results=True,
             save_model=True,
             evaluate_model=True,
             evaluate_bins=20):
         self.model = None
         self.model_fit = None
+        self.evaluation_metrics_ = None
         self.disp = disp
         self.method = method
         self.maxiter = maxiter
         self.model_dir = model_dir
+        self.metrics_dir = metrics_dir if metrics_dir is not None else f"{model_dir}/metrics"
         self.save_results = save_results
         self.save_model = save_model
         self.perform_evaluation = evaluate_model
@@ -115,6 +118,7 @@ class LogisticRegression:
         logger.info("-" * 50)
         logger.info("LogisticRegression instance initialized following parameters:")
         logger.info(f"\tModel directory set to: {self.model_dir}")
+        logger.info(f"\tMetrics directory set to: {self.metrics_dir}")
         logger.info(f"\tDisplay convergence messages: {self.disp}")
         logger.info(f"\tOptimization method: {self.method}")
         logger.info(f"\tMaximum number of iterations: {self.maxiter}")
@@ -177,6 +181,7 @@ class LogisticRegression:
             
             # Check for unique values in target variable
             unique_values = y.unique()
+            logger.info(f"Unique values in target variable: {unique_values}")
             class_counts = y.value_counts().sort_index()
             class_pct = y.value_counts(normalize=True).sort_index() * 100
             distribution = " | ".join(
@@ -243,7 +248,7 @@ class LogisticRegression:
                 labels = self.predict(X)
                 probs = self.predict_proba(X)
                 actuals = y.values
-                evaluation_metrics = self.evaluate_model(probs=probs, labels=labels, actuals=actuals, bins=self.evaluate_bins)
+                evaluation_metrics = self.evaluate_model(probs=probs, labels=labels, actuals=actuals, bins=self.evaluate_bins, output_dir=self.metrics_dir)
 
             return self.model_fit
         
@@ -643,7 +648,7 @@ class LogisticRegression:
         return marginal_effects_dict
 
     @staticmethod
-    def evaluate_model(probs: list, labels: list, actuals: list, bins: int = 20) -> dict:
+    def evaluate_model(probs: list, labels: list, actuals: list, bins: int = 20, output_dir: str = "outputs/logitmodel/metrics") -> dict:
         """
         Evaluate model performance using various metrics.
 
@@ -692,27 +697,51 @@ class LogisticRegression:
         ks_interpretation = interpret_ks(ks.get("ks", 0.0))
 
         decile_analysis = calculate_decile_analysis(actuals, probs, bins) # works with probabilities
-        io_save_dataframe_as_csv(pd.DataFrame(decile_analysis.get("deciles")), "model/decile_analysis.csv")
+        io_save_dataframe_as_csv(pd.DataFrame(decile_analysis.get("deciles")), f"{output_dir}/decile_analysis.csv")
 
         ks_fig = plot_ks(decile_analysis)
-        ks_fig_saved_path = io_save_figure(ks_fig, "model/ks_plot.png")
+        ks_fig_saved_path = io_save_figure(ks_fig, f"{output_dir}/ks_plot.png")
         logger.info(f"KS plot saved to: {ks_fig_saved_path}")
 
         lift_fig = plot_lift(decile_analysis)
-        lift_fig_saved_path = io_save_figure(lift_fig, "model/lift_plot.png")
+        lift_fig_saved_path = io_save_figure(lift_fig, f"{output_dir}/lift_plot.png")
         logger.info(f"Lift plot saved to: {lift_fig_saved_path}")
 
         lorenz_fig = plot_lorenz(decile_analysis)
-        lorenz_fig_saved_path = io_save_figure(lorenz_fig, "model/lorenz_curve_plot.png")
+        lorenz_fig_saved_path = io_save_figure(lorenz_fig, f"{output_dir}/lorenz_curve_plot.png")
         logger.info(f"Lorenz curve plot saved to: {lorenz_fig_saved_path}")
 
         roc_auc_fig = plot_roc_auc(actuals, probs)
-        roc_auc_fig_saved_path = io_save_figure(roc_auc_fig, "model/roc_auc_plot.png")
+        roc_auc_fig_saved_path = io_save_figure(roc_auc_fig, f"{output_dir}/roc_auc_plot.png")
         logger.info(f"ROC AUC plot saved to: {roc_auc_fig_saved_path}")
 
         threshold_analysis = calculate_threshold_analysis(actuals, probs, thresholds=[0.25, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95]) # works with probabilities
-        io_save_dataframe_as_csv(pd.DataFrame(threshold_analysis.get("rows")), "model/threshold_analysis.csv")
-        logger.info("Threshold analysis saved to: model/threshold_analysis.csv")
+        io_save_dataframe_as_csv(pd.DataFrame(threshold_analysis.get("rows")), f"{output_dir}/threshold_analysis.csv")
+        logger.info(f"Threshold analysis saved to: {output_dir}/threshold_analysis.csv")
+
+        return {
+            "confusionMatrix": conf_matrix,
+            "accuracy": accuracy,
+            "precision": precision,
+            "recall": recall,
+            "f1Score": f1_score,
+            "rocAuc": roc_auc,
+            "rocAucInterpretation": roc_auc_interpretation,
+            "gini": gini,
+            "giniInterpretation": gini_interpretation,
+            "ks": ks,
+            "ksInterpretation": ks_interpretation,
+            "decileAnalysis": decile_analysis,
+            "thresholdAnalysis": threshold_analysis,
+            "savedPaths": {
+                "ksPlot": ks_fig_saved_path,
+                "liftPlot": lift_fig_saved_path,
+                "lorenzCurvePlot": lorenz_fig_saved_path,
+                "rocAucPlot": roc_auc_fig_saved_path,
+                "decileAnalysisCsv": f"{output_dir}/decile_analysis.csv",
+                "thresholdAnalysisCsv": f"{output_dir}/threshold_analysis.csv"
+            }
+        }
 
     def predict_proba(self, X: pd.DataFrame) -> list:
         """

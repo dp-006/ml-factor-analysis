@@ -44,6 +44,10 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
     model_dir : str, optional
         Directory where model results and artifacts will be saved. Default is 'model'.
     
+    metrics_dir : str, optional
+        Directory where evaluation metrics and plots will be saved.
+        If not provided, defaults to '<model_dir>/metrics'.
+    
     save_results : bool, optional
         Whether to save model results to JSON files. Default is True.
     
@@ -99,6 +103,7 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
         method="bfgs", 
         maxiter=500, 
         model_dir="model",
+        metrics_dir=None,
         save_results=True,
         save_model=True,
         evaluate_model=True,
@@ -109,6 +114,7 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
         self.method = method
         self.maxiter = maxiter
         self.model_dir = model_dir
+        self.metrics_dir = metrics_dir
         self.save_results = save_results
         self.save_model = save_model
         self.evaluate_model = evaluate_model
@@ -120,6 +126,7 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
         self.model_fit_ = None
         self.classes_ = np.array([0, 1])
         self.n_features_in_ = None
+        self.evaluation_metrics_ = None
         
         logger.info("-" * 50)
         logger.info("LogisticRegressionWrapper initialized with parameters:")
@@ -127,6 +134,7 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
         logger.info(f"\tOptimization method: {self.method}")
         logger.info(f"\tMaximum iterations: {self.maxiter}")
         logger.info(f"\tModel directory: {self.model_dir}")
+        logger.info(f"\tMetrics directory: {self.metrics_dir if self.metrics_dir is not None else f'{self.model_dir}/metrics (default)'}")
         logger.info(f"\tSave results: {self.save_results}")
         logger.info(f"\tSave model: {self.save_model}")
         logger.info(f"\tEvaluate model: {self.evaluate_model}")
@@ -196,6 +204,7 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
                 method=self.method,
                 maxiter=self.maxiter,
                 model_dir=self.model_dir,
+                metrics_dir=self.metrics_dir,
                 save_results=self.save_results,
                 save_model=self.save_model,
                 evaluate_model=self.evaluate_model,
@@ -207,6 +216,9 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
             # Fit the internal model
             self.model_fit_ = self.model_.fit(X, y)
             logger.info("Internal model fitted successfully")
+            
+            # Expose evaluation metrics from internal model
+            self.evaluation_metrics_ = self.model_.evaluation_metrics_
             
         except Exception as e:
             error_message = f"Error during model fitting: {str(e)}"
@@ -396,6 +408,7 @@ class LogisticRegressionWrapper(BaseEstimator, ClassifierMixin):
             'method': self.method,
             'maxiter': self.maxiter,
             'model_dir': self.model_dir,
+            'metrics_dir': self.metrics_dir,
             'save_results': self.save_results,
             'save_model': self.save_model,
             'evaluate_model': self.evaluate_model,

@@ -16,15 +16,28 @@ LOGGER_CONFIG = {
     "mlops": "mlops.log",
     "mlops.factor_analysis": "factor_analysis.log",
     "mlops.descriptive_analysis": "descriptive_analysis.log",
+
     "mlops.utils": "utils.log",
     "mlops.io_operations": "io_operations.log",
     "mlops.column_operations": "column_operations.log",
-    "mlops.auto_binning_woe": "auto_binning_woe.log",
+
+    "mlops.auto_binning_woe_numeric": "auto_binning_woe_numeric.log",
     "mlops.auto_binning_woe_categorical": "auto_binning_woe_categorical.log",
+
+    "mlops.ml_training": "ml_training.log",
     "mlops.ml_logistic": "ml_logistic.log",
     "mlops.vif_analysis": "vif_analysis.log",
-    "mlops.sklearn_wrapper_woe": "sklearn_wrapper_woe.log",
-    "mlops.sklearn_wrapper_vif": "sklearn_wrapper_vif.log"
+
+    "mlops.sklearn_wrapper_cardinality_handler": "sklearn_wrapper_cardinality_handler.log",
+    "mlops.sklearn_wrapper_datatypes": "sklearn_wrapper_datatypes.log",
+    "mlops.sklearn_wrapper_logistic": "sklearn_wrapper_logistic.log",
+    "mlops.sklearn_wrapper_infinite_handler": "sklearn_wrapper_infinite_handler.log",
+    "mlops.sklearn_wrapper_missing_handler": "sklearn_wrapper_missing_handler.log",
+    "mlops.sklearn_wrapper_woe_categorical": "sklearn_wrapper_woe_categorical.log",
+    "mlops.sklearn_wrapper_woe_numeric": "sklearn_wrapper_woe_numeric.log",
+    "mlops.sklearn_wrapper_vif": "sklearn_wrapper_vif.log",
+
+  
 }
 
 def setup_logger(

@@ -8,6 +8,7 @@ from .utils import (
     plot_histograms,
     plot_qq_plots,
     plot_bar_charts,
+    generate_sample_data
 )
 
 from .io_operations import (
@@ -28,7 +29,9 @@ from .column_operations import (
     detect_zero_variance_columns,
     detect_duplicate_columns,
     detect_infinite_columns,
-    detect_low_cardinality_numeric_columns_to_object
+    detect_low_cardinality_numeric_columns_to_object,
+    detect_outlier_indicator_columns,
+    quality_function_for_pandas
 )
 
 from .ml_operations import (
@@ -102,5 +105,8 @@ __all__ = [
     "plot_roc_auc",
     "calculate_threshold_analysis",
     "interpret_vif",
-    "split_train_test"
+    "split_train_test",
+    "generate_sample_data",
+    "quality_function_for_pandas",
+    "detect_outlier_indicator_columns"
 ]

@@ -6,7 +6,7 @@ Demonstrates both numeric and categorical feature transformation
 import os
 import pandas as pd
 from sklearn_wrapper_woe import WOETransformerNumeric, WOETransformerCategorical
-from get_sample_data import get_sample_data
+from tests.get_sample_data import get_sample_data
 from logging_config.logger_config import get_logger
 
 logger_name = "test_woe_transformers"

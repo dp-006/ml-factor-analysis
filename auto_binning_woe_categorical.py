@@ -13,7 +13,7 @@ import numpy as np
 from pandas.api.types import is_object_dtype
 from helper import io_save_json, io_save_dataframe_as_csv
 from logging_config.logger_config import get_logger
-from auto_binning_woe import (
+from auto_binning_woe_numeric import (
     is_monotonic,
     calculate_woe_iv_table,
     check_binning_quality,

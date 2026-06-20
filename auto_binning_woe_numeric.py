@@ -27,8 +27,8 @@ from helper import io_save_json, io_save_dataframe_as_csv
 from logging_config.logger_config import get_logger
 
 
-logger_name = "mlops.auto_binning_woe"
-logger_file_name = "auto_binning_woe.log"
+logger_name = "mlops.auto_binning_woe_numeric"
+logger_file_name = "auto_binning_woe_numeric.log"
 logger = get_logger(logger_name, logger_file_name)
 
 def convert_pd_interval_to_str(
@@ -1563,13 +1563,15 @@ def auto_woe_binning_numeric(
         "converged": converged, # True if all rules were satisfied, False if max_iter was reached first
         "stopIteration": step,
         "maxIter": max_iter,
-        "finalIntervals": [str(interval) for interval in intervals], # Convert Interval objects to strings for JSON serialization
+        "final_intervals": intervals, # pd.Interval objects for programmatic use (e.g. sklearn wrapper)
+        "finalIntervals": [str(interval) for interval in intervals], # String version for JSON serialization
         "stepsMetadata": steps_metada
     }
 
     # Save the auto binning result to a JSON file for further analysis and reporting.
+    # Exclude 'final_intervals' (pd.Interval objects) — not JSON serializable; use 'finalIntervals' (strings) for persistence.
     output_path = f"./outputs/auto_binning_woe/{feature}/final_auto_binning_woe.json"
-    saved_path = io_save_json(auto_binning_result, output_path)
+    saved_path = io_save_json({k: v for k, v in auto_binning_result.items() if k != "final_intervals"}, output_path)
     logger.info(f"Auto binning result saved to {saved_path}")
 
     # Save the final WOE table to a CSV file for easy viewing and analysis.

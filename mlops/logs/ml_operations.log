@@ -1,150 +1,169 @@
-2026-06-19 23:11:44,285 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 0.0
-2026-06-19 23:11:44,287 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 0.0
-2026-06-19 23:11:44,288 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 0.0006743225369153029
-2026-06-19 23:11:44,288 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Not Significant for p-value 0.2953412945107833
-2026-06-19 23:11:44,288 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 1.688014859028043e-44
-2026-06-19 23:11:44,288 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 0.0
-2026-06-19 23:11:44,288 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 1.3504629127065834e-39
-2026-06-19 23:11:44,289 | [None] | mlops.ml_operations | interpret_odds_ratio:161 | INFO | Odds Ratio > 1: Increases the odds of the positive class by 91.56%.
-2026-06-19 23:11:44,289 | [None] | mlops.ml_operations | interpret_odds_ratio:166 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 21.35%.
-2026-06-19 23:11:44,290 | [None] | mlops.ml_operations | interpret_odds_ratio:166 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 46.35%.
-2026-06-19 23:11:44,290 | [None] | mlops.ml_operations | interpret_odds_ratio:166 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 56.93%.
-2026-06-19 23:11:44,290 | [None] | mlops.ml_operations | interpret_odds_ratio:166 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 33.25%.
-2026-06-19 23:11:44,309 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: 0.088995 - Large --> A one-unit increase in the variable increases the predicted probability of the positive class by 8.90 percentage points.
-2026-06-19 23:11:44,309 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: 0.088995 - Large --> A one-unit increase in the variable increases the predicted probability of the positive class by 8.90 percentage points.
-2026-06-19 23:11:44,309 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: 0.088995 - Large --> A one-unit increase in the variable increases the predicted probability of the positive class by 8.90 percentage points.
-2026-06-19 23:11:44,309 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 0.0006695306258681778
-2026-06-19 23:11:44,309 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.032873 - Moderate --> A one-unit increase in the variable decreases the predicted probability of the positive class by 3.29 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.032873 - Moderate --> A one-unit increase in the variable decreases the predicted probability of the positive class by 3.29 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.032873 - Moderate --> A one-unit increase in the variable decreases the predicted probability of the positive class by 3.29 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Not Significant for p-value 0.2953428731408815
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.085254 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 8.53 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.085254 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 8.53 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.085254 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 8.53 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 2.6691222524874617e-45
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.115324 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 11.53 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.115324 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 11.53 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.115324 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 11.53 percentage points.
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 0.0
-2026-06-19 23:11:44,310 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.055339 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 5.53 percentage points.
-2026-06-19 23:11:44,311 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.055339 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 5.53 percentage points.
-2026-06-19 23:11:44,311 | [None] | mlops.ml_operations | interpret_marginal_effect:244 | INFO | Marginal Effect: -0.055339 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 5.53 percentage points.
-2026-06-19 23:11:44,311 | [None] | mlops.ml_operations | interpret_p_value:64 | INFO | P-value interpretation: Highly Significant for p-value 1.3249551959055702e-40
-2026-06-19 23:11:44,334 | [None] | mlops.ml_operations | from_list_to_np_converter:593 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
-2026-06-19 23:11:44,335 | [None] | mlops.ml_operations | from_list_to_np_converter:587 | INFO | converted from list to numpy array | np.shape=(20100,)
-2026-06-19 23:11:44,335 | [None] | mlops.ml_operations | calculate_confusion_matrix:681 | INFO | Input is converted to numpy array for validation.
-2026-06-19 23:11:44,337 | [None] | mlops.ml_operations | calculate_confusion_matrix:708 | INFO | Confusion matrix calculated successfully.
-2026-06-19 23:11:44,337 | [None] | mlops.ml_operations | calculate_confusion_matrix:725 | INFO | Confusion Matrix:
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_confusion_matrix:726 | INFO | 	True Negative  (TN): 14925
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_confusion_matrix:727 | INFO | 	False Positive (FP): 729
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_confusion_matrix:728 | INFO | 	False Negative (FN): 2874
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_confusion_matrix:729 | INFO | 	True Positive  (TP): 1572
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_accuracy:779 | INFO | Accuracy Calculation --> (TP + TN) / Total = (1572 + 14925) / 20100 = 0.820746
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_precision:842 | INFO | Precision Calculation --> TP / (TP + FP) = 1572 / (1572 + 729) = 0.683181
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_recall:905 | INFO | Recall Calculation --> TP / (TP + FN) = 1572 / (1572 + 2874) = 0.353576
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_precision:842 | INFO | Precision Calculation --> TP / (TP + FP) = 1572 / (1572 + 729) = 0.683181
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_recall:905 | INFO | Recall Calculation --> TP / (TP + FN) = 1572 / (1572 + 2874) = 0.353576
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | calculate_f1_score:974 | INFO | F1 Score Calculation --> 2 * Precision * Recall / (Precision + Recall) = 2 * 0.683181 * 0.353576 / (0.683181 + 0.353576) = 0.465985
-2026-06-19 23:11:44,338 | [None] | mlops.ml_operations | from_list_to_np_converter:593 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
-2026-06-19 23:11:44,339 | [None] | mlops.ml_operations | from_list_to_np_converter:587 | INFO | converted from list to numpy array | np.shape=(20100,)
-2026-06-19 23:11:44,342 | [None] | mlops.ml_operations | calculate_roc_auc:1024 | INFO | ROC-AUC Calculation --> ROC-AUC = 0.757733
-2026-06-19 23:11:44,342 | [None] | mlops.ml_operations | interpret_roc_auc:343 | INFO | ROC-AUC Interpretation: 0.757733 -> Good -> Model has good discriminatory power.
-2026-06-19 23:11:44,342 | [None] | mlops.ml_operations | calculate_gini:1055 | INFO | Gini Calculation --> 2 * ROC-AUC - 1 = 2 * 0.757733 - 1 = 0.515466
-2026-06-19 23:11:44,342 | [None] | mlops.ml_operations | interpret_gini:416 | INFO | Gini Interpretation: 0.515466 -> Good -> Model has good discriminatory power.
-2026-06-19 23:11:44,343 | [None] | mlops.ml_operations | from_list_to_np_converter:593 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
-2026-06-19 23:11:44,343 | [None] | mlops.ml_operations | from_list_to_np_converter:587 | INFO | converted from list to numpy array | np.shape=(20100,)
-2026-06-19 23:11:44,346 | [None] | mlops.ml_operations | calculate_ks:1294 | INFO | KS Calculation for Best Threshold -->
-2026-06-19 23:11:44,347 | [None] | mlops.ml_operations | calculate_ks:1295 | INFO | 	KS=0.408120
-2026-06-19 23:11:44,347 | [None] | mlops.ml_operations | calculate_ks:1296 | INFO | 	Threshold=0.225047
-2026-06-19 23:11:44,347 | [None] | mlops.ml_operations | calculate_ks:1297 | INFO | 	CumBad=0.577598
-2026-06-19 23:11:44,347 | [None] | mlops.ml_operations | calculate_ks:1298 | INFO | 	CumGood=0.169477
-2026-06-19 23:11:44,347 | [None] | mlops.ml_operations | calculate_ks:1299 | INFO | 	Difference=0.408120
-2026-06-19 23:11:44,347 | [None] | mlops.ml_operations | interpret_ks:501 | INFO | KS Interpretation: 0.408120 (40.81%) -> Very Good -> Model has very good discriminatory power.
-2026-06-19 23:11:44,347 | [None] | mlops.ml_operations | from_list_to_np_converter:593 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
-2026-06-19 23:11:44,349 | [None] | mlops.ml_operations | from_list_to_np_converter:587 | INFO | converted from list to numpy array | np.shape=(20100,)
-2026-06-19 23:11:44,352 | [None] | mlops.ml_operations | calculate_decile_analysis:1416 | INFO | Number of observations: 20100
-2026-06-19 23:11:44,352 | [None] | mlops.ml_operations | calculate_decile_analysis:1417 | INFO | Number of good observations: 15654
-2026-06-19 23:11:44,352 | [None] | mlops.ml_operations | calculate_decile_analysis:1418 | INFO | Number of bad observations: 4446
-2026-06-19 23:11:44,360 | [None] | mlops.ml_operations | calculate_decile_analysis:1537 | INFO | Decile analysis completed with n_bins=20. Total=20100, Bad=4446, Good=15654
-2026-06-19 23:11:44,361 | [None] | mlops.ml_operations | calculate_decile_analysis:1543 | INFO | Decile table:
+2026-06-20 21:46:20,438 | [None] | mlops.ml_operations | split_train_test:70 | INFO | Data split into train and test sets with test_size=0.33, random_state=42, stratify=True
+2026-06-20 21:46:20,438 | [None] | mlops.ml_operations | split_train_test:71 | INFO | Number of training samples: 20100
+2026-06-20 21:46:20,439 | [None] | mlops.ml_operations | split_train_test:72 | INFO | Training set class distribution:
+TARGET
+0   0.778806
+1   0.221194
+Name: proportion, dtype: float64
+2026-06-20 21:46:20,439 | [None] | mlops.ml_operations | split_train_test:73 | INFO | Number of testing samples: 9900
+2026-06-20 21:46:20,440 | [None] | mlops.ml_operations | split_train_test:74 | INFO | Testing set class distribution:
+TARGET
+0   0.778788
+1   0.221212
+Name: proportion, dtype: float64
+2026-06-20 21:48:15,824 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 0.0
+2026-06-20 21:48:15,827 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 0.0
+2026-06-20 21:48:15,827 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Very Significant for p-value 0.008824888428042443
+2026-06-20 21:48:15,827 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Not Significant for p-value 0.6361322278093874
+2026-06-20 21:48:15,827 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Very Significant for p-value 0.003270174430483532
+2026-06-20 21:48:15,827 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 5.103901346868911e-46
+2026-06-20 21:48:15,828 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 2.558835929085379e-24
+2026-06-20 21:48:15,828 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 0.0
+2026-06-20 21:48:15,829 | [None] | mlops.ml_operations | interpret_odds_ratio:216 | INFO | Odds Ratio > 1: Increases the odds of the positive class by 118.78%.
+2026-06-20 21:48:15,829 | [None] | mlops.ml_operations | interpret_odds_ratio:216 | INFO | Odds Ratio > 1: Increases the odds of the positive class by 15.68%.
+2026-06-20 21:48:15,829 | [None] | mlops.ml_operations | interpret_odds_ratio:221 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 58.86%.
+2026-06-20 21:48:15,829 | [None] | mlops.ml_operations | interpret_odds_ratio:221 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 46.80%.
+2026-06-20 21:48:15,829 | [None] | mlops.ml_operations | interpret_odds_ratio:221 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 42.94%.
+2026-06-20 21:48:15,830 | [None] | mlops.ml_operations | interpret_odds_ratio:221 | INFO | Odds Ratio < 1: Decreases the odds of the positive class by 60.52%.
+2026-06-20 21:48:15,853 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: 0.108023 - Very Large --> A one-unit increase in the variable increases the predicted probability of the positive class by 10.80 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: 0.108023 - Very Large --> A one-unit increase in the variable increases the predicted probability of the positive class by 10.80 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: 0.108023 - Very Large --> A one-unit increase in the variable increases the predicted probability of the positive class by 10.80 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Very Significant for p-value 0.008804590958345153
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: 0.020100 - Moderate --> A one-unit increase in the variable increases the predicted probability of the positive class by 2.01 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: 0.020100 - Moderate --> A one-unit increase in the variable increases the predicted probability of the positive class by 2.01 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: 0.020100 - Moderate --> A one-unit increase in the variable increases the predicted probability of the positive class by 2.01 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Not Significant for p-value 0.6361272010934389
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.122552 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 12.26 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.122552 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 12.26 percentage points.
+2026-06-20 21:48:15,854 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.122552 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 12.26 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Very Significant for p-value 0.003266811580107185
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.087088 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 8.71 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.087088 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 8.71 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.087088 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 8.71 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 5.565099098498127e-47
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.077419 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 7.74 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.077419 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 7.74 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.077419 - Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 7.74 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 1.825352692950362e-24
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.128237 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 12.82 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.128237 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 12.82 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_marginal_effect:299 | INFO | Marginal Effect: -0.128237 - Very Large --> A one-unit increase in the variable decreases the predicted probability of the positive class by 12.82 percentage points.
+2026-06-20 21:48:15,855 | [None] | mlops.ml_operations | interpret_p_value:119 | INFO | P-value interpretation: Highly Significant for p-value 0.0
+2026-06-20 21:48:15,880 | [None] | mlops.ml_operations | from_list_to_np_converter:648 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
+2026-06-20 21:48:15,880 | [None] | mlops.ml_operations | from_list_to_np_converter:642 | INFO | converted from list to numpy array | np.shape=(20100,)
+2026-06-20 21:48:15,880 | [None] | mlops.ml_operations | calculate_confusion_matrix:736 | INFO | Input is converted to numpy array for validation.
+2026-06-20 21:48:15,882 | [None] | mlops.ml_operations | calculate_confusion_matrix:763 | INFO | Confusion matrix calculated successfully.
+2026-06-20 21:48:15,882 | [None] | mlops.ml_operations | calculate_confusion_matrix:780 | INFO | Confusion Matrix:
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_confusion_matrix:781 | INFO | 	True Negative  (TN): 14949
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_confusion_matrix:782 | INFO | 	False Positive (FP): 705
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_confusion_matrix:783 | INFO | 	False Negative (FN): 2918
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_confusion_matrix:784 | INFO | 	True Positive  (TP): 1528
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_accuracy:834 | INFO | Accuracy Calculation --> (TP + TN) / Total = (1528 + 14949) / 20100 = 0.819751
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_precision:897 | INFO | Precision Calculation --> TP / (TP + FP) = 1528 / (1528 + 705) = 0.684281
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_recall:960 | INFO | Recall Calculation --> TP / (TP + FN) = 1528 / (1528 + 2918) = 0.343680
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_precision:897 | INFO | Precision Calculation --> TP / (TP + FP) = 1528 / (1528 + 705) = 0.684281
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_recall:960 | INFO | Recall Calculation --> TP / (TP + FN) = 1528 / (1528 + 2918) = 0.343680
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | calculate_f1_score:1029 | INFO | F1 Score Calculation --> 2 * Precision * Recall / (Precision + Recall) = 2 * 0.684281 * 0.343680 / (0.684281 + 0.343680) = 0.457554
+2026-06-20 21:48:15,883 | [None] | mlops.ml_operations | from_list_to_np_converter:648 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
+2026-06-20 21:48:15,884 | [None] | mlops.ml_operations | from_list_to_np_converter:642 | INFO | converted from list to numpy array | np.shape=(20100,)
+2026-06-20 21:48:15,887 | [None] | mlops.ml_operations | calculate_roc_auc:1079 | INFO | ROC-AUC Calculation --> ROC-AUC = 0.759422
+2026-06-20 21:48:15,887 | [None] | mlops.ml_operations | interpret_roc_auc:398 | INFO | ROC-AUC Interpretation: 0.759422 -> Good -> Model has good discriminatory power.
+2026-06-20 21:48:15,887 | [None] | mlops.ml_operations | calculate_gini:1110 | INFO | Gini Calculation --> 2 * ROC-AUC - 1 = 2 * 0.759422 - 1 = 0.518843
+2026-06-20 21:48:15,888 | [None] | mlops.ml_operations | interpret_gini:471 | INFO | Gini Interpretation: 0.518843 -> Good -> Model has good discriminatory power.
+2026-06-20 21:48:15,888 | [None] | mlops.ml_operations | from_list_to_np_converter:648 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
+2026-06-20 21:48:15,888 | [None] | mlops.ml_operations | from_list_to_np_converter:642 | INFO | converted from list to numpy array | np.shape=(20100,)
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | calculate_ks:1349 | INFO | KS Calculation for Best Threshold -->
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | calculate_ks:1350 | INFO | 	KS=0.394277
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | calculate_ks:1351 | INFO | 	Threshold=0.193461
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | calculate_ks:1352 | INFO | 	CumBad=0.639901
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | calculate_ks:1353 | INFO | 	CumGood=0.245624
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | calculate_ks:1354 | INFO | 	Difference=0.394277
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | interpret_ks:556 | INFO | KS Interpretation: 0.394277 (39.43%) -> Good -> Model has good discriminatory power.
+2026-06-20 21:48:15,892 | [None] | mlops.ml_operations | from_list_to_np_converter:648 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
+2026-06-20 21:48:15,893 | [None] | mlops.ml_operations | from_list_to_np_converter:642 | INFO | converted from list to numpy array | np.shape=(20100,)
+2026-06-20 21:48:15,896 | [None] | mlops.ml_operations | calculate_decile_analysis:1471 | INFO | Number of observations: 20100
+2026-06-20 21:48:15,896 | [None] | mlops.ml_operations | calculate_decile_analysis:1472 | INFO | Number of good observations: 15654
+2026-06-20 21:48:15,896 | [None] | mlops.ml_operations | calculate_decile_analysis:1473 | INFO | Number of bad observations: 4446
+2026-06-20 21:48:15,903 | [None] | mlops.ml_operations | calculate_decile_analysis:1592 | INFO | Decile analysis completed with n_bins=20. Total=20100, Bad=4446, Good=15654
+2026-06-20 21:48:15,903 | [None] | mlops.ml_operations | calculate_decile_analysis:1598 | INFO | Decile table:
     decile  minProbability  maxProbability  observations  bad  good  populationRate  badRate  goodRate  badDistribution  goodDistribution  \
-0        1        0.701376        0.859213          1005  732   273        0.050000 0.728358  0.271642         0.164642          0.017440   
-1        2        0.566566        0.701376          1005  659   346        0.050000 0.655721  0.344279         0.148223          0.022103   
-2        3        0.388959        0.566566          1005  502   503        0.050000 0.499502  0.500498         0.112910          0.032132   
-3        4        0.272032        0.388959          1005  333   672        0.050000 0.331343  0.668657         0.074899          0.042928   
-4        5        0.233905        0.272032          1005  278   727        0.050000 0.276617  0.723383         0.062528          0.046442   
-5        6        0.184658        0.233905          1005  225   780        0.050000 0.223881  0.776119         0.050607          0.049828   
-6        7        0.180545        0.184658          1005  202   803        0.050000 0.200995  0.799005         0.045434          0.051297   
-7        8        0.146632        0.180545          1005  188   817        0.050000 0.187065  0.812935         0.042285          0.052191   
-8        9        0.146632        0.146632          1005  150   855        0.050000 0.149254  0.850746         0.033738          0.054619   
-9       10        0.139497        0.146632          1005  137   868        0.050000 0.136318  0.863682         0.030814          0.055449   
-10      11        0.134822        0.139497          1005  126   879        0.050000 0.125373  0.874627         0.028340          0.056152   
-11      12        0.132423        0.134822          1005  140   865        0.050000 0.139303  0.860697         0.031489          0.055257   
-12      13        0.129954        0.132423          1005  132   873        0.050000 0.131343  0.868657         0.029690          0.055768   
-13      14        0.116961        0.129954          1005  114   891        0.050000 0.113433  0.886567         0.025641          0.056918   
-14      15        0.106375        0.116961          1005   85   920        0.050000 0.084577  0.915423         0.019118          0.058771   
-15      16        0.106375        0.106375          1005   88   917        0.050000 0.087562  0.912438         0.019793          0.058579   
-16      17        0.102614        0.106375          1005  103   902        0.050000 0.102488  0.897512         0.023167          0.057621   
-17      18        0.093626        0.102614          1005   79   926        0.050000 0.078607  0.921393         0.017769          0.059154   
-18      19        0.088363        0.093626          1005   94   911        0.050000 0.093532  0.906468         0.021143          0.058196   
-19      20        0.061753        0.088363          1005   79   926        0.050000 0.078607  0.921393         0.017769          0.059154   
+0        1        0.703675        0.852501          1005  706   299        0.050000 0.702488  0.297512         0.158794          0.019101   
+1        2        0.522110        0.703675          1005  696   309        0.050000 0.692537  0.307463         0.156545          0.019739   
+2        3        0.379549        0.522110          1005  451   554        0.050000 0.448756  0.551244         0.101439          0.035390   
+3        4        0.306294        0.379549          1005  347   658        0.050000 0.345274  0.654726         0.078048          0.042034   
+4        5        0.233114        0.306294          1005  256   749        0.050000 0.254726  0.745274         0.057580          0.047847   
+5        6        0.196299        0.233114          1005  236   769        0.050000 0.234826  0.765174         0.053081          0.049125   
+6        7        0.187885        0.196299          1005  216   789        0.050000 0.214925  0.785075         0.048583          0.050402   
+7        8        0.162515        0.187885          1005  187   818        0.050000 0.186070  0.813930         0.042060          0.052255   
+8        9        0.155840        0.162515          1005  153   852        0.050000 0.152239  0.847761         0.034413          0.054427   
+9       10        0.148291        0.155840          1005  171   834        0.050000 0.170149  0.829851         0.038462          0.053277   
+10      11        0.143249        0.148291          1005  150   855        0.050000 0.149254  0.850746         0.033738          0.054619   
+11      12        0.136527        0.143249          1005  141   864        0.050000 0.140299  0.859701         0.031714          0.055194   
+12      13        0.127895        0.136527          1005  125   880        0.050000 0.124378  0.875622         0.028115          0.056216   
+13      14        0.117579        0.127895          1005  119   886        0.050000 0.118408  0.881592         0.026766          0.056599   
+14      15        0.109869        0.117579          1005   92   913        0.050000 0.091542  0.908458         0.020693          0.058324   
+15      16        0.101876        0.109869          1005   96   909        0.050000 0.095522  0.904478         0.021592          0.058068   
+16      17        0.089464        0.101876          1005   81   924        0.050000 0.080597  0.919403         0.018219          0.059026   
+17      18        0.084123        0.089308          1005   93   912        0.050000 0.092537  0.907463         0.020918          0.058260   
+18      19        0.073688        0.084123          1005   65   940        0.050000 0.064677  0.935323         0.014620          0.060049   
+19      20        0.022870        0.073688          1005   65   940        0.050000 0.064677  0.935323         0.014620          0.060049   
 
     cumulativeBad  cumulativeGood  cumulativeBadRate  cumulativeGoodRate  cumulativePopulation  cumulativePopulationRate  cumulativeLift       ks  \
-0             732             273           0.164642            0.017440                  1005                  0.050000        3.292848 0.147203   
-1            1391             619           0.312865            0.039543                  2010                  0.100000        3.128655 0.273323   
-2            1893            1122           0.425776            0.071675                  3015                  0.150000        2.838507 0.354101   
-3            2226            1794           0.500675            0.114603                  4020                  0.200000        2.503374 0.386071   
-4            2504            2521           0.563203            0.161045                  5025                  0.250000        2.252812 0.402158   
-5            2729            3301           0.613810            0.210873                  6030                  0.300000        2.046034 0.402938   
-6            2931            4104           0.659244            0.262169                  7035                  0.350000        1.883555 0.397075   
-7            3119            4921           0.701529            0.314361                  8040                  0.400000        1.753824 0.387169   
-8            3269            5776           0.735268            0.368979                  9045                  0.450000        1.633928 0.366288   
-9            3406            6644           0.766082            0.424428                 10050                  0.500000        1.532164 0.341654   
-10           3532            7523           0.794422            0.480580                 11055                  0.550000        1.444404 0.313842   
-11           3672            8388           0.825911            0.535837                 12060                  0.600000        1.376518 0.290073   
-12           3804            9261           0.855601            0.591606                 13065                  0.650000        1.316309 0.263995   
-13           3918           10152           0.881242            0.648524                 14070                  0.700000        1.258917 0.232717   
-14           4003           11072           0.900360            0.707295                 15075                  0.750000        1.200480 0.193065   
-15           4091           11989           0.920153            0.765875                 16080                  0.800000        1.150191 0.154278   
-16           4194           12891           0.943320            0.823496                 17085                  0.850000        1.109788 0.119824   
-17           4273           13817           0.961089            0.882650                 18090                  0.900000        1.067876 0.078439   
-18           4367           14728           0.982231            0.940846                 19095                  0.950000        1.033928 0.041385   
+0             706             299           0.158794            0.019101                  1005                  0.050000        3.175888 0.139694   
+1            1402             608           0.315340            0.038840                  2010                  0.100000        3.153396 0.276500   
+2            1853            1162           0.416779            0.074230                  3015                  0.150000        2.778528 0.342549   
+3            2200            1820           0.494827            0.116264                  4020                  0.200000        2.474134 0.378563   
+4            2456            2569           0.552407            0.164111                  5025                  0.250000        2.209627 0.388295   
+5            2692            3338           0.605488            0.213236                  6030                  0.300000        2.018294 0.392252   
+6            2908            4127           0.654071            0.263639                  7035                  0.350000        1.868775 0.390432   
+7            3095            4945           0.696131            0.315894                  8040                  0.400000        1.740328 0.380238   
+8            3248            5797           0.730544            0.370321                  9045                  0.450000        1.623432 0.360224   
+9            3419            6631           0.769006            0.423598                 10050                  0.500000        1.538012 0.345408   
+10           3569            7486           0.802744            0.478216                 11055                  0.550000        1.459535 0.324528   
+11           3710            8350           0.834458            0.533410                 12060                  0.600000        1.390763 0.301048   
+12           3835            9230           0.862573            0.589626                 13065                  0.650000        1.327036 0.272947   
+13           3954           10116           0.889339            0.646225                 14070                  0.700000        1.270484 0.243114   
+14           4046           11029           0.910031            0.704548                 15075                  0.750000        1.213375 0.205483   
+15           4142           11938           0.931624            0.762617                 16080                  0.800000        1.164530 0.169007   
+16           4223           12862           0.949843            0.821643                 17085                  0.850000        1.117462 0.128200   
+17           4316           13774           0.970760            0.879903                 18090                  0.900000        1.078622 0.090857   
+18           4381           14714           0.985380            0.939951                 19095                  0.950000        1.037242 0.045429   
 19           4446           15654           1.000000            1.000000                 20100                  1.000000        1.000000 0.000000   
 
     decileLift  
-0     3.292848  
-1     2.964462  
-2     2.258210  
-3     1.497976  
-4     1.250562  
-5     1.012146  
-6     0.908682  
-7     0.845704  
-8     0.674764  
-9     0.616284  
-10    0.566802  
-11    0.629780  
-12    0.593792  
-13    0.512821  
-14    0.382366  
-15    0.395861  
-16    0.463338  
-17    0.355376  
-18    0.422852  
-19    0.355376  
-2026-06-19 23:11:44,493 | [None] | mlops.ml_operations | plot_ks:1626 | INFO | KS Plot created. KS=0.408120, Threshold=0.225047
-2026-06-19 23:11:44,753 | [None] | mlops.ml_operations | plot_lift:1729 | INFO | Lift Plot created. lift_type=cumulative
-2026-06-19 23:11:44,966 | [None] | mlops.ml_operations | plot_lorenz:1807 | INFO | Lorenz Curve created.
-2026-06-19 23:11:45,122 | [None] | mlops.ml_operations | from_list_to_np_converter:593 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
-2026-06-19 23:11:45,122 | [None] | mlops.ml_operations | from_list_to_np_converter:587 | INFO | converted from list to numpy array | np.shape=(20100,)
-2026-06-19 23:11:45,185 | [None] | mlops.ml_operations | plot_roc_auc:1917 | INFO | ROC AUC Plot created. AUC=0.757733
-2026-06-19 23:11:45,335 | [None] | mlops.ml_operations | from_list_to_np_converter:593 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
-2026-06-19 23:11:45,336 | [None] | mlops.ml_operations | from_list_to_np_converter:587 | INFO | converted from list to numpy array | np.shape=(20100,)
-2026-06-19 23:11:45,338 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.2500 | TP=2386 TN=13380 FP=2274 FN=2060 | Accuracy=0.7844 Precision=0.5120 Recall=0.5367 Specificity=0.8547 FPR=0.1453 F1=0.5241 MCC=0.3849
-2026-06-19 23:11:45,339 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.4000 | TP=1880 TN=14564 FP=1090 FN=2566 | Accuracy=0.8181 Precision=0.6330 Recall=0.4229 Specificity=0.9304 FPR=0.0696 F1=0.5070 MCC=0.4131
-2026-06-19 23:11:45,341 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.5000 | TP=1572 TN=14925 FP=729 FN=2874 | Accuracy=0.8207 Precision=0.6832 Recall=0.3536 Specificity=0.9534 FPR=0.0466 F1=0.4660 MCC=0.4002
-2026-06-19 23:11:45,342 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.6000 | TP=1295 TN=15137 FP=517 FN=3151 | Accuracy=0.8175 Precision=0.7147 Recall=0.2913 Specificity=0.9670 FPR=0.0330 F1=0.4139 MCC=0.3743
-2026-06-19 23:11:45,344 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.7000 | TP=810 TN=15356 FP=298 FN=3636 | Accuracy=0.8043 Precision=0.7310 Recall=0.1822 Specificity=0.9810 FPR=0.0190 F1=0.2917 MCC=0.2967
-2026-06-19 23:11:45,345 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.8000 | TP=252 TN=15566 FP=88 FN=4194 | Accuracy=0.7870 Precision=0.7412 Recall=0.0567 Specificity=0.9944 FPR=0.0056 F1=0.1053 MCC=0.1643
-2026-06-19 23:11:45,347 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.9000 | TP=0 TN=15654 FP=0 FN=4446 | Accuracy=0.7788 Precision=0.0000 Recall=0.0000 Specificity=1.0000 FPR=0.0000 F1=0.0000 MCC=0.0000
-2026-06-19 23:11:45,348 | [None] | mlops.ml_operations | calculate_threshold_analysis:2075 | INFO | Threshold=0.9500 | TP=0 TN=15654 FP=0 FN=4446 | Accuracy=0.7788 Precision=0.0000 Recall=0.0000 Specificity=1.0000 FPR=0.0000 F1=0.0000 MCC=0.0000
+0     3.175888  
+1     3.130904  
+2     2.028790  
+3     1.560954  
+4     1.151597  
+5     1.061628  
+6     0.971660  
+7     0.841206  
+8     0.688259  
+9     0.769231  
+10    0.674764  
+11    0.634278  
+12    0.562303  
+13    0.535313  
+14    0.413855  
+15    0.431849  
+16    0.364372  
+17    0.418354  
+18    0.292398  
+19    0.292398  
+2026-06-20 21:48:16,061 | [None] | mlops.ml_operations | plot_ks:1681 | INFO | KS Plot created. KS=0.394277, Threshold=0.193461
+2026-06-20 21:48:16,277 | [None] | mlops.ml_operations | plot_lift:1784 | INFO | Lift Plot created. lift_type=cumulative
+2026-06-20 21:48:16,543 | [None] | mlops.ml_operations | plot_lorenz:1862 | INFO | Lorenz Curve created.
+2026-06-20 21:48:16,704 | [None] | mlops.ml_operations | from_list_to_np_converter:648 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
+2026-06-20 21:48:16,705 | [None] | mlops.ml_operations | from_list_to_np_converter:642 | INFO | converted from list to numpy array | np.shape=(20100,)
+2026-06-20 21:48:16,766 | [None] | mlops.ml_operations | plot_roc_auc:1972 | INFO | ROC AUC Plot created. AUC=0.759422
+2026-06-20 21:48:16,917 | [None] | mlops.ml_operations | from_list_to_np_converter:648 | INFO | Input is already a numpy array. No conversion needed. | np.shape=(20100,)
+2026-06-20 21:48:16,917 | [None] | mlops.ml_operations | from_list_to_np_converter:642 | INFO | converted from list to numpy array | np.shape=(20100,)
+2026-06-20 21:48:16,919 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.2500 | TP=2356 TN=13401 FP=2253 FN=2090 | Accuracy=0.7839 Precision=0.5112 Recall=0.5299 Specificity=0.8561 FPR=0.1439 F1=0.5204 MCC=0.3811
+2026-06-20 21:48:16,921 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.4000 | TP=1816 TN=14565 FP=1089 FN=2630 | Accuracy=0.8150 Precision=0.6251 Recall=0.4085 Specificity=0.9304 FPR=0.0696 F1=0.4941 MCC=0.4000
+2026-06-20 21:48:16,923 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.5000 | TP=1528 TN=14949 FP=705 FN=2918 | Accuracy=0.8198 Precision=0.6843 Recall=0.3437 Specificity=0.9550 FPR=0.0450 F1=0.4576 MCC=0.3944
+2026-06-20 21:48:16,924 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.6000 | TP=1267 TN=15124 FP=530 FN=3179 | Accuracy=0.8155 Precision=0.7051 Recall=0.2850 Specificity=0.9661 FPR=0.0339 F1=0.4059 MCC=0.3653
+2026-06-20 21:48:16,926 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.7000 | TP=746 TN=15340 FP=314 FN=3700 | Accuracy=0.8003 Precision=0.7038 Recall=0.1678 Specificity=0.9799 FPR=0.0201 F1=0.2710 MCC=0.2743
+2026-06-20 21:48:16,927 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.8000 | TP=158 TN=15611 FP=43 FN=4288 | Accuracy=0.7845 Precision=0.7861 Recall=0.0355 Specificity=0.9973 FPR=0.0027 F1=0.0680 MCC=0.1368
+2026-06-20 21:48:16,929 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.9000 | TP=0 TN=15654 FP=0 FN=4446 | Accuracy=0.7788 Precision=0.0000 Recall=0.0000 Specificity=1.0000 FPR=0.0000 F1=0.0000 MCC=0.0000
+2026-06-20 21:48:16,930 | [None] | mlops.ml_operations | calculate_threshold_analysis:2130 | INFO | Threshold=0.9500 | TP=0 TN=15654 FP=0 FN=4446 | Accuracy=0.7788 Precision=0.0000 Recall=0.0000 Specificity=1.0000 FPR=0.0000 F1=0.0000 MCC=0.0000

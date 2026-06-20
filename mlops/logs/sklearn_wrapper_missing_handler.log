@@ -1,9 +1,12 @@
-2026-06-19 23:07:09,060 | [None] | mlops.sklearn_wrapper_missing_handler | __init__:83 | INFO | MissingColumnsHandler initialized with threshold=0.5
-2026-06-19 23:07:09,060 | [None] | mlops.sklearn_wrapper_missing_handler | fit:114 | INFO | Fitting MissingColumnsHandler on DataFrame with shape (20100, 32)
-2026-06-19 23:07:09,068 | [None] | mlops.sklearn_wrapper_missing_handler | fit:119 | INFO | Fit complete. Detected 1 columns with missing values > 50.0%: ['null_column']
-2026-06-19 23:07:09,069 | [None] | mlops.sklearn_wrapper_missing_handler | transform:161 | INFO | Transforming DataFrame with shape (20100, 32)
-2026-06-19 23:07:09,069 | [None] | mlops.sklearn_wrapper_missing_handler | transform:167 | INFO | Removing 1 columns with high missing values: ['null_column']
-2026-06-19 23:07:09,069 | [None] | mlops.sklearn_wrapper_missing_handler | transform:176 | INFO | Transform complete. Returned DataFrame with shape (20100, 31)
-2026-06-19 23:07:09,069 | [None] | mlops.sklearn_wrapper_missing_handler | transform:161 | INFO | Transforming DataFrame with shape (9900, 32)
-2026-06-19 23:07:09,069 | [None] | mlops.sklearn_wrapper_missing_handler | transform:167 | INFO | Removing 1 columns with high missing values: ['null_column']
-2026-06-19 23:07:09,070 | [None] | mlops.sklearn_wrapper_missing_handler | transform:176 | INFO | Transform complete. Returned DataFrame with shape (9900, 31)
+2026-06-20 21:46:20,440 | [None] | mlops.sklearn_wrapper_missing_handler | __init__:83 | INFO | MissingColumnsHandler initialized with threshold=0.5
+2026-06-20 21:46:20,460 | [None] | mlops.sklearn_wrapper_missing_handler | fit:114 | INFO | Fitting MissingColumnsHandler on DataFrame with shape (20100, 32)
+2026-06-20 21:46:20,468 | [None] | mlops.sklearn_wrapper_missing_handler | fit:119 | INFO | Fit complete. Detected 1 columns with missing values > 50.0%: ['null_column']
+2026-06-20 21:46:20,468 | [None] | mlops.sklearn_wrapper_missing_handler | transform:161 | INFO | Transforming DataFrame with shape (20100, 32)
+2026-06-20 21:46:20,468 | [None] | mlops.sklearn_wrapper_missing_handler | transform:167 | INFO | Removing 1 columns with high missing values: ['null_column']
+2026-06-20 21:46:20,469 | [None] | mlops.sklearn_wrapper_missing_handler | transform:176 | INFO | Transform complete. Returned DataFrame with shape (20100, 31)
+2026-06-20 21:48:16,934 | [None] | mlops.sklearn_wrapper_missing_handler | transform:161 | INFO | Transforming DataFrame with shape (1, 32)
+2026-06-20 21:48:16,934 | [None] | mlops.sklearn_wrapper_missing_handler | transform:167 | INFO | Removing 1 columns with high missing values: ['null_column']
+2026-06-20 21:48:16,935 | [None] | mlops.sklearn_wrapper_missing_handler | transform:176 | INFO | Transform complete. Returned DataFrame with shape (1, 31)
+2026-06-20 21:48:16,978 | [None] | mlops.sklearn_wrapper_missing_handler | transform:161 | INFO | Transforming DataFrame with shape (1, 32)
+2026-06-20 21:48:16,978 | [None] | mlops.sklearn_wrapper_missing_handler | transform:167 | INFO | Removing 1 columns with high missing values: ['null_column']
+2026-06-20 21:48:16,978 | [None] | mlops.sklearn_wrapper_missing_handler | transform:176 | INFO | Transform complete. Returned DataFrame with shape (1, 31)

@@ -1,10 +1,11 @@
-2026-06-19 23:10:23,894 | [None] | mlops.sklearn_wrapper_vif | fit:132 | INFO | ================================================================================
-2026-06-19 23:10:23,895 | [None] | mlops.sklearn_wrapper_vif | fit:133 | INFO | VIFTransformer.fit() - Starting feature selection with VIF analysis
-2026-06-19 23:10:23,895 | [None] | mlops.sklearn_wrapper_vif | fit:134 | INFO | VIF Threshold: 5.0, Max Iterations: 100
-2026-06-19 23:10:23,895 | [None] | mlops.sklearn_wrapper_vif | fit:135 | INFO | ================================================================================
-2026-06-19 23:10:48,283 | [None] | mlops.sklearn_wrapper_vif | fit:181 | INFO | VIFTransformer fitting completed. Number of features to keep: 36 Number of features removed: 2
-2026-06-19 23:10:48,283 | [None] | mlops.sklearn_wrapper_vif | fit:190 | INFO | Removed feature: bill_amount_jun_2005_woe, VIF: 8.010522725563218, Removed in step: 1
-2026-06-19 23:10:48,284 | [None] | mlops.sklearn_wrapper_vif | fit:190 | INFO | Removed feature: bill_amount_aug_2005_right, VIF: 6.140211562184848, Removed in step: 2
-2026-06-19 23:10:48,284 | [None] | mlops.sklearn_wrapper_vif | fit:191 | INFO | ================================================================================
-2026-06-19 23:10:48,286 | [None] | mlops.sklearn_wrapper_vif | transform:226 | INFO | Transforming data: selecting 36 features from 38 total features
-2026-06-19 23:10:48,291 | [None] | mlops.sklearn_wrapper_vif | transform:226 | INFO | Transforming data: selecting 36 features from 38 total features
+2026-06-20 21:47:41,681 | [None] | mlops.sklearn_wrapper_vif | fit:187 | INFO | ================================================================================
+2026-06-20 21:47:41,681 | [None] | mlops.sklearn_wrapper_vif | fit:188 | INFO | VIFTransformer.fit() - Starting feature selection with VIF analysis
+2026-06-20 21:47:41,681 | [None] | mlops.sklearn_wrapper_vif | fit:189 | INFO | VIF Threshold: 5.0, Max Iterations: 100
+2026-06-20 21:47:41,682 | [None] | mlops.sklearn_wrapper_vif | fit:190 | INFO | ================================================================================
+2026-06-20 21:47:49,668 | [None] | mlops.sklearn_wrapper_vif | fit:241 | INFO | VIFTransformer fitting completed. Number of features to keep: 36 Number of features removed: 2
+2026-06-20 21:47:49,669 | [None] | mlops.sklearn_wrapper_vif | fit:250 | INFO | Removed feature: bill_amount_jun_2005_woe, VIF: 8.007729933441384, Removed in step: 1
+2026-06-20 21:47:49,669 | [None] | mlops.sklearn_wrapper_vif | fit:250 | INFO | Removed feature: bill_amount_aug_2005_right, VIF: 6.1405193680979115, Removed in step: 2
+2026-06-20 21:47:49,669 | [None] | mlops.sklearn_wrapper_vif | fit:251 | INFO | ================================================================================
+2026-06-20 21:47:49,671 | [None] | mlops.sklearn_wrapper_vif | transform:286 | INFO | Transforming data: selecting 36 features from 38 total features
+2026-06-20 21:48:16,975 | [None] | mlops.sklearn_wrapper_vif | transform:286 | INFO | Transforming data: selecting 36 features from 38 total features
+2026-06-20 21:48:17,020 | [None] | mlops.sklearn_wrapper_vif | transform:286 | INFO | Transforming data: selecting 36 features from 38 total features

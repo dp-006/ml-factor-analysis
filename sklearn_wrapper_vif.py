@@ -47,26 +47,75 @@ class VIFTransformer(BaseEstimator, TransformerMixin):
     Attributes
     ----------
     features_to_keep_ : list
-        List of feature names to retain after fitting. These are features with VIF below the threshold.
-        Example: ['feature_1', 'feature_3', 'feature_5']
-    
+        List of feature names to retain after fitting (all features with final VIF below the threshold).
+
+        Example:
+            ['credit_limit_woe', 'age_woe', 'payment_amount_sep_2005_woe', 'repayment_status_sep_2005_woe', ...]
+
     vif_results_ : dict
-        Dictionary containing the VIF values for each feature before removal.
-        Example:
-        {
-            "feature_1": {"vif": 10.5, "interpretation": "High multicollinearity"},
-            "feature_2": {"vif": 3.2, "interpretation": "Acceptable multicollinearity"},
-            ...
-        }
-    
+        Alias for iteration_steps_. Contains the same step-by-step removal history. See iteration_steps_.
+
     iteration_steps_ : dict
-        Dictionary tracking the iterative removal process, showing which features were removed at each step.
-        Example:
-        {
-            "iteration_1": {"removed_feature": "feature_1", "vif_values": {"feature_1": 10.5, "feature_2": 3.2, ...}},
-            "iteration_2": {"removed_feature": "feature_3", "vif_values": {"feature_2": 3.2, "feature_4": 6.8, ...}},
-            ...
-        }
+        Integer-keyed dict tracking each removal step. Each step records all feature VIF values at that
+        point in the iteration, which feature was removed, and its VIF value.
+
+        Structure:
+            {
+                <step: int>: {
+                    'vifResults': {
+                        <feature_name: str>: {
+                            'vif': <float>,
+                            'interpretation': <str>   # human-readable severity label
+                        },
+                        ...                           # one entry per feature still present at this step
+                    },
+                    'removedFeatureName': <str>,       # feature eliminated in this step
+                    'removedFeatureVIF':  <np.float64> # VIF value that triggered its removal
+                },
+                ...
+            }
+
+        Example (first 2 steps):
+            {
+                1: {
+                    'vifResults': {
+                        'bill_amount_jun_2005_woe': {
+                            'vif': 8.007729933441384,
+                            'interpretation': 'Moderate to high correlation with other predictors. Consider checking for multicollinearity.'
+                        },
+                        'bill_amount_jul_2005_woe': {
+                            'vif': 7.786321474925436,
+                            'interpretation': 'Moderate to high correlation with other predictors. Consider checking for multicollinearity.'
+                        },
+                        'credit_limit_woe': {
+                            'vif': 1.5706809870938874,
+                            'interpretation': 'Mild to moderate correlation with other predictors (usually fine).'
+                        },
+                        ...
+                    },
+                    'removedFeatureName': 'bill_amount_jun_2005_woe',
+                    'removedFeatureVIF':  np.float64(8.007729933441384)
+                },
+                2: {
+                    'vifResults': {
+                        'bill_amount_aug_2005_right': {
+                            'vif': 6.1405193680979115,
+                            'interpretation': 'Moderate to high correlation with other predictors. Consider checking for multicollinearity.'
+                        },
+                        'credit_limit_woe': {
+                            'vif': 1.5703265761121037,
+                            'interpretation': 'Mild to moderate correlation with other predictors (usually fine).'
+                        },
+                        ...
+                    },
+                    'removedFeatureName': 'bill_amount_aug_2005_right',
+                    'removedFeatureVIF':  np.float64(6.1405193680979115)
+                },
+                ...
+            }
+
+        Note: The loop terminates when all remaining features have VIF < vif_threshold,
+        so the final kept features are NOT recorded as a step — only removals are logged.
     
     Examples
     --------
@@ -87,7 +136,7 @@ class VIFTransformer(BaseEstimator, TransformerMixin):
     >>> predictions = pipeline.predict(X)
     """
     
-    def __init__(self, vif_threshold=5.0, max_iterations=100):
+    def __init__(self, vif_threshold=5.0, max_iterations=100, output_dir=None):
         """
         Initialize the VIFTransformer.
         
@@ -97,9 +146,15 @@ class VIFTransformer(BaseEstimator, TransformerMixin):
             The VIF threshold above which features will be removed.
         max_iterations : int, default=100
             The maximum number of iterations for feature removal.
+        output_dir : str or None, default=None
+            Directory to save VIF results. If provided, two files are written:
+            - vif_iterative_steps.json  : full step-by-step removal history
+            - vif_iterative_steps.csv   : tabular view of the same steps
+            If None, no files are saved.
         """
         self.vif_threshold = vif_threshold
         self.max_iterations = max_iterations
+        self.output_dir = output_dir
         self.features_to_keep_ = None
         self.vif_results_ = None
         self.iteration_steps_ = None
@@ -159,13 +214,18 @@ class VIFTransformer(BaseEstimator, TransformerMixin):
             logger.error(error_message)
             raise ValueError(error_message)
         
+        # Resolve output paths if an output directory is provided
+        import os
+        output_json_path = os.path.join(self.output_dir, "vif_iterative_steps.json") if self.output_dir else None
+        output_csv_path  = os.path.join(self.output_dir, "vif_iterative_steps.csv")  if self.output_dir else None
+
         # Perform iterative VIF-based feature selection
         selected_features, steps = iterative_feature_selector_with_vif(
             X,
             vif_treshold=self.vif_threshold,
             maxiterations=self.max_iterations,
-            output_json_path=None,
-            output_csv_path=None
+            output_json_path=output_json_path,
+            output_csv_path=output_csv_path
         )
         
         # Store the results

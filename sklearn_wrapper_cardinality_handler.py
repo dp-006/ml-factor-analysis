@@ -10,7 +10,7 @@ numeric columns with low cardinality (few unique values) to object type.
 import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
-from helper.column_operations import detect_low_cardinality_numeric_columns_to_object
+from helper.column_operations import detect_low_cardinality_numeric_columns_to_object, detect_outlier_indicator_columns
 from logging_config.logger_config import get_logger
 
 logger_name = "mlops.sklearn_wrapper_cardinality_handler"
@@ -37,11 +37,6 @@ class LowCardinalityHandler(BaseEstimator, TransformerMixin):
         cardinality (default is 10). Columns with unique values <= threshold will 
         be converted to object type.
     
-    action : str, optional
-        Action to perform on detected low cardinality columns. Options:
-        - 'convert': Convert detected columns to object type (default)
-        - 'keep': Keep columns as numeric without conversion
-    
     low_cardinality_columns_ : dict
         Mapping of low cardinality column names to their unique value counts 
         (learned during fit). Format: {col_name: unique_count}
@@ -59,15 +54,15 @@ class LowCardinalityHandler(BaseEstimator, TransformerMixin):
     ... })
     >>> 
     >>> # Create and fit transformer with threshold=10
-    >>> handler = LowCardinalityHandler(threshold=10, action='convert')
+    >>> handler = LowCardinalityHandler(threshold=10, add_suffix=True, suffix='s')
     >>> handler.fit(df)
     >>> 
-    >>> # Transform data - 'status' and 'rating' will be converted to object
+    >>> # Transform data - 'status' and 'rating' will be converted to object with suffix
     >>> df_transformed = handler.transform(df)
     >>> print(df_transformed.dtypes)  # status and rating will be 'object'
     """
     
-    def __init__(self, threshold: int = 10, action: str = 'convert', add_suffix: bool = False, suffix: str = "s"):
+    def __init__(self, threshold: int = 10, add_suffix: bool = False, suffix: str = "s"):
         """
         Initialize the LowCardinalityHandler transformer.
         
@@ -76,11 +71,6 @@ class LowCardinalityHandler(BaseEstimator, TransformerMixin):
         threshold : int, optional
             Number of unique values below which a numeric column is considered 
             low cardinality. Default is 10. Must be >= 1.
-        
-        action : str, optional
-            Action to perform on detected low cardinality columns. Options:
-            - 'convert': Convert detected columns to object type (default)
-            - 'keep': Keep columns as numeric without conversion
         
         add_suffix : bool, optional
             If True, adds a suffix to each value in converted columns. This can help 
@@ -93,26 +83,22 @@ class LowCardinalityHandler(BaseEstimator, TransformerMixin):
         Raises
         ------
         ValueError
-            If threshold is not a positive integer, or if action is not 
-            'convert' or 'keep'.
+            If threshold is not a positive integer, or if add_suffix is not a boolean, or if suffix is not a string.
         """
         if not isinstance(threshold, int):
             raise ValueError("threshold must be an integer.")
         if threshold < 1:
             raise ValueError("threshold must be >= 1.")
-        if action not in ['convert', 'keep']:
-            raise ValueError("action must be either 'convert' or 'keep'.")
         if not isinstance(add_suffix, bool):
             raise ValueError("add_suffix must be a boolean.")
         if not isinstance(suffix, str):
             raise ValueError("suffix must be a string.")
         
         self.threshold = threshold
-        self.action = action
         self.add_suffix = add_suffix
         self.suffix = suffix
         self.low_cardinality_columns_ = None
-        logger.info(f"LowCardinalityHandler initialized with threshold={threshold}, action='{action}', add_suffix={add_suffix}, suffix='{suffix}'")
+        logger.info(f"LowCardinalityHandler initialized with threshold={threshold}, add_suffix={add_suffix}, suffix='{suffix}'")
     
     def fit(self, X: pd.DataFrame, y=None):
         """
@@ -149,7 +135,18 @@ class LowCardinalityHandler(BaseEstimator, TransformerMixin):
         self.low_cardinality_columns_ = detect_low_cardinality_numeric_columns_to_object(
             X, self.threshold
         )
-        
+
+        # Exclude outlier indicator columns (_right, _left) — these are binary flags
+        # created by Winsorizer and must not be converted to object type.
+        indicator_cols = detect_outlier_indicator_columns(list(self.low_cardinality_columns_.keys()))
+        for col in indicator_cols:
+            del self.low_cardinality_columns_[col]
+        if indicator_cols:
+            logger.info(
+                f"Excluded {len(indicator_cols)} outlier indicator columns from low cardinality "
+                f"conversion: {indicator_cols}"
+            )
+
         logger.info(
             f"Fit complete. Detected {len(self.low_cardinality_columns_)} low cardinality "
             f"numeric columns (unique values <= {self.threshold}): "
@@ -202,43 +199,35 @@ class LowCardinalityHandler(BaseEstimator, TransformerMixin):
         logger.info(f"Transforming DataFrame with shape {X.shape}")
         X_transformed = X.copy()
         
-        if self.action == 'convert':
-            # Get columns that exist in both X and low_cardinality_columns_
-            cols_to_convert = [
-                col for col in self.low_cardinality_columns_.keys() 
-                if col in X_transformed.columns
-            ]
-            
-            if cols_to_convert:
-                logger.info(
-                    f"Converting {len(cols_to_convert)} low cardinality columns to object type: "
-                    f"{cols_to_convert}"
-                )
-                for col in cols_to_convert:
-                    X_transformed[col] = X_transformed[col].astype('object')
-                    logger.info(
-                        f"Converted column '{col}' with {self.low_cardinality_columns_[col]} "
-                        f"unique values to object type"
-                    )
-                    
-                    # Add suffix to values if requested
-                    if self.add_suffix:
-                        X_transformed[col] = X_transformed[col].apply(
-                            lambda x: str(x) + self.suffix if pd.notna(x) else x
-                        ).astype('object')
-                        logger.info(
-                            f"Added suffix '{self.suffix}' to all values in column '{col}'"
-                        )
-            else:
-                logger.info("No low cardinality columns found in current data.")
-            
-            logger.info(f"Transform complete. Returned DataFrame with shape {X_transformed.shape}")
-            return X_transformed
+        # Get columns that exist in both X and low_cardinality_columns_
+        cols_to_convert = [
+            col for col in self.low_cardinality_columns_.keys() 
+            if col in X_transformed.columns
+        ]
         
-        else:  # action == 'keep'
+        if cols_to_convert:
             logger.info(
-                f"Action is 'keep': returning all columns unchanged. "
-                f"{len(self.low_cardinality_columns_)} columns detected as low cardinality"
+                f"Converting {len(cols_to_convert)} low cardinality columns to object type: "
+                f"{cols_to_convert}"
             )
-            return X_transformed
+            for col in cols_to_convert:
+                X_transformed[col] = X_transformed[col].astype('object')
+                logger.info(
+                    f"Converted column '{col}' with {self.low_cardinality_columns_[col]} "
+                    f"unique values to object type"
+                )
+                
+                # Add suffix to values if requested
+                if self.add_suffix:
+                    X_transformed[col] = X_transformed[col].apply(
+                        lambda x: str(x) + self.suffix if pd.notna(x) else x
+                    ).astype('object')
+                    logger.info(
+                        f"Added suffix '{self.suffix}' to all values in column '{col}'"
+                    )
+        else:
+            logger.info("No low cardinality columns found in current data.")
+        
+        logger.info(f"Transform complete. Returned DataFrame with shape {X_transformed.shape}")
+        return X_transformed
     

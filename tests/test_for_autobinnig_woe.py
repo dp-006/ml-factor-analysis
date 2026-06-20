@@ -3,7 +3,7 @@ Accelera Consulting
 Test file for auto_binning_woe.py
 '''
 
-from auto_binning_woe import (
+from auto_binning_woe_numeric import (
     assign_bins_from_intervals,
     auto_woe_binning_numeric, 
     calculate_woe_iv_table, 

@@ -1,0 +1,113 @@
+2026-06-20 21:46:22,243 | [None] | mlops.sklearn_wrapper_datatypes | fit:204 | INFO | Fitting DataTypeConverter...
+2026-06-20 21:46:22,243 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'credit_limit' (int32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,244 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'gender' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,245 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'education' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,245 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'marital_status' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,245 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'age' (int32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,246 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'repayment_status_sep_2005' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,246 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'repayment_status_aug_2005' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,246 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'repayment_status_jul_2005' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,247 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'repayment_status_jun_2005' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,247 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'repayment_status_may_2005' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,248 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'repayment_status_apr_2005' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,248 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'bill_amount_sep_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,248 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'bill_amount_aug_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,248 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'bill_amount_jul_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'bill_amount_jun_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'bill_amount_may_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'bill_amount_apr_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'payment_amount_sep_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'payment_amount_aug_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'payment_amount_jul_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'payment_amount_jun_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,249 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'payment_amount_may_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,250 | [None] | mlops.sklearn_wrapper_datatypes | fit:216 | INFO | Column 'payment_amount_apr_2005' (float32) -> CONVERT TO FLOAT
+2026-06-20 21:46:22,250 | [None] | mlops.sklearn_wrapper_datatypes | fit:233 | INFO | Column 'low_cardinality_numeric' (object) -> KEEP AS OBJECT
+2026-06-20 21:46:22,250 | [None] | mlops.sklearn_wrapper_datatypes | fit:275 | INFO | Columns to drop: []
+2026-06-20 21:46:22,254 | [None] | mlops.sklearn_wrapper_datatypes | transform:313 | INFO | Transforming data types according to learned mapping...
+2026-06-20 21:46:22,255 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'credit_limit' to float
+2026-06-20 21:46:22,255 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'gender' to object
+2026-06-20 21:46:22,255 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'education' to object
+2026-06-20 21:46:22,256 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'marital_status' to object
+2026-06-20 21:46:22,256 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'age' to float
+2026-06-20 21:46:22,256 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_sep_2005' to object
+2026-06-20 21:46:22,257 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_aug_2005' to object
+2026-06-20 21:46:22,257 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_jul_2005' to object
+2026-06-20 21:46:22,257 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_jun_2005' to object
+2026-06-20 21:46:22,257 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_may_2005' to object
+2026-06-20 21:46:22,258 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_apr_2005' to object
+2026-06-20 21:46:22,258 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_sep_2005' to float
+2026-06-20 21:46:22,258 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_aug_2005' to float
+2026-06-20 21:46:22,259 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_jul_2005' to float
+2026-06-20 21:46:22,259 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_jun_2005' to float
+2026-06-20 21:46:22,259 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_may_2005' to float
+2026-06-20 21:46:22,260 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_apr_2005' to float
+2026-06-20 21:46:22,260 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_sep_2005' to float
+2026-06-20 21:46:22,261 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_aug_2005' to float
+2026-06-20 21:46:22,261 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_jul_2005' to float
+2026-06-20 21:46:22,261 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_jun_2005' to float
+2026-06-20 21:46:22,262 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_may_2005' to float
+2026-06-20 21:46:22,262 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_apr_2005' to float
+2026-06-20 21:46:22,262 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'low_cardinality_numeric' to object
+2026-06-20 21:46:22,262 | [None] | mlops.sklearn_wrapper_datatypes | transform:345 | INFO | Data type conversion completed. Shape: (20100, 24)
+2026-06-20 21:46:22,262 | [None] | mlops.sklearn_wrapper_datatypes | transform:346 | INFO | Total columns before transformation: 24
+2026-06-20 21:46:22,262 | [None] | mlops.sklearn_wrapper_datatypes | transform:347 | INFO | Number of columns dropped: 0
+2026-06-20 21:46:22,262 | [None] | mlops.sklearn_wrapper_datatypes | transform:348 | INFO | Number of retained columns: 24
+2026-06-20 21:48:16,938 | [None] | mlops.sklearn_wrapper_datatypes | transform:313 | INFO | Transforming data types according to learned mapping...
+2026-06-20 21:48:16,938 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'credit_limit' to float
+2026-06-20 21:48:16,938 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'gender' to object
+2026-06-20 21:48:16,939 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'education' to object
+2026-06-20 21:48:16,939 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'marital_status' to object
+2026-06-20 21:48:16,939 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'age' to float
+2026-06-20 21:48:16,940 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_sep_2005' to object
+2026-06-20 21:48:16,940 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_aug_2005' to object
+2026-06-20 21:48:16,940 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_jul_2005' to object
+2026-06-20 21:48:16,940 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_jun_2005' to object
+2026-06-20 21:48:16,941 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_may_2005' to object
+2026-06-20 21:48:16,941 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_apr_2005' to object
+2026-06-20 21:48:16,941 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_sep_2005' to float
+2026-06-20 21:48:16,942 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_aug_2005' to float
+2026-06-20 21:48:16,942 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_jul_2005' to float
+2026-06-20 21:48:16,943 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_jun_2005' to float
+2026-06-20 21:48:16,943 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_may_2005' to float
+2026-06-20 21:48:16,944 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_apr_2005' to float
+2026-06-20 21:48:16,944 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_sep_2005' to float
+2026-06-20 21:48:16,944 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_aug_2005' to float
+2026-06-20 21:48:16,945 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_jul_2005' to float
+2026-06-20 21:48:16,945 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_jun_2005' to float
+2026-06-20 21:48:16,945 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_may_2005' to float
+2026-06-20 21:48:16,946 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_apr_2005' to float
+2026-06-20 21:48:16,946 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'low_cardinality_numeric' to object
+2026-06-20 21:48:16,946 | [None] | mlops.sklearn_wrapper_datatypes | transform:345 | INFO | Data type conversion completed. Shape: (1, 24)
+2026-06-20 21:48:16,946 | [None] | mlops.sklearn_wrapper_datatypes | transform:346 | INFO | Total columns before transformation: 24
+2026-06-20 21:48:16,946 | [None] | mlops.sklearn_wrapper_datatypes | transform:347 | INFO | Number of columns dropped: 0
+2026-06-20 21:48:16,946 | [None] | mlops.sklearn_wrapper_datatypes | transform:348 | INFO | Number of retained columns: 24
+2026-06-20 21:48:16,982 | [None] | mlops.sklearn_wrapper_datatypes | transform:313 | INFO | Transforming data types according to learned mapping...
+2026-06-20 21:48:16,982 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'credit_limit' to float
+2026-06-20 21:48:16,983 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'gender' to object
+2026-06-20 21:48:16,983 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'education' to object
+2026-06-20 21:48:16,983 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'marital_status' to object
+2026-06-20 21:48:16,984 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'age' to float
+2026-06-20 21:48:16,984 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_sep_2005' to object
+2026-06-20 21:48:16,984 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_aug_2005' to object
+2026-06-20 21:48:16,985 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_jul_2005' to object
+2026-06-20 21:48:16,985 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_jun_2005' to object
+2026-06-20 21:48:16,985 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_may_2005' to object
+2026-06-20 21:48:16,985 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'repayment_status_apr_2005' to object
+2026-06-20 21:48:16,986 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_sep_2005' to float
+2026-06-20 21:48:16,986 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_aug_2005' to float
+2026-06-20 21:48:16,986 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_jul_2005' to float
+2026-06-20 21:48:16,987 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_jun_2005' to float
+2026-06-20 21:48:16,987 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_may_2005' to float
+2026-06-20 21:48:16,987 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'bill_amount_apr_2005' to float
+2026-06-20 21:48:16,987 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_sep_2005' to float
+2026-06-20 21:48:16,988 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_aug_2005' to float
+2026-06-20 21:48:16,988 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_jul_2005' to float
+2026-06-20 21:48:16,989 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_jun_2005' to float
+2026-06-20 21:48:16,989 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_may_2005' to float
+2026-06-20 21:48:16,989 | [None] | mlops.sklearn_wrapper_datatypes | transform:332 | INFO | Converted column 'payment_amount_apr_2005' to float
+2026-06-20 21:48:16,989 | [None] | mlops.sklearn_wrapper_datatypes | transform:341 | INFO | Converted column 'low_cardinality_numeric' to object
+2026-06-20 21:48:16,990 | [None] | mlops.sklearn_wrapper_datatypes | transform:345 | INFO | Data type conversion completed. Shape: (1, 24)
+2026-06-20 21:48:16,990 | [None] | mlops.sklearn_wrapper_datatypes | transform:346 | INFO | Total columns before transformation: 24
+2026-06-20 21:48:16,990 | [None] | mlops.sklearn_wrapper_datatypes | transform:347 | INFO | Number of columns dropped: 0
+2026-06-20 21:48:16,990 | [None] | mlops.sklearn_wrapper_datatypes | transform:348 | INFO | Number of retained columns: 24

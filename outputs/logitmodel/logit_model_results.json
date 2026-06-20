@@ -2,202 +2,236 @@
     "modelInfo": {
         "dependentVariable": "TARGET",
         "numberOfObservations": 20100,
-        "degreesOfFreedomResiduals": 20094,
-        "degreesOfFreedomModel": 5,
-        "pseudoRSquared": 0.168095,
-        "logLikelihood": -8835.779979,
+        "degreesOfFreedomResiduals": 20093,
+        "degreesOfFreedomModel": 6,
+        "pseudoRSquared": 0.165568,
+        "logLikelihood": -8862.616824,
         "nullLogLikelihood": -10621.142629,
         "likelihoodRatioPValue": 0.0,
         "likelihoodRatioSignificance": "Highly Significant",
         "converged": true,
         "covarianceType": "nonrobust",
-        "aic": 17683.559957,
-        "bic": 17731.010808
+        "aic": 17739.233647,
+        "bic": 17794.592973
     },
     "coefficients": {
         "const": {
-            "coefficient": -1.2517524429008273,
-            "standardError": 0.019311249652704532,
-            "zStatistic": -64.81985709948708,
+            "coefficient": -1.2603796043604363,
+            "standardError": 0.019328021401966183,
+            "zStatistic": -65.20996527002094,
             "pValue": 0.0,
             "significanceOfCoeff": "Highly Significant",
             "confidenceInterval95": {
-                "lower": -1.2896017967165898,
-                "upper": -1.2139030890850648
+                "lower": -1.2982618302007094,
+                "upper": -1.2224973785201632
             }
         },
-        "bill_amount_sep_2005_right": {
-            "coefficient": 0.6500083730644028,
-            "standardError": 0.19118951729299694,
-            "zStatistic": 3.3998117797863805,
-            "pValue": 0.0006743225369153029,
-            "significanceOfCoeff": "Highly Significant",
+        "bill_amount_jul_2005_right": {
+            "coefficient": 0.7829017671956295,
+            "standardError": 0.29895846294518574,
+            "zStatistic": 2.6187643577066932,
+            "pValue": 0.008824888428042443,
+            "significanceOfCoeff": "Very Significant",
             "confidenceInterval95": {
-                "lower": 0.275283804948531,
-                "upper": 1.0247329411802748
+                "lower": 0.1969539469496132,
+                "upper": 1.368849587441646
             }
         },
-        "payment_amount_apr_2005_right": {
-            "coefficient": -0.24010010134724677,
-            "standardError": 0.2294367846858509,
-            "zStatistic": -1.046476055162629,
-            "pValue": 0.2953412945107833,
+        "bill_amount_may_2005_right": {
+            "coefficient": 0.14567554719329998,
+            "standardError": 0.3079082644695925,
+            "zStatistic": 0.47311346918291686,
+            "pValue": 0.6361322278093874,
             "significanceOfCoeff": "Not Significant",
             "confidenceInterval95": {
-                "lower": -0.6897879360601856,
-                "upper": 0.20958773336569206
+                "lower": -0.4578135617093353,
+                "upper": 0.7491646560959353
+            }
+        },
+        "payment_amount_aug_2005_right": {
+            "coefficient": -0.888203345853448,
+            "standardError": 0.3019939269487023,
+            "zStatistic": -2.941129826111772,
+            "pValue": 0.003270174430483532,
+            "significanceOfCoeff": "Very Significant",
+            "confidenceInterval95": {
+                "lower": -1.4801005662227245,
+                "upper": -0.29630612548417135
             }
         },
         "credit_limit_woe": {
-            "coefficient": -0.6226890444185526,
-            "standardError": 0.044495794173143415,
-            "zStatistic": -13.994334880180487,
-            "pValue": 1.688014859028043e-44,
+            "coefficient": -0.6311725035385062,
+            "standardError": 0.044320999295062675,
+            "zStatistic": -14.240935754551417,
+            "pValue": 5.103901346868911e-46,
             "significanceOfCoeff": "Highly Significant",
             "confidenceInterval95": {
-                "lower": -0.7098991984614208,
-                "upper": -0.5354788903756843
+                "lower": -0.7180400659156542,
+                "upper": -0.5443049411613582
+            }
+        },
+        "payment_amount_jul_2005_woe": {
+            "coefficient": -0.5610942135486652,
+            "standardError": 0.05514333073554458,
+            "zStatistic": -10.175196276038365,
+            "pValue": 2.558835929085379e-24,
+            "significanceOfCoeff": "Highly Significant",
+            "confidenceInterval95": {
+                "lower": -0.6691731557779131,
+                "upper": -0.4530152713194172
             }
         },
         "repayment_status_sep_2005_woe": {
-            "coefficient": -0.8423114331626763,
-            "standardError": 0.020771806221680483,
-            "zStatistic": -40.550707250653886,
+            "coefficient": -0.9294050423980376,
+            "standardError": 0.019313547913915315,
+            "zStatistic": -48.12192180020978,
             "pValue": 0.0,
             "significanceOfCoeff": "Highly Significant",
             "confidenceInterval95": {
-                "lower": -0.8830234252510151,
-                "upper": -0.8015994410743376
-            }
-        },
-        "repayment_status_jul_2005_woe": {
-            "coefficient": -0.4041929127944784,
-            "standardError": 0.03069632117204088,
-            "zStatistic": -13.167470803069042,
-            "pValue": 1.3504629127065834e-39,
-            "significanceOfCoeff": "Highly Significant",
-            "confidenceInterval95": {
-                "lower": -0.4643565967495529,
-                "upper": -0.3440292288394039
+                "lower": -0.9672589007230002,
+                "upper": -0.8915511840730749
             }
         }
     },
     "oddsRatios": {
-        "bill_amount_sep_2005_right": {
-            "coefficient": 0.6500083730644028,
-            "oddsRatio": 1.9155568680277715,
-            "absOddsRatioChange": 0.9155568680277715,
+        "bill_amount_jul_2005_right": {
+            "coefficient": 0.7829017671956295,
+            "oddsRatio": 2.187811583320428,
+            "absOddsRatioChange": 1.187811583320428,
             "direction": "Increases",
-            "percentChangeInOdds": 91.56,
-            "magnitude": "Large",
-            "interpretation": "A one-unit increase in the variable increases the odds of the positive class by 91.56%."
+            "percentChangeInOdds": 118.78,
+            "magnitude": "Very Large",
+            "interpretation": "A one-unit increase in the variable increases the odds of the positive class by 118.78%."
         },
-        "payment_amount_apr_2005_right": {
-            "coefficient": -0.24010010134724677,
-            "oddsRatio": 0.7865491224988629,
-            "absOddsRatioChange": 0.21345087750113712,
+        "bill_amount_may_2005_right": {
+            "coefficient": 0.14567554719329998,
+            "oddsRatio": 1.1568207934018975,
+            "absOddsRatioChange": 0.15682079340189747,
+            "direction": "Increases",
+            "percentChangeInOdds": 15.68,
+            "magnitude": "Small",
+            "interpretation": "A one-unit increase in the variable increases the odds of the positive class by 15.68%."
+        },
+        "payment_amount_aug_2005_right": {
+            "coefficient": -0.888203345853448,
+            "oddsRatio": 0.41139422230187633,
+            "absOddsRatioChange": 0.5886057776981237,
             "direction": "Decreases",
-            "percentChangeInOdds": 21.35,
-            "magnitude": "Moderate",
-            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 21.35%."
+            "percentChangeInOdds": 58.86,
+            "magnitude": "Large",
+            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 58.86%."
         },
         "credit_limit_woe": {
-            "coefficient": -0.6226890444185526,
-            "oddsRatio": 0.5364998242924328,
-            "absOddsRatioChange": 0.4635001757075672,
+            "coefficient": -0.6311725035385062,
+            "oddsRatio": 0.5319677011867602,
+            "absOddsRatioChange": 0.4680322988132398,
             "direction": "Decreases",
-            "percentChangeInOdds": 46.35,
+            "percentChangeInOdds": 46.8,
             "magnitude": "Moderate",
-            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 46.35%."
+            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 46.80%."
+        },
+        "payment_amount_jul_2005_woe": {
+            "coefficient": -0.5610942135486652,
+            "oddsRatio": 0.570584380982587,
+            "absOddsRatioChange": 0.429415619017413,
+            "direction": "Decreases",
+            "percentChangeInOdds": 42.94,
+            "magnitude": "Moderate",
+            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 42.94%."
         },
         "repayment_status_sep_2005_woe": {
-            "coefficient": -0.8423114331626763,
-            "oddsRatio": 0.4307138057754341,
-            "absOddsRatioChange": 0.569286194224566,
+            "coefficient": -0.9294050423980376,
+            "oddsRatio": 0.39478852294580574,
+            "absOddsRatioChange": 0.6052114770541943,
             "direction": "Decreases",
-            "percentChangeInOdds": 56.93,
+            "percentChangeInOdds": 60.52,
             "magnitude": "Large",
-            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 56.93%."
-        },
-        "repayment_status_jul_2005_woe": {
-            "coefficient": -0.4041929127944784,
-            "oddsRatio": 0.6675153365982825,
-            "absOddsRatioChange": 0.33248466340171745,
-            "direction": "Decreases",
-            "percentChangeInOdds": 33.25,
-            "magnitude": "Moderate",
-            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 33.25%."
+            "interpretation": "A one-unit increase in the variable decreases the odds of the positive class by 60.52%."
         }
     },
     "marginalEffects": {
-        "bill_amount_sep_2005_right": {
-            "marginalEffect": 0.08899478296106705,
-            "interpretationOfMarginalEffect": "A one-unit increase in the variable increases the predicted probability of the positive class by 8.90 percentage points.",
-            "magnitude": "Large",
+        "bill_amount_jul_2005_right": {
+            "marginalEffect": 0.10802305212975634,
+            "interpretationOfMarginalEffect": "A one-unit increase in the variable increases the predicted probability of the positive class by 10.80 percentage points.",
+            "magnitude": "Very Large",
             "direction": "Increases",
-            "standardError": 0.026161382972211367,
-            "zStatistic": 3.4017614074759486,
-            "pValue": 0.0006695306258681778,
-            "significanceOfMarginalEffect": "Highly Significant",
+            "standardError": 0.041237258051353205,
+            "zStatistic": 2.619549825432963,
+            "pValue": 0.008804590958345153,
+            "significanceOfMarginalEffect": "Very Significant",
             "confidenceInterval95": {
-                "lower": 0.03771941454977334,
-                "upper": 0.14027015137236076
+                "lower": 0.02719951152791969,
+                "upper": 0.188846592731593
             }
         },
-        "payment_amount_apr_2005_right": {
-            "marginalEffect": -0.032872894094567645,
-            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 3.29 percentage points.",
+        "bill_amount_may_2005_right": {
+            "marginalEffect": 0.020099989408454012,
+            "interpretationOfMarginalEffect": "A one-unit increase in the variable increases the predicted probability of the positive class by 2.01 percentage points.",
             "magnitude": "Moderate",
-            "direction": "Decreases",
-            "standardError": 0.03141304704796817,
-            "zStatistic": -1.046472634264682,
-            "pValue": 0.2953428731408815,
+            "direction": "Increases",
+            "standardError": 0.042483867763156165,
+            "zStatistic": 0.4731205153097098,
+            "pValue": 0.6361272010934389,
             "significanceOfMarginalEffect": "Not Significant",
             "confidenceInterval95": {
-                "lower": -0.09444133495324752,
-                "upper": 0.028695546764112234
+                "lower": -0.06316686133129429,
+                "upper": 0.10336684014820233
+            }
+        },
+        "payment_amount_aug_2005_right": {
+            "marginalEffect": -0.12255233076638761,
+            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 12.26 percentage points.",
+            "magnitude": "Very Large",
+            "direction": "Decreases",
+            "standardError": 0.0416639389495561,
+            "zStatistic": -2.9414485009390434,
+            "pValue": 0.003266811580107185,
+            "significanceOfMarginalEffect": "Very Significant",
+            "confidenceInterval95": {
+                "lower": -0.20421215056159314,
+                "upper": -0.040892510971182086
             }
         },
         "credit_limit_woe": {
-            "marginalEffect": -0.08525440387638365,
-            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 8.53 percentage points.",
+            "marginalEffect": -0.08708778432936011,
+            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 8.71 percentage points.",
             "magnitude": "Large",
             "direction": "Decreases",
-            "standardError": 0.006035767850167013,
-            "zStatistic": -14.124864639057417,
-            "pValue": 2.6691222524874617e-45,
+            "standardError": 0.00604987708119579,
+            "zStatistic": -14.394967560588313,
+            "pValue": 5.565099098498127e-47,
             "significanceOfMarginalEffect": "Highly Significant",
             "confidenceInterval95": {
-                "lower": -0.09708429148175575,
-                "upper": -0.07342451627101156
+                "lower": -0.09894532551939816,
+                "upper": -0.07523024313932206
+            }
+        },
+        "payment_amount_jul_2005_woe": {
+            "marginalEffect": -0.07741853706242165,
+            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 7.74 percentage points.",
+            "magnitude": "Large",
+            "direction": "Decreases",
+            "standardError": 0.007584082898183468,
+            "zStatistic": -10.208028854875103,
+            "pValue": 1.825352692950362e-24,
+            "significanceOfMarginalEffect": "Highly Significant",
+            "confidenceInterval95": {
+                "lower": -0.0922830663986274,
+                "upper": -0.06255400772621589
             }
         },
         "repayment_status_sep_2005_woe": {
-            "marginalEffect": -0.11532362702734895,
-            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 11.53 percentage points.",
+            "marginalEffect": -0.12823724961592411,
+            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 12.82 percentage points.",
             "magnitude": "Very Large",
             "direction": "Decreases",
-            "standardError": 0.0024496877173025566,
-            "zStatistic": -47.0768687015895,
+            "standardError": 0.0021051428340570603,
+            "zStatistic": -60.91617515985056,
             "pValue": 0.0,
             "significanceOfMarginalEffect": "Highly Significant",
             "confidenceInterval95": {
-                "lower": -0.12012492672663211,
-                "upper": -0.1105223273280658
-            }
-        },
-        "repayment_status_jul_2005_woe": {
-            "marginalEffect": -0.05533938028976675,
-            "interpretationOfMarginalEffect": "A one-unit increase in the variable decreases the predicted probability of the positive class by 5.53 percentage points.",
-            "magnitude": "Large",
-            "direction": "Decreases",
-            "standardError": 0.004147866534565502,
-            "zStatistic": -13.34164921378399,
-            "pValue": 1.3249551959055702e-40,
-            "significanceOfMarginalEffect": "Highly Significant",
-            "confidenceInterval95": {
-                "lower": -0.0634690493101941,
-                "upper": -0.047209711269339406
+                "lower": -0.13236325375298852,
+                "upper": -0.1241112454788597
             }
         }
     }
