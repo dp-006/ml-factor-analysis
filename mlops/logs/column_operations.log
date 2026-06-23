@@ -1,8 +1,10 @@
-2026-06-20 21:46:20,468 | [None] | mlops.column_operations | detect_missing_columns_with_treshold:284 | INFO | Number of columns with missing values above threshold 0.5: 1
-2026-06-20 21:46:22,226 | [None] | mlops.column_operations | detect_infinite_columns:389 | INFO | Number of columns with infinite values detected: 0
-2026-06-20 21:46:22,233 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:422 | INFO | Numeric column 'low_cardinality_numeric' has 10 unique values.
-2026-06-20 21:46:22,233 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:424 | INFO | Column 'low_cardinality_numeric' is detected as low cardinality and must be converted to object type.
-2026-06-20 21:46:22,233 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:426 | INFO | Number of low cardinality numeric columns detected and converted: 1
-2026-06-20 21:46:22,233 | [None] | mlops.column_operations | detect_outlier_indicator_columns:463 | INFO | Outlier indicator columns detected (0) using suffixes ('_right', '_left'): []
-2026-06-20 21:46:22,423 | [None] | mlops.column_operations | detect_outlier_indicator_columns:463 | INFO | Outlier indicator columns detected (14) using suffixes ('_right', '_left'): ['credit_limit_right', 'age_right', 'bill_amount_sep_2005_right', 'bill_amount_aug_2005_right', 'bill_amount_jul_2005_right', 'bill_amount_jun_2005_right', 'bill_amount_may_2005_right', 'bill_amount_apr_2005_right', 'payment_amount_sep_2005_right', 'payment_amount_aug_2005_right', 'payment_amount_jul_2005_right', 'payment_amount_jun_2005_right', 'payment_amount_may_2005_right', 'payment_amount_apr_2005_right']
-2026-06-20 21:47:39,909 | [None] | mlops.column_operations | detect_outlier_indicator_columns:463 | INFO | Outlier indicator columns detected (0) using suffixes ('_right', '_left'): []
+2026-06-23 16:24:36,159 | [None] | mlops.column_operations | detect_missing_columns_with_treshold:284 | INFO | Number of columns with missing values above threshold 0.25: 1
+2026-06-23 16:24:37,066 | [None] | mlops.column_operations | detect_infinite_columns:389 | INFO | Number of columns with infinite values detected: 0
+2026-06-23 16:24:37,084 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:422 | INFO | Numeric column 'low_cardinality_numeric' has 10 unique values.
+2026-06-23 16:24:37,084 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:424 | INFO | Column 'low_cardinality_numeric' is detected as low cardinality and must be converted to object type.
+2026-06-23 16:24:37,084 | [None] | mlops.column_operations | detect_low_cardinality_numeric_columns_to_object:426 | INFO | Number of low cardinality numeric columns detected and converted: 1
+2026-06-23 16:24:37,084 | [None] | mlops.column_operations | detect_outlier_indicator_columns:463 | INFO | Outlier indicator columns detected (0) using suffixes ('_right', '_left'): []
+2026-06-23 16:25:16,997 | [None] | mlops.column_operations | quality_function_for_pandas:91 | INFO | No quality issues detected in any columns.
+2026-06-23 16:25:17,010 | [None] | mlops.column_operations | quality_function_for_pandas:91 | INFO | No quality issues detected in any columns.
+2026-06-23 16:25:17,011 | [None] | mlops.column_operations | quality_function_for_pandas:116 | INFO | No quality issues detected in the series.
+2026-06-23 16:25:17,011 | [None] | mlops.column_operations | quality_function_for_pandas:116 | INFO | No quality issues detected in the series.

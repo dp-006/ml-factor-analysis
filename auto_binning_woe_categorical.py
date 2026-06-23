@@ -92,7 +92,7 @@ def calculate_woe_iv_table_categorical(
     The bin_col stays as integer group IDs so the iterative merge logic keeps
     working. Renaming to feature_grpN names is only done at the final output.
     """
-    logger.info(f"Calculating WoE / IV table for categorical binning. bin_col='{bin_col}'")
+    logger.debug(f"Calculating WoE / IV table for categorical binning. bin_col='{bin_col}'")
 
     tmp = df[[bin_col, target]].copy()
 
@@ -110,7 +110,7 @@ def calculate_woe_iv_table_categorical(
     total_good = summary["good"].sum()
     total_bad = summary["bad"].sum()
 
-    logger.info(f"Total good: {total_good}, Total bad: {total_bad}")
+    logger.debug(f"Total good: {total_good}, Total bad: {total_bad}")
 
     # Apply smoothing
     summary["good_dist"] = (summary["good"] + eps) / (total_good + eps * len(summary))
@@ -142,7 +142,7 @@ def calculate_woe_iv_table_categorical(
     total_iv = summary["iv"].sum()
     total_iv_interpretation = interpret_iv(total_iv)
 
-    logger.info(f"WoE / IV table calculated. Bin count={len(summary)}, Total IV={total_iv:.6f}")
+    logger.debug(f"WoE / IV table calculated. Bin count={len(summary)}, Total IV={total_iv:.6f}")
 
     metadata = {
         "binCol": bin_col,
@@ -179,15 +179,15 @@ def create_initial_category_groups(
     Called in:
     - Initial category group creation before Rule 1.
     """
-    logger.info(f"Creating initial category groups. Category count={len(categories)}")
+    logger.debug(f"Creating initial category groups. Category count={len(categories)}")
     
     category_groups = {}
     for idx, category in enumerate(categories):
         category_groups[category] = idx
     
-    logger.info(f"Initial category groups created:")
+    logger.debug(f"Initial category groups created:")
     for cat, group_id in category_groups.items():
-        logger.info(f"  - Category: '{cat}' -> Group: {group_id}")
+        logger.debug(f"  - Category: '{cat}' -> Group: {group_id}")
     
     return category_groups
 
@@ -223,16 +223,16 @@ def assign_bins_from_category_groups(
     - Before recalculating WoE / IV.
     - Final bin assignment step.
     """
-    logger.info(f"Assigning observations to category groups. Group count={len(set(category_groups.values()))}")
+    logger.debug(f"Assigning observations to category groups. Group count={len(set(category_groups.values()))}")
     
     # Map categories to group IDs
     result = x.map(category_groups)
     
-    logger.info("Observations assigned to groups:")
+    logger.debug("Observations assigned to groups:")
     for group_id in sorted(set(category_groups.values())):
         count_in_group = (result == group_id).sum()
         categories_in_group = [cat for cat, gid in category_groups.items() if gid == group_id]
-        logger.info(f"\tGroup {group_id}: {count_in_group} observations, Categories: {categories_in_group}")
+        logger.debug(f"\tGroup {group_id}: {count_in_group} observations, Categories: {categories_in_group}")
     
     return result
 
@@ -267,7 +267,7 @@ def merge_category_groups(
     - Groups are renumbered after merge to maintain sequential IDs.
     - Called after finding a pair to merge.
     """
-    logger.info(f"Merging category groups. Merging group {idx1} into group {idx2}")
+    logger.debug(f"Merging category groups. Merging group {idx1} into group {idx2}")
     
     # Create new mapping
     new_groups = {}
@@ -283,7 +283,7 @@ def merge_category_groups(
     
     renumbered_groups = {cat: group_mapping[gid] for cat, gid in new_groups.items()}
     
-    logger.info(f"Groups merged and renumbered. New group count={len(set(renumbered_groups.values()))}")
+    logger.debug(f"Groups merged and renumbered. New group count={len(set(renumbered_groups.values()))}")
     
     return renumbered_groups
 
@@ -310,7 +310,7 @@ def get_group_names(
     ----
     Group names are created by joining category names with underscores.
     """
-    logger.info("Creating human-readable group names")
+    logger.debug("Creating human-readable group names")
     
     group_to_categories = {}
     for cat, group_id in category_groups.items():
@@ -324,9 +324,9 @@ def get_group_names(
         sorted_cats = sorted(group_to_categories[group_id])
         group_names[group_id] = "_".join(sorted_cats)
     
-    logger.info("Group names created:")
+    logger.debug("Group names created:")
     for group_id, group_name in group_names.items():
-        logger.info(f"  - Group {group_id}: '{group_name}'")
+        logger.debug(f"  - Group {group_id}: '{group_name}'")
     
     return group_names
 
@@ -426,12 +426,6 @@ def auto_woe_binning_categorical(
         logger.error(error_message)
         raise ValueError(error_message)
 
-    # Raise error if feature contains NULL values
-    if df[feature].isnull().any():
-        error_message = (f"Feature: {feature} contains NULL values, which cannot be binned. Please handle NULL values before applying auto_woe_binning_categorical.")
-        logger.error(error_message)
-        raise ValueError(error_message)
-
     # Raise error if feature is constant
     if df[feature].nunique() == 1:
         error_message = (f"Feature: {feature} is constant, which cannot be binned. Please remove or handle constant features before applying auto_woe_binning_categorical.")
@@ -457,17 +451,24 @@ def auto_woe_binning_categorical(
     # Prepare data
     data = df[[feature, target]].copy()
     before_drop = len(data)
+
+    # Separate rows where the feature is NaN — these will form the MISSING bin.
+    missing_mask = data[feature].isna()
+    missing_data = data[missing_mask & data[target].notna()].copy()
+    missing_data[target] = missing_data[target].astype(int)
+
     data = data.dropna(subset=[feature, target])
     after_drop = len(data)
 
-    logger.info(f"Missing rows dropped. Before={before_drop}, After={after_drop}, Dropped={before_drop - after_drop}")
+    logger.debug(f"Missing rows dropped. Before={before_drop}, After={after_drop}, Dropped={before_drop - after_drop}")
+    logger.debug(f"MISSING bin will be computed from {len(missing_data)} null observations.")
 
     data[target] = data[target].astype(int)
-    logger.info(f"Target variable {target} converted to integer type.")
+    logger.debug(f"Target variable {target} converted to integer type.")
 
     # Get distinct categories and sort them by bad_rate for initial ordering
     distinct_categories = sorted(data[feature].unique())
-    logger.info(f"Distinct categories found: {distinct_categories}")
+    logger.debug(f"Distinct categories found: {distinct_categories}")
 
     # Create initial category groups (each category is its own group initially)
     category_groups = create_initial_category_groups(distinct_categories)
@@ -497,7 +498,7 @@ def auto_woe_binning_categorical(
             x=data[feature],
             category_groups=category_groups
         )
-        logger.info(f"STEP: {step} - Bins assigned based on current category groups.")
+        logger.debug(f"STEP: {step} - Bins assigned based on current category groups.")
 
         # Calculate WoE / IV summary table
         summary, _ = calculate_woe_iv_table_categorical(
@@ -506,16 +507,16 @@ def auto_woe_binning_categorical(
             target=target,
             eps=0.5
         )
-        logger.info(f"STEP: {step} - WoE / IV summary table calculated.")
+        logger.debug(f"STEP: {step} - WoE / IV summary table calculated.")
 
         # Sort summary by bad_rate for ordering (since categories don't have natural order)
         summary = summary.sort_values("bad_rate").reset_index(drop=True)
-        logger.info(f"STEP: {step} - Summary table sorted by bad_rate.")
+        logger.debug(f"STEP: {step} - Summary table sorted by bad_rate.")
 
         current_iv = summary["iv"].sum()
         current_bin_count = len(set(category_groups.values()))
 
-        logger.info(f"STEP: {step} - Current bin count={current_bin_count}, Current IV={current_iv:.6f}")
+        logger.debug(f"STEP: {step} - Current bin count={current_bin_count}, Current IV={current_iv:.6f}")
 
         # Convert bin column to string for JSON serialization
         summary_for_metadata = summary.copy()
@@ -528,14 +529,14 @@ def auto_woe_binning_categorical(
             "woe": summary_for_metadata.to_dict(orient="records")
         }
 
-        logger.info(f"STEP: {step} - RULES CHECK START")
+        logger.debug(f"STEP: {step} - RULES CHECK START")
 
         # Rule 0: Minimum bin count stop condition
         if current_bin_count <= min_final_bins:
             triggered_rule = "STOPPED: Minimum bin count reached"
             steps_metadata[step]["triggered_rule"] = triggered_rule
             converged = True
-            logger.info(f"STEP: {step} - Minimum bin count ({min_final_bins}) reached. Stopping with current bins.")
+            logger.debug(f"STEP: {step} - Minimum bin count ({min_final_bins}) reached. Stopping with current bins.")
             break
 
         # Rule 1: Merge bins with insufficient observation ratio
@@ -552,8 +553,8 @@ def auto_woe_binning_categorical(
             merge_bin = summary.loc[merge_idx, "_bin"]
 
             triggered_rule = "Rule 1: Small bin merge"
-            logger.info(f"Rule 1 triggered: small bin merge.")
-            logger.info(f"STEP: {step} - Problem bin={problem_bin}, Merge with bin={merge_bin}")
+            logger.debug(f"Rule 1 triggered: small bin merge.")
+            logger.debug(f"STEP: {step} - Problem bin={problem_bin}, Merge with bin={merge_bin}")
 
             # Merge the bins
             category_groups = merge_category_groups(
@@ -561,7 +562,7 @@ def auto_woe_binning_categorical(
                 idx1=merge_bin,
                 idx2=problem_bin
             )
-            logger.info(f"STEP: {step} - Category groups merged based on Rule 1.")
+            logger.debug(f"STEP: {step} - Category groups merged based on Rule 1.")
             steps_metadata[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -579,15 +580,15 @@ def auto_woe_binning_categorical(
             merge_bin = summary.loc[merge_idx, "_bin"]
 
             triggered_rule = "Rule 2: Zero good/bad merge"
-            logger.info(f"Rule 2 triggered: zero good/bad merge.")
-            logger.info(f"STEP: {step} - Problem bin={problem_bin}, Merge with bin={merge_bin}")
+            logger.debug(f"Rule 2 triggered: zero good/bad merge.")
+            logger.debug(f"STEP: {step} - Problem bin={problem_bin}, Merge with bin={merge_bin}")
 
             category_groups = merge_category_groups(
                 category_groups=category_groups,
                 idx1=merge_bin,
                 idx2=problem_bin
             )
-            logger.info(f"STEP: {step} - Category groups merged based on Rule 2.")
+            logger.debug(f"STEP: {step} - Category groups merged based on Rule 2.")
             steps_metadata[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -597,28 +598,28 @@ def auto_woe_binning_categorical(
                 summary=summary,
                 metric="bad_rate"
             )
-            logger.info(f"Monotonicity violation detected in bad_rate. Merge pair index identified: {merge_idx}")
+            logger.debug(f"Monotonicity violation detected in bad_rate. Merge pair index identified: {merge_idx}")
 
             if merge_idx is None:
                 merge_idx = find_most_similar_adjacent_pair(
                     summary=summary,
                     metric="bad_rate"
                 )
-                logger.info(f"No monotonicity violation pair found. Fallback to most similar adjacent pair. Merge pair index identified: {merge_idx}")
+                logger.debug(f"No monotonicity violation pair found. Fallback to most similar adjacent pair. Merge pair index identified: {merge_idx}")
 
             bin1 = summary.loc[merge_idx, "_bin"]
             bin2 = summary.loc[merge_idx + 1, "_bin"]
 
             triggered_rule = "Rule 3: Bad Rate monotonicity merge"
-            logger.info(f"Rule 3 triggered: Bad Rate monotonicity merge.")
-            logger.info(f"STEP: {step} - Merge pair=({bin1}, {bin2})")
+            logger.debug(f"Rule 3 triggered: Bad Rate monotonicity merge.")
+            logger.debug(f"STEP: {step} - Merge pair=({bin1}, {bin2})")
 
             category_groups = merge_category_groups(
                 category_groups=category_groups,
                 idx1=bin2,
                 idx2=bin1
             )
-            logger.info(f"STEP: {step} - Category groups merged based on Rule 3.")
+            logger.debug(f"STEP: {step} - Category groups merged based on Rule 3.")
             steps_metadata[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -639,15 +640,15 @@ def auto_woe_binning_categorical(
             bin2 = summary.loc[merge_idx + 1, "_bin"]
 
             triggered_rule = "Rule 4: WoE monotonicity merge"
-            logger.info(f"Rule 4 triggered: WoE monotonicity merge.")
-            logger.info(f"STEP: {step} - Merge pair=({bin1}, {bin2})")
+            logger.debug(f"Rule 4 triggered: WoE monotonicity merge.")
+            logger.debug(f"STEP: {step} - Merge pair=({bin1}, {bin2})")
 
             category_groups = merge_category_groups(
                 category_groups=category_groups,
                 idx1=bin2,
                 idx2=bin1
             )
-            logger.info(f"STEP: {step} - Category groups merged based on Rule 4.")
+            logger.debug(f"STEP: {step} - Category groups merged based on Rule 4.")
             steps_metadata[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -662,15 +663,15 @@ def auto_woe_binning_categorical(
             bin2 = summary.loc[merge_idx + 1, "_bin"]
 
             triggered_rule = "Rule 5: Reducing bin count"
-            logger.info(f"Rule 5 triggered: reducing bin count.")
-            logger.info(f"STEP: {step} - Merge pair=({bin1}, {bin2})")
+            logger.debug(f"Rule 5 triggered: reducing bin count.")
+            logger.debug(f"STEP: {step} - Merge pair=({bin1}, {bin2})")
 
             category_groups = merge_category_groups(
                 category_groups=category_groups,
                 idx1=bin2,
                 idx2=bin1
             )
-            logger.info(f"STEP: {step} - Category groups merged based on Rule 5.")
+            logger.debug(f"STEP: {step} - Category groups merged based on Rule 5.")
             steps_metadata[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -678,7 +679,7 @@ def auto_woe_binning_categorical(
         triggered_rule = "STOPPED: All rules satisfied"
         steps_metadata[step]["triggered_rule"] = triggered_rule
         converged = True
-        logger.info(f"No more merge required. Stopping at iteration={step}")
+        logger.debug(f"No more merge required. Stopping at iteration={step}")
         break
 
     # Final check if converged
@@ -705,7 +706,7 @@ def auto_woe_binning_categorical(
     # Sort by bad_rate for consistency
     woe_table = woe_table.sort_values("bad_rate").reset_index(drop=True)
 
-    # Calculate total IV
+    # Calculate total IV (non-missing observations only)
     total_iv = woe_table["iv"].sum()
 
     # Build the final bin name mapping (group_id -> feature_grpN) and
@@ -723,6 +724,44 @@ def auto_woe_binning_categorical(
 
     # Rename the integer group IDs in the final woe_table to feature_grpN names
     woe_table["_bin"] = woe_table["_bin"].map(generated_bin_names)
+
+    # Compute MISSING bin from null observations and append AFTER bin renaming
+    # so the "MISSING" label is not overwritten by map(generated_bin_names).
+    missing_woe = None
+    if len(missing_data) > 0:
+        eps = 0.5
+        total_good_obs = woe_table["good"].sum()
+        total_bad_obs = woe_table["bad"].sum()
+        n_bins = len(woe_table)
+        missing_total = len(missing_data)
+        missing_bad = int(missing_data[target].sum())
+        missing_good = missing_total - missing_bad
+        good_dist = (missing_good + eps) / (total_good_obs + eps * n_bins)
+        bad_dist = (missing_bad + eps) / (total_bad_obs + eps * n_bins)
+        odds_ratio = good_dist / bad_dist
+        woe_val = float(np.log(odds_ratio))
+        missing_woe = round(woe_val, 6)
+        missing_bin_name = f"{feature}_MISSING"
+        missing_row = {
+            "_bin": missing_bin_name,
+            "total": missing_total,
+            "good": missing_good,
+            "bad": missing_bad,
+            "bad_rate": missing_bad / missing_total if missing_total > 0 else 0.0,
+            "bin_pct": missing_total / before_drop,
+            "good_dist": good_dist,
+            "bad_dist": bad_dist,
+            "good_dist_minus_bad_dist": good_dist - bad_dist,
+            "odds_ratio": odds_ratio,
+            "woe": woe_val,
+            "woe_display": woe_val * 100,
+            "iv": (good_dist - bad_dist) * woe_val
+        }
+        woe_table = pd.concat([woe_table, pd.DataFrame([missing_row])], ignore_index=True)
+        total_iv = woe_table["iv"].sum()
+        logger.debug(f"MISSING bin appended as '{missing_bin_name}': total={missing_total}, bad={missing_bad}, woe={missing_woe:.6f}")
+    else:
+        logger.debug("No null observations found. MISSING bin not added.")
 
     # Perform quality checks
     checks, checks_formatted = check_binning_quality(
@@ -763,9 +802,9 @@ def auto_woe_binning_categorical(
 
     logger.info(f"Feature: {feature}, Final bins={len(woe_table)}, Total IV={total_iv:.6f}, Status={status}")
 
-    logger.info("Values to Group mapping:")
+    logger.debug("Values to Group mapping:")
     for bin_name, categories in values_to_the_group.items():
-        logger.info(f"  - {bin_name}: {categories}")
+        logger.debug(f"  - {bin_name}: {categories}")
 
     # Prepare output
     woe_table_for_json = woe_table.copy()
@@ -773,13 +812,14 @@ def auto_woe_binning_categorical(
 
     auto_binning_result = {
         "feature": feature,
-        "totalIv": metadata_of_woe.get("totalIv", "not available"),
-        "interpretIv": metadata_of_woe.get("interpretIv", "not available"),
+        "totalIv": total_iv,
+        "interpretIv": interpret_iv(total_iv),
         "numberofBins": metadata_of_woe.get("numberofBins", "not available"),
         "status": status,
         "valuesToTheGroup": values_to_the_group,
         "woe_table": woe_table_for_json.to_dict(orient="records"),
-        "checks": checks_formatted
+        "checks": checks_formatted,
+        "missing_woe": missing_woe
     }
 
     # Save results

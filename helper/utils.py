@@ -462,5 +462,7 @@ def generate_sample_data():
     X["duplicate_4"] = X["age"]  # Add another duplicate column to test duplicate detection
     X["infinite_column"] = np.inf  # Add a column with infinite values to test infinite value detection
     X["low_cardinality_numeric"] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] * (len(X) // 10) + [1] * (len(X) % 10)  # Add a low cardinality numeric column to test conversion to object
+    X["random_null_num_column"] = np.random.choice([1, 2, 3, None], size=len(X), p=[0.3, 0.3, 0.3, 0.1])  # Add a column with random null values to test missing value handling
+    X["random_null_cat_column"] = np.random.choice(["a", "b", "c", None], size=len(X), p=[0.3, 0.3, 0.3, 0.1])  # Add a column with random null values to test missing value handling
     y = df["TARGET"]
     return X, y

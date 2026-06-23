@@ -1,162 +1,32 @@
-2026-06-20 21:46:22,423 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:195 | INFO | Starting WOE fitting for 14 numeric features: ['credit_limit', 'age', 'bill_amount_sep_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_jun_2005', 'bill_amount_may_2005', 'bill_amount_apr_2005', 'payment_amount_sep_2005', 'payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_jun_2005', 'payment_amount_may_2005', 'payment_amount_apr_2005']
-2026-06-20 21:46:22,423 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: credit_limit
-2026-06-20 21:46:27,443 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'credit_limit' fitted with 8 bins and IV=0.1973
-2026-06-20 21:46:27,443 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.724575
-2026-06-20 21:46:27,443 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.281068
-2026-06-20 21:46:27,443 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.124146
-2026-06-20 21:46:27,444 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = -0.056077
-2026-06-20 21:46:27,444 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.211665
-2026-06-20 21:46:27,444 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.308390
-2026-06-20 21:46:27,444 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.536155
-2026-06-20 21:46:27,444 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 7: WOE = 0.772198
-2026-06-20 21:46:27,444 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: age
-2026-06-20 21:46:34,689 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'age' fitted with 4 bins and IV=0.0035
-2026-06-20 21:46:34,690 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = 0.033049
-2026-06-20 21:46:34,690 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.033629
-2026-06-20 21:46:34,690 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.061645
-2026-06-20 21:46:34,690 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = -0.156011
-2026-06-20 21:46:34,690 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: bill_amount_sep_2005
-2026-06-20 21:46:40,670 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'bill_amount_sep_2005' fitted with 8 bins and IV=0.0080
-2026-06-20 21:46:40,670 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.119741
-2026-06-20 21:46:40,670 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.068349
-2026-06-20 21:46:40,670 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.051588
-2026-06-20 21:46:40,670 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.013161
-2026-06-20 21:46:40,670 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.096507
-2026-06-20 21:46:40,670 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.114906
-2026-06-20 21:46:40,671 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.151364
-2026-06-20 21:46:40,671 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 7: WOE = 0.202560
-2026-06-20 21:46:40,671 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: bill_amount_aug_2005
-2026-06-20 21:46:47,662 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'bill_amount_aug_2005' fitted with 3 bins and IV=0.0012
-2026-06-20 21:46:47,662 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = 0.045210
-2026-06-20 21:46:47,663 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.062030
-2026-06-20 21:46:47,663 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.020659
-2026-06-20 21:46:47,663 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: bill_amount_jul_2005
-2026-06-20 21:46:54,066 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'bill_amount_jul_2005' fitted with 5 bins and IV=0.0053
-2026-06-20 21:46:54,066 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.042033
-2026-06-20 21:46:54,066 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = 0.024585
-2026-06-20 21:46:54,066 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = 0.095367
-2026-06-20 21:46:54,066 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.151123
-2026-06-20 21:46:54,066 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.161568
-2026-06-20 21:46:54,066 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: bill_amount_jun_2005
-2026-06-20 21:47:00,556 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'bill_amount_jun_2005' fitted with 5 bins and IV=0.0043
-2026-06-20 21:47:00,556 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.057146
-2026-06-20 21:47:00,556 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.030109
-2026-06-20 21:47:00,556 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.010186
-2026-06-20 21:47:00,556 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.036329
-2026-06-20 21:47:00,557 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.148199
-2026-06-20 21:47:00,557 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: bill_amount_may_2005
-2026-06-20 21:47:07,281 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'bill_amount_may_2005' fitted with 4 bins and IV=0.0045
-2026-06-20 21:47:07,282 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.064240
-2026-06-20 21:47:07,282 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.030650
-2026-06-20 21:47:07,282 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = 0.112835
-2026-06-20 21:47:07,282 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.123859
-2026-06-20 21:47:07,282 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: bill_amount_apr_2005
-2026-06-20 21:47:13,695 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'bill_amount_apr_2005' fitted with 3 bins and IV=0.0049
-2026-06-20 21:47:13,695 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = 0.087046
-2026-06-20 21:47:13,696 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.078605
-2026-06-20 21:47:13,696 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.051163
-2026-06-20 21:47:13,696 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: payment_amount_sep_2005
-2026-06-20 21:47:18,489 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'payment_amount_sep_2005' fitted with 7 bins and IV=0.1682
-2026-06-20 21:47:18,489 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.596607
-2026-06-20 21:47:18,489 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.057024
-2026-06-20 21:47:18,489 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = 0.048983
-2026-06-20 21:47:18,489 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.200155
-2026-06-20 21:47:18,489 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.430260
-2026-06-20 21:47:18,489 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.486621
-2026-06-20 21:47:18,490 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.973784
-2026-06-20 21:47:18,490 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: payment_amount_aug_2005
-2026-06-20 21:47:23,005 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'payment_amount_aug_2005' fitted with 8 bins and IV=0.1586
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.524307
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.120942
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.006458
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.060495
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.223636
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.457651
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.543574
-2026-06-20 21:47:23,006 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 7: WOE = 1.211316
-2026-06-20 21:47:23,007 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: payment_amount_jul_2005
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'payment_amount_jul_2005' fitted with 8 bins and IV=0.1323
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.509481
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.087324
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.036041
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.093438
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.121106
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.428321
-2026-06-20 21:47:27,513 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.545040
-2026-06-20 21:47:27,514 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 7: WOE = 0.854785
-2026-06-20 21:47:27,514 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: payment_amount_jun_2005
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'payment_amount_jun_2005' fitted with 7 bins and IV=0.0978
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.365223
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.103886
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.039303
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.085175
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.225579
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.433328
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.699161
-2026-06-20 21:47:31,899 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: payment_amount_may_2005
-2026-06-20 21:47:35,888 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'payment_amount_may_2005' fitted with 8 bins and IV=0.0845
-2026-06-20 21:47:35,888 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.324386
-2026-06-20 21:47:35,888 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.119259
-2026-06-20 21:47:35,888 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.092534
-2026-06-20 21:47:35,888 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = -0.018601
-2026-06-20 21:47:35,888 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.203574
-2026-06-20 21:47:35,888 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.339866
-2026-06-20 21:47:35,889 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.568320
-2026-06-20 21:47:35,889 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 7: WOE = 0.699241
-2026-06-20 21:47:35,889 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:204 | INFO | Computing WOE for feature: payment_amount_apr_2005
-2026-06-20 21:47:39,562 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:252 | INFO | Feature 'payment_amount_apr_2005' fitted with 9 bins and IV=0.0966
-2026-06-20 21:47:39,562 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 0: WOE = -0.343864
-2026-06-20 21:47:39,562 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 1: WOE = -0.134093
-2026-06-20 21:47:39,562 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 2: WOE = -0.123690
-2026-06-20 21:47:39,562 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 3: WOE = 0.019663
-2026-06-20 21:47:39,562 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 4: WOE = 0.068709
-2026-06-20 21:47:39,562 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 5: WOE = 0.163301
-2026-06-20 21:47:39,563 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 6: WOE = 0.396300
-2026-06-20 21:47:39,563 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 7: WOE = 0.610654
-2026-06-20 21:47:39,563 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:254 | INFO |   Bin 8: WOE = 0.717783
-2026-06-20 21:47:39,563 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:264 | INFO | WOE fitting completed for 14 features: ['credit_limit', 'age', 'bill_amount_sep_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_jun_2005', 'bill_amount_may_2005', 'bill_amount_apr_2005', 'payment_amount_sep_2005', 'payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_jun_2005', 'payment_amount_may_2005', 'payment_amount_apr_2005']
-2026-06-20 21:47:39,592 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'credit_limit' to WOE and dropped original column
-2026-06-20 21:47:39,618 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'age' to WOE and dropped original column
-2026-06-20 21:47:39,642 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_sep_2005' to WOE and dropped original column
-2026-06-20 21:47:39,667 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_aug_2005' to WOE and dropped original column
-2026-06-20 21:47:39,691 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_jul_2005' to WOE and dropped original column
-2026-06-20 21:47:39,715 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_jun_2005' to WOE and dropped original column
-2026-06-20 21:47:39,738 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_may_2005' to WOE and dropped original column
-2026-06-20 21:47:39,762 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_apr_2005' to WOE and dropped original column
-2026-06-20 21:47:39,786 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_sep_2005' to WOE and dropped original column
-2026-06-20 21:47:39,810 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_aug_2005' to WOE and dropped original column
-2026-06-20 21:47:39,835 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_jul_2005' to WOE and dropped original column
-2026-06-20 21:47:39,860 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_jun_2005' to WOE and dropped original column
-2026-06-20 21:47:39,884 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_may_2005' to WOE and dropped original column
-2026-06-20 21:47:39,908 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_apr_2005' to WOE and dropped original column
-2026-06-20 21:47:39,908 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:329 | INFO | Transform completed for 14 features
-2026-06-20 21:48:16,958 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'credit_limit' to WOE and dropped original column
-2026-06-20 21:48:16,958 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'age' to WOE and dropped original column
-2026-06-20 21:48:16,959 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_sep_2005' to WOE and dropped original column
-2026-06-20 21:48:16,960 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_aug_2005' to WOE and dropped original column
-2026-06-20 21:48:16,961 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_jul_2005' to WOE and dropped original column
-2026-06-20 21:48:16,961 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_jun_2005' to WOE and dropped original column
-2026-06-20 21:48:16,962 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_may_2005' to WOE and dropped original column
-2026-06-20 21:48:16,963 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_apr_2005' to WOE and dropped original column
-2026-06-20 21:48:16,963 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_sep_2005' to WOE and dropped original column
-2026-06-20 21:48:16,964 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_aug_2005' to WOE and dropped original column
-2026-06-20 21:48:16,965 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_jul_2005' to WOE and dropped original column
-2026-06-20 21:48:16,965 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_jun_2005' to WOE and dropped original column
-2026-06-20 21:48:16,966 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_may_2005' to WOE and dropped original column
-2026-06-20 21:48:16,967 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_apr_2005' to WOE and dropped original column
-2026-06-20 21:48:16,967 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:329 | INFO | Transform completed for 14 features
-2026-06-20 21:48:17,004 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'credit_limit' to WOE and dropped original column
-2026-06-20 21:48:17,004 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'age' to WOE and dropped original column
-2026-06-20 21:48:17,005 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_sep_2005' to WOE and dropped original column
-2026-06-20 21:48:17,006 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_aug_2005' to WOE and dropped original column
-2026-06-20 21:48:17,006 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_jul_2005' to WOE and dropped original column
-2026-06-20 21:48:17,007 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_jun_2005' to WOE and dropped original column
-2026-06-20 21:48:17,008 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_may_2005' to WOE and dropped original column
-2026-06-20 21:48:17,008 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'bill_amount_apr_2005' to WOE and dropped original column
-2026-06-20 21:48:17,009 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_sep_2005' to WOE and dropped original column
-2026-06-20 21:48:17,010 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_aug_2005' to WOE and dropped original column
-2026-06-20 21:48:17,011 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_jul_2005' to WOE and dropped original column
-2026-06-20 21:48:17,011 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_jun_2005' to WOE and dropped original column
-2026-06-20 21:48:17,012 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_may_2005' to WOE and dropped original column
-2026-06-20 21:48:17,013 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:327 | INFO | Transformed feature 'payment_amount_apr_2005' to WOE and dropped original column
-2026-06-20 21:48:17,013 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:329 | INFO | Transform completed for 14 features
+2026-06-23 16:24:37,195 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:199 | INFO | Starting WOE fitting for 14 numeric features: ['credit_limit', 'age', 'bill_amount_sep_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_jun_2005', 'bill_amount_may_2005', 'bill_amount_apr_2005', 'payment_amount_sep_2005', 'payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_jun_2005', 'payment_amount_may_2005', 'payment_amount_apr_2005']
+2026-06-23 16:24:37,195 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: credit_limit
+2026-06-23 16:24:39,377 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'credit_limit' fitted with 8 bins and IV=0.2055
+2026-06-23 16:24:39,377 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: age
+2026-06-23 16:24:42,564 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'age' fitted with 4 bins and IV=0.0062
+2026-06-23 16:24:42,564 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: bill_amount_sep_2005
+2026-06-23 16:24:45,357 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'bill_amount_sep_2005' fitted with 7 bins and IV=0.0102
+2026-06-23 16:24:45,357 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: bill_amount_aug_2005
+2026-06-23 16:24:48,322 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'bill_amount_aug_2005' fitted with 4 bins and IV=0.0096
+2026-06-23 16:24:48,322 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: bill_amount_jul_2005
+2026-06-23 16:24:51,312 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'bill_amount_jul_2005' fitted with 4 bins and IV=0.0077
+2026-06-23 16:24:51,312 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: bill_amount_jun_2005
+2026-06-23 16:24:54,458 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'bill_amount_jun_2005' fitted with 3 bins and IV=0.0017
+2026-06-23 16:24:54,458 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: bill_amount_may_2005
+2026-06-23 16:24:57,463 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'bill_amount_may_2005' fitted with 4 bins and IV=0.0034
+2026-06-23 16:24:57,463 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: bill_amount_apr_2005
+2026-06-23 16:25:00,279 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'bill_amount_apr_2005' fitted with 4 bins and IV=0.0024
+2026-06-23 16:25:00,279 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: payment_amount_sep_2005
+2026-06-23 16:25:02,277 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'payment_amount_sep_2005' fitted with 7 bins and IV=0.1635
+2026-06-23 16:25:02,277 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: payment_amount_aug_2005
+2026-06-23 16:25:04,104 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'payment_amount_aug_2005' fitted with 8 bins and IV=0.1367
+2026-06-23 16:25:04,104 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: payment_amount_jul_2005
+2026-06-23 16:25:06,082 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'payment_amount_jul_2005' fitted with 7 bins and IV=0.1102
+2026-06-23 16:25:06,083 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: payment_amount_jun_2005
+2026-06-23 16:25:08,351 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'payment_amount_jun_2005' fitted with 5 bins and IV=0.0934
+2026-06-23 16:25:08,351 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: payment_amount_may_2005
+2026-06-23 16:25:13,588 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'payment_amount_may_2005' fitted with 8 bins and IV=0.0694
+2026-06-23 16:25:13,589 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:209 | INFO | Computing WOE for feature: payment_amount_apr_2005
+2026-06-23 16:25:15,260 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:262 | INFO | Feature 'payment_amount_apr_2005' fitted with 9 bins and IV=0.0875
+2026-06-23 16:25:15,260 | [None] | mlops.sklearn_wrapper_woe_numeric | fit:274 | INFO | WOE fitting completed for 14 features: ['credit_limit', 'age', 'bill_amount_sep_2005', 'bill_amount_aug_2005', 'bill_amount_jul_2005', 'bill_amount_jun_2005', 'bill_amount_may_2005', 'bill_amount_apr_2005', 'payment_amount_sep_2005', 'payment_amount_aug_2005', 'payment_amount_jul_2005', 'payment_amount_jun_2005', 'payment_amount_may_2005', 'payment_amount_apr_2005']
+2026-06-23 16:25:15,439 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:344 | INFO | Transform completed for 14 features
+2026-06-23 16:25:16,887 | [None] | mlops.sklearn_wrapper_woe_numeric | transform:344 | INFO | Transform completed for 14 features

@@ -36,6 +36,7 @@ LOGGER_CONFIG = {
     "mlops.sklearn_wrapper_woe_categorical": "sklearn_wrapper_woe_categorical.log",
     "mlops.sklearn_wrapper_woe_numeric": "sklearn_wrapper_woe_numeric.log",
     "mlops.sklearn_wrapper_vif": "sklearn_wrapper_vif.log",
+    "mlops.sklearn_wrapper_binary": "sklearn_wrapper_binary.log",
 
   
 }

@@ -118,7 +118,8 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
                  min_iv: float = 0.02,
                  max_iv: float = 0.50,
                  max_iter: int = 20,
-                 unseen: float = 0):
+                 unseen: float = 0,
+                 skip_indicator: bool = False):
         self.target_col = target_col
         self.min_bin_pct = min_bin_pct
         self.max_final_bins = max_final_bins
@@ -127,8 +128,10 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
         self.max_iv = max_iv
         self.max_iter = max_iter
         self.unseen = unseen
+        self.skip_indicator = skip_indicator
         
         self.category_woe_dict_ = {}
+        self.missing_woe_dict_ = {}
         self.feature_names_ = []
         self.binning_results_ = {}
     
@@ -163,15 +166,16 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
             y = pd.Series(y, index=X.index)
         
         # Concatenate X with target internally
-        X_with_target = pd.concat([X, y.rename('TARGET')], axis=1)
+        X_with_target = pd.concat([X, y.rename(self.target_col)], axis=1)
         
         # Identify categorical (object dtype) features
         categorical_features = X_with_target.select_dtypes(include=['object']).columns.tolist()
         # Remove target column from features
-        categorical_features = [f for f in categorical_features if f != 'TARGET']
+        categorical_features = [f for f in categorical_features if f != self.target_col]
         # Skip outlier indicator columns (_right, _left) — they are binary flags, not suitable for WOE binning
-        indicator_cols = detect_outlier_indicator_columns(categorical_features)
-        categorical_features = [f for f in categorical_features if f not in indicator_cols]
+        if self.skip_indicator:
+            indicator_cols = detect_outlier_indicator_columns(categorical_features)
+            categorical_features = [f for f in categorical_features if f not in indicator_cols]
         
         if not categorical_features:
             raise ValueError("No categorical (object dtype) features found in X (excluding target column)")
@@ -180,6 +184,7 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
         
         self.feature_names_ = []
         self.category_woe_dict_ = {}
+        self.missing_woe_dict_ = {}
         self.binning_results_ = {}
         
         for feature in categorical_features:
@@ -190,7 +195,7 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
                 binning_result = auto_woe_binning_categorical(
                     df=X_with_target,
                     feature=feature,
-                    target='TARGET',
+                    target=self.target_col,
                     min_bin_pct=self.min_bin_pct,
                     max_final_bins=self.max_final_bins,
                     min_final_bins=self.min_final_bins,
@@ -236,6 +241,11 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
                     continue
                 
                 self.category_woe_dict_[feature] = category_woe
+
+                # Store MISSING WOE (None if feature had no null observations)
+                raw_missing_woe = binning_result.get("missing_woe", None)
+                self.missing_woe_dict_[feature] = raw_missing_woe if raw_missing_woe is not None else self.unseen
+
                 self.feature_names_.append(feature)
                 
                 # Log mapping information
@@ -243,7 +253,7 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
                 logger.info(f"Feature '{feature}' fitted with {len(category_woe)} category mappings and IV={total_iv:.4f}")
                 for bin_name, categories in values_to_group.items():
                     woe_val = bin_woe.get(bin_name, 0)
-                    logger.info(f"  {bin_name} ({len(categories)} categories): WOE = {woe_val:.6f}")
+                    logger.debug(f"  {bin_name} ({len(categories)} categories): WOE = {woe_val:.6f}")
                 
             except Exception as e:
                 error_message = f"Error computing WOE for categorical feature '{feature}': {str(e)}"
@@ -297,14 +307,16 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
                 continue
             
             category_woe = self.category_woe_dict_[feature]
-            
-            # Convert feature values to string (to match the stored mapping keys)
-            feature_values = X[feature].astype(str)
-            
-            # Map each category to its WOE value
-            # For unknown categories, use self.unseen value
+            missing_woe_val = self.missing_woe_dict_.get(feature, self.unseen)
+
+            series = X[feature]
+            nan_mask = series.isna().to_numpy()
+
+            # Map each category to its WOE value; NaN observations get the MISSING WOE
             woe_values = np.array([
-                round(category_woe.get(cat, self.unseen), 6) for cat in feature_values
+                missing_woe_val if nan_mask[i]
+                else round(category_woe.get(str(cat), self.unseen), 6)
+                for i, cat in enumerate(series)
             ])
             
             # Create WOE column and drop original
@@ -312,7 +324,7 @@ class WOETransformerCategorical(BaseEstimator, TransformerMixin):
             X_transformed[woe_col_name] = woe_values
             X_transformed = X_transformed.drop(columns=[feature])
             
-            logger.info(f"Transformed feature '{feature}' to WOE and dropped original column")
+            logger.debug(f"Transformed feature '{feature}' to WOE and dropped original column")
         
         logger.info(f"Transform completed for {len(self.feature_names_)} features")
         return X_transformed

@@ -72,13 +72,13 @@ def convert_pd_interval_to_str(
     lower_bound = interval.left
     upper_bound = interval.right
     closed = interval.closed
-    logger.info(f"Converting Interval: {interval} with lower_bound={lower_bound}, upper_bound={upper_bound}, closed='{closed}' to string representation.")
+    logger.debug(f"Converting Interval: {interval} with lower_bound={lower_bound}, upper_bound={upper_bound}, closed='{closed}' to string representation.")
 
     # Get Rounds of lower_bound and upper_bound if round_apply is True, otherwise keep them as they are
     if round_apply:
         lower_bound = int(round(lower_bound))
         upper_bound = int(round(upper_bound))
-        logger.info(f"Rounded bounds: lower_bound={lower_bound}, upper_bound={upper_bound}")
+        logger.debug(f"Rounded bounds: lower_bound={lower_bound}, upper_bound={upper_bound}")
 
     if closed == "right":
         return f"from_{lower_bound}_to_{upper_bound}"
@@ -170,13 +170,13 @@ def is_monotonic(s: pd.Series) -> bool:
         logger.error("Input is not a pandas Series.")
         raise ValueError("Input must be a pandas Series.")
     name_of_series = s.name if s.name is not None else "Unnamed Series"
-    logger.info(f"Checking monotonicity for series: {name_of_series}")
+    logger.debug(f"Checking monotonicity for series: {name_of_series}")
     monotonic_increasing = s.is_monotonic_increasing
     monotonic_decreasing = s.is_monotonic_decreasing
     monotonic = monotonic_increasing or monotonic_decreasing
-    logger.info(f"Series is monotonic increasing: {'YES' if monotonic_increasing else 'NO'}")
-    logger.info(f"Series is monotonic decreasing: {'YES' if monotonic_decreasing else 'NO'}")
-    logger.info(f"Series is monotonic: {'YES' if monotonic else 'NO'}")
+    logger.debug(f"Series is monotonic increasing: {'YES' if monotonic_increasing else 'NO'}")
+    logger.debug(f"Series is monotonic decreasing: {'YES' if monotonic_decreasing else 'NO'}")
+    logger.debug(f"Series is monotonic: {'YES' if monotonic else 'NO'}")
     return monotonic
 
 def calculate_woe_iv_table(
@@ -248,7 +248,7 @@ def calculate_woe_iv_table(
     - After every merge operation.
     - Final WoE / IV calculation.
     """
-    logger.info(f"Calculating WoE / IV table for bin_col='{bin_col}'")
+    logger.debug(f"Calculating WoE / IV table for bin_col='{bin_col}'")
 
     tmp = df[[bin_col, target]].copy()
 
@@ -269,56 +269,56 @@ def calculate_woe_iv_table(
     # Calculate total good and total bad for the entire dataset (used for WoE and IV calculation)
     total_good = summary["good"].sum()
     total_bad = summary["bad"].sum()
-    logger.info(f"Total good: {total_good} and % of total: {total_good / (total_good + total_bad):.2%}, Total bad: {total_bad} and % of total: {total_bad / (total_good + total_bad):.2%}")
+    logger.debug(f"Total good: {total_good} and % of total: {total_good / (total_good + total_bad):.2%}, Total bad: {total_bad} and % of total: {total_bad / (total_good + total_bad):.2%}")
 
     # NOTE: We apply smoothing to avoid division by zero in WoE calculation.
     # Formula for WoE: ln((good_dist) / (bad_dist))
     # If good_dist or bad_dist is zero, we get division by zero and WoE becomes infinite.
     # To prevent this, we add a small constant (eps) to both the numerator and denominator.
     # eps is added to counts, not directly to rates. 
-    logger.info(f"Applying smoothing with eps={eps} to avoid division by zero in WoE calculation.")
+    logger.debug(f"Applying smoothing with eps={eps} to avoid division by zero in WoE calculation.")
 
     # Add Good Distribution (good_dist) with smoothing
     summary["good_dist"] = (
         (summary["good"] + eps) / (total_good + eps * len(summary))
     )
-    logger.info("Good distribution calculated with smoothing:")
+    logger.debug("Good distribution calculated with smoothing:")
     for _, row in summary.iterrows():
-        logger.info(f"Bin: {row[bin_col]}, Good count: {row['good']}, Good dist: {row['good_dist']:.6f}")
+        logger.debug(f"Bin: {row[bin_col]}, Good count: {row['good']}, Good dist: {row['good_dist']:.6f}")
     
     # Calculate bad distribution with smoothing
     summary["bad_dist"] = (
         (summary["bad"] + eps) / (total_bad + eps * len(summary))
     )
-    logger.info("Bad distribution calculated with smoothing:")
+    logger.debug("Bad distribution calculated with smoothing:")
     for _, row in summary.iterrows():
-        logger.info(f"Bin: {row[bin_col]}, Bad count: {row['bad']}, Bad dist: {row['bad_dist']:.6f}")
+        logger.debug(f"Bin: {row[bin_col]}, Bad count: {row['bad']}, Bad dist: {row['bad_dist']:.6f}")
 
     # Add Odds Ratio (OR)
     summary["odds_ratio"] = summary["good_dist"] / summary["bad_dist"]
-    logger.info("Odds Ratio calculated for each bin:")
+    logger.debug("Odds Ratio calculated for each bin:")
     for _, row in summary.iterrows():
-        logger.info(f"Bin: {row[bin_col]}, Odds Ratio: {row['odds_ratio']:.6f}")
+        logger.debug(f"Bin: {row[bin_col]}, Odds Ratio: {row['odds_ratio']:.6f}")
 
     # Calculate WoE using the smoothed good_dist and bad_dist
     summary["woe"] = np.log(summary["odds_ratio"])
-    logger.info("WoE calculated for each bin:")
+    logger.debug("WoE calculated for each bin:")
     for _, row in summary.iterrows():
-        logger.info(f"Bin: {row[bin_col]}, WoE: {row['woe']:.6f}, Display WoE: {row['woe'] * 100:.2f}")
+        logger.debug(f"Bin: {row[bin_col]}, WoE: {row['woe']:.6f}, Display WoE: {row['woe'] * 100:.2f}")
     summary["woe_display"] = summary["woe"] * 100
 
     # Calculate good_dist - bad_dist component for transparency in IV calculation
     summary["good_dist_minus_bad_dist"] = summary["good_dist"] - summary["bad_dist"]
-    logger.info("Good Distribution - Bad Distribution calculated for each bin:")
+    logger.debug("Good Distribution - Bad Distribution calculated for each bin:")
     for _, row in summary.iterrows():
-        logger.info(f"Bin: {row[bin_col]}, Good_Dist: {row['good_dist']:.6f}, Bad_Dist: {row['bad_dist']:.6f}, Difference: {row['good_dist_minus_bad_dist']:.6f}")
+        logger.debug(f"Bin: {row[bin_col]}, Good_Dist: {row['good_dist']:.6f}, Bad_Dist: {row['bad_dist']:.6f}, Difference: {row['good_dist_minus_bad_dist']:.6f}")
 
     summary["iv"] = (
         (summary["good_dist"] - summary["bad_dist"]) * summary["woe"]
     )
-    logger.info("IV contribution calculated for each bin:")
+    logger.debug("IV contribution calculated for each bin:")
     for _, row in summary.iterrows():
-        logger.info(f"Bin: {row[bin_col]}, IV contribution: {row['iv']:.6f}")
+        logger.debug(f"Bin: {row[bin_col]}, IV contribution: {row['iv']:.6f}")
     
     # Human readable bin labels for reporting (e.g., "from_18_to_25" instead of "(18, 25]")
     summary["human_readable_bin"] = summary[bin_col].apply(convert_pd_interval_to_str)
@@ -350,11 +350,11 @@ def calculate_woe_iv_table(
     # Calculate total IV for the feature by summing the IV contributions from all bins
     total_iv = summary["iv"].sum()
     total_iv_interpretation = interpret_iv(total_iv)
-    logger.info(f"Total IV for the feature: {total_iv:.6f}")
-    logger.info(f"Interpretation of Total IV: {total_iv_interpretation}")
+    logger.debug(f"Total IV for the feature: {total_iv:.6f}")
+    logger.debug(f"Interpretation of Total IV: {total_iv_interpretation}")
 
-    logger.info("FINAL WOE TABLE:")
-    logger.info(f"\n{summary_reordered.to_string(index=False)}")
+    logger.debug("FINAL WOE TABLE:")
+    logger.debug(f"\n{summary_reordered.to_string(index=False)}")
 
     # Prepare metadata of Woe and Bins
     # Convert the entire summary table to dict for metadata, converting Interval objects to strings
@@ -433,22 +433,22 @@ def create_initial_bins(
     """
     if series is not None:
         feature = series.name if series.name is not None else "Unnamed Series"
-        logger.info(f"Using provided series for binning. Feature='{feature}', requested_bins={initial_bins}")
+        logger.debug(f"Using provided series for binning. Feature='{feature}', requested_bins={initial_bins}")
         x = series
-        logger.info(f"Input pandas data type: {type(x).__name__}, number of records: {len(x)}, Shape: {x.shape}")
+        logger.debug(f"Input pandas data type: {type(x).__name__}, number of records: {len(x)}, Shape: {x.shape}")
     else:
-        all_cıolumns = df.columns.tolist()
-        all_columns_str = ", ".join(all_cıolumns)
-        logger.info(f"All columns in the dataframe: {all_columns_str}")
+        all_columns = df.columns.tolist()
+        all_columns_str = ", ".join(all_columns)
+        logger.debug(f"All columns in the dataframe: {all_columns_str}")
         if feature is None:
             logger.error("Feature name must be provided if series is not provided.")
             raise ValueError("Feature name must be provided if series is not provided.")
         if feature not in df.columns:
             logger.error(f"Feature '{feature}' not found in dataframe columns.")
             raise ValueError(f"Feature '{feature}' not found in dataframe columns.")
-        logger.info(f"Creating initial bins. Feature='{feature}', requested_bins={initial_bins}")
+        logger.debug(f"Creating initial bins. Feature='{feature}', requested_bins={initial_bins}")
         x = df[feature]
-        logger.info(f"Input pandas data type: {type(x).__name__}, number of records: {len(x)}, Shape: {x.shape}")
+        logger.debug(f"Input pandas data type: {type(x).__name__}, number of records: {len(x)}, Shape: {x.shape}")
 
     try:
         # Apply pd.qcut to create quantile-based bins. If there are duplicate edges, it will raise a ValueError.
@@ -458,11 +458,11 @@ def create_initial_bins(
             duplicates="drop"
         )
 
-        logger.info(f"Initial bins created with qcut. Feature: {feature}")
-        logger.info(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
-        logger.info("Bins:")
+        logger.debug(f"Initial bins created with qcut. Feature: {feature}")
+        logger.debug(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
+        logger.debug("Bins:")
         for bin in bins.cat.categories:
-            logger.info(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
+            logger.debug(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
 
         # If the number of bins created is less than 3, call cut to create equal-width bins instead, because we need at least 3 bins to perform the subsequent binning rules effectively.
         if bins.cat.categories.size < 3:
@@ -474,11 +474,11 @@ def create_initial_bins(
                 bins=initial_bins,
                 duplicates="drop"
             )
-            logger.info(f"Initial bins created with cut. Feature: {feature}")
-            logger.info(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
-            logger.info("Bins:")
+            logger.debug(f"Initial bins created with cut. Feature: {feature}")
+            logger.debug(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
+            logger.debug("Bins:")
             for bin in bins.cat.categories:
-                logger.info(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
+                logger.debug(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
 
     except Exception as e:
         warning_message = f"qcut failed for feature '{feature}' with error: {str(e)}. Falling back to cut."
@@ -491,12 +491,12 @@ def create_initial_bins(
             duplicates="drop"
         )
 
-        logger.info(f"Initial bins created with cut. Feature: {feature}")
-        logger.info(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
+        logger.debug(f"Initial bins created with cut. Feature: {feature}")
+        logger.debug(f"Requested number of bins: {initial_bins}, Actual number of bins created: {bins.cat.categories.size}")
 
-        logger.info("Bins:")
+        logger.debug("Bins:")
         for bin in bins.cat.categories:
-            logger.info(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
+            logger.debug(f"  - {bin}: {bin.left} to {bin.right}, closed='{bin.closed}' Number of records in this bin: {(bins == bin).sum()}")
 
     return bins
 
@@ -561,19 +561,19 @@ def merge_intervals(
     - Rule 4: WoE monotonicity merge.
     - Rule 5: Maximum bin count merge.
     """
-    logger.info(f"Merging intervals at index pair=({i}, {i + 1})")
+    logger.debug(f"Merging intervals at index pair=({i}, {i + 1})")
 
     # Input is not a list of pandas Interval objects, raise error
     if not isinstance(intervals, list) or not all(isinstance(interval, pd.Interval) for interval in intervals):
         logger.error("Input intervals must be a list of pandas Interval objects.")
         raise ValueError("Input intervals must be a list of pandas Interval objects.")
     
-    logger.info(f"Current intervals before merge (count={len(intervals)}):")
+    logger.debug(f"Current intervals before merge (count={len(intervals)}):")
     for idx, interval in enumerate(intervals):
         if idx in [i, i + 1]:
-            logger.info(f"  - Index {idx}: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}') <-- to be merged")
+            logger.debug(f"  - Index {idx}: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}') <-- to be merged")
         else:
-            logger.info(f"  - Index {idx}: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}')")
+            logger.debug(f"  - Index {idx}: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}')")
 
     new_intervals = []
 
@@ -582,27 +582,27 @@ def merge_intervals(
             left = intervals[i].left
             right = intervals[i + 1].right
             closed = intervals[i].closed
-            logger.info(f"Merging intervals at index pair=({i}, {i + 1}):")
-            logger.info(f"  - {intervals[i]} and {intervals[i + 1]} into new interval with left={left}, right={right}, closed='{closed}'")
+            logger.debug(f"Merging intervals at index pair=({i}, {i + 1}):")
+            logger.debug(f"  - {intervals[i]} and {intervals[i + 1]} into new interval with left={left}, right={right}, closed='{closed}'")
             # Create the merged interval.
             merged_interval = pd.Interval(left, right, closed=closed)
-            logger.info(f"  - Created merged interval ---> {merged_interval}")
+            logger.debug(f"  - Created merged interval ---> {merged_interval}")
 
             # Append the merged interval to the new intervals list
             new_intervals.append(merged_interval)
 
         elif idx == i + 1:
-            logger.info(f"Skipping interval at index {idx} since it has been merged: {intervals[i + 1]}")
+            logger.debug(f"Skipping interval at index {idx} since it has been merged: {intervals[i + 1]}")
             continue
 
         else:
-            logger.info(f"Keeping interval at index {idx} unchanged: {interval}")
+            logger.debug(f"Keeping interval at index {idx} unchanged: {interval}")
             new_intervals.append(interval)
 
-    logger.info(f"Intervals merged. Previous count={len(intervals)}, New count={len(new_intervals)}")
-    logger.info("New intervals:")
+    logger.debug(f"Intervals merged. Previous count={len(intervals)}, New count={len(new_intervals)}")
+    logger.debug("New intervals:")
     for idx, interval in enumerate(new_intervals):
-        logger.info(f"  - Index {idx}: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}')")
+        logger.debug(f"  - Index {idx}: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}')")
 
     logger.info(f"Merge Completed - REMOVED ITEM: {intervals[i].right}")
 
@@ -661,7 +661,7 @@ def assign_bins_from_intervals(
     - Before recalculating WoE / IV.
     - Final bin assignment step.
     """
-    logger.info(f"Assigning observations to current intervals. Interval count={len(intervals)}")
+    logger.debug(f"Assigning observations to current intervals. Interval count={len(intervals)}")
 
     # We create an empty Series to hold the assigned bins. 
     # We will fill this Series by checking which interval each observation falls into.
@@ -673,11 +673,11 @@ def assign_bins_from_intervals(
         # We assign the current interval to all observations that fall into it.
         result.loc[mask] = interval
     
-    logger.info("Observations assigned to intervals:")
+    logger.debug("Observations assigned to intervals:")
     for interval in intervals:
         count_in_interval = (result == interval).sum()
-        logger.info(f"\tInterval: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}')")
-        logger.info(f"\t\tCount of observations assigned: {count_in_interval}")
+        logger.debug(f"\tInterval: {interval} (left={interval.left}, right={interval.right}, closed='{interval.closed}')")
+        logger.debug(f"\t\tCount of observations assigned: {count_in_interval}")
     
     # Finally, we convert the result Series into a pandas Categorical with the specified intervals as categories and ordered=True to maintain the order of bins.
     new_bins = pd.Categorical(
@@ -685,7 +685,7 @@ def assign_bins_from_intervals(
         categories=intervals,
         ordered=True # This ensures that the bins are treated as ordered categories, which is important for monotonicity checks and other operations that rely on the order of bins.
     )
-    logger.info(f"Assigning New Bins Completed, returned pandas data type: {type(new_bins).__name__}")
+    logger.debug(f"Assigning New Bins Completed, returned pandas data type: {type(new_bins).__name__}")
     return new_bins
 
 def find_closest_neighbor(
@@ -781,35 +781,35 @@ def find_closest_neighbor(
         logger.error(f"Invalid idx: {idx}. It must be between 0 and {len(summary) - 1}.")
         raise ValueError(f"Invalid idx: {idx}. It must be between 0 and {len(summary) - 1}.")
 
-    logger.info(f"Finding closest neighbor. Problem bin index={idx}, metric={metric}")
+    logger.debug(f"Finding closest neighbor. Problem bin index={idx}, metric={metric}")
 
     # If the problematic bin is the first bin, it can only merge with the right neighbor, so we return its own index.
     if idx == 0:
-        logger.info(f"Problematic bin is the first bin. It can only merge with the right neighbor. Selected neighbor index={idx}")
+        logger.debug(f"Problematic bin is the first bin. It can only merge with the right neighbor. Selected neighbor index={idx}")
         return 0
 
     # If the problematic bin is the last bin, it can only merge with the left neighbor, so we return the index of the left neighbor.
     if idx == len(summary) - 1:
-        logger.info(f"Problematic bin is the last bin. It can only merge with the left neighbor. Selected neighbor index={idx - 1}")
+        logger.debug(f"Problematic bin is the last bin. It can only merge with the left neighbor. Selected neighbor index={idx - 1}")
         return idx - 1
 
     # For other situations, we compare the metric values of the left and right neighbors and select the one that is closer to the problematic bin.
     left_diff = abs(summary.loc[idx, metric] - summary.loc[idx - 1, metric])
     right_diff = abs(summary.loc[idx, metric] - summary.loc[idx + 1, metric])
-    logger.info(f"Left neighbor index={idx - 1}, {metric}={summary.loc[idx - 1, metric]:.6f}, diff with problem bin: {left_diff:.6f}")
-    logger.info(f"Right neighbor index={idx + 1}, {metric}={summary.loc[idx + 1, metric]:.6f}, diff with problem bin: {right_diff:.6f}")
+    logger.debug(f"Left neighbor index={idx - 1}, {metric}={summary.loc[idx - 1, metric]:.6f}, diff with problem bin: {left_diff:.6f}")
+    logger.debug(f"Right neighbor index={idx + 1}, {metric}={summary.loc[idx + 1, metric]:.6f}, diff with problem bin: {right_diff:.6f}")
 
     if left_diff <= right_diff:
         merge_idx = idx - 1
-        logger.info(f"Left neighbor is closer or equal. Selected left neighbor index={merge_idx}")
+        logger.debug(f"Left neighbor is closer or equal. Selected left neighbor index={merge_idx}")
     else:
         merge_idx = idx
-        logger.info(f"Right neighbor is closer. Selected left neighbor index={merge_idx}")
+        logger.debug(f"Right neighbor is closer. Selected left neighbor index={merge_idx}")
 
-    logger.info(f"Closest neighbor found.")
-    logger.info(f"\t\tProblem bin index={idx}")
-    logger.info(f"\t\tNeighbor index to merge with={merge_idx}")
-    logger.info(f"MUST merge intervals at index {merge_idx} and {merge_idx + 1} to fix the problem with bin at index {idx}.")
+    logger.debug(f"Closest neighbor found.")
+    logger.debug(f"\t\tProblem bin index={idx}")
+    logger.debug(f"\t\tNeighbor index to merge with={merge_idx}")
+    logger.debug(f"MUST merge intervals at index {merge_idx} and {merge_idx + 1} to fix the problem with bin at index {idx}.")
 
     return merge_idx
 
@@ -862,7 +862,7 @@ def find_most_similar_adjacent_pair(
     - Rule 5: Maximum bin count reduction.
     - Fallback for Rule 3 or Rule 4 if no violation pair is found.
     """
-    logger.info(f"Finding most similar adjacent pair. Metric={metric}")
+    logger.debug(f"Finding most similar adjacent pair. Metric={metric}")
 
     diffs = []
 
@@ -879,15 +879,15 @@ def find_most_similar_adjacent_pair(
         diff = abs(summary.loc[i, metric] - summary.loc[i + 1, metric])
         val_i = summary.loc[i, metric]
         val_i_plus_1 = summary.loc[i + 1, metric]
-        logger.info(f"  Index {i} <-> {i + 1} | {metric}: {val_i:.6f} → {val_i_plus_1:.6f} | Difference = {diff:.6f}")
+        logger.debug(f"  Index {i} <-> {i + 1} | {metric}: {val_i:.6f} → {val_i_plus_1:.6f} | Difference = {diff:.6f}")
         diffs.append((i, diff))
 
     # Find the index of the pair with the smallest difference in the specified metric.
     merge_idx = min(diffs, key=lambda x: x[1])[0]
     min_diff = min(diffs, key=lambda x: x[1])[1]
-    logger.info(f"Best pair found: Index {merge_idx} <-> {merge_idx + 1} with smallest difference = {min_diff:.6f}")
+    logger.debug(f"Best pair found: Index {merge_idx} <-> {merge_idx + 1} with smallest difference = {min_diff:.6f}")
 
-    logger.info(f"Returning left index of the most similar adjacent pair to merge: {merge_idx}")
+    logger.debug(f"Returning left index of the most similar adjacent pair to merge: {merge_idx}")
 
     return merge_idx
 
@@ -938,7 +938,7 @@ def find_monotonicity_violation_pair(
     - Rule 3: Bad Rate monotonicity merge.
     - Rule 4: WoE monotonicity merge.
     """
-    logger.info(f"Finding monotonicity violation pair. Metric={metric}")
+    logger.debug(f"Finding monotonicity violation pair. Metric={metric}")
 
     values = summary[metric].values
 
@@ -948,17 +948,17 @@ def find_monotonicity_violation_pair(
     for i in range(len(values) - 1):
         if values[i] > values[i + 1]:
             inc_violations.append(i)
-            logger.info(f"Found increasing monotonicity violation at {i} and {i + 1}: {values[i]:.6f} -> {values[i + 1]:.6f} = Difference: {values[i + 1] - values[i]:.6f}")
+            logger.debug(f"Found increasing monotonicity violation at {i} and {i + 1}: {values[i]:.6f} -> {values[i + 1]:.6f} = Difference: {values[i + 1] - values[i]:.6f}")
 
         if values[i] < values[i + 1]:
             dec_violations.append(i)
-            logger.info(f"Found decreasing monotonicity violation at {i} and {i + 1}: {values[i]:.6f} -> {values[i + 1]:.6f} = Difference: {values[i + 1] - values[i]:.6f}")
+            logger.debug(f"Found decreasing monotonicity violation at {i} and {i + 1}: {values[i]:.6f} -> {values[i + 1]:.6f} = Difference: {values[i + 1] - values[i]:.6f}")
         
         if values[i] == values[i + 1]:
-            logger.info(f"Adjacent bins at indices {i} and {i + 1} have equal {metric} values ({values[i]:.6f}). This does not violate monotonicity in either direction.")
+            logger.debug(f"Adjacent bins at indices {i} and {i + 1} have equal {metric} values ({values[i]:.6f}). This does not violate monotonicity in either direction.")
     
-    logger.info(f"increasing monotonicity violations at indices: {inc_violations}")
-    logger.info(f"decreasing monotonicity violations at indices: {dec_violations}")
+    logger.debug(f"increasing monotonicity violations at indices: {inc_violations}")
+    logger.debug(f"decreasing monotonicity violations at indices: {dec_violations}")
 
     # We select the direction with fewer violations to minimize information loss.
     # Example:
@@ -978,10 +978,10 @@ def find_monotonicity_violation_pair(
     # Set the violations list to the selected monotonicity direction
     if len(inc_violations) <= len(dec_violations):
         violations = inc_violations # Selected violations are increasing monotonicity violations
-        logger.info(f"Selected increasing monotonicity violations.")
+        logger.debug(f"Selected increasing monotonicity violations.")
     else:
         violations = dec_violations # Selected violations are decreasing monotonicity violations
-        logger.info(f"Selected decreasing monotonicity violations.")
+        logger.debug(f"Selected decreasing monotonicity violations.")
 
     # If the selected violation list is empty, monotonicity is already satisfied.
     # Assume that,
@@ -999,7 +999,7 @@ def find_monotonicity_violation_pair(
     # if len(inc_violations) <= len(dec_violations): -> True (0 <= 3)
     # violations = inc_violations -> violations = [] it means Monotonicity is OK.
     if not violations:
-        logger.info("No monotonicity violation found.")
+        logger.debug("No monotonicity violation found.")
         return None
 
     merge_idx = min(
@@ -1007,8 +1007,8 @@ def find_monotonicity_violation_pair(
         key=lambda i: abs(summary.loc[i, metric] - summary.loc[i + 1, metric])
     )
 
-    logger.info(f"Monotonicity violation pair selected. Merge pair=({merge_idx}, {merge_idx + 1})")
-    logger.info(f"Returning left index of the violating adjacent pair to merge: {merge_idx}")
+    logger.debug(f"Monotonicity violation pair selected. Merge pair=({merge_idx}, {merge_idx + 1})")
+    logger.debug(f"Returning left index of the violating adjacent pair to merge: {merge_idx}")
 
     return merge_idx
 
@@ -1061,10 +1061,10 @@ def check_binning_quality(
     - Rule 6: Minimum bin count.
     - Rule 7: IV reasonability.
     """
-    logger.info(f"Checking final binning quality with min_bin_pct={min_bin_pct}, max_bins={max_bins}, and min_bins={min_bins}.")
+    logger.debug(f"Checking final binning quality with min_bin_pct={min_bin_pct}, max_bins={max_bins}, and min_bins={min_bins}.")
 
     total_iv = summary["iv"].sum()
-    logger.info(f"Total IV for the binned feature: {total_iv:.6f}")
+    logger.debug(f"Total IV for the binned feature: {total_iv:.6f}")
 
     # Set variables for each rule check
     min_bin_pct_ok = (summary["bin_pct"] >= min_bin_pct).all()
@@ -1074,14 +1074,14 @@ def check_binning_quality(
     bin_count_ok = (len(summary) <= max_bins) and (len(summary) >= min_bins)
     iv_reasonable_ok = 0.02 <= total_iv <= 0.50
 
-    logger.info("-- Binning Quality Check Results --")
-    logger.info(f"\tMinimum bin percentage check passed: {min_bin_pct_ok}")
-    logger.info(f"\tGood and bad existence check passed: {good_bad_exist_ok}")
-    logger.info(f"\tBad Rate monotonicity check passed: {bad_rate_monotonic_ok}")
-    logger.info(f"\tWoE monotonicity check passed: {woe_monotonic_ok}")
-    logger.info(f"\tBin count check passed: {bin_count_ok}")
-    logger.info(f"\tIV reasonability check passed: {iv_reasonable_ok}")
-    logger.info("-- End of Binning Quality Check Results --")
+    logger.debug("-- Binning Quality Check Results --")
+    logger.debug(f"\tMinimum bin percentage check passed: {min_bin_pct_ok}")
+    logger.debug(f"\tGood and bad existence check passed: {good_bad_exist_ok}")
+    logger.debug(f"\tBad Rate monotonicity check passed: {bad_rate_monotonic_ok}")
+    logger.debug(f"\tWoE monotonicity check passed: {woe_monotonic_ok}")
+    logger.debug(f"\tBin count check passed: {bin_count_ok}")
+    logger.debug(f"\tIV reasonability check passed: {iv_reasonable_ok}")
+    logger.debug("-- End of Binning Quality Check Results --")
 
     # Boolean checks for logic
     checks = {
@@ -1103,7 +1103,7 @@ def check_binning_quality(
         "ivReasonable": f"Is IV {total_iv:.6f} reasonable? (0.02 < IV < 0.50) -> {iv_reasonable_ok}"
     }
 
-    logger.info("Final binning quality check completed.")
+    logger.debug("Final binning quality check completed.")
 
     return checks, checks_formatted
 
@@ -1228,12 +1228,6 @@ def auto_woe_binning_numeric(
         logger.error(error_message)
         raise ValueError(error_message)
 
-    # Raise error if the feature contains NULL values, since NULL values cannot be binned and will cause errors in the binning process.
-    if df[feature].isnull().any():
-        error_message = (f"Feature: {feature} contains NULL values, which cannot be binned. Please handle NULL values before applying auto_woe_binning_numeric.")
-        logger.error(error_message)
-        raise ValueError(error_message)
-
     # Raise error if feature is constant, since a constant feature cannot be binned and will cause errors in the binning process.
     if df[feature].nunique() == 1:
         error_message = (f"Feature: {feature} is constant, which cannot be binned. Please remove or handle constant features before applying auto_woe_binning_numeric.")
@@ -1268,12 +1262,18 @@ def auto_woe_binning_numeric(
     data = df[[feature, target]].copy()
     before_drop = len(data)
 
+    # Separate rows where the feature is NaN — these will form the MISSING bin.
+    missing_mask = data[feature].isna()
+    missing_data = data[missing_mask & data[target].notna()].copy()
+    missing_data[target] = missing_data[target].astype(int)
+
     # Drop Nan rows in feature and target columns.
     # NOTE: Actually, we are raising an error if there are NULL values in the feature column, but we can still have NULL values in the target column. So, we drop rows with NULL values in either feature or target columns to ensure clean data for binning.
     data = data.dropna(subset=[feature, target])
     after_drop = len(data)
 
     logger.info(f"Missing rows dropped. Before={before_drop}, After={after_drop}, Dropped={before_drop - after_drop}")
+    logger.info(f"MISSING bin will be computed from {len(missing_data)} null observations.")
 
     data[target] = data[target].astype(int)
     logger.info(f"Target variable {target} converted to integer type.")
@@ -1305,7 +1305,7 @@ def auto_woe_binning_numeric(
             x=data[feature],
             intervals=intervals
         )
-        logger.info(f"STEP: {step} - Bins assigned based on current intervals.")
+        logger.debug(f"STEP: {step} - Bins assigned based on current intervals.")
 
         # Calculate WoE / IV summary table based on the current binning structure.
         summary, _ = calculate_woe_iv_table(
@@ -1316,14 +1316,14 @@ def auto_woe_binning_numeric(
             output_dir = None,
 
         )
-        logger.info(f"STEP: {step} - WoE / IV summary table calculated.")
+        logger.debug(f"STEP: {step} - WoE / IV summary table calculated.")
 
         summary = summary.sort_values("_bin").reset_index(drop=True)
-        logger.info(f"STEP: {step} - Summary table sorted by bins.")
+        logger.debug(f"STEP: {step} - Summary table sorted by bins.")
 
         current_iv = summary["iv"].sum()
 
-        logger.info(f"STEP: {step} - Current bin count={len(intervals)}, Current IV={current_iv:.6f}")
+        logger.debug(f"STEP: {step} - Current bin count={len(intervals)}, Current IV={current_iv:.6f}")
 
         # Convert bin column to string for JSON serialization
         summary_for_metadata = summary.copy()
@@ -1336,7 +1336,7 @@ def auto_woe_binning_numeric(
             "woe": summary_for_metadata.to_dict(orient="records")
         }
 
-        logger.info(f"STEP: {step} - RULES CHECK START")
+        logger.debug(f"STEP: {step} - RULES CHECK START")
 
         # Rule 0: Minimum bin count stop condition.
         # If the current bin count has already reached the minimum allowed number
@@ -1348,7 +1348,7 @@ def auto_woe_binning_numeric(
             triggered_rule = "STOPPED: Minimum bin count reached"
             steps_metada[step]["triggered_rule"] = triggered_rule
             converged = True
-            logger.info(f"STEP: {step} - Minimum bin count ({min_final_bins}) reached. Stopping with current bins.")
+            logger.debug(f"STEP: {step} - Minimum bin count ({min_final_bins}) reached. Stopping with current bins.")
             break
 
         # Detect if bins with insufficient observation ratio exist. If yes, merge the most problematic bin with its closest neighbor.
@@ -1363,15 +1363,15 @@ def auto_woe_binning_numeric(
             )
 
             triggered_rule = "Rule 1: Small bin merge"
-            logger.info(f"Rule 1 triggered: small bin merge.")
-            logger.info(f"STEP: {step} - Problem bin={idx}, Merge pair=({merge_idx},{merge_idx + 1})")
+            logger.debug(f"Rule 1 triggered: small bin merge.")
+            logger.debug(f"STEP: {step} - Problem bin={idx}, Merge pair=({merge_idx},{merge_idx + 1})")
 
             # Merge the identified pair of bins and update the intervals list.
             intervals = merge_intervals(
                 intervals=intervals,
                 i=merge_idx
             )
-            logger.info(f"STEP: {step} - Intervals merged based on Rule 1.")
+            logger.debug(f"STEP: {step} - Intervals merged based on Rule 1.")
             steps_metada[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -1387,14 +1387,14 @@ def auto_woe_binning_numeric(
             )
 
             triggered_rule = "Rule 2: Zero good/bad merge"
-            logger.info(f"Rule 2 triggered: zero good/bad merge.")
-            logger.info(f"STEP: {step} - Problem bin={idx}, Merge pair=({merge_idx},{merge_idx + 1})")
+            logger.debug(f"Rule 2 triggered: zero good/bad merge.")
+            logger.debug(f"STEP: {step} - Problem bin={idx}, Merge pair=({merge_idx},{merge_idx + 1})")
 
             intervals = merge_intervals(
                 intervals=intervals,
                 i=merge_idx
             )
-            logger.info(f"STEP: {step} - Intervals merged based on Rule 2.")
+            logger.debug(f"STEP: {step} - Intervals merged based on Rule 2.")
             steps_metada[step]["triggered_rule"] = triggered_rule
             continue
         
@@ -1405,7 +1405,7 @@ def auto_woe_binning_numeric(
                 summary=summary,
                 metric="bad_rate"
             )
-            logger.info(f"Monotonicity violation detected in bad_rate. Merge pair index identified: {merge_idx}")
+            logger.debug(f"Monotonicity violation detected in bad_rate. Merge pair index identified: {merge_idx}")
 
             if merge_idx is None:
                 # If no violation pair is found, we fallback to merging the most similar adjacent pair to try to fix potential monotonicity issues.
@@ -1413,17 +1413,17 @@ def auto_woe_binning_numeric(
                     summary=summary,
                     metric="bad_rate"
                 )
-                logger.info(f"No monotonicity violation pair found in bad_rate. Fallback to most similar adjacent pair. Merge pair index identified: {merge_idx}")
+                logger.debug(f"No monotonicity violation pair found in bad_rate. Fallback to most similar adjacent pair. Merge pair index identified: {merge_idx}")
 
             triggered_rule = "Rule 3: Bad Rate monotonicity merge"
-            logger.info(f"Rule 3 triggered: Bad Rate monotonicity merge.")
-            logger.info(f"STEP: {step} - Merge pair=({merge_idx},{merge_idx + 1})")
+            logger.debug(f"Rule 3 triggered: Bad Rate monotonicity merge.")
+            logger.debug(f"STEP: {step} - Merge pair=({merge_idx},{merge_idx + 1})")
 
             intervals = merge_intervals(
                 intervals=intervals,
                 i=merge_idx
             )
-            logger.info(f"STEP: {step} - Intervals merged based on Rule 3.")
+            logger.debug(f"STEP: {step} - Intervals merged based on Rule 3.")
             steps_metada[step]["triggered_rule"] = triggered_rule
             continue
         
@@ -1443,15 +1443,15 @@ def auto_woe_binning_numeric(
                 )
 
             triggered_rule = "Rule 4: WoE monotonicity merge"
-            logger.info(f"Rule 4 triggered: WoE monotonicity merge.")
-            logger.info(f"STEP: {step} - Merge pair=({merge_idx},{merge_idx + 1})")
+            logger.debug(f"Rule 4 triggered: WoE monotonicity merge.")
+            logger.debug(f"STEP: {step} - Merge pair=({merge_idx},{merge_idx + 1})")
 
             # Merge the identified pair of bins and update the intervals list.
             intervals = merge_intervals(
                 intervals=intervals,
                 i=merge_idx
             )
-            logger.info(f"STEP: {step} - Intervals merged based on Rule 4.")
+            logger.debug(f"STEP: {step} - Intervals merged based on Rule 4.")
             steps_metada[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -1464,15 +1464,15 @@ def auto_woe_binning_numeric(
             )
 
             triggered_rule = "Rule 5: Reducing bin count"
-            logger.info(f"Rule 5 triggered: reducing bin count.")
-            logger.info(f"STEP: {step} - Merge pair=({merge_idx},{merge_idx + 1})")
+            logger.debug(f"Rule 5 triggered: reducing bin count.")
+            logger.debug(f"STEP: {step} - Merge pair=({merge_idx},{merge_idx + 1})")
 
             # Merge the identified pair of bins and update the intervals list.
             intervals = merge_intervals(
                 intervals=intervals,
                 i=merge_idx
             )
-            logger.info(f"STEP: {step} - Intervals merged based on Rule 5.")
+            logger.debug(f"STEP: {step} - Intervals merged based on Rule 5.")
             steps_metada[step]["triggered_rule"] = triggered_rule
             continue
 
@@ -1517,6 +1517,43 @@ def auto_woe_binning_numeric(
     # We sort the WOE table by bins to maintain the order of intervals in the final output.
     woe_table = woe_table.sort_values("_bin").reset_index(drop=True)
 
+    # Compute MISSING bin from null observations and append to the WOE table.
+    missing_woe = None
+    if len(missing_data) > 0:
+        eps = 0.5
+        total_good_obs = woe_table["good"].sum()
+        total_bad_obs = woe_table["bad"].sum()
+        n_bins = len(woe_table)
+        missing_total = len(missing_data)
+        missing_bad = int(missing_data[target].sum())
+        missing_good = missing_total - missing_bad
+        good_dist = (missing_good + eps) / (total_good_obs + eps * n_bins)
+        bad_dist = (missing_bad + eps) / (total_bad_obs + eps * n_bins)
+        odds_ratio = good_dist / bad_dist
+        woe_val = float(np.log(odds_ratio))
+        missing_woe = round(woe_val, 6)
+        missing_bin_name = f"{feature}_MISSING"
+        missing_row = {
+            "_bin": missing_bin_name,
+            "human_readable_bin": missing_bin_name,
+            "total": missing_total,
+            "good": missing_good,
+            "bad": missing_bad,
+            "bad_rate": missing_bad / missing_total if missing_total > 0 else 0.0,
+            "bin_pct": missing_total / before_drop,
+            "good_dist": good_dist,
+            "bad_dist": bad_dist,
+            "good_dist_minus_bad_dist": good_dist - bad_dist,
+            "odds_ratio": odds_ratio,
+            "woe": woe_val,
+            "woe_display": woe_val * 100,
+            "iv": (good_dist - bad_dist) * woe_val
+        }
+        woe_table = pd.concat([woe_table, pd.DataFrame([missing_row])], ignore_index=True)
+        logger.info(f"MISSING bin appended: total={missing_total}, bad={missing_bad}, woe={missing_woe:.6f}")
+    else:
+        logger.info("No null observations found. MISSING bin not added.")
+
     # Calculate total IV for the final binned feature.
     total_iv = woe_table["iv"].sum()
 
@@ -1554,8 +1591,8 @@ def auto_woe_binning_numeric(
 
     auto_binning_result = {
         "feature": feature,
-        "totalIv": metadata_of_woe.get("totalIv", "not available"),
-        "interpretIv": metadata_of_woe.get("interpretIv", "not available"),
+        "totalIv": total_iv,
+        "interpretIv": interpret_iv(total_iv),
         "numberofBins": metadata_of_woe.get("numberofBins", "not available"),
         "woe_table": woe_table_for_json.to_dict(orient="records"), # Convert summary DataFrame to a list of dictionaries for JSON serialization
         "checks": checks_formatted,
@@ -1565,6 +1602,7 @@ def auto_woe_binning_numeric(
         "maxIter": max_iter,
         "final_intervals": intervals, # pd.Interval objects for programmatic use (e.g. sklearn wrapper)
         "finalIntervals": [str(interval) for interval in intervals], # String version for JSON serialization
+        "missing_woe": missing_woe, # WOE value for MISSING bin; None if no null observations exist
         "stepsMetadata": steps_metada
     }
 
@@ -1592,9 +1630,9 @@ def auto_woe_binning_numeric(
     logger.info(f"Maximum Iterations:.......... {max_iter}")
     logger.info("=" * 50)
 
-    logger.info("=" * 50)
-    logger.info("MERGE STEPS (binning flow)")
-    logger.info("")
+    logger.debug("=" * 50)
+    logger.debug("MERGE STEPS (binning flow)")
+    logger.debug("")
     total_steps = len(steps_metada)
     for idx, (step, metadata) in enumerate(steps_metada.items()):
         is_last = idx == total_steps - 1
@@ -1605,9 +1643,9 @@ def auto_woe_binning_numeric(
         rule_text = metadata['triggered_rule']
         if rule_text.startswith("STOPPED: "):
             rule_text = rule_text[len("STOPPED: "):]
-        logger.info(f"{connector} {marker} Step {step}  -  Bins: {metadata['bin_count']:>3}  -  IV: {metadata['iv']:.6f}")
-        logger.info(f"{pipe}      -> {prefix} {rule_text}")
-    logger.info("=" * 50)
+        logger.debug(f"{connector} {marker} Step {step}  -  Bins: {metadata['bin_count']:>3}  -  IV: {metadata['iv']:.6f}")
+        logger.debug(f"{pipe}      -> {prefix} {rule_text}")
+    logger.debug("=" * 50)
 
     logger.info("=" * 50)
     logger.info("AUTO BINNING RESULTS")

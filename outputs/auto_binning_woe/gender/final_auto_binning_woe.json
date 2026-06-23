@@ -1,6 +1,6 @@
 {
     "feature": "gender",
-    "totalIv": 0.011029616364340203,
+    "totalIv": 0.012043921385002047,
     "interpretIv": "Not Predictive",
     "numberofBins": 2,
     "status": "REVIEW_WEAK_VARIABLE",
@@ -15,33 +15,33 @@
     "woe_table": [
         {
             "_bin": "gender_grp1",
-            "total": 12102,
-            "good": 9604,
+            "total": 5236,
+            "good": 2738,
             "bad": 2498,
-            "bad_rate": 0.20641216327879688,
-            "bin_pct": 0.602089552238806,
-            "good_dist": 0.6135100606834877,
+            "bad_rate": 0.47708174178762414,
+            "bin_pct": 0.5888439046333783,
+            "good_dist": 0.6158084101641557,
             "bad_dist": 0.5618394423206656,
-            "good_dist_minus_bad_dist": 0.05167061836282205,
-            "odds_ratio": 1.0919668760694294,
-            "woe": 0.0879805435928971,
-            "woe_display": 8.79805435928971,
-            "iv": 0.004546009091342215
+            "good_dist_minus_bad_dist": 0.053968967843490034,
+            "odds_ratio": 1.0960576345807485,
+            "woe": 0.09171977343951632,
+            "woe_display": 9.171977343951632,
+            "iv": 0.0049500215033694474
         },
         {
             "_bin": "gender_grp0",
-            "total": 7998,
-            "good": 6050,
+            "total": 3656,
+            "good": 1708,
             "bad": 1948,
-            "bad_rate": 0.24356089022255564,
-            "bin_pct": 0.39791044776119405,
-            "good_dist": 0.3864899393165123,
+            "bad_rate": 0.5328227571115973,
+            "bin_pct": 0.4111560953666217,
+            "good_dist": 0.3841915898358444,
             "bad_dist": 0.4381605576793344,
-            "good_dist_minus_bad_dist": -0.05167061836282205,
-            "odds_ratio": 0.8820737799027613,
-            "woe": -0.12547957579046629,
-            "woe_display": -12.547957579046628,
-            "iv": 0.0064836072729979885
+            "good_dist_minus_bad_dist": -0.05396896784348998,
+            "odds_ratio": 0.8768283294842186,
+            "woe": -0.1314440532234174,
+            "woe_display": -13.14440532234174,
+            "iv": 0.007093899881632599
         }
     ],
     "checks": {
@@ -50,6 +50,7 @@
         "badRateMonotonic": "Is Bad Rate monotonic? -> True",
         "woeMonotonic": "Is WoE monotonic? -> True",
         "binCount": "Are bins between 2 and 6? -> True",
-        "ivReasonable": "Is IV 0.011030 reasonable? (0.02 < IV < 0.50) -> False"
-    }
+        "ivReasonable": "Is IV 0.012044 reasonable? (0.02 < IV < 0.50) -> False"
+    },
+    "missing_woe": null
 }

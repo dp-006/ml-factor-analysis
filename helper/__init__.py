@@ -56,7 +56,9 @@ from .ml_operations import (
     plot_roc_auc,
     calculate_threshold_analysis,
     interpret_vif,
-    split_train_test
+    split_train_test,
+    apply_random_oversampling,
+    apply_random_undersampling
 )
 
 __all__ = [
@@ -108,5 +110,6 @@ __all__ = [
     "split_train_test",
     "generate_sample_data",
     "quality_function_for_pandas",
-    "detect_outlier_indicator_columns"
+    "detect_outlier_indicator_columns",
+    "apply_random_oversampling"
 ]

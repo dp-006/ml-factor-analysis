@@ -132,7 +132,8 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
                  min_iv: float = 0.02,
                  max_iv: float = 0.50,
                  max_iter: int = 25,
-                 unseen: float = 0):
+                 unseen: float = 0,
+                 skip_indicator: bool = False):
         self.target_col = target_col
         self.initial_bins = initial_bins
         self.min_bin_pct = min_bin_pct
@@ -142,9 +143,11 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
         self.max_iv = max_iv
         self.max_iter = max_iter
         self.unseen = unseen
+        self.skip_indicator = skip_indicator
         
         self.bins_dict_ = {}
         self.woe_dict_ = {}
+        self.missing_woe_dict_ = {}
         self.feature_names_ = []
         self.binning_results_ = {}
     
@@ -179,15 +182,16 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
             y = pd.Series(y, index=X.index)
         
         # Concatenate X with target internally
-        X_with_target = pd.concat([X, y.rename('TARGET')], axis=1)
+        X_with_target = pd.concat([X, y.rename(self.target_col)], axis=1)
         
         # Identify numeric features
         numeric_features = X_with_target.select_dtypes(include=[np.number]).columns.tolist()
         # Remove target column from features
-        numeric_features = [f for f in numeric_features if f != 'TARGET']
+        numeric_features = [f for f in numeric_features if f != self.target_col]
         # Skip outlier indicator columns (_right, _left) — they are binary flags, not suitable for WOE binning
-        indicator_cols = detect_outlier_indicator_columns(numeric_features)
-        numeric_features = [f for f in numeric_features if f not in indicator_cols]
+        if self.skip_indicator:
+            indicator_cols = detect_outlier_indicator_columns(numeric_features)
+            numeric_features = [f for f in numeric_features if f not in indicator_cols]
         
         if not numeric_features:
             raise ValueError("No numeric features found in X (excluding target column)")
@@ -197,6 +201,7 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
         self.feature_names_ = []
         self.bins_dict_ = {}
         self.woe_dict_ = {}
+        self.missing_woe_dict_ = {}
         self.binning_results_ = {}
         
         for feature in numeric_features:
@@ -207,7 +212,7 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
                 binning_result = auto_woe_binning_numeric(
                     df=X_with_target,
                     feature=feature,
-                    target='TARGET',
+                    target=self.target_col,
                     initial_bins=self.initial_bins,
                     min_bin_pct=self.min_bin_pct,
                     max_final_bins=self.max_final_bins,
@@ -246,12 +251,17 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
                     woe_mapping[idx] = woe_value
                 
                 self.woe_dict_[feature] = woe_mapping
+
+                # Store MISSING WOE (None if feature had no null observations)
+                raw_missing_woe = binning_result.get("missing_woe", None)
+                self.missing_woe_dict_[feature] = raw_missing_woe if raw_missing_woe is not None else self.unseen
+
                 self.feature_names_.append(feature)
                 
                 # Log bin information
                 logger.info(f"Feature '{feature}' fitted with {len(woe_mapping)} bins and IV={binning_result.get('totalIv', 0):.4f}")
                 for idx, woe_val in woe_mapping.items():
-                    logger.info(f"  Bin {idx}: WOE = {woe_val:.6f}")
+                    logger.debug(f"  Bin {idx}: WOE = {woe_val:.6f}")
                 
             except Exception as e:
                 error_message = f"Error computing WOE for feature '{feature}': {str(e)}"
@@ -309,14 +319,19 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
             
             bins = self.bins_dict_[feature]
             woe_mapping = self.woe_dict_[feature]
-            
+            missing_woe_val = self.missing_woe_dict_.get(feature, self.unseen)
+
+            series = X[feature]
+            nan_mask = series.isna().to_numpy()
+
             # Map each observation to its bin index
-            positions = bins.get_indexer(X[feature].to_numpy())
-            
-            # Convert bin indices to WOE values
+            positions = bins.get_indexer(series.to_numpy())
+
+            # Convert bin indices to WOE values; NaN observations get the MISSING WOE
             woe_values = np.array([
-                round(woe_mapping.get(pos, self.unseen), 6) if pos >= 0 else self.unseen
-                for pos in positions
+                missing_woe_val if nan_mask[i]
+                else (round(woe_mapping.get(pos, self.unseen), 6) if pos >= 0 else self.unseen)
+                for i, pos in enumerate(positions)
             ])
             
             # Create WOE column and drop original
@@ -324,7 +339,7 @@ class WOETransformerNumeric(BaseEstimator, TransformerMixin):
             X_transformed[woe_col_name] = woe_values
             X_transformed = X_transformed.drop(columns=[feature])
             
-            logger.info(f"Transformed feature '{feature}' to WOE and dropped original column")
+            logger.debug(f"Transformed feature '{feature}' to WOE and dropped original column")
         
         logger.info(f"Transform completed for {len(self.feature_names_)} features")
         return X_transformed

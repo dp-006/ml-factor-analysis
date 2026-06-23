@@ -1,0 +1,89 @@
+{
+    "feature": "random_null_cat_column",
+    "totalIv": 0.0031905018635723713,
+    "interpretIv": "Not Predictive",
+    "numberofBins": 3,
+    "status": "REVIEW_WEAK_VARIABLE",
+    "valuesToTheGroup": {
+        "random_null_cat_column_grp0": [
+            "a"
+        ],
+        "random_null_cat_column_grp1": [
+            "b"
+        ],
+        "random_null_cat_column_grp2": [
+            "c"
+        ]
+    },
+    "woe_table": [
+        {
+            "_bin": "random_null_cat_column_grp2",
+            "total": 2667,
+            "good": 1363,
+            "bad": 1304,
+            "bad_rate": 0.48893888263967006,
+            "bin_pct": 0.3348819688598694,
+            "good_dist": 0.33981308411214955,
+            "bad_dist": 0.32987735491212544,
+            "good_dist_minus_bad_dist": 0.009935729200024113,
+            "odds_ratio": 1.03011946425565,
+            "woe": 0.02967478023006072,
+            "woe_display": 2.967478023006072,
+            "iv": 0.0002948405804361125
+        },
+        {
+            "_bin": "random_null_cat_column_grp0",
+            "total": 2655,
+            "good": 1345,
+            "bad": 1310,
+            "bad_rate": 0.4934086629001883,
+            "bin_pct": 0.333375188347564,
+            "good_dist": 0.33532710280373834,
+            "bad_dist": 0.33139461373119233,
+            "good_dist_minus_bad_dist": 0.003932489072546008,
+            "odds_ratio": 1.0118664845764085,
+            "woe": 0.011796629924700196,
+            "woe_display": 1.1796629924700197,
+            "iv": 4.639011827175276e-05
+        },
+        {
+            "_bin": "random_null_cat_column_grp1",
+            "total": 2642,
+            "good": 1303,
+            "bad": 1339,
+            "bad_rate": 0.5068130204390613,
+            "bin_pct": 0.33174284279256655,
+            "good_dist": 0.32485981308411216,
+            "bad_dist": 0.3387280313566823,
+            "good_dist_minus_bad_dist": -0.01386821827257012,
+            "odds_ratio": 0.9590579550885565,
+            "woe": -0.041803773089906425,
+            "woe_display": -4.180377308990643,
+            "iv": 0.0005797438498278154
+        },
+        {
+            "_bin": "random_null_cat_column_MISSING",
+            "total": 928,
+            "good": 435,
+            "bad": 493,
+            "bad_rate": 0.53125,
+            "bin_pct": 0.10436347278452542,
+            "good_dist": 0.10853582554517134,
+            "bad_dist": 0.12479453786825136,
+            "good_dist_minus_bad_dist": -0.016258712323080016,
+            "odds_ratio": 0.869716154241905,
+            "woe": -0.13958838005977808,
+            "woe_display": -13.958838005977809,
+            "iv": 0.0022695273150366907
+        }
+    ],
+    "checks": {
+        "minBinPct": "Is minimum pct of each bin > 0.05? -> True",
+        "goodBadExist": "Do good and bad exist in every bin? -> True",
+        "badRateMonotonic": "Is Bad Rate monotonic? -> True",
+        "woeMonotonic": "Is WoE monotonic? -> True",
+        "binCount": "Are bins between 2 and 6? -> True",
+        "ivReasonable": "Is IV 0.003191 reasonable? (0.02 < IV < 0.50) -> False"
+    },
+    "missing_woe": -0.139588
+}

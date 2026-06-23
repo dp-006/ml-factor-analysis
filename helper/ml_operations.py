@@ -13,11 +13,177 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 from sklearn.model_selection import train_test_split 
 from logging_config.logger_config import get_logger
+from imblearn.over_sampling import RandomOverSampler
+from imblearn.under_sampling import RandomUnderSampler
 
 
 logger_name = "mlops.ml_operations"
 logger_file_name = "ml_operations.log"
 logger = get_logger(logger_name, logger_file_name)
+
+
+def apply_random_oversampling(
+    X,
+    y,
+    sampling_strategy="auto",
+    random_state=42,
+    shrinkage=None,
+):
+    """
+    Apply RandomOverSampler.
+
+    Parameters
+    ----------
+    X : pd.DataFrame or np.ndarray
+        Feature matrix.
+
+    y : pd.Series or np.ndarray
+        Target variable.
+
+    sampling_strategy : str, float, dict, or callable, default='auto'
+        Resampling strategy passed to ``RandomOverSampler``.
+
+        - **float** — Desired ratio of minority samples to majority samples
+          *after* resampling (``n_minority / n_majority``).
+          Only valid for **binary** classification.
+
+          Example::
+
+              sampling_strategy=0.5
+              # If majority class has 1000 samples, minority is oversampled
+              # to 500 (ratio = 500/1000 = 0.5).
+
+        - **str** — Class(es) to resample so that all targeted classes
+          reach equal sample counts. Accepted values:
+
+          - 'minority'``     resample only the minority class.
+          - 'not minority'`` resample all classes except the minority.
+          - 'not majority'`` resample all classes except the majority
+                                 *(default when* 'auto'`` *is used)*.
+          - 'all'``          resample every class.
+          - 'auto'``         equivalent to 'not majority'.
+
+          Example::
+
+              sampling_strategy='minority'
+              # Only the minority class is oversampled to match the majority.
+
+        - **dict** — Keys are class labels; values are the desired number
+          of samples for each class after resampling.
+
+          Example::
+
+              sampling_strategy={0: 900, 1: 900}
+              # Class 0 and class 1 will each have 900 samples after
+              # resampling (values must be >= current class count).
+
+        - **callable** — A function that receives ``y`` and returns a
+          ``dict`` in the same format as the dict case above.
+
+          Example::
+
+              def my_strategy(y):
+                  counts = Counter(y)
+                  majority_n = max(counts.values())
+                  return {cls: majority_n for cls in counts}
+
+              sampling_strategy=my_strategy
+              # Every class is oversampled to match the majority class.
+
+    random_state : int, default=42
+        Random seed.
+
+    shrinkage : float, dict, None, default=None
+        Smoothed bootstrap parameter.
+
+    Returns
+    -------
+    X_resampled
+        Resampled features.
+
+    y_resampled
+        Resampled target.
+    """
+
+    # Get RandomOverSampler instance with specified parameters
+    ros = RandomOverSampler(
+        sampling_strategy=sampling_strategy,
+        random_state=random_state,
+        shrinkage=shrinkage,
+    )
+
+    # Fit and resample the data
+    X_resampled, y_resampled = ros.fit_resample(X, y)
+
+    logger.info(f"Random oversampling applied with sampling_strategy={sampling_strategy}, random_state={random_state}, shrinkage={shrinkage}")
+
+    # Log X and y shapes before and after resampling
+    logger.info(f"Original X shape: {X.shape}, Original y shape: {y.shape}")
+    logger.info(f"Resampled X shape: {X_resampled.shape}, Resampled y shape: {y_resampled.shape}")
+    # Number of samples per class before and after resampling
+    original_class_counts = pd.Series(y).value_counts()
+    logger.info(f"Original class distribution:\n{original_class_counts}")
+    resampled_class_counts = pd.Series(y_resampled).value_counts()
+    logger.info(f"Resampled class distribution:\n{resampled_class_counts}")
+
+    return X_resampled, y_resampled
+
+def apply_random_undersampling(
+    X,
+    y,
+    sampling_strategy="auto",
+    random_state=42,
+):
+    """
+    Apply RandomUnderSampler — keeps ALL minority-class samples and randomly
+    draws the same number of samples from each majority class.
+
+    Parameters
+    ----------
+    X : pd.DataFrame or np.ndarray
+        Feature matrix.
+
+    y : pd.Series or np.ndarray
+        Target variable.
+
+    sampling_strategy : str, float, dict, or callable, default='auto'
+        Resampling strategy passed to ``RandomUnderSampler``.
+        ``'auto'`` (equivalent to ``'not minority'``) undersamples every
+        majority class down to the size of the minority class.
+
+        Example with ``'auto'`` on a binary target::
+
+            # Original : {0: 15654, 1: 4446}
+            # Resampled: {0: 4446,  1: 4446}  <- all 1s kept, 0s sampled
+
+    random_state : int, default=42
+        Random seed.
+
+    Returns
+    -------
+    X_resampled
+        Resampled features.
+
+    y_resampled
+        Resampled target.
+    """
+
+    rus = RandomUnderSampler(
+        sampling_strategy=sampling_strategy,
+        random_state=random_state,
+    )
+
+    X_resampled, y_resampled = rus.fit_resample(X, y)
+
+    logger.info(f"Random undersampling applied with sampling_strategy={sampling_strategy}, random_state={random_state}")
+    logger.info(f"Original X shape: {X.shape}, Original y shape: {y.shape}")
+    logger.info(f"Resampled X shape: {X_resampled.shape}, Resampled y shape: {y_resampled.shape}")
+    original_class_counts = pd.Series(y).value_counts()
+    logger.info(f"Original class distribution:\n{original_class_counts}")
+    resampled_class_counts = pd.Series(y_resampled).value_counts()
+    logger.info(f"Resampled class distribution:\n{resampled_class_counts}")
+
+    return X_resampled, y_resampled
 
 def split_train_test(
     X: pd.DataFrame,
@@ -1606,7 +1772,7 @@ def calculate_decile_analysis(
         "ksCurve": ks_curve.to_dict(orient="records")
         }
 
-def plot_ks(
+def plot_ks_v0(
     decile_analysis: dict,
     figsize: tuple = (10, 6),
 ):
@@ -2189,3 +2355,96 @@ def interpret_vif(vif_value: float) -> dict:
             "vif": vif_value,
             "interpretation": "Strong multicollinearity detected. Consider taking corrective steps (e.g., removing variables, regularization)."
         }
+
+def plot_ks(
+    decile_analysis: dict,
+    figsize: tuple = (10, 6),
+):
+    """
+    Plot KS Curve in scikit-plot style.
+
+    X-axis: Threshold
+    Y-axis: Percentage below threshold
+
+    Returns
+    -------
+    matplotlib.figure.Figure
+        KS plot figure.
+    """
+
+    decile_df = pd.DataFrame(
+        decile_analysis["ksCurve"]
+    ).copy()
+
+    # Your ksCurve is calculated on descending scores:
+    # cumulativeRate = P(score >= threshold | class)
+    #
+    # Scikit-plot style needs:
+    # percentageBelowThreshold = P(score <= threshold | class)
+    decile_df["goodBelowThreshold"] = 1 - decile_df["cumulativeGoodRate"]
+    decile_df["badBelowThreshold"] = 1 - decile_df["cumulativeBadRate"]
+
+    # For plotting by threshold from low to high
+    decile_df = decile_df.sort_values(
+        by="threshold",
+        ascending=True
+    ).reset_index(drop=True)
+
+    # KS is absolute distance between the two curves
+    decile_df["ksPlot"] = (
+        decile_df["goodBelowThreshold"] -
+        decile_df["badBelowThreshold"]
+    ).abs()
+
+    ks_idx = decile_df["ksPlot"].idxmax()
+    ks_value = float(decile_df.loc[ks_idx, "ksPlot"])
+    ks_threshold = float(decile_df.loc[ks_idx, "threshold"])
+
+    fig, ax = plt.subplots(figsize=figsize)
+
+    ax.plot(
+        decile_df["threshold"],
+        decile_df["goodBelowThreshold"],
+        label="Class 0 (Good)"
+    )
+
+    ax.plot(
+        decile_df["threshold"],
+        decile_df["badBelowThreshold"],
+        label="Class 1 (Bad)"
+    )
+
+    ax.axvline(
+        ks_threshold,
+        linestyle=":",
+        color="black",
+        label=f"KS Statistic: {ks_value:.3f} at {ks_threshold:.3f}"
+    )
+
+    ax.annotate(
+        f"Threshold = {ks_threshold:.4f}",
+        xy=(ks_threshold, 0.5),
+        xytext=(5, 0),
+        textcoords="offset points",
+        rotation=90,
+        va="center",
+        ha="left"
+    )
+
+    ax.set_title("KS Statistic Plot")
+    ax.set_xlabel("Threshold")
+    ax.set_ylabel("Percentage below threshold")
+
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+
+    ax.legend()
+    ax.grid(False)
+
+    logger.info(
+        f"KS Plot created. "
+        f"KS={ks_value:.6f}, "
+        f"Threshold={ks_threshold:.6f}"
+    )
+
+    return fig

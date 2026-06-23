@@ -1,0 +1,5 @@
+_bin,total,good,bad,bad_rate,bin_pct,good_dist,bad_dist,good_dist_minus_bad_dist,odds_ratio,woe,woe_display,iv
+random_null_num_column_grp1,2644,1346,1298,0.4909,0.3308,0.3372,0.3245,0.0127,1.0390,0.0383,3.8300,0.0005
+random_null_num_column_grp0,2683,1332,1351,0.5035,0.3357,0.3337,0.3377,-0.0041,0.9879,-0.0122,-1.2157,0.0000
+random_null_num_column_grp2,2665,1314,1351,0.5069,0.3335,0.3292,0.3377,-0.0086,0.9746,-0.0258,-2.5757,0.0002
+random_null_num_column_MISSING,900,454,446,0.4956,0.1012,0.1138,0.1116,0.0022,1.0200,0.0198,1.9760,0.0000

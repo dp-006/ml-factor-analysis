@@ -1,0 +1,12 @@
+2026-06-23 16:24:36,135 | [None] | mlops.sklearn_wrapper_binary | fit:127 | INFO | Fitting BinaryColumnConverter on DataFrame with shape (8892, 34)
+2026-06-23 16:24:36,150 | [None] | mlops.sklearn_wrapper_binary | fit:164 | INFO | Fit complete. Detected 1 binary column(s): ['zero_variance_column_float']
+2026-06-23 16:24:36,150 | [None] | mlops.sklearn_wrapper_binary | transform:200 | INFO | Transforming DataFrame with shape (8892, 34)
+2026-06-23 16:24:36,152 | [None] | mlops.sklearn_wrapper_binary | transform:206 | INFO | Converting 1 binary column(s) to YES/NO: ['zero_variance_column_float']
+2026-06-23 16:24:37,068 | [None] | mlops.sklearn_wrapper_binary | transform:200 | INFO | Transforming DataFrame with shape (9900, 34)
+2026-06-23 16:24:37,071 | [None] | mlops.sklearn_wrapper_binary | transform:206 | INFO | Converting 1 binary column(s) to YES/NO: ['zero_variance_column_float']
+2026-06-23 16:24:37,180 | [None] | mlops.sklearn_wrapper_binary | fit:127 | INFO | Fitting BinaryColumnConverter on DataFrame with shape (8892, 26)
+2026-06-23 16:24:37,193 | [None] | mlops.sklearn_wrapper_binary | fit:164 | INFO | Fit complete. Detected 0 binary column(s): []
+2026-06-23 16:24:37,193 | [None] | mlops.sklearn_wrapper_binary | transform:200 | INFO | Transforming DataFrame with shape (8892, 26)
+2026-06-23 16:24:37,194 | [None] | mlops.sklearn_wrapper_binary | transform:216 | INFO | No binary columns found in the current DataFrame.
+2026-06-23 16:25:16,568 | [None] | mlops.sklearn_wrapper_binary | transform:200 | INFO | Transforming DataFrame with shape (9900, 26)
+2026-06-23 16:25:16,570 | [None] | mlops.sklearn_wrapper_binary | transform:216 | INFO | No binary columns found in the current DataFrame.

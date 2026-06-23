@@ -1,18 +1,11 @@
-2026-06-20 21:46:20,440 | [None] | mlops.sklearn_wrapper_cardinality_handler | __init__:101 | INFO | LowCardinalityHandler initialized with threshold=10, add_suffix=True, suffix='s'
-2026-06-20 21:46:22,229 | [None] | mlops.sklearn_wrapper_cardinality_handler | fit:132 | INFO | Fitting LowCardinalityHandler on DataFrame with shape (20100, 24)
-2026-06-20 21:46:22,233 | [None] | mlops.sklearn_wrapper_cardinality_handler | fit:150 | INFO | Fit complete. Detected 1 low cardinality numeric columns (unique values <= 10): {'low_cardinality_numeric': 10}
-2026-06-20 21:46:22,233 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:199 | INFO | Transforming DataFrame with shape (20100, 24)
-2026-06-20 21:46:22,235 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:209 | INFO | Converting 1 low cardinality columns to object type: ['low_cardinality_numeric']
-2026-06-20 21:46:22,235 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:215 | INFO | Converted column 'low_cardinality_numeric' with 10 unique values to object type
-2026-06-20 21:46:22,241 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:225 | INFO | Added suffix 's' to all values in column 'low_cardinality_numeric'
-2026-06-20 21:46:22,243 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:231 | INFO | Transform complete. Returned DataFrame with shape (20100, 24)
-2026-06-20 21:48:16,936 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:199 | INFO | Transforming DataFrame with shape (1, 24)
-2026-06-20 21:48:16,937 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:209 | INFO | Converting 1 low cardinality columns to object type: ['low_cardinality_numeric']
-2026-06-20 21:48:16,937 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:215 | INFO | Converted column 'low_cardinality_numeric' with 10 unique values to object type
-2026-06-20 21:48:16,937 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:225 | INFO | Added suffix 's' to all values in column 'low_cardinality_numeric'
-2026-06-20 21:48:16,937 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:231 | INFO | Transform complete. Returned DataFrame with shape (1, 24)
-2026-06-20 21:48:16,981 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:199 | INFO | Transforming DataFrame with shape (1, 24)
-2026-06-20 21:48:16,981 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:209 | INFO | Converting 1 low cardinality columns to object type: ['low_cardinality_numeric']
-2026-06-20 21:48:16,981 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:215 | INFO | Converted column 'low_cardinality_numeric' with 10 unique values to object type
-2026-06-20 21:48:16,982 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:225 | INFO | Added suffix 's' to all values in column 'low_cardinality_numeric'
-2026-06-20 21:48:16,982 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:231 | INFO | Transform complete. Returned DataFrame with shape (1, 24)
+2026-06-23 16:24:37,081 | [None] | mlops.sklearn_wrapper_cardinality_handler | __init__:101 | INFO | LowCardinalityHandler initialized with threshold=10, add_suffix=False, suffix='s'
+2026-06-23 16:24:37,082 | [None] | mlops.sklearn_wrapper_cardinality_handler | fit:132 | INFO | Fitting LowCardinalityHandler on DataFrame with shape (8892, 26)
+2026-06-23 16:24:37,084 | [None] | mlops.sklearn_wrapper_cardinality_handler | fit:150 | INFO | Fit complete. Detected 1 low cardinality numeric columns (unique values <= 10): {'low_cardinality_numeric': 10}
+2026-06-23 16:24:37,085 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:199 | INFO | Transforming DataFrame with shape (8892, 26)
+2026-06-23 16:24:37,086 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:209 | INFO | Converting 1 low cardinality columns to object type: ['low_cardinality_numeric']
+2026-06-23 16:24:37,087 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:215 | INFO | Converted column 'low_cardinality_numeric' with 10 unique values to object type
+2026-06-23 16:24:37,087 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:231 | INFO | Transform complete. Returned DataFrame with shape (8892, 26)
+2026-06-23 16:24:37,104 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:199 | INFO | Transforming DataFrame with shape (9900, 26)
+2026-06-23 16:24:37,105 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:209 | INFO | Converting 1 low cardinality columns to object type: ['low_cardinality_numeric']
+2026-06-23 16:24:37,106 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:215 | INFO | Converted column 'low_cardinality_numeric' with 10 unique values to object type
+2026-06-23 16:24:37,106 | [None] | mlops.sklearn_wrapper_cardinality_handler | transform:231 | INFO | Transform complete. Returned DataFrame with shape (9900, 26)

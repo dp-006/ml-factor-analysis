@@ -4,3 +4,4 @@ matplotlib
 SQLAlchemy
 statsmodels
 joblib
+imbalanced-learn
